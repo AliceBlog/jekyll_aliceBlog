@@ -1,0 +1,3159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alice Blog</title>
+    <description>很高兴能在这里与你分享我对技术和生活的思考。</description>
+    <link>http://alice.witdor.com/</link>
+    <atom:link href="http://alice.witdor.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 01 Aug 2018 11:04:33 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Aug 2018 11:04:33 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>没有图片的文章666</title>
+        <description>&lt;p&gt;测试一下公式:)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;这是一个不&lt;code class=&quot;highlighter-rouge&quot;&gt;align&lt;/code&gt;的公式&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall \alpha \in A, \quad a \cdot b = 0&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;这是一个&lt;code class=&quot;highlighter-rouge&quot;&gt;align&lt;/code&gt;的公式&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{for OTP : $\qquad$ if }\quad E(k,\:m)=c\\
+\begin{align}
+k\oplus m &amp;= c \\
+k &amp;= m\oplus c
+\end{align}
+\\
+\#\{\;k \in \mathscr K : \quad E(k,\:m)=c \;\}=1 \quad \forall m,\:c %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;公式块要想有较好的显示效果，必须在公式块标记符&lt;code class=&quot;highlighter-rouge&quot;&gt;$$&lt;/code&gt;&lt;strong&gt;前后&lt;/strong&gt;留有空行，否则公式将不能正常居中。行内公式无此问题。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 30 Jul 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/07/30/mathjax-test.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/07/30/mathjax-test.html</guid>
+        
+        <category>测试</category>
+        
+        
+        <category>测试</category>
+        
+      </item>
+    
+      <item>
+        <title>测试一下分页</title>
+        <description>&lt;p&gt;就这样煎饼成形了&lt;/p&gt;
+
+&lt;h2 id=&quot;我去找找markdown-ctrcctrlv&quot;&gt;我去找找markdown ctr+c、ctrl+v&lt;/h2&gt;
+
+&lt;h3 id=&quot;主要特性&quot;&gt;主要特性&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；&lt;/li&gt;
+  &lt;li&gt;支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；&lt;/li&gt;
+  &lt;li&gt;支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；&lt;/li&gt;
+  &lt;li&gt;支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;&lt;/li&gt;
+  &lt;li&gt;支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；&lt;/li&gt;
+  &lt;li&gt;支持 AMD / CMD 模块化加载（支持 Require.js &amp;amp; Sea.js），并且支持自定义扩展插件；&lt;/li&gt;
+  &lt;li&gt;兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；&lt;/li&gt;
+  &lt;li&gt;支持自定义主题样式；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;editormd&quot;&gt;Editor.md&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/github/stars/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/forks/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/tag/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/release/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/issues/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/bower/v/editor.md.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目录 (Table of Contents)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[TOCM]&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+&lt;h1 id=&quot;heading-1-link-heading-link&quot;&gt;Heading 1 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2-link-heading-link&quot;&gt;Heading 2 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3-link-heading-link&quot;&gt;Heading 3 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4-link-heading-link-heading-link-heading-link&quot;&gt;Heading 4 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt; Heading link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5-link-heading-link&quot;&gt;Heading 5 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6-link-heading-link&quot;&gt;Heading 6 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h4 id=&quot;标题用底线的形式heading-underline&quot;&gt;标题（用底线的形式）Heading (underline)&lt;/h4&gt;
+
+&lt;h1 id=&quot;this-is-an-h1&quot;&gt;This is an H1&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-an-h2&quot;&gt;This is an H2&lt;/h2&gt;
+
+&lt;h3 id=&quot;字符效果和横线等&quot;&gt;字符效果和横线等&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;del&gt;删除线&lt;/del&gt; &lt;s&gt;删除线（开启识别HTML标签时）&lt;/s&gt;
+&lt;em&gt;斜体字&lt;/em&gt;      &lt;em&gt;斜体字&lt;/em&gt;
+&lt;strong&gt;粗体&lt;/strong&gt;  &lt;strong&gt;粗体&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上标：X&lt;sub&gt;2&lt;/sub&gt;，下标：O&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;缩写(同HTML的abbr标签)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;引用-blockquotes&quot;&gt;引用 Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用文本 Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;引用的行内混合 Blockquotes&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用：如果想要插入空白换行&lt;code class=&quot;highlighter-rouge&quot;&gt;即&amp;lt;br /&amp;gt;标签&lt;/code&gt;，在插入处先键入两个以上的空格然后回车即可，&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;锚点与链接-links&quot;&gt;锚点与链接 Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot; title=&quot;普通链接带标题&quot;&gt;普通链接带标题&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;直接链接：&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.this-anchor-link.com/&quot;&gt;锚点链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GFM a-tail link @pandao&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;@pandao&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;多语言代码高亮-codes&quot;&gt;多语言代码高亮 Codes&lt;/h3&gt;
+
+&lt;h4 id=&quot;行内代码-inline-code&quot;&gt;行内代码 Inline code&lt;/h4&gt;
+
+&lt;p&gt;执行命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install marked&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;缩进风格&quot;&gt;缩进风格&lt;/h4&gt;
+
+&lt;p&gt;即缩进四个空格，也做为实现类似&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;预格式化文本(Preformatted Text)的功能。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预格式化文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;js代码&quot;&gt;JS代码　&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'box.init()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;html代码-html-codes&quot;&gt;HTML代码 HTML codes&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charest=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;图片-images&quot;&gt;图片 Images&lt;/h3&gt;
+
+&lt;p&gt;Image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow your heart.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：厦门白城沙滩&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;图片加链接 (Image + Link)：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; title=&quot;李健首张专辑《似水流年》封面&quot;&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：李健首张专辑《似水流年》封面&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;列表-lists&quot;&gt;列表 Lists&lt;/h3&gt;
+
+&lt;h4 id=&quot;无序列表减号unordered-lists--&quot;&gt;无序列表（减号）Unordered Lists (-)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表星号unordered-lists-&quot;&gt;无序列表（星号）Unordered Lists (*)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表加号和嵌套unordered-lists-&quot;&gt;无序列表（加号和嵌套）Unordered Lists (+)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二
+    &lt;ul&gt;
+      &lt;li&gt;列表二-1&lt;/li&gt;
+      &lt;li&gt;列表二-2&lt;/li&gt;
+      &lt;li&gt;列表二-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;列表三
+    &lt;ul&gt;
+      &lt;li&gt;列表一&lt;/li&gt;
+      &lt;li&gt;列表二&lt;/li&gt;
+      &lt;li&gt;列表三&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;有序列表-ordered-lists--&quot;&gt;有序列表 Ordered Lists (-)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一行&lt;/li&gt;
+  &lt;li&gt;第二行&lt;/li&gt;
+  &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gfm-task-list&quot;&gt;GFM task list&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 1&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 2&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-2&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;绘制表格-tables&quot;&gt;绘制表格 Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;数量&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;计算机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;手机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;管线&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Function name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;help()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Display the help window.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destroy()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Destroy your computer!&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Left-Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Center Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Right Aligned&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;some wordy text&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Computer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pipe&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;特殊符号-html-entities-codes&quot;&gt;特殊符号 HTML Entities Codes&lt;/h4&gt;
+
+&lt;p&gt;© &amp;amp;  ¨ ™ ¡ £
+&amp;amp; &amp;lt; &amp;gt; ¥ € ® ± ¶ § ¦ ¯ « ·&lt;/p&gt;
+
+&lt;p&gt;X² Y³ ¾ ¼  ×  ÷   »&lt;/p&gt;
+
+&lt;p&gt;18ºC  &quot;  '&lt;/p&gt;
+
+&lt;h3 id=&quot;emoji表情-smiley&quot;&gt;Emoji表情 :smiley:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes :star:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x&quot;&gt;GFM task lists &amp;amp; Emoji &amp;amp; fontAwesome icon emoji &amp;amp; editormd logo emoji :editormd-logo-5x:&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;:smiley: @mentions, :smiley: #refs, &lt;a href=&quot;&quot;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;del&gt;tags&lt;/del&gt; supported :editormd-logo:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;[ ] :smiley: this is a complete item :smiley:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[]this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: @pandao;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[ ]this is an incomplete item :fa-star: :fa-gear:;
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: :fa-gear:;&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is  :fa-star: :fa-gear: an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt;;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;反斜杠-escape&quot;&gt;反斜杠 Escape&lt;/h4&gt;
+
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+
+&lt;h3 id=&quot;科学公式-texkatex&quot;&gt;科学公式 TeX(KaTeX)&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E=mc^2&lt;/script&gt;
+
+&lt;p&gt;行内的公式&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;行内的公式，行内的&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\(\sqrt{3x-1}+(1+x)^2\)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))&lt;/script&gt;
+
+&lt;p&gt;多行公式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-math&quot;&gt;\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-katex&quot;&gt;\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;f(x) = &lt;span class=&quot;k&quot;&gt;\int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\hat&lt;/span&gt; f(&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;)&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;e&lt;span class=&quot;p&quot;&gt;^{&lt;/span&gt;2 &lt;span class=&quot;k&quot;&gt;\pi&lt;/span&gt; i &lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;d&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;绘制流程图-flowchart&quot;&gt;绘制流程图 Flowchart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-flow&quot;&gt;st=&amp;gt;start: 用户登陆
+op=&amp;gt;operation: 登陆操作
+cond=&amp;gt;condition: 登陆成功 Yes or No?
+e=&amp;gt;end: 进入后台
+
+st-&amp;gt;op-&amp;gt;cond
+cond(yes)-&amp;gt;e
+cond(no)-&amp;gt;op
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;绘制序列图-sequence-diagram&quot;&gt;绘制序列图 Sequence Diagram&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-seq&quot;&gt;Andrew-&amp;gt;China: Says Hello 
+Note right of China: China thinks\nabout it 
+China--&amp;gt;Andrew: How are you? 
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;end&quot;&gt;End&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/new-theme-h2o.html</guid>
+        
+        <category>人工智障</category>
+        
+        <category>AI</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>测试一下分页</title>
+        <description>&lt;p&gt;就这样煎饼成形了&lt;/p&gt;
+
+&lt;h2 id=&quot;我去找找markdown-ctrcctrlv&quot;&gt;我去找找markdown ctr+c、ctrl+v&lt;/h2&gt;
+
+&lt;h3 id=&quot;主要特性&quot;&gt;主要特性&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；&lt;/li&gt;
+  &lt;li&gt;支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；&lt;/li&gt;
+  &lt;li&gt;支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；&lt;/li&gt;
+  &lt;li&gt;支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;&lt;/li&gt;
+  &lt;li&gt;支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；&lt;/li&gt;
+  &lt;li&gt;支持 AMD / CMD 模块化加载（支持 Require.js &amp;amp; Sea.js），并且支持自定义扩展插件；&lt;/li&gt;
+  &lt;li&gt;兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；&lt;/li&gt;
+  &lt;li&gt;支持自定义主题样式；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;editormd&quot;&gt;Editor.md&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/github/stars/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/forks/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/tag/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/release/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/issues/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/bower/v/editor.md.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目录 (Table of Contents)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[TOCM]&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+&lt;h1 id=&quot;heading-1-link-heading-link&quot;&gt;Heading 1 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2-link-heading-link&quot;&gt;Heading 2 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3-link-heading-link&quot;&gt;Heading 3 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4-link-heading-link-heading-link-heading-link&quot;&gt;Heading 4 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt; Heading link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5-link-heading-link&quot;&gt;Heading 5 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6-link-heading-link&quot;&gt;Heading 6 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h4 id=&quot;标题用底线的形式heading-underline&quot;&gt;标题（用底线的形式）Heading (underline)&lt;/h4&gt;
+
+&lt;h1 id=&quot;this-is-an-h1&quot;&gt;This is an H1&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-an-h2&quot;&gt;This is an H2&lt;/h2&gt;
+
+&lt;h3 id=&quot;字符效果和横线等&quot;&gt;字符效果和横线等&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;del&gt;删除线&lt;/del&gt; &lt;s&gt;删除线（开启识别HTML标签时）&lt;/s&gt;
+&lt;em&gt;斜体字&lt;/em&gt;      &lt;em&gt;斜体字&lt;/em&gt;
+&lt;strong&gt;粗体&lt;/strong&gt;  &lt;strong&gt;粗体&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上标：X&lt;sub&gt;2&lt;/sub&gt;，下标：O&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;缩写(同HTML的abbr标签)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;引用-blockquotes&quot;&gt;引用 Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用文本 Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;引用的行内混合 Blockquotes&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用：如果想要插入空白换行&lt;code class=&quot;highlighter-rouge&quot;&gt;即&amp;lt;br /&amp;gt;标签&lt;/code&gt;，在插入处先键入两个以上的空格然后回车即可，&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;锚点与链接-links&quot;&gt;锚点与链接 Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot; title=&quot;普通链接带标题&quot;&gt;普通链接带标题&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;直接链接：&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.this-anchor-link.com/&quot;&gt;锚点链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GFM a-tail link @pandao&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;@pandao&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;多语言代码高亮-codes&quot;&gt;多语言代码高亮 Codes&lt;/h3&gt;
+
+&lt;h4 id=&quot;行内代码-inline-code&quot;&gt;行内代码 Inline code&lt;/h4&gt;
+
+&lt;p&gt;执行命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install marked&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;缩进风格&quot;&gt;缩进风格&lt;/h4&gt;
+
+&lt;p&gt;即缩进四个空格，也做为实现类似&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;预格式化文本(Preformatted Text)的功能。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预格式化文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;js代码&quot;&gt;JS代码　&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'box.init()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;html代码-html-codes&quot;&gt;HTML代码 HTML codes&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charest=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;图片-images&quot;&gt;图片 Images&lt;/h3&gt;
+
+&lt;p&gt;Image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow your heart.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：厦门白城沙滩&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;图片加链接 (Image + Link)：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; title=&quot;李健首张专辑《似水流年》封面&quot;&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：李健首张专辑《似水流年》封面&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;列表-lists&quot;&gt;列表 Lists&lt;/h3&gt;
+
+&lt;h4 id=&quot;无序列表减号unordered-lists--&quot;&gt;无序列表（减号）Unordered Lists (-)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表星号unordered-lists-&quot;&gt;无序列表（星号）Unordered Lists (*)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表加号和嵌套unordered-lists-&quot;&gt;无序列表（加号和嵌套）Unordered Lists (+)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二
+    &lt;ul&gt;
+      &lt;li&gt;列表二-1&lt;/li&gt;
+      &lt;li&gt;列表二-2&lt;/li&gt;
+      &lt;li&gt;列表二-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;列表三
+    &lt;ul&gt;
+      &lt;li&gt;列表一&lt;/li&gt;
+      &lt;li&gt;列表二&lt;/li&gt;
+      &lt;li&gt;列表三&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;有序列表-ordered-lists--&quot;&gt;有序列表 Ordered Lists (-)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一行&lt;/li&gt;
+  &lt;li&gt;第二行&lt;/li&gt;
+  &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gfm-task-list&quot;&gt;GFM task list&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 1&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 2&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-2&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;绘制表格-tables&quot;&gt;绘制表格 Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;数量&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;计算机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;手机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;管线&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Function name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;help()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Display the help window.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destroy()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Destroy your computer!&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Left-Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Center Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Right Aligned&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;some wordy text&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Computer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pipe&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;特殊符号-html-entities-codes&quot;&gt;特殊符号 HTML Entities Codes&lt;/h4&gt;
+
+&lt;p&gt;© &amp;amp;  ¨ ™ ¡ £
+&amp;amp; &amp;lt; &amp;gt; ¥ € ® ± ¶ § ¦ ¯ « ·&lt;/p&gt;
+
+&lt;p&gt;X² Y³ ¾ ¼  ×  ÷   »&lt;/p&gt;
+
+&lt;p&gt;18ºC  &quot;  '&lt;/p&gt;
+
+&lt;h3 id=&quot;emoji表情-smiley&quot;&gt;Emoji表情 :smiley:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes :star:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x&quot;&gt;GFM task lists &amp;amp; Emoji &amp;amp; fontAwesome icon emoji &amp;amp; editormd logo emoji :editormd-logo-5x:&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;:smiley: @mentions, :smiley: #refs, &lt;a href=&quot;&quot;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;del&gt;tags&lt;/del&gt; supported :editormd-logo:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;[ ] :smiley: this is a complete item :smiley:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[]this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: @pandao;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[ ]this is an incomplete item :fa-star: :fa-gear:;
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: :fa-gear:;&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is  :fa-star: :fa-gear: an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt;;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;反斜杠-escape&quot;&gt;反斜杠 Escape&lt;/h4&gt;
+
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+
+&lt;h3 id=&quot;科学公式-texkatex&quot;&gt;科学公式 TeX(KaTeX)&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E=mc^2&lt;/script&gt;
+
+&lt;p&gt;行内的公式&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;行内的公式，行内的&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\(\sqrt{3x-1}+(1+x)^2\)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))&lt;/script&gt;
+
+&lt;p&gt;多行公式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-math&quot;&gt;\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-katex&quot;&gt;\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;f(x) = &lt;span class=&quot;k&quot;&gt;\int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\hat&lt;/span&gt; f(&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;)&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;e&lt;span class=&quot;p&quot;&gt;^{&lt;/span&gt;2 &lt;span class=&quot;k&quot;&gt;\pi&lt;/span&gt; i &lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;d&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;绘制流程图-flowchart&quot;&gt;绘制流程图 Flowchart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-flow&quot;&gt;st=&amp;gt;start: 用户登陆
+op=&amp;gt;operation: 登陆操作
+cond=&amp;gt;condition: 登陆成功 Yes or No?
+e=&amp;gt;end: 进入后台
+
+st-&amp;gt;op-&amp;gt;cond
+cond(yes)-&amp;gt;e
+cond(no)-&amp;gt;op
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;绘制序列图-sequence-diagram&quot;&gt;绘制序列图 Sequence Diagram&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-seq&quot;&gt;Andrew-&amp;gt;China: Says Hello 
+Note right of China: China thinks\nabout it 
+China--&amp;gt;Andrew: How are you? 
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;end&quot;&gt;End&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/new-theme-h2o.html</guid>
+        
+        <category>人工智障</category>
+        
+        <category>AI</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>测试一下分页</title>
+        <description>&lt;p&gt;就这样煎饼成形了&lt;/p&gt;
+
+&lt;h2 id=&quot;我去找找markdown-ctrcctrlv&quot;&gt;我去找找markdown ctr+c、ctrl+v&lt;/h2&gt;
+
+&lt;h3 id=&quot;主要特性&quot;&gt;主要特性&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；&lt;/li&gt;
+  &lt;li&gt;支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；&lt;/li&gt;
+  &lt;li&gt;支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；&lt;/li&gt;
+  &lt;li&gt;支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;&lt;/li&gt;
+  &lt;li&gt;支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；&lt;/li&gt;
+  &lt;li&gt;支持 AMD / CMD 模块化加载（支持 Require.js &amp;amp; Sea.js），并且支持自定义扩展插件；&lt;/li&gt;
+  &lt;li&gt;兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；&lt;/li&gt;
+  &lt;li&gt;支持自定义主题样式；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;editormd&quot;&gt;Editor.md&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/github/stars/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/forks/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/tag/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/release/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/issues/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/bower/v/editor.md.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目录 (Table of Contents)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[TOCM]&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+&lt;h1 id=&quot;heading-1-link-heading-link&quot;&gt;Heading 1 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2-link-heading-link&quot;&gt;Heading 2 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3-link-heading-link&quot;&gt;Heading 3 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4-link-heading-link-heading-link-heading-link&quot;&gt;Heading 4 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt; Heading link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5-link-heading-link&quot;&gt;Heading 5 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6-link-heading-link&quot;&gt;Heading 6 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h4 id=&quot;标题用底线的形式heading-underline&quot;&gt;标题（用底线的形式）Heading (underline)&lt;/h4&gt;
+
+&lt;h1 id=&quot;this-is-an-h1&quot;&gt;This is an H1&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-an-h2&quot;&gt;This is an H2&lt;/h2&gt;
+
+&lt;h3 id=&quot;字符效果和横线等&quot;&gt;字符效果和横线等&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;del&gt;删除线&lt;/del&gt; &lt;s&gt;删除线（开启识别HTML标签时）&lt;/s&gt;
+&lt;em&gt;斜体字&lt;/em&gt;      &lt;em&gt;斜体字&lt;/em&gt;
+&lt;strong&gt;粗体&lt;/strong&gt;  &lt;strong&gt;粗体&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上标：X&lt;sub&gt;2&lt;/sub&gt;，下标：O&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;缩写(同HTML的abbr标签)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;引用-blockquotes&quot;&gt;引用 Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用文本 Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;引用的行内混合 Blockquotes&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用：如果想要插入空白换行&lt;code class=&quot;highlighter-rouge&quot;&gt;即&amp;lt;br /&amp;gt;标签&lt;/code&gt;，在插入处先键入两个以上的空格然后回车即可，&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;锚点与链接-links&quot;&gt;锚点与链接 Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot; title=&quot;普通链接带标题&quot;&gt;普通链接带标题&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;直接链接：&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.this-anchor-link.com/&quot;&gt;锚点链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GFM a-tail link @pandao&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;@pandao&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;多语言代码高亮-codes&quot;&gt;多语言代码高亮 Codes&lt;/h3&gt;
+
+&lt;h4 id=&quot;行内代码-inline-code&quot;&gt;行内代码 Inline code&lt;/h4&gt;
+
+&lt;p&gt;执行命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install marked&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;缩进风格&quot;&gt;缩进风格&lt;/h4&gt;
+
+&lt;p&gt;即缩进四个空格，也做为实现类似&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;预格式化文本(Preformatted Text)的功能。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预格式化文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;js代码&quot;&gt;JS代码　&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'box.init()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;html代码-html-codes&quot;&gt;HTML代码 HTML codes&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charest=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;图片-images&quot;&gt;图片 Images&lt;/h3&gt;
+
+&lt;p&gt;Image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow your heart.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：厦门白城沙滩&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;图片加链接 (Image + Link)：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; title=&quot;李健首张专辑《似水流年》封面&quot;&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：李健首张专辑《似水流年》封面&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;列表-lists&quot;&gt;列表 Lists&lt;/h3&gt;
+
+&lt;h4 id=&quot;无序列表减号unordered-lists--&quot;&gt;无序列表（减号）Unordered Lists (-)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表星号unordered-lists-&quot;&gt;无序列表（星号）Unordered Lists (*)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表加号和嵌套unordered-lists-&quot;&gt;无序列表（加号和嵌套）Unordered Lists (+)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二
+    &lt;ul&gt;
+      &lt;li&gt;列表二-1&lt;/li&gt;
+      &lt;li&gt;列表二-2&lt;/li&gt;
+      &lt;li&gt;列表二-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;列表三
+    &lt;ul&gt;
+      &lt;li&gt;列表一&lt;/li&gt;
+      &lt;li&gt;列表二&lt;/li&gt;
+      &lt;li&gt;列表三&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;有序列表-ordered-lists--&quot;&gt;有序列表 Ordered Lists (-)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一行&lt;/li&gt;
+  &lt;li&gt;第二行&lt;/li&gt;
+  &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gfm-task-list&quot;&gt;GFM task list&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 1&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 2&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-2&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;绘制表格-tables&quot;&gt;绘制表格 Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;数量&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;计算机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;手机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;管线&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Function name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;help()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Display the help window.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destroy()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Destroy your computer!&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Left-Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Center Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Right Aligned&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;some wordy text&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Computer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pipe&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;特殊符号-html-entities-codes&quot;&gt;特殊符号 HTML Entities Codes&lt;/h4&gt;
+
+&lt;p&gt;© &amp;amp;  ¨ ™ ¡ £
+&amp;amp; &amp;lt; &amp;gt; ¥ € ® ± ¶ § ¦ ¯ « ·&lt;/p&gt;
+
+&lt;p&gt;X² Y³ ¾ ¼  ×  ÷   »&lt;/p&gt;
+
+&lt;p&gt;18ºC  &quot;  '&lt;/p&gt;
+
+&lt;h3 id=&quot;emoji表情-smiley&quot;&gt;Emoji表情 :smiley:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes :star:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x&quot;&gt;GFM task lists &amp;amp; Emoji &amp;amp; fontAwesome icon emoji &amp;amp; editormd logo emoji :editormd-logo-5x:&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;:smiley: @mentions, :smiley: #refs, &lt;a href=&quot;&quot;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;del&gt;tags&lt;/del&gt; supported :editormd-logo:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;[ ] :smiley: this is a complete item :smiley:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[]this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: @pandao;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[ ]this is an incomplete item :fa-star: :fa-gear:;
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: :fa-gear:;&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is  :fa-star: :fa-gear: an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt;;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;反斜杠-escape&quot;&gt;反斜杠 Escape&lt;/h4&gt;
+
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+
+&lt;h3 id=&quot;科学公式-texkatex&quot;&gt;科学公式 TeX(KaTeX)&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E=mc^2&lt;/script&gt;
+
+&lt;p&gt;行内的公式&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;行内的公式，行内的&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\(\sqrt{3x-1}+(1+x)^2\)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))&lt;/script&gt;
+
+&lt;p&gt;多行公式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-math&quot;&gt;\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-katex&quot;&gt;\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;f(x) = &lt;span class=&quot;k&quot;&gt;\int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\hat&lt;/span&gt; f(&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;)&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;e&lt;span class=&quot;p&quot;&gt;^{&lt;/span&gt;2 &lt;span class=&quot;k&quot;&gt;\pi&lt;/span&gt; i &lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;d&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;绘制流程图-flowchart&quot;&gt;绘制流程图 Flowchart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-flow&quot;&gt;st=&amp;gt;start: 用户登陆
+op=&amp;gt;operation: 登陆操作
+cond=&amp;gt;condition: 登陆成功 Yes or No?
+e=&amp;gt;end: 进入后台
+
+st-&amp;gt;op-&amp;gt;cond
+cond(yes)-&amp;gt;e
+cond(no)-&amp;gt;op
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;绘制序列图-sequence-diagram&quot;&gt;绘制序列图 Sequence Diagram&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-seq&quot;&gt;Andrew-&amp;gt;China: Says Hello 
+Note right of China: China thinks\nabout it 
+China--&amp;gt;Andrew: How are you? 
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;end&quot;&gt;End&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/new-theme-h2o.html</guid>
+        
+        <category>人工智障</category>
+        
+        <category>AI</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>测试一下分页</title>
+        <description>&lt;p&gt;就这样煎饼成形了&lt;/p&gt;
+
+&lt;h2 id=&quot;我去找找markdown-ctrcctrlv&quot;&gt;我去找找markdown ctr+c、ctrl+v&lt;/h2&gt;
+
+&lt;h3 id=&quot;主要特性&quot;&gt;主要特性&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；&lt;/li&gt;
+  &lt;li&gt;支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；&lt;/li&gt;
+  &lt;li&gt;支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；&lt;/li&gt;
+  &lt;li&gt;支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;&lt;/li&gt;
+  &lt;li&gt;支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；&lt;/li&gt;
+  &lt;li&gt;支持 AMD / CMD 模块化加载（支持 Require.js &amp;amp; Sea.js），并且支持自定义扩展插件；&lt;/li&gt;
+  &lt;li&gt;兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；&lt;/li&gt;
+  &lt;li&gt;支持自定义主题样式；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;editormd&quot;&gt;Editor.md&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/github/stars/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/forks/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/tag/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/release/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/issues/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/bower/v/editor.md.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目录 (Table of Contents)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[TOCM]&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+&lt;h1 id=&quot;heading-1-link-heading-link&quot;&gt;Heading 1 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2-link-heading-link&quot;&gt;Heading 2 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3-link-heading-link&quot;&gt;Heading 3 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4-link-heading-link-heading-link-heading-link&quot;&gt;Heading 4 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt; Heading link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5-link-heading-link&quot;&gt;Heading 5 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6-link-heading-link&quot;&gt;Heading 6 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h4 id=&quot;标题用底线的形式heading-underline&quot;&gt;标题（用底线的形式）Heading (underline)&lt;/h4&gt;
+
+&lt;h1 id=&quot;this-is-an-h1&quot;&gt;This is an H1&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-an-h2&quot;&gt;This is an H2&lt;/h2&gt;
+
+&lt;h3 id=&quot;字符效果和横线等&quot;&gt;字符效果和横线等&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;del&gt;删除线&lt;/del&gt; &lt;s&gt;删除线（开启识别HTML标签时）&lt;/s&gt;
+&lt;em&gt;斜体字&lt;/em&gt;      &lt;em&gt;斜体字&lt;/em&gt;
+&lt;strong&gt;粗体&lt;/strong&gt;  &lt;strong&gt;粗体&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上标：X&lt;sub&gt;2&lt;/sub&gt;，下标：O&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;缩写(同HTML的abbr标签)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;引用-blockquotes&quot;&gt;引用 Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用文本 Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;引用的行内混合 Blockquotes&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用：如果想要插入空白换行&lt;code class=&quot;highlighter-rouge&quot;&gt;即&amp;lt;br /&amp;gt;标签&lt;/code&gt;，在插入处先键入两个以上的空格然后回车即可，&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;锚点与链接-links&quot;&gt;锚点与链接 Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot; title=&quot;普通链接带标题&quot;&gt;普通链接带标题&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;直接链接：&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.this-anchor-link.com/&quot;&gt;锚点链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GFM a-tail link @pandao&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;@pandao&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;多语言代码高亮-codes&quot;&gt;多语言代码高亮 Codes&lt;/h3&gt;
+
+&lt;h4 id=&quot;行内代码-inline-code&quot;&gt;行内代码 Inline code&lt;/h4&gt;
+
+&lt;p&gt;执行命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install marked&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;缩进风格&quot;&gt;缩进风格&lt;/h4&gt;
+
+&lt;p&gt;即缩进四个空格，也做为实现类似&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;预格式化文本(Preformatted Text)的功能。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预格式化文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;js代码&quot;&gt;JS代码　&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'box.init()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;html代码-html-codes&quot;&gt;HTML代码 HTML codes&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charest=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;图片-images&quot;&gt;图片 Images&lt;/h3&gt;
+
+&lt;p&gt;Image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow your heart.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：厦门白城沙滩&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;图片加链接 (Image + Link)：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; title=&quot;李健首张专辑《似水流年》封面&quot;&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：李健首张专辑《似水流年》封面&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;列表-lists&quot;&gt;列表 Lists&lt;/h3&gt;
+
+&lt;h4 id=&quot;无序列表减号unordered-lists--&quot;&gt;无序列表（减号）Unordered Lists (-)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表星号unordered-lists-&quot;&gt;无序列表（星号）Unordered Lists (*)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表加号和嵌套unordered-lists-&quot;&gt;无序列表（加号和嵌套）Unordered Lists (+)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二
+    &lt;ul&gt;
+      &lt;li&gt;列表二-1&lt;/li&gt;
+      &lt;li&gt;列表二-2&lt;/li&gt;
+      &lt;li&gt;列表二-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;列表三
+    &lt;ul&gt;
+      &lt;li&gt;列表一&lt;/li&gt;
+      &lt;li&gt;列表二&lt;/li&gt;
+      &lt;li&gt;列表三&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;有序列表-ordered-lists--&quot;&gt;有序列表 Ordered Lists (-)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一行&lt;/li&gt;
+  &lt;li&gt;第二行&lt;/li&gt;
+  &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gfm-task-list&quot;&gt;GFM task list&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 1&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 2&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-2&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;绘制表格-tables&quot;&gt;绘制表格 Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;数量&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;计算机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;手机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;管线&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Function name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;help()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Display the help window.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destroy()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Destroy your computer!&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Left-Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Center Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Right Aligned&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;some wordy text&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Computer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pipe&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;特殊符号-html-entities-codes&quot;&gt;特殊符号 HTML Entities Codes&lt;/h4&gt;
+
+&lt;p&gt;© &amp;amp;  ¨ ™ ¡ £
+&amp;amp; &amp;lt; &amp;gt; ¥ € ® ± ¶ § ¦ ¯ « ·&lt;/p&gt;
+
+&lt;p&gt;X² Y³ ¾ ¼  ×  ÷   »&lt;/p&gt;
+
+&lt;p&gt;18ºC  &quot;  '&lt;/p&gt;
+
+&lt;h3 id=&quot;emoji表情-smiley&quot;&gt;Emoji表情 :smiley:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes :star:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x&quot;&gt;GFM task lists &amp;amp; Emoji &amp;amp; fontAwesome icon emoji &amp;amp; editormd logo emoji :editormd-logo-5x:&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;:smiley: @mentions, :smiley: #refs, &lt;a href=&quot;&quot;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;del&gt;tags&lt;/del&gt; supported :editormd-logo:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;[ ] :smiley: this is a complete item :smiley:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[]this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: @pandao;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[ ]this is an incomplete item :fa-star: :fa-gear:;
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: :fa-gear:;&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is  :fa-star: :fa-gear: an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt;;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;反斜杠-escape&quot;&gt;反斜杠 Escape&lt;/h4&gt;
+
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+
+&lt;h3 id=&quot;科学公式-texkatex&quot;&gt;科学公式 TeX(KaTeX)&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E=mc^2&lt;/script&gt;
+
+&lt;p&gt;行内的公式&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;行内的公式，行内的&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\(\sqrt{3x-1}+(1+x)^2\)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))&lt;/script&gt;
+
+&lt;p&gt;多行公式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-math&quot;&gt;\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-katex&quot;&gt;\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;f(x) = &lt;span class=&quot;k&quot;&gt;\int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\hat&lt;/span&gt; f(&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;)&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;e&lt;span class=&quot;p&quot;&gt;^{&lt;/span&gt;2 &lt;span class=&quot;k&quot;&gt;\pi&lt;/span&gt; i &lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;d&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;绘制流程图-flowchart&quot;&gt;绘制流程图 Flowchart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-flow&quot;&gt;st=&amp;gt;start: 用户登陆
+op=&amp;gt;operation: 登陆操作
+cond=&amp;gt;condition: 登陆成功 Yes or No?
+e=&amp;gt;end: 进入后台
+
+st-&amp;gt;op-&amp;gt;cond
+cond(yes)-&amp;gt;e
+cond(no)-&amp;gt;op
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;绘制序列图-sequence-diagram&quot;&gt;绘制序列图 Sequence Diagram&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-seq&quot;&gt;Andrew-&amp;gt;China: Says Hello 
+Note right of China: China thinks\nabout it 
+China--&amp;gt;Andrew: How are you? 
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;end&quot;&gt;End&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/new-theme-h2o.html</guid>
+        
+        <category>人工智障</category>
+        
+        <category>AI</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>测试一下分页</title>
+        <description>&lt;p&gt;就这样煎饼成形了&lt;/p&gt;
+
+&lt;h2 id=&quot;我去找找markdown-ctrcctrlv&quot;&gt;我去找找markdown ctr+c、ctrl+v&lt;/h2&gt;
+
+&lt;h3 id=&quot;主要特性&quot;&gt;主要特性&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；&lt;/li&gt;
+  &lt;li&gt;支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；&lt;/li&gt;
+  &lt;li&gt;支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；&lt;/li&gt;
+  &lt;li&gt;支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;&lt;/li&gt;
+  &lt;li&gt;支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；&lt;/li&gt;
+  &lt;li&gt;支持 AMD / CMD 模块化加载（支持 Require.js &amp;amp; Sea.js），并且支持自定义扩展插件；&lt;/li&gt;
+  &lt;li&gt;兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；&lt;/li&gt;
+  &lt;li&gt;支持自定义主题样式；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;editormd&quot;&gt;Editor.md&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/github/stars/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/forks/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/tag/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/release/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/issues/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/bower/v/editor.md.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目录 (Table of Contents)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[TOCM]&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+&lt;h1 id=&quot;heading-1-link-heading-link&quot;&gt;Heading 1 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2-link-heading-link&quot;&gt;Heading 2 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3-link-heading-link&quot;&gt;Heading 3 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4-link-heading-link-heading-link-heading-link&quot;&gt;Heading 4 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt; Heading link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5-link-heading-link&quot;&gt;Heading 5 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6-link-heading-link&quot;&gt;Heading 6 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h4 id=&quot;标题用底线的形式heading-underline&quot;&gt;标题（用底线的形式）Heading (underline)&lt;/h4&gt;
+
+&lt;h1 id=&quot;this-is-an-h1&quot;&gt;This is an H1&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-an-h2&quot;&gt;This is an H2&lt;/h2&gt;
+
+&lt;h3 id=&quot;字符效果和横线等&quot;&gt;字符效果和横线等&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;del&gt;删除线&lt;/del&gt; &lt;s&gt;删除线（开启识别HTML标签时）&lt;/s&gt;
+&lt;em&gt;斜体字&lt;/em&gt;      &lt;em&gt;斜体字&lt;/em&gt;
+&lt;strong&gt;粗体&lt;/strong&gt;  &lt;strong&gt;粗体&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上标：X&lt;sub&gt;2&lt;/sub&gt;，下标：O&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;缩写(同HTML的abbr标签)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;引用-blockquotes&quot;&gt;引用 Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用文本 Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;引用的行内混合 Blockquotes&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用：如果想要插入空白换行&lt;code class=&quot;highlighter-rouge&quot;&gt;即&amp;lt;br /&amp;gt;标签&lt;/code&gt;，在插入处先键入两个以上的空格然后回车即可，&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;锚点与链接-links&quot;&gt;锚点与链接 Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot; title=&quot;普通链接带标题&quot;&gt;普通链接带标题&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;直接链接：&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.this-anchor-link.com/&quot;&gt;锚点链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GFM a-tail link @pandao&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;@pandao&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;多语言代码高亮-codes&quot;&gt;多语言代码高亮 Codes&lt;/h3&gt;
+
+&lt;h4 id=&quot;行内代码-inline-code&quot;&gt;行内代码 Inline code&lt;/h4&gt;
+
+&lt;p&gt;执行命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install marked&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;缩进风格&quot;&gt;缩进风格&lt;/h4&gt;
+
+&lt;p&gt;即缩进四个空格，也做为实现类似&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;预格式化文本(Preformatted Text)的功能。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预格式化文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;js代码&quot;&gt;JS代码　&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'box.init()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;html代码-html-codes&quot;&gt;HTML代码 HTML codes&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charest=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;图片-images&quot;&gt;图片 Images&lt;/h3&gt;
+
+&lt;p&gt;Image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow your heart.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：厦门白城沙滩&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;图片加链接 (Image + Link)：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; title=&quot;李健首张专辑《似水流年》封面&quot;&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：李健首张专辑《似水流年》封面&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;列表-lists&quot;&gt;列表 Lists&lt;/h3&gt;
+
+&lt;h4 id=&quot;无序列表减号unordered-lists--&quot;&gt;无序列表（减号）Unordered Lists (-)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表星号unordered-lists-&quot;&gt;无序列表（星号）Unordered Lists (*)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表加号和嵌套unordered-lists-&quot;&gt;无序列表（加号和嵌套）Unordered Lists (+)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二
+    &lt;ul&gt;
+      &lt;li&gt;列表二-1&lt;/li&gt;
+      &lt;li&gt;列表二-2&lt;/li&gt;
+      &lt;li&gt;列表二-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;列表三
+    &lt;ul&gt;
+      &lt;li&gt;列表一&lt;/li&gt;
+      &lt;li&gt;列表二&lt;/li&gt;
+      &lt;li&gt;列表三&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;有序列表-ordered-lists--&quot;&gt;有序列表 Ordered Lists (-)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一行&lt;/li&gt;
+  &lt;li&gt;第二行&lt;/li&gt;
+  &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gfm-task-list&quot;&gt;GFM task list&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 1&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 2&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-2&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;绘制表格-tables&quot;&gt;绘制表格 Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;数量&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;计算机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;手机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;管线&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Function name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;help()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Display the help window.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destroy()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Destroy your computer!&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Left-Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Center Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Right Aligned&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;some wordy text&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Computer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pipe&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;特殊符号-html-entities-codes&quot;&gt;特殊符号 HTML Entities Codes&lt;/h4&gt;
+
+&lt;p&gt;© &amp;amp;  ¨ ™ ¡ £
+&amp;amp; &amp;lt; &amp;gt; ¥ € ® ± ¶ § ¦ ¯ « ·&lt;/p&gt;
+
+&lt;p&gt;X² Y³ ¾ ¼  ×  ÷   »&lt;/p&gt;
+
+&lt;p&gt;18ºC  &quot;  '&lt;/p&gt;
+
+&lt;h3 id=&quot;emoji表情-smiley&quot;&gt;Emoji表情 :smiley:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes :star:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x&quot;&gt;GFM task lists &amp;amp; Emoji &amp;amp; fontAwesome icon emoji &amp;amp; editormd logo emoji :editormd-logo-5x:&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;:smiley: @mentions, :smiley: #refs, &lt;a href=&quot;&quot;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;del&gt;tags&lt;/del&gt; supported :editormd-logo:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;[ ] :smiley: this is a complete item :smiley:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[]this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: @pandao;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[ ]this is an incomplete item :fa-star: :fa-gear:;
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: :fa-gear:;&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is  :fa-star: :fa-gear: an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt;;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;反斜杠-escape&quot;&gt;反斜杠 Escape&lt;/h4&gt;
+
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+
+&lt;h3 id=&quot;科学公式-texkatex&quot;&gt;科学公式 TeX(KaTeX)&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E=mc^2&lt;/script&gt;
+
+&lt;p&gt;行内的公式&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;行内的公式，行内的&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\(\sqrt{3x-1}+(1+x)^2\)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))&lt;/script&gt;
+
+&lt;p&gt;多行公式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-math&quot;&gt;\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-katex&quot;&gt;\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;f(x) = &lt;span class=&quot;k&quot;&gt;\int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\hat&lt;/span&gt; f(&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;)&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;e&lt;span class=&quot;p&quot;&gt;^{&lt;/span&gt;2 &lt;span class=&quot;k&quot;&gt;\pi&lt;/span&gt; i &lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;d&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;绘制流程图-flowchart&quot;&gt;绘制流程图 Flowchart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-flow&quot;&gt;st=&amp;gt;start: 用户登陆
+op=&amp;gt;operation: 登陆操作
+cond=&amp;gt;condition: 登陆成功 Yes or No?
+e=&amp;gt;end: 进入后台
+
+st-&amp;gt;op-&amp;gt;cond
+cond(yes)-&amp;gt;e
+cond(no)-&amp;gt;op
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;绘制序列图-sequence-diagram&quot;&gt;绘制序列图 Sequence Diagram&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-seq&quot;&gt;Andrew-&amp;gt;China: Says Hello 
+Note right of China: China thinks\nabout it 
+China--&amp;gt;Andrew: How are you? 
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;end&quot;&gt;End&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/new-theme-h2o.html</guid>
+        
+        <category>人工智障</category>
+        
+        <category>AI</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>Hello Jermin</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;这将是你的第一篇博客.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;欢迎&quot;&gt;欢迎&lt;/h3&gt;
+
+&lt;p&gt;一只煎饼的传说.&lt;/p&gt;
+
+&lt;h3 id=&quot;何为煎饼&quot;&gt;何为煎饼&lt;/h3&gt;
+
+&lt;p&gt;煎饼是用发酵后的面粉调成糊状的杂面摊烙成圆形而成，旧时多由粗粮制作，现多用细面制作。烙成饼后水分少较干燥，形态似牛皮，可厚可薄，方便叠层，口感筋道，食后耐饥饿。食用煎饼需要较长时间的咀嚼，因而可生津健胃，促进食欲，促进面部神经运动，有益于保持视觉、听觉和嗅觉神经的健康，延缓衰老，实为绝佳保健食品。煎饼还衍生出了菜煎饼、煎饼果子等著名小吃风靡全国。煎饼历史悠久，起源甚早，由饼鏊的产生可以追溯煎饼起源距今已有5000多年的历史。 [3]  晋代《述征记》、唐代《唐六典》、明代《酌中志》以及说清代《煎饼赋》等古籍均有对煎饼的记载。煎饼从原料上看，有小麦煎饼、玉米煎饼、米面煎饼、豆面煎饼、高梁面煎饼，还有地瓜面煎饼。&lt;/p&gt;
+
+&lt;h3 id=&quot;煎饼的视频介绍&quot;&gt;煎饼的视频介绍&lt;/h3&gt;
+
+&lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://mp4.vjshi.com/2018-07-16/bb4a5eef7e91259029a29cf98395c618.mp4&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/hello-jekyll.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/hello-jekyll.html</guid>
+        
+        <category>go</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jermine的一篇文章</title>
+        <description>&lt;p&gt;就这样煎饼成形了&lt;/p&gt;
+
+&lt;h2 id=&quot;我去找找markdown-ctrcctrlv&quot;&gt;我去找找markdown ctr+c、ctrl+v&lt;/h2&gt;
+
+&lt;h3 id=&quot;主要特性&quot;&gt;主要特性&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；&lt;/li&gt;
+  &lt;li&gt;支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；&lt;/li&gt;
+  &lt;li&gt;支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；&lt;/li&gt;
+  &lt;li&gt;支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;&lt;/li&gt;
+  &lt;li&gt;支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；&lt;/li&gt;
+  &lt;li&gt;支持 AMD / CMD 模块化加载（支持 Require.js &amp;amp; Sea.js），并且支持自定义扩展插件；&lt;/li&gt;
+  &lt;li&gt;兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；&lt;/li&gt;
+  &lt;li&gt;支持自定义主题样式；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;editormd&quot;&gt;Editor.md&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/github/stars/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/forks/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/tag/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/release/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/github/issues/pandao/editor.md.svg&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;https://img.shields.io/bower/v/editor.md.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目录 (Table of Contents)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[TOCM]&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+&lt;h1 id=&quot;heading-1-link-heading-link&quot;&gt;Heading 1 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2-link-heading-link&quot;&gt;Heading 2 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3-link-heading-link&quot;&gt;Heading 3 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4-link-heading-link-heading-link-heading-link&quot;&gt;Heading 4 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt; Heading link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5-link-heading-link&quot;&gt;Heading 5 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6-link-heading-link&quot;&gt;Heading 6 link &lt;a href=&quot;https://github.com/pandao/editor.md&quot; title=&quot;Heading link&quot;&gt;Heading link&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h4 id=&quot;标题用底线的形式heading-underline&quot;&gt;标题（用底线的形式）Heading (underline)&lt;/h4&gt;
+
+&lt;h1 id=&quot;this-is-an-h1&quot;&gt;This is an H1&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-an-h2&quot;&gt;This is an H2&lt;/h2&gt;
+
+&lt;h3 id=&quot;字符效果和横线等&quot;&gt;字符效果和横线等&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;del&gt;删除线&lt;/del&gt; &lt;s&gt;删除线（开启识别HTML标签时）&lt;/s&gt;
+&lt;em&gt;斜体字&lt;/em&gt;      &lt;em&gt;斜体字&lt;/em&gt;
+&lt;strong&gt;粗体&lt;/strong&gt;  &lt;strong&gt;粗体&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上标：X&lt;sub&gt;2&lt;/sub&gt;，下标：O&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;缩写(同HTML的abbr标签)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;引用-blockquotes&quot;&gt;引用 Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用文本 Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;引用的行内混合 Blockquotes&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;引用：如果想要插入空白换行&lt;code class=&quot;highlighter-rouge&quot;&gt;即&amp;lt;br /&amp;gt;标签&lt;/code&gt;，在插入处先键入两个以上的空格然后回车即可，&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;锚点与链接-links&quot;&gt;锚点与链接 Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot;&gt;普通链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost/&quot; title=&quot;普通链接带标题&quot;&gt;普通链接带标题&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;直接链接：&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.this-anchor-link.com/&quot;&gt;锚点链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GFM a-tail link @pandao&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;@pandao&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;多语言代码高亮-codes&quot;&gt;多语言代码高亮 Codes&lt;/h3&gt;
+
+&lt;h4 id=&quot;行内代码-inline-code&quot;&gt;行内代码 Inline code&lt;/h4&gt;
+
+&lt;p&gt;执行命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install marked&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;缩进风格&quot;&gt;缩进风格&lt;/h4&gt;
+
+&lt;p&gt;即缩进四个空格，也做为实现类似&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;预格式化文本(Preformatted Text)的功能。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预格式化文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;js代码&quot;&gt;JS代码　&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'box.init()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+		&lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;testBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;html代码-html-codes&quot;&gt;HTML代码 HTML codes&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charest=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;图片-images&quot;&gt;图片 Images&lt;/h3&gt;
+
+&lt;p&gt;Image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow your heart.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：厦门白城沙滩&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;图片加链接 (Image + Link)：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; title=&quot;李健首张专辑《似水流年》封面&quot;&gt;&lt;img src=&quot;https://pandao.github.io/editor.md/examples/images/7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;图为：李健首张专辑《似水流年》封面&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;列表-lists&quot;&gt;列表 Lists&lt;/h3&gt;
+
+&lt;h4 id=&quot;无序列表减号unordered-lists--&quot;&gt;无序列表（减号）Unordered Lists (-)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表星号unordered-lists-&quot;&gt;无序列表（星号）Unordered Lists (*)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二&lt;/li&gt;
+  &lt;li&gt;列表三&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;无序列表加号和嵌套unordered-lists-&quot;&gt;无序列表（加号和嵌套）Unordered Lists (+)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;列表一&lt;/li&gt;
+  &lt;li&gt;列表二
+    &lt;ul&gt;
+      &lt;li&gt;列表二-1&lt;/li&gt;
+      &lt;li&gt;列表二-2&lt;/li&gt;
+      &lt;li&gt;列表二-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;列表三
+    &lt;ul&gt;
+      &lt;li&gt;列表一&lt;/li&gt;
+      &lt;li&gt;列表二&lt;/li&gt;
+      &lt;li&gt;列表三&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;有序列表-ordered-lists--&quot;&gt;有序列表 Ordered Lists (-)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一行&lt;/li&gt;
+  &lt;li&gt;第二行&lt;/li&gt;
+  &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gfm-task-list&quot;&gt;GFM task list&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 1&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;GFM task list 2&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-2&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 3-3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-1&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;GFM task list 4-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;绘制表格-tables&quot;&gt;绘制表格 Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;数量&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;计算机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;手机&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;管线&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Function name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;help()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Display the help window.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destroy()&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Destroy your computer!&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Left-Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Center Aligned&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Right Aligned&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;some wordy text&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Computer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pipe&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;特殊符号-html-entities-codes&quot;&gt;特殊符号 HTML Entities Codes&lt;/h4&gt;
+
+&lt;p&gt;© &amp;amp;  ¨ ™ ¡ £
+&amp;amp; &amp;lt; &amp;gt; ¥ € ® ± ¶ § ¦ ¯ « ·&lt;/p&gt;
+
+&lt;p&gt;X² Y³ ¾ ¼  ×  ÷   »&lt;/p&gt;
+
+&lt;p&gt;18ºC  &quot;  '&lt;/p&gt;
+
+&lt;h3 id=&quot;emoji表情-smiley&quot;&gt;Emoji表情 :smiley:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes :star:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x&quot;&gt;GFM task lists &amp;amp; Emoji &amp;amp; fontAwesome icon emoji &amp;amp; editormd logo emoji :editormd-logo-5x:&lt;/h4&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;:smiley: @mentions, :smiley: #refs, &lt;a href=&quot;&quot;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;del&gt;tags&lt;/del&gt; supported :editormd-logo:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;[ ] :smiley: this is a complete item :smiley:;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[]this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: @pandao;&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;[ ]this is an incomplete item :fa-star: :fa-gear:;
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt; :fa-star: :fa-gear:;&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;:smiley: this is  :fa-star: :fa-gear: an incomplete item &lt;a href=&quot;#&quot;&gt;test link&lt;/a&gt;;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;反斜杠-escape&quot;&gt;反斜杠 Escape&lt;/h4&gt;
+
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+
+&lt;h3 id=&quot;科学公式-texkatex&quot;&gt;科学公式 TeX(KaTeX)&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E=mc^2&lt;/script&gt;
+
+&lt;p&gt;行内的公式&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;行内的公式，行内的&lt;script type=&quot;math/tex&quot;&gt;E=mc^2&lt;/script&gt;公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\(\sqrt{3x-1}+(1+x)^2\)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))&lt;/script&gt;
+
+&lt;p&gt;多行公式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-math&quot;&gt;\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-katex&quot;&gt;\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;f(x) = &lt;span class=&quot;k&quot;&gt;\int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\infty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\hat&lt;/span&gt; f(&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;)&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;e&lt;span class=&quot;p&quot;&gt;^{&lt;/span&gt;2 &lt;span class=&quot;k&quot;&gt;\pi&lt;/span&gt; i &lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;d&lt;span class=&quot;k&quot;&gt;\xi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;绘制流程图-flowchart&quot;&gt;绘制流程图 Flowchart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-flow&quot;&gt;st=&amp;gt;start: 用户登陆
+op=&amp;gt;operation: 登陆操作
+cond=&amp;gt;condition: 登陆成功 Yes or No?
+e=&amp;gt;end: 进入后台
+
+st-&amp;gt;op-&amp;gt;cond
+cond(yes)-&amp;gt;e
+cond(no)-&amp;gt;op
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;绘制序列图-sequence-diagram&quot;&gt;绘制序列图 Sequence Diagram&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-seq&quot;&gt;Andrew-&amp;gt;China: Says Hello 
+Note right of China: China thinks\nabout it 
+China--&amp;gt;Andrew: How are you? 
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;end&quot;&gt;End&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/new-theme-h2o.html</guid>
+        
+        <category>人工智障</category>
+        
+        <category>AI</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>Hello Jermin</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;这将是你的第一篇博客.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;欢迎&quot;&gt;欢迎&lt;/h3&gt;
+
+&lt;p&gt;一只煎饼的传说.&lt;/p&gt;
+
+&lt;h3 id=&quot;何为煎饼&quot;&gt;何为煎饼&lt;/h3&gt;
+
+&lt;p&gt;煎饼是用发酵后的面粉调成糊状的杂面摊烙成圆形而成，旧时多由粗粮制作，现多用细面制作。烙成饼后水分少较干燥，形态似牛皮，可厚可薄，方便叠层，口感筋道，食后耐饥饿。食用煎饼需要较长时间的咀嚼，因而可生津健胃，促进食欲，促进面部神经运动，有益于保持视觉、听觉和嗅觉神经的健康，延缓衰老，实为绝佳保健食品。煎饼还衍生出了菜煎饼、煎饼果子等著名小吃风靡全国。煎饼历史悠久，起源甚早，由饼鏊的产生可以追溯煎饼起源距今已有5000多年的历史。 [3]  晋代《述征记》、唐代《唐六典》、明代《酌中志》以及说清代《煎饼赋》等古籍均有对煎饼的记载。煎饼从原料上看，有小麦煎饼、玉米煎饼、米面煎饼、豆面煎饼、高梁面煎饼，还有地瓜面煎饼。&lt;/p&gt;
+
+&lt;h3 id=&quot;煎饼的视频介绍&quot;&gt;煎饼的视频介绍&lt;/h3&gt;
+
+&lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://mp4.vjshi.com/2018-07-16/bb4a5eef7e91259029a29cf98395c618.mp4&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://alice.witdor.com/2017/04/18/hello-jekyll.html</link>
+        <guid isPermaLink="true">http://alice.witdor.com/2017/04/18/hello-jekyll.html</guid>
+        
+        <category>go</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
