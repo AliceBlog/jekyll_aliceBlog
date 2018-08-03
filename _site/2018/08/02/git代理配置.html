@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Jermin - Alice Blog</title>
+    <title>git代理配置 - Alice Blog</title>
     <meta name="author"  content="Alice">
-    <meta name="description" content="Hello Jermin">
-    <meta name="keywords"  content="go">
+    <meta name="description" content="git代理配置">
+    <meta name="keywords"  content="技术, git">
     <!-- Open Graph -->
-    <meta property="og:title" content="Hello Jermin - Alice Blog">
+    <meta property="og:title" content="git代理配置 - Alice Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://alice.witdor.com/2017/04/18/hello-jekyll.html">
+    <meta property="og:url" content="http://localhost:4000/2018/08/02/git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html">
     <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="Alice Blog">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -101,53 +101,52 @@ Author: Ray-Eldath
             
             <li><a href="/">主页</a></li>
             
-            <li><a href="/tags.html">标签</a></li>
+            <li><a href="/tags.html">分类</a></li>
             
         </ul>
     </nav>
 </header>
 
 
-  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-pink " data-theme="pink">
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-pink post-no-cover" data-theme="pink">
     <div class="post-wrapper">
       <div class="post-tags">
         
           
-            <a href="http://alice.witdor.com/tags#go" class="post-tag">go</a>
+            <a href="http://localhost:4000/tags#%E6%8A%80%E6%9C%AF" class="post-tag">技术</a>
+          
+            <a href="http://localhost:4000/tags#git" class="post-tag">git</a>
           
         
       </div>
-      <h1>Hello Jermin</h1>
+      <h1>git代理配置</h1>
       <div class="post-meta">
-        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://alice.witdor.com" target="_blank" rel="author">Jermine</a></></span>
-        <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>2017-04-18</time>
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
+        <time class="post-meta-item" datetime="18-08-02"><i class="iconfont icon-date"></i>2018-08-02</time>
       </div>
     </div>
-    
-    <div class="filter"></div>
-      <div class="post-cover" style="background: url('http://desk.fd.zol-img.com.cn/g5/M00/0C/04/ChMkJlX7vtOIKeziAAVUmQGqF-MAACwzwGuBuAABVSx961.jpg') center no-repeat; background-size: cover;"></div>
     
   </header>
 
   <div class="post-content visible">
     
+    <h2 class="post-subtitle">解决git push卡顿问题</h2>
+    
 
     <article class="markdown-body">
-      <blockquote>
-  <p>这将是你的第一篇博客.</p>
-</blockquote>
+      <h2 id="问题描述">问题描述</h2>
+<p>用git push到远程repository的时候一直卡着</p>
 
-<h3 id="欢迎">欢迎</h3>
+<h2 id="运行环境">运行环境</h2>
+<p>MAC</p>
 
-<p>一只煎饼的传说.</p>
-
-<h3 id="何为煎饼">何为煎饼</h3>
-
-<p>煎饼是用发酵后的面粉调成糊状的杂面摊烙成圆形而成，旧时多由粗粮制作，现多用细面制作。烙成饼后水分少较干燥，形态似牛皮，可厚可薄，方便叠层，口感筋道，食后耐饥饿。食用煎饼需要较长时间的咀嚼，因而可生津健胃，促进食欲，促进面部神经运动，有益于保持视觉、听觉和嗅觉神经的健康，延缓衰老，实为绝佳保健食品。煎饼还衍生出了菜煎饼、煎饼果子等著名小吃风靡全国。煎饼历史悠久，起源甚早，由饼鏊的产生可以追溯煎饼起源距今已有5000多年的历史。 [3]  晋代《述征记》、唐代《唐六典》、明代《酌中志》以及说清代《煎饼赋》等古籍均有对煎饼的记载。煎饼从原料上看，有小麦煎饼、玉米煎饼、米面煎饼、豆面煎饼、高梁面煎饼，还有地瓜面煎饼。</p>
-
-<h3 id="煎饼的视频介绍">煎饼的视频介绍</h3>
-
-<iframe type="text/html" width="100%" height="385" src="http://mp4.vjshi.com/2018-07-16/bb4a5eef7e91259029a29cf98395c618.mp4" frameborder="0"></iframe>
+<p>##解决办法
+配置git代理</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> http.proxy<span class="o">=</span>socks5://127.0.0.1:1080
+</code></pre></div></div>
+<p>查看一下git的配置</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span>  <span class="nt">--list</span>
+</code></pre></div></div>
 
     </article>
 
@@ -161,7 +160,7 @@ Author: Ray-Eldath
   <section class="author-detail">
     <section class="post-footer-item author-card">
       <div class="avatar">
-        <img src="http://alice.witdor.com/assets/img/alicesmall.jpg" alt="">
+        <img src="http://localhost:4000/assets/img/alicesmall.jpg" alt="">
       </div>
       <div class="author-name" rel="author">Alice</div>
       <div class="bio">
@@ -171,8 +170,32 @@ Author: Ray-Eldath
       <ul class="sns-links">
         
         <li>
+          <a href="//www.zhihu.com/people/aliceprincess-55/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//weibo.com/u/2749673491/home?wvr=5&lf=reg" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
           <a href="//github.com/AlicePrincess" target="_blank">
                     <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.linkedin.com/in/%E6%A2%A6%E7%AB%B9-%E5%90%B4-b9a72b118/" target="_blank">
+                    <i class="iconfont icon-linkedin"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.facebook.com/ce.ali.96" target="_blank">
+                    <i class="iconfont icon-facebook"></i>
                 </a>
         </li>
         
@@ -182,30 +205,18 @@ Author: Ray-Eldath
     <section class="post-footer-item read-next">
       
       <div class="read-next-item">
-        <a href="/2017/04/18/new-theme-h2o.html" class="read-next-link"></a>
+        <a href="/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html" class="read-next-link"></a>
         <section>
-          <span>测试一下分页</span>
-          <p>就这样煎饼成形了</p>
+          <span>jekyll搭建博客并部署在netlify(MAC)</span>
+          <p>jekyll是什么</p>
         </section>
         
         <div class="filter"></div>
-        <img src="http://img1.3lian.com/2015/w22/51/d/104.jpg" alt="">
+        <img src="http://pcvfuus6c.bkt.clouddn.com/cover/blog_1.jpg" alt="">
         
      </div>
       
 
-      
-      <div class="read-next-item">
-        <a href="/2017/04/18/new-theme-h2o.html" class="read-next-link"></a>
-          <section>
-            <span>Jermine的一篇文章</span>
-            <p>就这样煎饼成形了</p>
-          </section>
-          
-          <div class="filter"></div>
-          <img src="http://img.mp.itc.cn/upload/20170710/0fc7f7f410d64aab99174120d0ce944b_th.jpg" alt="">
-          
-      </div>
       
     </section>
     <section class="post-footer-item comment">
@@ -231,6 +242,18 @@ Author: Ray-Eldath
       sites: [
         
           'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
           
         
       ],

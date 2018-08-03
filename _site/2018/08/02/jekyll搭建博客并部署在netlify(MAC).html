@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jekyll搭建博客并部署在netlify(MAC) - Alice Blog</title>
+    <meta name="author"  content="Alice">
+    <meta name="description" content="jekyll搭建博客并部署在netlify(MAC)">
+    <meta name="keywords"  content="技术, jekyll, 博客">
+    <!-- Open Graph -->
+    <meta property="og:title" content="jekyll搭建博客并部署在netlify(MAC) - Alice Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html">
+    <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="Alice Blog">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--
+Author: Ray-Eldath
+refer to:
+ - http://docs.mathjax.org/en/latest/options/index.html
+-->
+
+	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+		jax: ["input/TeX", "output/HTML-CSS"],
+		tex2jax: {
+			inlineMath: [ ["$", "$"] ],
+			displayMath: [ ["$$", "$$"] ],
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+		},
+		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+      });
+    </script>
+
+	
+    <!--
+Author: Ray-Eldath
+-->
+<style>
+    .markdown-body .anchor{
+        float: left;
+        margin-top: -8px;
+        margin-left: -20px;
+        padding-right: 4px;
+        line-height: 1;
+        opacity: 0;
+    }
+    
+    .markdown-body .anchor .anchor-icon{
+        font-size: 15px
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        let nodes = document.querySelector(".markdown-body").querySelectorAll("h1,h2,h3")
+        for(let node of nodes) {
+            var anchor = document.createElement("a")
+            var anchorIcon = document.createElement("i")
+            anchorIcon.setAttribute("class", "fa fa-anchor fa-lg anchor-icon")
+            anchorIcon.setAttribute("aria-hidden", true)
+            anchor.setAttribute("class", "anchor")
+            anchor.setAttribute("href", "#" + node.getAttribute("id"))
+            
+            anchor.onmouseover = function() {
+                this.style.opacity = "0.4"
+            }
+            
+            anchor.onmouseout = function() {
+                this.style.opacity = "0"
+            }
+            
+            anchor.appendChild(anchorIcon)
+            node.appendChild(anchor)
+        }
+    })
+</script>
+</head>
+
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="true"> <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">主页</a></li>
+            
+            <li><a href="/tags.html">分类</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-pink " data-theme="pink">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        
+          
+            <a href="http://localhost:4000/tags#%E6%8A%80%E6%9C%AF" class="post-tag">技术</a>
+          
+            <a href="http://localhost:4000/tags#jekyll" class="post-tag">jekyll</a>
+          
+            <a href="http://localhost:4000/tags#%E5%8D%9A%E5%AE%A2" class="post-tag">博客</a>
+          
+        
+      </div>
+      <h1>jekyll搭建博客并部署在netlify(MAC)</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
+        <time class="post-meta-item" datetime="18-08-02"><i class="iconfont icon-date"></i>2018-08-02</time>
+      </div>
+    </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('http://pcvfuus6c.bkt.clouddn.com/cover/blog_1.jpg') center no-repeat; background-size: cover;"></div>
+    
+  </header>
+
+  <div class="post-content visible">
+    
+    <h2 class="post-subtitle">快速搭建一个属于自己的博客，并且不需要数据库的存储和服务器的要求</h2>
+    
+
+    <article class="markdown-body">
+      <h3 id="jekyll是什么">jekyll是什么</h3>
+
+<p>jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，不需要数据库支持。但是可以配合第三方服务,例如Disqus。最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。</p>
+
+<h3 id="安装ruby同时会自动安装gem">安装ruby(同时会自动安装gem)</h3>
+<p>mac下面自带了Ruby环境（查看是否有ruby）</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby <span class="nt">-v</span> 
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby 2.3.3p222 <span class="o">(</span>2016-11-21 revision 56859<span class="o">)</span> <span class="o">[</span>universal.x86_64-darwin17]
+</code></pre></div></div>
+<ul>
+  <li>jekyll 最新版要求 ruby 2.1或更高,所以更新ruby</li>
+</ul>
+
+<h3 id="jekyll-环境配置">Jekyll 环境配置</h3>
+
+<p>安装 jekyll</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll  
+</code></pre></div></div>
+
+<p>创建博客</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myBlog 
+</code></pre></div></div>
+
+<p>进入博客目录</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>myBlog
+</code></pre></div></div>
+<p>打包项目</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll build
+</code></pre></div></div>
+<p>运行项目</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll server
+</code></pre></div></div>
+<ul>
+  <li>jekyll提供了很多的主题可以直接使用<a href="http://jekyllthemes.org/">主题官网</a></li>
+  <li>在github或者gitlab上创建一个代码托管的仓库，并将代码提交
+    <h3 id="netlify中配置部署">netlify中配置部署</h3>
+  </li>
+  <li>打开<a href="https://app.netlify.com/">netlify</a>的官网</li>
+  <li>注册一个账号</li>
+  <li>选择sites
+<img src="http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_1.png" alt="" /></li>
+  <li>根据自己的代码存储选择托管平台
+<img src="http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_2.png" alt="" /></li>
+  <li>选择自己博客的仓库
+<img src="http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_3.png" alt="" /></li>
+  <li>build command中写jekyll build，publish directory中写_site
+<img src="http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_4.png" alt="" /></li>
+  <li>最后点deploy site就好了</li>
+</ul>
+
+<h4 id="如果你有自己的域名可以把自己的域名绑定上">如果你有自己的域名可以把自己的域名绑定上</h4>
+<p><img src="http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_5.png" alt="" /></p>
+
+<h4 id="如果没有域名也可以设置netlify提供的域名的二级域名前缀">如果没有域名也可以设置netlify提供的域名的二级域名前缀</h4>
+<p><img src="http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_6.png" alt="" /></p>
+
+<h3 id="这样博客就大功告成了">这样博客就大功告成了！</h3>
+
+    </article>
+
+    
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="http://localhost:4000/assets/img/alicesmall.jpg" alt="">
+      </div>
+      <div class="author-name" rel="author">Alice</div>
+      <div class="bio">
+        <p>热爱技术，简单乐观爱创造</p>
+      </div>
+      
+      <ul class="sns-links">
+        
+        <li>
+          <a href="//www.zhihu.com/people/aliceprincess-55/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//weibo.com/u/2749673491/home?wvr=5&lf=reg" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//github.com/AlicePrincess" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.linkedin.com/in/%E6%A2%A6%E7%AB%B9-%E5%90%B4-b9a72b118/" target="_blank">
+                    <i class="iconfont icon-linkedin"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.facebook.com/ce.ali.96" target="_blank">
+                    <i class="iconfont icon-facebook"></i>
+                </a>
+        </li>
+        
+      </ul>
+      
+    </section>
+    <section class="post-footer-item read-next">
+      
+      <div class="read-next-item">
+        <a href="/2018/08/03/express%E5%85%A5%E9%97%A8.html" class="read-next-link"></a>
+        <section>
+          <span>express入门(MAC)</span>
+          <p>何为ExpressExpress 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架，它提供一系...</p>
+        </section>
+        
+        <div class="filter"></div>
+        <img src="http://pcvfuus6c.bkt.clouddn.com/cover/blog_2.jpg" alt="">
+        
+     </div>
+      
+
+      
+      <div class="read-next-item">
+        <a href="/2018/08/02/git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html" class="read-next-link"></a>
+          <section>
+            <span>git代理配置</span>
+            <p>问题描述用git push到远程repository的时候一直卡着</p>
+          </section>
+          
+      </div>
+      
+    </section>
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+  </section>
+
+  <footer class="g-footer">
+  <section>Alice Blog ©
+  
+  
+    2017
+    -
+  
+  2018
+  </section>
+</footer>
+
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        
+          'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
+          
+        
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>

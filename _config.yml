@@ -10,7 +10,7 @@ baseurl: ''
 # Navigation links
 nav:
   主页: '/'
-  标签: '/tags.html'
+  分类: '/tags.html'
 
 # Footer
 footer:
@@ -38,7 +38,7 @@ mathjax: true
 
 # Share
 social-share: true
-social-share-items: ['wechat']
+social-share-items: ['wechat', 'weibo', 'douban','twitter']
 
 # theme color 主题皮肤
 theme-color: 'pink'  # pink or default
@@ -49,9 +49,11 @@ postPatterns: 'circuitBoard'
 # SNS settings 配置社交网站
 # url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  # weibo: '//weibo.com/lovecolcol'
+  zhihu: '//www.zhihu.com/people/aliceprincess-55/activities'
+  weibo: '//weibo.com/u/2749673491/home?wvr=5&lf=reg'
   github: '//github.com/AlicePrincess'
-
+  linkedin: '//www.linkedin.com/in/%E6%A2%A6%E7%AB%B9-%E5%90%B4-b9a72b118/'
+  facebook: '//www.facebook.com/ce.ali.96'
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
 recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value

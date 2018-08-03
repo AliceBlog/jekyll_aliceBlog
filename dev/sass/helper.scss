@@ -20,7 +20,7 @@ $color-f-dark: #868A94;
 $g-header-h: 26px;
 $g-banner-h: 460px;
 $g-footer-h: 40px;
-$g-container-w: 960px;
+$g-container-w: calc(100% - 120px);
 $post-content-w: 720px;
 
 /*** Mixins ***/

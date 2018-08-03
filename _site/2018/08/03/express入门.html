@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>express入门(MAC) - Alice Blog</title>
+    <meta name="author"  content="Alice">
+    <meta name="description" content="express入门(MAC)">
+    <meta name="keywords"  content="技术, express">
+    <!-- Open Graph -->
+    <meta property="og:title" content="express入门(MAC) - Alice Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/2018/08/03/express%E5%85%A5%E9%97%A8.html">
+    <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="Alice Blog">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--
+Author: Ray-Eldath
+refer to:
+ - http://docs.mathjax.org/en/latest/options/index.html
+-->
+
+	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+		jax: ["input/TeX", "output/HTML-CSS"],
+		tex2jax: {
+			inlineMath: [ ["$", "$"] ],
+			displayMath: [ ["$$", "$$"] ],
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+		},
+		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+      });
+    </script>
+
+	
+    <!--
+Author: Ray-Eldath
+-->
+<style>
+    .markdown-body .anchor{
+        float: left;
+        margin-top: -8px;
+        margin-left: -20px;
+        padding-right: 4px;
+        line-height: 1;
+        opacity: 0;
+    }
+    
+    .markdown-body .anchor .anchor-icon{
+        font-size: 15px
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        let nodes = document.querySelector(".markdown-body").querySelectorAll("h1,h2,h3")
+        for(let node of nodes) {
+            var anchor = document.createElement("a")
+            var anchorIcon = document.createElement("i")
+            anchorIcon.setAttribute("class", "fa fa-anchor fa-lg anchor-icon")
+            anchorIcon.setAttribute("aria-hidden", true)
+            anchor.setAttribute("class", "anchor")
+            anchor.setAttribute("href", "#" + node.getAttribute("id"))
+            
+            anchor.onmouseover = function() {
+                this.style.opacity = "0.4"
+            }
+            
+            anchor.onmouseout = function() {
+                this.style.opacity = "0"
+            }
+            
+            anchor.appendChild(anchorIcon)
+            node.appendChild(anchor)
+        }
+    })
+</script>
+</head>
+
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="true"> <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">主页</a></li>
+            
+            <li><a href="/tags.html">分类</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-pink " data-theme="pink">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        
+          
+            <a href="http://localhost:4000/tags#%E6%8A%80%E6%9C%AF" class="post-tag">技术</a>
+          
+            <a href="http://localhost:4000/tags#express" class="post-tag">express</a>
+          
+        
+      </div>
+      <h1>express入门(MAC)</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
+        <time class="post-meta-item" datetime="18-08-03"><i class="iconfont icon-date"></i>2018-08-03</time>
+      </div>
+    </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('http://pcvfuus6c.bkt.clouddn.com/cover/blog_2.jpg') center no-repeat; background-size: cover;"></div>
+    
+  </header>
+
+  <div class="post-content visible">
+    
+    <h2 class="post-subtitle">使用express-generator快速搭建一个后端服务</h2>
+    
+
+    <article class="markdown-body">
+      <h2 id="何为express">何为Express</h2>
+<p>Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。丰富的 HTTP 快捷方法和任意排列组合的 Connect 中间件，让你创建健壮、友好的 API 变得既快速又简单。</p>
+
+<h2 id="前提条件">前提条件</h2>
+<ul>
+  <li>首先需要安装<a href="https://nodejs.org/en/">nodejs</a></li>
+  <li>根据自己的操作系统安装node</li>
+  <li>安装好之后查看一下自己的node版本
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node <span class="nt">-v</span>
+</code></pre></div>    </div>
+  </li>
+  <li>输出
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v9.7.1
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="安装express应用生成器">安装Express应用生成器</h2>
+<ul>
+  <li>通过应用生成器工具 express 可以快速创建一个应用的骨架。</li>
+  <li>通过如下命令安装：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>express-generator <span class="nt">-g</span>
+</code></pre></div></div>
+<ul>
+  <li>-h 选项可以列出所有可用的命令行选项：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>express <span class="nt">-h</span>
+
+  Usage: express <span class="o">[</span>options] <span class="o">[</span><span class="nb">dir</span><span class="o">]</span>
+
+  Options:
+
+    <span class="nt">-h</span>, <span class="nt">--help</span>          output usage information
+    <span class="nt">-V</span>, <span class="nt">--version</span>       output the version number
+    <span class="nt">-e</span>, <span class="nt">--ejs</span>           add ejs engine support <span class="o">(</span>defaults to jade<span class="o">)</span>
+        <span class="nt">--hbs</span>           add handlebars engine support
+    <span class="nt">-H</span>, <span class="nt">--hogan</span>         add hogan.js engine support
+    <span class="nt">-c</span>, <span class="nt">--css</span> &lt;engine&gt;  add stylesheet &lt;engine&gt; support <span class="o">(</span>less|stylus|compass|sass<span class="o">)</span> <span class="o">(</span>defaults to plain css<span class="o">)</span>
+        <span class="nt">--git</span>           add .gitignore
+    <span class="nt">-f</span>, <span class="nt">--force</span>         force on non-empty directory
+</code></pre></div></div>
+<ul>
+  <li>例如，下面的示例就是在当前工作目录下创建一个命名为 myapp 的应用。</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>express myapp
+
+   create : myapp
+   create : myapp/package.json
+   create : myapp/app.js
+   create : myapp/public
+   create : myapp/public/javascripts
+   create : myapp/public/images
+   create : myapp/routes
+   create : myapp/routes/index.js
+   create : myapp/routes/users.js
+   create : myapp/public/stylesheets
+   create : myapp/public/stylesheets/style.css
+   create : myapp/views
+   create : myapp/views/index.jade
+   create : myapp/views/layout.jade
+   create : myapp/views/error.jade
+   create : myapp/bin
+   create : myapp/bin/www
+</code></pre></div></div>
+<ul>
+  <li>目录结构如下</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app.js
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+
+7 directories, 9 files
+</code></pre></div></div>
+<ul>
+  <li>然后安装所有依赖包：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">cd </span>myapp 
+ <span class="nv">$ </span>npm <span class="nb">install</span>
+</code></pre></div></div>
+<ul>
+  <li>启动这个应用（MacOS 或 Linux 平台）：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ DEBUG</span><span class="o">=</span>myapp npm start
+</code></pre></div></div>
+<ul>
+  <li>然后在浏览器中打开 http://localhost:3000/ 网址就可以看到这个应用了。</li>
+</ul>
+
+    </article>
+
+    
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="http://localhost:4000/assets/img/alicesmall.jpg" alt="">
+      </div>
+      <div class="author-name" rel="author">Alice</div>
+      <div class="bio">
+        <p>热爱技术，简单乐观爱创造</p>
+      </div>
+      
+      <ul class="sns-links">
+        
+        <li>
+          <a href="//www.zhihu.com/people/aliceprincess-55/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//weibo.com/u/2749673491/home?wvr=5&lf=reg" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//github.com/AlicePrincess" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.linkedin.com/in/%E6%A2%A6%E7%AB%B9-%E5%90%B4-b9a72b118/" target="_blank">
+                    <i class="iconfont icon-linkedin"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.facebook.com/ce.ali.96" target="_blank">
+                    <i class="iconfont icon-facebook"></i>
+                </a>
+        </li>
+        
+      </ul>
+      
+    </section>
+    <section class="post-footer-item read-next">
+      
+      <div class="read-next-item">
+        <a href="/2018/08/03/express%E8%B7%AF%E7%94%B1%E5%88%9D%E6%8E%A2.html" class="read-next-link"></a>
+        <section>
+          <span>express路由初探</span>
+          <p>何为路由路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.MET...</p>
+        </section>
+        
+        <div class="filter"></div>
+        <img src="http://pcvfuus6c.bkt.clouddn.com/cover/blog_3.jpg" alt="">
+        
+     </div>
+      
+
+      
+      <div class="read-next-item">
+        <a href="/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html" class="read-next-link"></a>
+          <section>
+            <span>jekyll搭建博客并部署在netlify(MAC)</span>
+            <p>jekyll是什么</p>
+          </section>
+          
+          <div class="filter"></div>
+          <img src="http://pcvfuus6c.bkt.clouddn.com/cover/blog_1.jpg" alt="">
+          
+      </div>
+      
+    </section>
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+  </section>
+
+  <footer class="g-footer">
+  <section>Alice Blog ©
+  
+  
+    2017
+    -
+  
+  2018
+  </section>
+</footer>
+
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        
+          'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
+          
+        
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>
