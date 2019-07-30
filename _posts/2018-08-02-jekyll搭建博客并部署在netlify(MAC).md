@@ -4,7 +4,7 @@ title: 'jekyll搭建博客并部署在netlify(MAC)'
 subtitle: '快速搭建一个属于自己的博客，并且不需要数据库的存储和服务器的要求'
 date: 2018-08-02
 categories: 技术
-cover: 'http://pcvfuus6c.bkt.clouddn.com/cover/blog_1.jpg'
+cover: 'http://blog.witdor.com/cover/blog_1.jpg'
 tags: 技术 jekyll 博客
 ---
 ### jekyll是什么
@@ -57,19 +57,19 @@ jekyll server
 * 打开[netlify](https://app.netlify.com/)的官网
 * 注册一个账号
 * 选择sites
-![](http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_1.png)
+![](http://blog.witdor.com/article/2018_8_3_1.png)
 * 根据自己的代码存储选择托管平台
-![](http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_2.png)
+![](http://blog.witdor.com/article/2018_8_3_2.png)
 * 选择自己博客的仓库
-![](http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_3.png)
+![](http://blog.witdor.com/article/2018_8_3_3.png)
 * build command中写jekyll build，publish directory中写_site
-![](http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_4.png)
+![](http://blog.witdor.com/article/2018_8_3_4.png)
 * 最后点deploy site就好了
 
 #### 如果你有自己的域名可以把自己的域名绑定上
-![](http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_5.png)
+![](http://blog.witdor.com/article/2018_8_3_5.png)
 
 #### 如果没有域名也可以设置netlify提供的域名的二级域名前缀
-![](http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_6.png)
+![](http://blog.witdor.com/article/2018_8_3_6.png)
 
 ### 这样博客就大功告成了！

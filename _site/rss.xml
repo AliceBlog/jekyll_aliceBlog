@@ -300,21 +300,21 @@
   &lt;li&gt;打开&lt;a href=&quot;https://app.netlify.com/&quot;&gt;netlify&lt;/a&gt;的官网&lt;/li&gt;
   &lt;li&gt;注册一个账号&lt;/li&gt;
   &lt;li&gt;选择sites
-&lt;img src=&quot;http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;http://blog.witdor.com/article/2018_8_3_1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;根据自己的代码存储选择托管平台
-&lt;img src=&quot;http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;http://blog.witdor.com/article/2018_8_3_2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;选择自己博客的仓库
-&lt;img src=&quot;http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;http://blog.witdor.com/article/2018_8_3_3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;build command中写jekyll build，publish directory中写_site
-&lt;img src=&quot;http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_4.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;http://blog.witdor.com/article/2018_8_3_4.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;最后点deploy site就好了&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;如果你有自己的域名可以把自己的域名绑定上&quot;&gt;如果你有自己的域名可以把自己的域名绑定上&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.witdor.com/article/2018_8_3_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;如果没有域名也可以设置netlify提供的域名的二级域名前缀&quot;&gt;如果没有域名也可以设置netlify提供的域名的二级域名前缀&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;http://pcvfuus6c.bkt.clouddn.com/article/2018_8_3_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.witdor.com/article/2018_8_3_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;这样博客就大功告成了&quot;&gt;这样博客就大功告成了！&lt;/h3&gt;
 </description>
