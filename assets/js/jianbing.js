@@ -79,4 +79,9 @@ var flip = function flip() {
   add(cakeFlip(), 'flip');
 };
 cook();
-document.body.addEventListener('click', flip);
+$(".pancake__wrapper").click(function(){
+    flip()
+})
+$(".pan").click(function(){
+    flip()
+})
