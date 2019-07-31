@@ -85,6 +85,104 @@ Author: Ray-Eldath
         }
     })
 </script>
+    <style>
+            .footerBj {
+                width:100%;
+                position: absolute;
+                bottom:0px;
+                z-index: -1;
+                --col-deepblue: #007aff;
+              }
+              .footerBj div {
+                background-color: var(--col-deepblue);
+                margin: -5px 0px 0px 0px;
+                padding:0px;
+                color: #fff;
+                text-align:center;
+              }
+              svg {
+                width:100%;
+                overflow:visible;
+              }
+              
+              .wave {
+                animation: wave 3s linear;
+                animation-iteration-count:infinite;
+                fill: #007aff;
+              }
+              .drop {
+                fill: var(--col-deepblue);
+                xfill: #007aff;
+                animation: drop 3.2s linear infinite normal;
+                stroke: var(--col-deepblue);
+                stroke-width:0.5;
+                transform: translateY(25px) ;
+                transform-box: fill-box;
+                transform-origin: 50% 100%;
+              }
+              .drop1 {
+                
+              }
+              .drop2 {
+                animation-delay: 3s;
+                animation-duration:3s;
+              }
+              .drop3 {
+                animation-delay: -2s;
+                animation-duration:3.4s;
+              }
+              .drop4 {
+                animation-delay: 1.7s;
+              }
+              .drop5 {
+                animation-delay: 2.7s;
+                animation-duration:3.1s;
+              }
+              .drop6 {
+                animation-delay: -2.1s;
+                animation-duration:3.2s;
+              }
+              .gooeff {
+                    filter: url(#goo);
+              }
+              #wave2 {
+                animation-duration:5s;
+                animation-direction: reverse;
+                opacity: .6
+              }
+              #wave3 {
+                animation-duration: 7s;
+                opacity:.3;
+              }
+              @keyframes drop {
+                0% {
+                  transform: translateY(25px); 
+                }
+                30% {
+                  transform: translateY(-10px) scale(.1);
+                }
+                30.001% {
+                  transform: translateY(25px) scale(1); 
+                }
+                70% {
+                  transform: translateY(25px); 
+                }
+                100% { 
+                  transform: translateY(-10px) scale(.1);  
+                }
+              }
+              @keyframes wave {
+                to {transform: translateX(-100%);}
+              }
+              @keyframes ball {
+                to {transform: translateY(20%);}
+              }
+              @media screen and (max-width: 695px){
+                .pan,.pancake__wrapper,.footerBj,.g-footer{
+                    display: none;
+                }
+            }
+    </style>
 </head>
 
 
@@ -130,7 +228,7 @@ Author: Ray-Eldath
     </div>
     
     <div class="filter"></div>
-      <div class="post-cover" style="background: url('http://blog.witdor.com/cover/blog_1.jpg') center no-repeat; background-size: cover;"></div>
+      <div class="post-cover" style="background: url('http://blog.res.witdor.com/cover/blog_1.jpg') center no-repeat; background-size: cover;"></div>
     
   </header>
 
@@ -187,21 +285,21 @@ Author: Ray-Eldath
   <li>打开<a href="https://app.netlify.com/">netlify</a>的官网</li>
   <li>注册一个账号</li>
   <li>选择sites
-<img src="http://blog.witdor.com/article/2018_8_3_1.png" alt="" /></li>
+<img src="http://blog.res.witdor.com/article/2018_8_3_1.png" alt="" /></li>
   <li>根据自己的代码存储选择托管平台
-<img src="http://blog.witdor.com/article/2018_8_3_2.png" alt="" /></li>
+<img src="http://blog.res.witdor.com/article/2018_8_3_2.png" alt="" /></li>
   <li>选择自己博客的仓库
-<img src="http://blog.witdor.com/article/2018_8_3_3.png" alt="" /></li>
+<img src="http://blog.res.witdor.com/article/2018_8_3_3.png" alt="" /></li>
   <li>build command中写jekyll build，publish directory中写_site
-<img src="http://blog.witdor.com/article/2018_8_3_4.png" alt="" /></li>
+<img src="http://blog.res.witdor.com/article/2018_8_3_4.png" alt="" /></li>
   <li>最后点deploy site就好了</li>
 </ul>
 
 <h4 id="如果你有自己的域名可以把自己的域名绑定上">如果你有自己的域名可以把自己的域名绑定上</h4>
-<p><img src="http://blog.witdor.com/article/2018_8_3_5.png" alt="" /></p>
+<p><img src="http://blog.res.witdor.com/article/2018_8_3_5.png" alt="" /></p>
 
 <h4 id="如果没有域名也可以设置netlify提供的域名的二级域名前缀">如果没有域名也可以设置netlify提供的域名的二级域名前缀</h4>
-<p><img src="http://blog.witdor.com/article/2018_8_3_6.png" alt="" /></p>
+<p><img src="http://blog.res.witdor.com/article/2018_8_3_6.png" alt="" /></p>
 
 <h3 id="这样博客就大功告成了">这样博客就大功告成了！</h3>
 
@@ -269,7 +367,7 @@ Author: Ray-Eldath
         </section>
         
         <div class="filter"></div>
-        <img src="http://blog.witdor.com/cover/blog_20181019_1.jpg" alt="">
+        <img src="http://blog.res.witdor.com/cover/blog_20181019_1.jpg" alt="">
         
      </div>
       
