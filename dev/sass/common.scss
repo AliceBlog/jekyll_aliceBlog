@@ -95,7 +95,7 @@
 
 .g-banner {
     height: $g-banner-h;
-    background-color: #2F3139;
+    // background-color: #2F3139;
     color: #fff;
     padding: 0 60px;
 }
@@ -743,7 +743,7 @@
     background-color: $color-dark-primary;
 
     .g-banner {
-        background-color: $color-dark-primary;
+        // background-color: $color-dark-primary;
         color: #C8CDD3;
         .header-img {
             -webkit-filter:brightness(.5);
@@ -827,6 +827,7 @@
         }
     }
     .g-footer {
+        background-color: #ccc;
         border-color: rgba(255, 255, 255, 0.1);
         section {
             color: $color-f-dark;

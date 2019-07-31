@@ -123,7 +123,7 @@ a {
 
 .g-banner {
   height: 460px;
-  background-color: #2F3139;
+  /* background-color: #2F3139; */
   color: #fff;
   padding: 0 60px; }
 
@@ -787,7 +787,7 @@ a {
 .night-mode {
   background-color: #282C33; }
   .night-mode .g-banner {
-    background-color: #282C33;
+    /* background-color: #282C33; */
     color: #C8CDD3; }
     .night-mode .g-banner .header-img {
       -webkit-filter: brightness(0.5); }

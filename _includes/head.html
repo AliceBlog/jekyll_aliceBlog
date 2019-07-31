@@ -20,4 +20,210 @@
     <link rel="stylesheet" href="/assets/css/app.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <style>
+            @media screen and (max-width: 695px){
+                .pan,.pancake__wrapper,.footerBj,.g-footer{
+                    display: none;
+                }
+            }
+            
+        .pan {
+            cursor: pointer;
+            width: 200px;
+            position: absolute;
+            top: 50%;
+            left: 80%;
+            -webkit-transform-origin: 100px 225px;
+                    transform-origin: 100px 225px;
+            margin-left: -100px;
+            margin-top: -225px;
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+          }
+          .pancake {
+            height: 100%;
+            width: 100%;
+            -webkit-transform: rotate(-45deg) translate3d(0, 0, 5px);
+                    transform: rotate(-45deg) translate3d(0, 0, 5px);
+          }
+          .pancake--cooking .pancake__face--smiling {
+            display: none;
+          }
+          .pancake--cooking .pancake__face--cooking {
+            display: block;
+          }
+          .pancake--flipping .pancake__face--smiling,
+          .pancake--flipping .pancake__face--cooking {
+            display: none;
+          }
+          .pancake--flipping .pancake__face--flipping {
+            display: block;
+          }
+          .pancake__wrapper {
+            height: 120px;
+            width: 120px;
+            position: absolute;
+            top: 50%;
+            left: 80%;
+            z-index: 2;
+            margin-left: -60px;
+            margin-top: -60px;
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+          }
+          .pancake__wrapper:before {
+            content: '';
+            box-sizing: border-box;
+            background: #fff2a4;
+            position: absolute;
+            border: 5px solid #fff2a4;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%) rotateX(180deg);
+                    transform: translate(-50%, -50%) rotateX(180deg);
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+            -webkit-animation: cook 60s forwards ease;
+                    animation: cook 60s forwards ease;
+          }
+          .pancake__head {
+            fill: #fff2a4;
+          }
+          .pancake__splodge {
+            -webkit-animation: cook 60s forwards ease;
+                    animation: cook 60s forwards ease;
+            fill: #fff2a4;
+          }
+          .pancake__face {
+            display: none;
+          }
+          .pancake__face--smiling {
+            display: block;
+          }
+          @-webkit-keyframes cook {
+            0% {
+              background: #fff2a4;
+              fill: #fff2a4;
+            }
+            50% {
+              background: #eca24d;
+              fill: #eca24d;
+            }
+            100% {
+              background: #b45326;
+              fill: #b45326;
+            }
+          }
+          @keyframes cook {
+            0% {
+              background: #fff2a4;
+              fill: #fff2a4;
+            }
+            50% {
+              background: #eca24d;
+              fill: #eca24d;
+            }
+            100% {
+              background: #b45326;
+              fill: #b45326;
+            }
+          }
+          .footerBj {
+            width:100%;
+            position: absolute;
+            bottom:0px;
+            z-index: -1;
+            --col-deepblue: #4478e3;
+          }
+          .footerBj div {
+            background-color: var(--col-deepblue);
+            margin: -5px 0px 0px 0px;
+            padding:0px;
+            color: #fff;
+            text-align:center;
+          }
+          svg {
+            width:100%;
+            overflow:visible;
+          }
+          
+          .wave {
+            animation: wave 3s linear;
+            animation-iteration-count:infinite;
+            fill: #4478e3;
+          }
+          .drop {
+            fill: var(--col-deepblue);
+            xfill: #4478e3;
+            animation: drop 3.2s linear infinite normal;
+            stroke: var(--col-deepblue);
+            stroke-width:0.5;
+            transform: translateY(25px) ;
+            transform-box: fill-box;
+            transform-origin: 50% 100%;
+          }
+          .drop1 {
+            
+          }
+          .drop2 {
+            animation-delay: 3s;
+            animation-duration:3s;
+          }
+          .drop3 {
+            animation-delay: -2s;
+            animation-duration:3.4s;
+          }
+          .drop4 {
+            animation-delay: 1.7s;
+          }
+          .drop5 {
+            animation-delay: 2.7s;
+            animation-duration:3.1s;
+          }
+          .drop6 {
+            animation-delay: -2.1s;
+            animation-duration:3.2s;
+          }
+          .gooeff {
+                filter: url(#goo);
+          }
+          #wave2 {
+            animation-duration:5s;
+            animation-direction: reverse;
+            opacity: .6
+          }
+          #wave3 {
+            animation-duration: 7s;
+            opacity:.3;
+          }
+          @keyframes drop {
+            0% {
+              transform: translateY(25px); 
+            }
+            30% {
+              transform: translateY(-10px) scale(.1);
+            }
+            30.001% {
+              transform: translateY(25px) scale(1); 
+            }
+            70% {
+              transform: translateY(25px); 
+            }
+            100% { 
+              transform: translateY(-10px) scale(.1);  
+            }
+          }
+          @keyframes wave {
+            to {transform: translateX(-100%);}
+          }
+          @keyframes ball {
+            to {transform: translateY(20%);}
+          }
+    </style>
 </head>

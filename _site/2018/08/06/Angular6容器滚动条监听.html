@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>git代理配置 - Alice Blog</title>
+    <title>Angular6容器滚动条监听 - Alice Blog</title>
     <meta name="author"  content="Alice">
-    <meta name="description" content="git代理配置">
-    <meta name="keywords"  content="技术, git">
+    <meta name="description" content="Angular6容器滚动条监听">
+    <meta name="keywords"  content="技术, AngularX">
     <!-- Open Graph -->
-    <meta property="og:title" content="git代理配置 - Alice Blog">
+    <meta property="og:title" content="Angular6容器滚动条监听 - Alice Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2018/08/02/git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html">
+    <meta property="og:url" content="http://localhost:4000/2018/08/06/Angular6%E5%AE%B9%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9B%91%E5%90%AC.html">
     <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="Alice Blog">
     <link rel="icon" type="image/x-icon" href="/assets/icons/logo_default.svg">
@@ -109,44 +109,104 @@ Author: Ray-Eldath
 </header>
 
 
-  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
     <div class="post-wrapper">
       <div class="post-tags">
         
           
             <a href="http://localhost:4000/tags#%E6%8A%80%E6%9C%AF" class="post-tag">技术</a>
           
-            <a href="http://localhost:4000/tags#git" class="post-tag">git</a>
+            <a href="http://localhost:4000/tags#AngularX" class="post-tag">AngularX</a>
           
         
       </div>
-      <h1>git代理配置</h1>
+      <h1>Angular6容器滚动条监听</h1>
       <div class="post-meta">
         <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
-        <time class="post-meta-item" datetime="18-08-02"><i class="iconfont icon-date"></i>2018-08-02</time>
+        <time class="post-meta-item" datetime="18-08-06"><i class="iconfont icon-date"></i>2018-08-06</time>
       </div>
     </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('http://blog.witdor.com/cover/2018-8-6blog.jpg') center no-repeat; background-size: cover;"></div>
     
   </header>
 
   <div class="post-content visible">
     
-    <h2 class="post-subtitle">解决git push卡顿问题</h2>
+    <h2 class="post-subtitle">将某容器的滚动条进行监听，常用于加载更多数据</h2>
     
 
     <article class="markdown-body">
-      <h2 id="问题描述">问题描述</h2>
-<p>用git push到远程repository的时候一直卡着</p>
+      <h2 id="ngx-scroll-event">ngx-scroll-event</h2>
+<p>用于Angular2+监听滚动条的指令和事件</p>
 
-<h2 id="运行环境">运行环境</h2>
-<p>MAC</p>
+<h2 id="install">Install</h2>
 
-<p>##解决办法
-配置git代理</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> http.proxy<span class="o">=</span>socks5://127.0.0.1:1080
+<ul>
+  <li>npm</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>ngx-scroll-event <span class="nt">--save</span>
 </code></pre></div></div>
-<p>查看一下git的配置</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span>  <span class="nt">--list</span>
+<ul>
+  <li>yarn</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yarn add ngx-scroll-event
+</code></pre></div></div>
+<h2 id="使用">使用</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app.module.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ScrollEventModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ngx-scroll-event'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">...,</span>
+    <span class="nx">ScrollEventModule</span><span class="p">,</span>
+    <span class="p">...,</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app.awesome.component.ts</span>
+
+<span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ScrollEvent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ngx-scroll-event'</span><span class="p">;</span>
+<span class="p">...</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+   <span class="p">...</span>
+   <span class="na">template</span><span class="p">:</span> <span class="s2">`...
+        &lt;div detect-scroll (onScroll)="handleScroll($event)" [bottomOffset]="200" [topOffset]="200" &gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+        &lt;div&gt;
+   ...`</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AwesomeComponent</span> <span class="p">{</span>
+  <span class="kr">public</span> <span class="nx">handleScroll</span><span class="p">(</span><span class="nx">event</span><span class="p">:</span> <span class="nx">ScrollEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'scroll occurred'</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">isReachingBottom</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`the user is reaching the bottom`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">isReachingTop</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`the user is reaching the top`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">isWindowEvent</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`This event is fired on Window not on an element.`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
     </article>
@@ -205,19 +265,19 @@ Author: Ray-Eldath
     </section>
     <section class="post-footer-item read-next">
       
-      <div class="read-next-item">
-        <a href="/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html" class="read-next-link"></a>
-        <section>
-          <span>jekyll搭建博客并部署在netlify(MAC)</span>
-          <p>jekyll是什么</p>
-        </section>
-        
-        <div class="filter"></div>
-        <img src="http://blog.witdor.com/cover/blog_1.jpg" alt="">
-        
-     </div>
-      
 
+      
+      <div class="read-next-item">
+        <a href="/2018/08/03/express%E5%92%8Cmysql.html" class="read-next-link"></a>
+          <section>
+            <span>express集成mysql</span>
+            <p>介绍mysqlMySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下...</p>
+          </section>
+          
+          <div class="filter"></div>
+          <img src="http://blog.witdor.com/cover/blog_4.jpg" alt="">
+          
+      </div>
       
     </section>
     <section class="post-footer-item comment">

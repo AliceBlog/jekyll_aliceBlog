@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>git代理配置 - Alice Blog</title>
+    <title>运行你的第一个Truffle-Dapp - Alice Blog</title>
     <meta name="author"  content="Alice">
-    <meta name="description" content="git代理配置">
-    <meta name="keywords"  content="技术, git">
+    <meta name="description" content="运行你的第一个Truffle-Dapp">
+    <meta name="keywords"  content="技术, Truffle, Node">
     <!-- Open Graph -->
-    <meta property="og:title" content="git代理配置 - Alice Blog">
+    <meta property="og:title" content="运行你的第一个Truffle-Dapp - Alice Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2018/08/02/git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html">
+    <meta property="og:url" content="http://localhost:4000/2018/08/02/%E8%BF%90%E8%A1%8C%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AATruffle-Dapp.html">
     <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="Alice Blog">
     <link rel="icon" type="image/x-icon" href="/assets/icons/logo_default.svg">
@@ -109,44 +109,62 @@ Author: Ray-Eldath
 </header>
 
 
-  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
     <div class="post-wrapper">
       <div class="post-tags">
         
           
             <a href="http://localhost:4000/tags#%E6%8A%80%E6%9C%AF" class="post-tag">技术</a>
           
-            <a href="http://localhost:4000/tags#git" class="post-tag">git</a>
+            <a href="http://localhost:4000/tags#Truffle" class="post-tag">Truffle</a>
+          
+            <a href="http://localhost:4000/tags#Node" class="post-tag">Node</a>
           
         
       </div>
-      <h1>git代理配置</h1>
+      <h1>运行你的第一个Truffle-Dapp</h1>
       <div class="post-meta">
         <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
         <time class="post-meta-item" datetime="18-08-02"><i class="iconfont icon-date"></i>2018-08-02</time>
       </div>
     </div>
     
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('http://blog.witdor.com/cover/blog_20181019_1.jpg') center no-repeat; background-size: cover;"></div>
+    
   </header>
 
   <div class="post-content visible">
     
-    <h2 class="post-subtitle">解决git push卡顿问题</h2>
+    <h2 class="post-subtitle">开发DAPP需要用到一些工具，这些工具会帮助我们更好的开发出自己想要的DAPP。</h2>
     
 
     <article class="markdown-body">
-      <h2 id="问题描述">问题描述</h2>
-<p>用git push到远程repository的时候一直卡着</p>
+      <h3 id="操作系统macos">操作系统：macOS</h3>
 
-<h2 id="运行环境">运行环境</h2>
-<p>MAC</p>
-
-<p>##解决办法
-配置git代理</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> http.proxy<span class="o">=</span>socks5://127.0.0.1:1080
+<h3 id="安装nodejs">安装node.js</h3>
+<p>安装node后查看node版本号，打开终端，输入命令：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node <span class="nt">-v</span> 
 </code></pre></div></div>
-<p>查看一下git的配置</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span>  <span class="nt">--list</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nt">-v</span>
+</code></pre></div></div>
+<h3 id="安装-truffle">安装 Truffle</h3>
+<p>Truffle是针对基于以太坊的Solidity语言的一套开发框架。本身基于Javascript。</p>
+
+<ul>
+  <li>官方文档：http://truffleframework.com/docs/</li>
+</ul>
+
+<p>安装命令：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>npm <span class="nb">install</span> <span class="nt">-g</span> truffle
+</code></pre></div></div>
+
+<h3 id="创建一个项目">创建一个项目</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>dapp
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>dapp
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>truffle unbox webpack
 </code></pre></div></div>
 
     </article>
@@ -206,18 +224,30 @@ Author: Ray-Eldath
     <section class="post-footer-item read-next">
       
       <div class="read-next-item">
-        <a href="/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html" class="read-next-link"></a>
+        <a href="/2018/08/03/express%E5%85%A5%E9%97%A8.html" class="read-next-link"></a>
         <section>
-          <span>jekyll搭建博客并部署在netlify(MAC)</span>
-          <p>jekyll是什么</p>
+          <span>express入门(MAC)</span>
+          <p>何为ExpressExpress 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架，它提供一系...</p>
         </section>
         
         <div class="filter"></div>
-        <img src="http://blog.witdor.com/cover/blog_1.jpg" alt="">
+        <img src="http://blog.witdor.com/cover/blog_2.jpg" alt="">
         
      </div>
       
 
+      
+      <div class="read-next-item">
+        <a href="/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html" class="read-next-link"></a>
+          <section>
+            <span>jekyll搭建博客并部署在netlify(MAC)</span>
+            <p>jekyll是什么</p>
+          </section>
+          
+          <div class="filter"></div>
+          <img src="http://blog.witdor.com/cover/blog_1.jpg" alt="">
+          
+      </div>
       
     </section>
     <section class="post-footer-item comment">
