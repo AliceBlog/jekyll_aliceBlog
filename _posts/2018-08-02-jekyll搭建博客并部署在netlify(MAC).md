@@ -4,7 +4,7 @@ title: 'jekyll搭建博客并部署在netlify(MAC)'
 subtitle: '快速搭建一个属于自己的博客，并且不需要数据库的存储和服务器的要求'
 date: 2018-08-02
 categories: 技术
-cover: 'http://blog.res.witdor.com/cover/blog_1.jpg'
+# cover: 'http://blog.res.witdor.com/cover/blog_1.jpg'
 tags: 技术 jekyll 博客
 ---
 ### jekyll是什么

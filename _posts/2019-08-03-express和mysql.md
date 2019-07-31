@@ -4,7 +4,7 @@ title: 'express集成mysql'
 subtitle: '将数据库的数据进行读写'
 date: 2018-08-03
 categories: 技术
-cover: 'http://blog.res.witdor.com/cover/blog_4.jpg'
+# cover: 'http://blog.res.witdor.com/cover/blog_4.jpg'
 tags: 技术 express mysql
 ---
 ## 介绍mysql

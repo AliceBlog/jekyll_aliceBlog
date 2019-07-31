@@ -86,6 +86,11 @@ Author: Ray-Eldath
     })
 </script>
     <style>
+            @media screen and (max-width: 695px){
+                .pan,.pancake__wrapper,.footerBj,.g-footer{
+                    display: none;
+                }
+            }
             .footerBj {
                 width:100%;
                 position: absolute;
@@ -177,11 +182,6 @@ Author: Ray-Eldath
               @keyframes ball {
                 to {transform: translateY(20%);}
               }
-              @media screen and (max-width: 695px){
-                .pan,.pancake__wrapper,.footerBj,.g-footer{
-                    display: none;
-                }
-            }
     </style>
 </head>
 
@@ -207,7 +207,7 @@ Author: Ray-Eldath
 </header>
 
 
-  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
     <div class="post-wrapper">
       <div class="post-tags">
         
@@ -226,9 +226,6 @@ Author: Ray-Eldath
         <time class="post-meta-item" datetime="18-08-03"><i class="iconfont icon-date"></i>2018-08-03</time>
       </div>
     </div>
-    
-    <div class="filter"></div>
-      <div class="post-cover" style="background: url('http://blog.res.witdor.com/cover/blog_4.jpg') center no-repeat; background-size: cover;"></div>
     
   </header>
 
@@ -327,9 +324,6 @@ Author: Ray-Eldath
           <p>ngx-scroll-event用于Angular2+监听滚动条的指令和事件</p>
         </section>
         
-        <div class="filter"></div>
-        <img src="http://blog.res.witdor.com/cover/2018-8-6blog.jpg" alt="">
-        
      </div>
       
 
@@ -340,9 +334,6 @@ Author: Ray-Eldath
             <span>express路由初探</span>
             <p>何为路由路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.MET...</p>
           </section>
-          
-          <div class="filter"></div>
-          <img src="http://blog.res.witdor.com/cover/blog_3.jpg" alt="">
           
       </div>
       

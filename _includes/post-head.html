@@ -25,6 +25,11 @@
 	{% endif %}
     {% include anchor.html %}
     <style>
+            @media screen and (max-width: 695px){
+                .pan,.pancake__wrapper,.footerBj,.g-footer{
+                    display: none;
+                }
+            }
             .footerBj {
                 width:100%;
                 position: absolute;
@@ -116,10 +121,5 @@
               @keyframes ball {
                 to {transform: translateY(20%);}
               }
-              @media screen and (max-width: 695px){
-                .pan,.pancake__wrapper,.footerBj,.g-footer{
-                    display: none;
-                }
-            }
     </style>
 </head>

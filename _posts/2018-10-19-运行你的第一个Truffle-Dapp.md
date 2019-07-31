@@ -4,7 +4,7 @@ title: '运行你的第一个Truffle-Dapp'
 subtitle: '开发DAPP需要用到一些工具，这些工具会帮助我们更好的开发出自己想要的DAPP。'
 date: 2018-08-02
 categories: 技术
-cover: 'http://blog.res.witdor.com/cover/blog_20181019_1.jpg'
+# cover: 'http://blog.res.witdor.com/cover/blog_20181019_1.jpg'
 tags: 技术 Truffle Node
 ---
 ### 操作系统：macOS

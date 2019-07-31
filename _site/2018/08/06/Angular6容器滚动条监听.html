@@ -86,6 +86,11 @@ Author: Ray-Eldath
     })
 </script>
     <style>
+            @media screen and (max-width: 695px){
+                .pan,.pancake__wrapper,.footerBj,.g-footer{
+                    display: none;
+                }
+            }
             .footerBj {
                 width:100%;
                 position: absolute;
@@ -177,11 +182,6 @@ Author: Ray-Eldath
               @keyframes ball {
                 to {transform: translateY(20%);}
               }
-              @media screen and (max-width: 695px){
-                .pan,.pancake__wrapper,.footerBj,.g-footer{
-                    display: none;
-                }
-            }
     </style>
 </head>
 
@@ -207,7 +207,7 @@ Author: Ray-Eldath
 </header>
 
 
-  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
     <div class="post-wrapper">
       <div class="post-tags">
         
@@ -224,9 +224,6 @@ Author: Ray-Eldath
         <time class="post-meta-item" datetime="18-08-06"><i class="iconfont icon-date"></i>2018-08-06</time>
       </div>
     </div>
-    
-    <div class="filter"></div>
-      <div class="post-cover" style="background: url('http://blog.res.witdor.com/cover/2018-8-6blog.jpg') center no-repeat; background-size: cover;"></div>
     
   </header>
 
@@ -371,9 +368,6 @@ Author: Ray-Eldath
             <span>express集成mysql</span>
             <p>介绍mysqlMySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下...</p>
           </section>
-          
-          <div class="filter"></div>
-          <img src="http://blog.res.witdor.com/cover/blog_4.jpg" alt="">
           
       </div>
       
