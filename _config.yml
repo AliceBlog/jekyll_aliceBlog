@@ -11,6 +11,7 @@ baseurl: ''
 nav:
   主页: '/'
   分类: '/tags.html'
+  关于我: '/aboutme.html'
 
 # Footer
 footer:
