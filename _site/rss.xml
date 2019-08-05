@@ -5,9 +5,204 @@
     <description>很高兴能在这里与你分享我对技术和生活的思考。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 01 Aug 2019 16:47:50 +0800</pubDate>
-    <lastBuildDate>Thu, 01 Aug 2019 16:47:50 +0800</lastBuildDate>
+    <pubDate>Fri, 02 Aug 2019 16:51:11 +0800</pubDate>
+    <lastBuildDate>Fri, 02 Aug 2019 16:51:11 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>搭建渗透测试的环境</title>
+        <description>&lt;h2 id=&quot;virtualbox安装&quot;&gt;VirtualBox安装&lt;/h2&gt;
+&lt;p&gt;安装环境：Mac OS&lt;/p&gt;
+
+&lt;p&gt;下载地址：https://www.virtualbox.org/wiki/Download_Old_Builds_5_2&lt;/p&gt;
+
+&lt;p&gt;下载完成后，一路下一步即可&lt;/p&gt;
+
+&lt;h2 id=&quot;kali-linux安装到virtualbox&quot;&gt;Kali Linux安装到VirtualBox&lt;/h2&gt;
+&lt;p&gt;安装环境：Mac OS&lt;/p&gt;
+
+&lt;p&gt;用途：对其他机器进行攻击
+下载地址：https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/
+&lt;img src=&quot;https://blog.res.witdor.com/article/downloadKali.png&quot; alt=&quot;&quot; /&gt;
+下载完成后双击打开后，直接点击import导入
+打开后默认的用户名是root，pwd是toor&lt;/p&gt;
+
+&lt;h2 id=&quot;metasploitable安装到virtualbox&quot;&gt;metasploitable安装到VirtualBox&lt;/h2&gt;
+&lt;p&gt;安装环境：Mac OS&lt;/p&gt;
+
+&lt;p&gt;metasploitable是一个易受攻击的Linux发行版，这个操作系统包含了许多漏洞，他是为测试人员设计的，去试图攻击它。&lt;/p&gt;
+
+&lt;p&gt;下载地址：https://information.rapid7.com/download-metasploitable-2017.html&lt;/p&gt;
+
+&lt;p&gt;下载完成是zip文件，解压后，在VirtualBox里面创建虚拟机，指向metasploitable。系统选择linux&lt;/p&gt;
+
+&lt;p&gt;启动后用户名和密码均为msfadmin&lt;/p&gt;
+
+&lt;p&gt;关机&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;poweroff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;windows安装&quot;&gt;windows安装&lt;/h2&gt;
+&lt;p&gt;安装环境：Mac OS&lt;/p&gt;
+
+&lt;p&gt;模拟一个普通的windows机器作为受害者（选择windows10 stable）
+下载地址：https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/&lt;/p&gt;
+</description>
+        <pubDate>Fri, 02 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/02/%E6%90%AD%E5%BB%BA%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8E%AF%E5%A2%83.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/02/%E6%90%AD%E5%BB%BA%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8E%AF%E5%A2%83.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        <category>环境搭建</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>关于DV、OV、EV SSL证书</title>
+        <description>&lt;h2 id=&quot;dv型和ov型证书的区别&quot;&gt;DV型和OV型证书的区别&lt;/h2&gt;
+
+&lt;p&gt;DV和OV型证书最大的差别是：DV型证书不包含企业名称信息；而OV型证书包含企业名称信息，以下是两者差别对比表：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;DV&lt;/th&gt;
+      &lt;th&gt;OV&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;包含企业名称信息&lt;/td&gt;
+      &lt;td&gt;否&lt;/td&gt;
+      &lt;td&gt;是&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;验证公司名称合法性&lt;/td&gt;
+      &lt;td&gt;否&lt;/td&gt;
+      &lt;td&gt;是&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过第三方查询电话验证&lt;/td&gt;
+      &lt;td&gt;否&lt;/td&gt;
+      &lt;td&gt;是&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;域名验证方式&lt;/td&gt;
+      &lt;td&gt;管理员邮箱批准&lt;/td&gt;
+      &lt;td&gt;查询whois信息是否一致&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;验证时间&lt;/td&gt;
+      &lt;td&gt;最快10分钟签发&lt;/td&gt;
+      &lt;td&gt;一般2-3天完成签发&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;证书可信度&lt;/td&gt;
+      &lt;td&gt;低&lt;/td&gt;
+      &lt;td&gt;较高&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;ov型和ev型证书的区别&quot;&gt;OV型和EV型证书的区别&lt;/h2&gt;
+
+&lt;p&gt;OV型和EV型证书，都包含了企业名称等信息，但EV证书因为其采用了更加严格的认证标准，浏览器对EV证书更加“信任”，当浏览器访问到EV证书时，可以在地址栏显示出公司名称，并将地址栏变成绿色。
+&lt;img src=&quot;https://blog.res.witdor.com/article/aboutssl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;如何挑选适合我的证书类型&quot;&gt;如何挑选适合我的证书类型&lt;/h2&gt;
+&lt;h3 id=&quot;dv型证书&quot;&gt;DV型证书&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;仅需要通过在线加密实现数据安全&lt;/li&gt;
+  &lt;li&gt;主要用于电子邮件、IM，CDN加速等&lt;/li&gt;
+  &lt;li&gt;用户内部的OA，CRM，VPN系统&lt;/li&gt;
+  &lt;li&gt;还是一个初创公司，业务刚刚起步。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ov型证书&quot;&gt;OV型证书&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;面向公众提供服务&lt;/li&gt;
+  &lt;li&gt;有用户账户登录，在线应用等&lt;/li&gt;
+  &lt;li&gt;有多个应用需求，多个域名需要部署&lt;/li&gt;
+  &lt;li&gt;公司已经拥有一定的规模&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ev型证书&quot;&gt;EV型证书&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;需要实现在线交易，在线支付功能&lt;/li&gt;
+  &lt;li&gt;有高价值的数据保密需求&lt;/li&gt;
+  &lt;li&gt;需要防止可能遇到的钓鱼网站攻击&lt;/li&gt;
+  &lt;li&gt;属于大型企业或者金融机构&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;三种证书的申请区别&quot;&gt;三种证书的申请区别&lt;/h2&gt;
+&lt;p&gt;一.域名型SSL证书（DVSSL）：&lt;/p&gt;
+
+&lt;p&gt;在线申请地址：https://ssl.22.cn&lt;/p&gt;
+
+&lt;p&gt;　　这种证书属于最初级的证书，仅仅需要验证一下域名管理权限便可申请（这个很好理解，只有拥有对某域名的管理权限才能为该域名申请证书）。&lt;/p&gt;
+
+&lt;p&gt;验证方式：&lt;/p&gt;
+
+&lt;p&gt;　　每一个域名在注册的时候均填写了一个管理员邮箱，这个邮箱通常情况下是可以公开查询到的（除非您设置了whois 信息保护），我们在验证您是否对域名拥有管理权限的时候会向这个管理员邮箱发一封邮件，您需要登陆该邮箱点击确认连接完成验证。&lt;/p&gt;
+
+&lt;p&gt;但偶尔会有这几种情况：&lt;/p&gt;
+
+&lt;p&gt;1、whois信息设置了隐私保护，我们无法读取该域名的管理员邮箱，则需要您暂停隐私保护，直至完成证书颁发；&lt;/p&gt;
+
+&lt;p&gt;2、whois信息木有设置隐私保护，但whois信息中查询到的管理员邮箱无法登陆或者不方便登陆，则您可以在管理域名的地方将邮箱修改为您可以登录的邮箱，我们向新的邮箱发送验证邮件；&lt;/p&gt;
+
+&lt;p&gt;3、whois信息中的邮箱无法登陆，而且也不能去修改这个邮箱，则您需要提供前缀为admin、administrator、postmaster、webmaster 的邮箱来完成管理权限的验证；&lt;/p&gt;
+
+&lt;p&gt;4、当以上方式您都无法满足时，请和我们联系寻找其他的验证方式。例如我们还可以提供CNAME 解析、验证文本等方式来实现域名管理权限的验证。&lt;/p&gt;
+
+&lt;p&gt;二.企业型SSL证书（OVSSL）：&lt;/p&gt;
+
+&lt;p&gt;在线申请地址：https://ssl.22.cn&lt;/p&gt;
+
+&lt;p&gt;　　这类证书需要验证企业的真实性和域名的管理权限。&lt;/p&gt;
+
+&lt;p&gt;域名管理权限验证方式：&lt;/p&gt;
+
+&lt;p&gt;1、如果域名注册信息（whois信息）中，域名所有者的名称和您申请证书时公司名称一致，通常无需做任何操作；&lt;/p&gt;
+
+&lt;p&gt;2、如果您申请证书的域名所有者信息并不是您申请证书的公司名称时则您需要用以上域名型SSL证书中邮件验证的方式来验证您的域名管理权限。&lt;/p&gt;
+
+&lt;p&gt;企业真实性验证方式：&lt;/p&gt;
+
+&lt;p&gt;1、在工商网站上可以查询到贵公司的注册信息；&lt;/p&gt;
+
+&lt;p&gt;2、在电话平台114上，或者其他平台，例如邓白氏、百度地图等可以查询到贵公司登记的电话，并且这个电话申请证书的工作人员能够接听到；&lt;/p&gt;
+
+&lt;p&gt;3、如果以上第2项不能满足，则需要律师出具一份律师证明文件证明公司信息的真实性；&lt;/p&gt;
+
+&lt;p&gt;三。增强型SSL证书（EVSSL）&lt;/p&gt;
+
+&lt;p&gt;申请地址：https://ssl.22.cn&lt;/p&gt;
+
+&lt;p&gt;　　需要验证域名管理权限和企业真实性（这两项验证方式同以上企业型SSL证书的验证方式一样）&lt;/p&gt;
+
+&lt;p&gt;　　另外，申请增强型SSL证书的企业需要提供银行的开户许可证商的开户行名称。&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 02 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/02/%E5%85%B3%E4%BA%8EDV-OV-EV-SSL%E8%AF%81%E4%B9%A6.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/02/%E5%85%B3%E4%BA%8EDV-OV-EV-SSL%E8%AF%81%E4%B9%A6.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>SSL</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
     
       <item>
         <title>Angular6容器滚动条监听</title>
