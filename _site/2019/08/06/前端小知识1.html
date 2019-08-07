@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于DV、OV、EV SSL证书 - Alice Blog</title>
+    <title>前端小知识1 - Alice Blog</title>
     <meta name="author"  content="Alice">
-    <meta name="description" content="关于DV、OV、EV SSL证书">
-    <meta name="keywords"  content="网络安全, SSL">
+    <meta name="description" content="前端小知识1">
+    <meta name="keywords"  content="web前端">
     <!-- Open Graph -->
-    <meta property="og:title" content="关于DV、OV、EV SSL证书 - Alice Blog">
+    <meta property="og:title" content="前端小知识1 - Alice Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2019/08/02/%E5%85%B3%E4%BA%8EDV-OV-EV-SSL%E8%AF%81%E4%B9%A6.html">
+    <meta property="og:url" content="http://localhost:4000/2019/08/06/%E5%89%8D%E7%AB%AF%E5%B0%8F%E7%9F%A5%E8%AF%861.html">
     <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="Alice Blog">
     <link rel="icon" type="image/x-icon" href="/assets/icons/logo_default.svg">
@@ -219,16 +219,14 @@ Author: Ray-Eldath
       <div class="post-tags">
         
           
-            <a href="http://localhost:4000/tags#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="post-tag">网络安全</a>
-          
-            <a href="http://localhost:4000/tags#SSL" class="post-tag">SSL</a>
+            <a href="http://localhost:4000/tags#web%E5%89%8D%E7%AB%AF" class="post-tag">web前端</a>
           
         
       </div>
-      <h1>关于DV、OV、EV SSL证书</h1>
+      <h1>前端小知识1</h1>
       <div class="post-meta">
         <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
-        <time class="post-meta-item" datetime="19-08-02"><i class="iconfont icon-date"></i>2019-08-02</time>
+        <time class="post-meta-item" datetime="19-08-06"><i class="iconfont icon-date"></i>2019-08-06</time>
       </div>
     </div>
     
@@ -236,135 +234,98 @@ Author: Ray-Eldath
 
   <div class="post-content visible">
     
-    <h2 class="post-subtitle">SSL证书的介绍和选择</h2>
+    <h2 class="post-subtitle">前端小知识1</h2>
     
 
     <article class="markdown-body">
-      <h2 id="dv型和ov型证书的区别">DV型和OV型证书的区别</h2>
-
-<p>DV和OV型证书最大的差别是：DV型证书不包含企业名称信息；而OV型证书包含企业名称信息，以下是两者差别对比表：</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>DV</th>
-      <th>OV</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>包含企业名称信息</td>
-      <td>否</td>
-      <td>是</td>
-    </tr>
-    <tr>
-      <td>验证公司名称合法性</td>
-      <td>否</td>
-      <td>是</td>
-    </tr>
-    <tr>
-      <td>通过第三方查询电话验证</td>
-      <td>否</td>
-      <td>是</td>
-    </tr>
-    <tr>
-      <td>域名验证方式</td>
-      <td>管理员邮箱批准</td>
-      <td>查询whois信息是否一致</td>
-    </tr>
-    <tr>
-      <td>验证时间</td>
-      <td>最快10分钟签发</td>
-      <td>一般2-3天完成签发</td>
-    </tr>
-    <tr>
-      <td>证书可信度</td>
-      <td>低</td>
-      <td>较高</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="ov型和ev型证书的区别">OV型和EV型证书的区别</h2>
-
-<p>OV型和EV型证书，都包含了企业名称等信息，但EV证书因为其采用了更加严格的认证标准，浏览器对EV证书更加“信任”，当浏览器访问到EV证书时，可以在地址栏显示出公司名称，并将地址栏变成绿色。
-<img src="https://blog.res.witdor.com/article/aboutssl.png" alt="" /></p>
-
-<h2 id="如何挑选适合我的证书类型">如何挑选适合我的证书类型</h2>
-<h3 id="dv型证书">DV型证书</h3>
+      <h2 id="谈谈性能优化问题">谈谈性能优化问题</h2>
+<p>代码层面：</p>
 <ul>
-  <li>仅需要通过在线加密实现数据安全</li>
-  <li>主要用于电子邮件、IM，CDN加速等</li>
-  <li>用户内部的OA，CRM，VPN系统</li>
-  <li>还是一个初创公司，业务刚刚起步。</li>
+  <li>1、避免使用css表达式，避免使用高级选择器。通配选择器。</li>
+  <li>2、缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加expries头，服务端配置Etag，减少DNS查找等</li>
+  <li>3、请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</li>
+  <li>4、请求宽带：压缩文件，开启gzip</li>
 </ul>
 
-<h3 id="ov型证书">OV型证书</h3>
+<h2 id="es6的了解">ES6的了解</h2>
 <ul>
-  <li>面向公众提供服务</li>
-  <li>有用户账户登录，在线应用等</li>
-  <li>有多个应用需求，多个域名需要部署</li>
-  <li>公司已经拥有一定的规模</li>
+  <li>新增模板字符串（为js提供了简单的字符串插值功能）</li>
+  <li>箭头函数（操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&gt;outputs）</li>
+  <li>for-of(用来遍历数据，比如数组中的值)</li>
+  <li>arguments对象可被不定参数和默认参数完美替代</li>
+  <li>将promise对象纳入规范，提供了原生的promise对象</li>
+  <li>增加了let和const命令，用来声明变量</li>
+  <li>增加了块级作用域</li>
+  <li>引入module模块的概念</li>
 </ul>
 
-<h3 id="ev型证书">EV型证书</h3>
+<h2 id="两次请求三次握手访问网站的流程">两次请求三次握手（访问网站的流程）</h2>
 <ul>
-  <li>需要实现在线交易，在线支付功能</li>
-  <li>有高价值的数据保密需求</li>
-  <li>需要防止可能遇到的钓鱼网站攻击</li>
-  <li>属于大型企业或者金融机构</li>
+  <li>1、在浏览器中输入url</li>
+  <li>2、应用层DNS解析域名</li>
+  <li>3、应用层客户端发送HTTP请求</li>
+  <li>4、传输层TCP传输报文</li>
+  <li>5、网络层IP协议查询MAC地址</li>
+  <li>6、数据到达数据链路层</li>
+  <li>7、服务器接受数据</li>
+  <li>8、服务器响应请求</li>
+  <li>9、服务器返回相应文件</li>
 </ul>
 
-<h2 id="三种证书的申请区别">三种证书的申请区别</h2>
-<p>一.域名型SSL证书（DVSSL）：</p>
+<h2 id="webpack的看法">webpack的看法</h2>
+<p>WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包 Web 开发中所用到的 HTML、JavaScript、CSS 以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源， webpack 有对应的模块加载器。 webpack 模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源。</p>
 
-<p>在线申请地址：https://ssl.22.cn</p>
+<h2 id="xml和json的区别">XML和JSON的区别</h2>
+<ul>
+  <li>json比xml的数据体积小</li>
+  <li>json与js的交互更加方便，更容易解析处理</li>
+  <li>json对数据的表述没有XML好</li>
+  <li>json的速度要远远快于XML</li>
+</ul>
 
-<p>　　这种证书属于最初级的证书，仅仅需要验证一下域名管理权限便可申请（这个很好理解，只有拥有对某域名的管理权限才能为该域名申请证书）。</p>
+<h2 id="作用域链">作用域链</h2>
+<p>作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。</p>
 
-<p>验证方式：</p>
+<h2 id="常见web安全及防护原理">常见web安全及防护原理</h2>
+<h3 id="sql注入原理">sql注入原理</h3>
+<p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
 
-<p>　　每一个域名在注册的时候均填写了一个管理员邮箱，这个邮箱通常情况下是可以公开查询到的（除非您设置了whois 信息保护），我们在验证您是否对域名拥有管理权限的时候会向这个管理员邮箱发一封邮件，您需要登陆该邮箱点击确认连接完成验证。</p>
+<p>总的来说有以下几点：</p>
 
-<p>但偶尔会有这几种情况：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双"-"进行转换等。
 
-<p>1、whois信息设置了隐私保护，我们无法读取该域名的管理员邮箱，则需要您暂停隐私保护，直至完成证书颁发；</p>
+2.永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。
 
-<p>2、whois信息木有设置隐私保护，但whois信息中查询到的管理员邮箱无法登陆或者不方便登陆，则您可以在管理域名的地方将邮箱修改为您可以登录的邮箱，我们向新的邮箱发送验证邮件；</p>
+3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
 
-<p>3、whois信息中的邮箱无法登陆，而且也不能去修改这个邮箱，则您需要提供前缀为admin、administrator、postmaster、webmaster 的邮箱来完成管理权限的验证；</p>
+4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
+</code></pre></div></div>
 
-<p>4、当以上方式您都无法满足时，请和我们联系寻找其他的验证方式。例如我们还可以提供CNAME 解析、验证文本等方式来实现域名管理权限的验证。</p>
+<h3 id="xss原理及防范">XSS原理及防范</h3>
+<p>Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 html标签或者javascript代码。比如：攻击者在论坛中放一个</p>
 
-<p>二.企业型SSL证书（OVSSL）：</p>
+<p>看似安全的链接，骗取用户点击后，窃取cookie中的用户私密信息；或者攻击者在论坛中加一个恶意表单，</p>
 
-<p>在线申请地址：https://ssl.22.cn</p>
+<p>当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。</p>
+<h3 id="xss防范方法">XSS防范方法</h3>
 
-<p>　　这类证书需要验证企业的真实性和域名的管理权限。</p>
+<p>首先代码里对用户输入的地方和变量都需要仔细检查长度和对”&lt;”,”&gt;”,”;”,”’”等字符做过滤；其次任何内容写到页面之前都必须加以encode，避免不小心把html tag 弄出来。这一个层面做好，至少可以堵住超过一半的XSS 攻击。</p>
 
-<p>域名管理权限验证方式：</p>
+<p>首先，避免直接在cookie 中泄露用户隐私，例如email、密码等等。</p>
 
-<p>1、如果域名注册信息（whois信息）中，域名所有者的名称和您申请证书时公司名称一致，通常无需做任何操作；</p>
+<p>其次，通过使cookie 和系统ip 绑定来降低cookie 泄露后的危险。这样攻击者得到的cookie 没有实际价值，不可能拿来重放。</p>
 
-<p>2、如果您申请证书的域名所有者信息并不是您申请证书的公司名称时则您需要用以上域名型SSL证书中邮件验证的方式来验证您的域名管理权限。</p>
+<p>如果网站不需要再浏览器端对cookie 进行操作，可以在Set-Cookie 末尾加上HttpOnly 来防止javascript 代码直接获取cookie 。</p>
 
-<p>企业真实性验证方式：</p>
+<p>尽量采用POST 而非GET 提交表单</p>
+<h3 id="http和https">HTTP和HTTPS</h3>
+<p>HTTP协议通常承载于TCP协议之上，在HTTP和TCP之间添加一个安全协议层（SSL或TSL），这个时候，就成了我们常说的HTTPS。</p>
 
-<p>1、在工商网站上可以查询到贵公司的注册信息；</p>
+<p>默认HTTP的端口号为80，HTTPS的端口号为443。</p>
 
-<p>2、在电话平台114上，或者其他平台，例如邓白氏、百度地图等可以查询到贵公司登记的电话，并且这个电话申请证书的工作人员能够接听到；</p>
+<p>为什么HTTPS安全</p>
 
-<p>3、如果以上第2项不能满足，则需要律师出具一份律师证明文件证明公司信息的真实性；</p>
-
-<p>三。增强型SSL证书（EVSSL）</p>
-
-<p>申请地址：https://ssl.22.cn</p>
-
-<p>　　需要验证域名管理权限和企业真实性（这两项验证方式同以上企业型SSL证书的验证方式一样）</p>
-
-<p>　　另外，申请增强型SSL证书的企业需要提供银行的开户许可证商的开户行名称。</p>
-
+<p>因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用HTTPS，密钥在你和终点站才有。https之所以比http安全，是因为他利用ssl/tls协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性</p>
 
     </article>
 
@@ -423,10 +384,10 @@ Author: Ray-Eldath
     <section class="post-footer-item read-next">
       
       <div class="read-next-item">
-        <a href="/2019/08/02/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83.html" class="read-next-link"></a>
+        <a href="/2019/08/07/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%BC%8F%E6%B4%9E%E5%8F%91%E6%8E%98.html" class="read-next-link"></a>
         <section>
-          <span>web渗透测试——搭建环境</span>
-          <p>VirtualBox安装安装环境：Mac OS</p>
+          <span>web渗透测试——漏洞发掘</span>
+          <p>文件上传漏洞  是一种简单的漏洞类型  允许用户上传可执行文件，如php</p>
         </section>
         
      </div>
@@ -434,10 +395,10 @@ Author: Ray-Eldath
 
       
       <div class="read-next-item">
-        <a href="/2018/08/06/Angular6%E5%AE%B9%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9B%91%E5%90%AC.html" class="read-next-link"></a>
+        <a href="/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E9%85%8D%E7%BD%AEMetasploitable%E5%8F%8A%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE.html" class="read-next-link"></a>
           <section>
-            <span>Angular6容器滚动条监听</span>
-            <p>ngx-scroll-event用于Angular2+监听滚动条的指令和事件</p>
+            <span>web渗透测试——配置Metasploitable及环境的网络设置</span>
+            <p>VirtualBox网络设置添加一个网络选中VirtualBox =&gt; 偏好设置将所有的虚拟机每个都设置到添...</p>
           </section>
           
       </div>

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搭建渗透测试的环境 - Alice Blog</title>
+    <title>web渗透测试——漏洞发掘 - Alice Blog</title>
     <meta name="author"  content="Alice">
-    <meta name="description" content="搭建渗透测试的环境">
-    <meta name="keywords"  content="网络安全, 渗透测试, 环境搭建">
+    <meta name="description" content="web渗透测试——漏洞发掘">
+    <meta name="keywords"  content="网络安全, 渗透测试">
     <!-- Open Graph -->
-    <meta property="og:title" content="搭建渗透测试的环境 - Alice Blog">
+    <meta property="og:title" content="web渗透测试——漏洞发掘 - Alice Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2019/08/02/%E6%90%AD%E5%BB%BA%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8E%AF%E5%A2%83.html">
+    <meta property="og:url" content="http://localhost:4000/2019/08/07/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%BC%8F%E6%B4%9E%E5%8F%91%E6%8E%98.html">
     <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="Alice Blog">
     <link rel="icon" type="image/x-icon" href="/assets/icons/logo_default.svg">
@@ -223,14 +223,12 @@ Author: Ray-Eldath
           
             <a href="http://localhost:4000/tags#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95" class="post-tag">渗透测试</a>
           
-            <a href="http://localhost:4000/tags#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="post-tag">环境搭建</a>
-          
         
       </div>
-      <h1>搭建渗透测试的环境</h1>
+      <h1>web渗透测试——漏洞发掘</h1>
       <div class="post-meta">
         <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
-        <time class="post-meta-item" datetime="19-08-02"><i class="iconfont icon-date"></i>2019-08-02</time>
+        <time class="post-meta-item" datetime="19-08-07"><i class="iconfont icon-date"></i>2019-08-07</time>
       </div>
     </div>
     
@@ -238,46 +236,39 @@ Author: Ray-Eldath
 
   <div class="post-content visible">
     
-    <h2 class="post-subtitle">VirtualBox安装以及Kali Linux、Metasploitable、Windows安装到VirtualBox</h2>
+    <h2 class="post-subtitle">漏洞发掘</h2>
     
 
     <article class="markdown-body">
-      <h2 id="virtualbox安装">VirtualBox安装</h2>
-<p>安装环境：Mac OS</p>
+      <h2 id="文件上传漏洞">文件上传漏洞</h2>
+<ul>
+  <li>是一种简单的漏洞类型</li>
+  <li>允许用户上传可执行文件，如php</li>
+</ul>
 
-<p>下载地址：https://www.virtualbox.org/wiki/Download_Old_Builds_5_2</p>
+<p>上传一个php shell或者backdoor，例如weevely。(生成php脚本)
+1、生成backdoor</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>weevely generate <span class="o">[</span>password] <span class="o">[</span>file name]
+</code></pre></div></div>
+<ul>
+  <li>password是我们用的，自定义</li>
+  <li>file name是自定义路径</li>
+</ul>
 
-<p>下载完成后，一路下一步即可</p>
+<p>2、上传生成的文件</p>
 
-<h2 id="kali-linux安装到virtualbox">Kali Linux安装到VirtualBox</h2>
-<p>安装环境：Mac OS</p>
+<p>3、链接</p>
 
-<p>用途：对其他机器进行攻击
-下载地址：https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/
-<img src="https://blog.res.witdor.com/article/downloadKali.png" alt="" />
-下载完成后双击打开后，直接点击import导入
-打开后默认的用户名是root，pwd是toor</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>weevely <span class="o">[</span>url to file] <span class="o">[</span>password]
+</code></pre></div></div>
+<p>连接到脚本后，输入的脚本命令都可以执行，比如：pwd等，自己脑补</p>
 
-<h2 id="metasploitable安装到virtualbox">metasploitable安装到VirtualBox</h2>
-<p>安装环境：Mac OS</p>
-
-<p>metasploitable是一个易受攻击的Linux发行版，这个操作系统包含了许多漏洞，他是为测试人员设计的，去试图攻击它。</p>
-
-<p>下载地址：https://information.rapid7.com/download-metasploitable-2017.html</p>
-
-<p>下载完成是zip文件，解压后，在VirtualBox里面创建虚拟机，指向metasploitable。系统选择linux</p>
-
-<p>启动后用户名和密码均为msfadmin</p>
-
-<p>关机</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poweroff
+<p>4、使用
+连接后可以直接输入help查看可以进行哪些操作</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">help</span>
 </code></pre></div></div>
 
-<h2 id="windows安装">windows安装</h2>
-<p>安装环境：Mac OS</p>
-
-<p>模拟一个普通的windows机器作为受害者（选择windows10 stable）
-下载地址：https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/</p>
+<h2 id="http请求">HTTP请求</h2>
 
     </article>
 
@@ -338,10 +329,10 @@ Author: Ray-Eldath
 
       
       <div class="read-next-item">
-        <a href="/2019/08/02/%E5%85%B3%E4%BA%8EDV-OV-EV-SSL%E8%AF%81%E4%B9%A6.html" class="read-next-link"></a>
+        <a href="/2019/08/06/%E5%89%8D%E7%AB%AF%E5%B0%8F%E7%9F%A5%E8%AF%861.html" class="read-next-link"></a>
           <section>
-            <span>关于DV、OV、EV SSL证书</span>
-            <p>DV型和OV型证书的区别</p>
+            <span>前端小知识1</span>
+            <p>谈谈性能优化问题代码层面：  1、避免使用css表达式，避免使用高级选择器。通配选择器。  2、缓存利用：缓存Aj...</p>
           </section>
           
       </div>

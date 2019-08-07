@@ -5,12 +5,488 @@
     <description>很高兴能在这里与你分享我对技术和生活的思考。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 02 Aug 2019 16:51:11 +0800</pubDate>
-    <lastBuildDate>Fri, 02 Aug 2019 16:51:11 +0800</lastBuildDate>
+    <pubDate>Wed, 07 Aug 2019 16:41:35 +0800</pubDate>
+    <lastBuildDate>Wed, 07 Aug 2019 16:41:35 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
-        <title>搭建渗透测试的环境</title>
+        <title>web渗透测试——漏洞发掘</title>
+        <description>&lt;h2 id=&quot;文件上传漏洞&quot;&gt;文件上传漏洞&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;是一种简单的漏洞类型&lt;/li&gt;
+  &lt;li&gt;允许用户上传可执行文件，如php&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上传一个php shell或者backdoor，例如weevely。(生成php脚本)
+1、生成backdoor&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;weevely generate &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;password] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;file name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;password是我们用的，自定义&lt;/li&gt;
+  &lt;li&gt;file name是自定义路径&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2、上传生成的文件&lt;/p&gt;
+
+&lt;p&gt;3、链接&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;weevely &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;url to file] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;password]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;连接到脚本后，输入的脚本命令都可以执行，比如：pwd等，自己脑补&lt;/p&gt;
+
+&lt;p&gt;4、使用
+连接后可以直接输入help查看可以进行哪些操作&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;http请求&quot;&gt;HTTP请求&lt;/h2&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/07/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%BC%8F%E6%B4%9E%E5%8F%91%E6%8E%98.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/07/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%BC%8F%E6%B4%9E%E5%8F%91%E6%8E%98.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>前端小知识1</title>
+        <description>&lt;h2 id=&quot;谈谈性能优化问题&quot;&gt;谈谈性能优化问题&lt;/h2&gt;
+&lt;p&gt;代码层面：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、避免使用css表达式，避免使用高级选择器。通配选择器。&lt;/li&gt;
+  &lt;li&gt;2、缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加expries头，服务端配置Etag，减少DNS查找等&lt;/li&gt;
+  &lt;li&gt;3、请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。&lt;/li&gt;
+  &lt;li&gt;4、请求宽带：压缩文件，开启gzip&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;es6的了解&quot;&gt;ES6的了解&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;新增模板字符串（为js提供了简单的字符串插值功能）&lt;/li&gt;
+  &lt;li&gt;箭头函数（操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&amp;gt;outputs）&lt;/li&gt;
+  &lt;li&gt;for-of(用来遍历数据，比如数组中的值)&lt;/li&gt;
+  &lt;li&gt;arguments对象可被不定参数和默认参数完美替代&lt;/li&gt;
+  &lt;li&gt;将promise对象纳入规范，提供了原生的promise对象&lt;/li&gt;
+  &lt;li&gt;增加了let和const命令，用来声明变量&lt;/li&gt;
+  &lt;li&gt;增加了块级作用域&lt;/li&gt;
+  &lt;li&gt;引入module模块的概念&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;两次请求三次握手访问网站的流程&quot;&gt;两次请求三次握手（访问网站的流程）&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、在浏览器中输入url&lt;/li&gt;
+  &lt;li&gt;2、应用层DNS解析域名&lt;/li&gt;
+  &lt;li&gt;3、应用层客户端发送HTTP请求&lt;/li&gt;
+  &lt;li&gt;4、传输层TCP传输报文&lt;/li&gt;
+  &lt;li&gt;5、网络层IP协议查询MAC地址&lt;/li&gt;
+  &lt;li&gt;6、数据到达数据链路层&lt;/li&gt;
+  &lt;li&gt;7、服务器接受数据&lt;/li&gt;
+  &lt;li&gt;8、服务器响应请求&lt;/li&gt;
+  &lt;li&gt;9、服务器返回相应文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;webpack的看法&quot;&gt;webpack的看法&lt;/h2&gt;
+&lt;p&gt;WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包 Web 开发中所用到的 HTML、JavaScript、CSS 以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源， webpack 有对应的模块加载器。 webpack 模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源。&lt;/p&gt;
+
+&lt;h2 id=&quot;xml和json的区别&quot;&gt;XML和JSON的区别&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;json比xml的数据体积小&lt;/li&gt;
+  &lt;li&gt;json与js的交互更加方便，更容易解析处理&lt;/li&gt;
+  &lt;li&gt;json对数据的表述没有XML好&lt;/li&gt;
+  &lt;li&gt;json的速度要远远快于XML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;作用域链&quot;&gt;作用域链&lt;/h2&gt;
+&lt;p&gt;作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。&lt;/p&gt;
+
+&lt;h2 id=&quot;常见web安全及防护原理&quot;&gt;常见web安全及防护原理&lt;/h2&gt;
+&lt;h3 id=&quot;sql注入原理&quot;&gt;sql注入原理&lt;/h3&gt;
+&lt;p&gt;就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。&lt;/p&gt;
+
+&lt;p&gt;总的来说有以下几点：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双&quot;-&quot;进行转换等。
+
+2.永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。
+
+3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
+
+4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;xss原理及防范&quot;&gt;XSS原理及防范&lt;/h3&gt;
+&lt;p&gt;Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 html标签或者javascript代码。比如：攻击者在论坛中放一个&lt;/p&gt;
+
+&lt;p&gt;看似安全的链接，骗取用户点击后，窃取cookie中的用户私密信息；或者攻击者在论坛中加一个恶意表单，&lt;/p&gt;
+
+&lt;p&gt;当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。&lt;/p&gt;
+&lt;h3 id=&quot;xss防范方法&quot;&gt;XSS防范方法&lt;/h3&gt;
+
+&lt;p&gt;首先代码里对用户输入的地方和变量都需要仔细检查长度和对”&amp;lt;”,”&amp;gt;”,”;”,”’”等字符做过滤；其次任何内容写到页面之前都必须加以encode，避免不小心把html tag 弄出来。这一个层面做好，至少可以堵住超过一半的XSS 攻击。&lt;/p&gt;
+
+&lt;p&gt;首先，避免直接在cookie 中泄露用户隐私，例如email、密码等等。&lt;/p&gt;
+
+&lt;p&gt;其次，通过使cookie 和系统ip 绑定来降低cookie 泄露后的危险。这样攻击者得到的cookie 没有实际价值，不可能拿来重放。&lt;/p&gt;
+
+&lt;p&gt;如果网站不需要再浏览器端对cookie 进行操作，可以在Set-Cookie 末尾加上HttpOnly 来防止javascript 代码直接获取cookie 。&lt;/p&gt;
+
+&lt;p&gt;尽量采用POST 而非GET 提交表单&lt;/p&gt;
+&lt;h3 id=&quot;http和https&quot;&gt;HTTP和HTTPS&lt;/h3&gt;
+&lt;p&gt;HTTP协议通常承载于TCP协议之上，在HTTP和TCP之间添加一个安全协议层（SSL或TSL），这个时候，就成了我们常说的HTTPS。&lt;/p&gt;
+
+&lt;p&gt;默认HTTP的端口号为80，HTTPS的端口号为443。&lt;/p&gt;
+
+&lt;p&gt;为什么HTTPS安全&lt;/p&gt;
+
+&lt;p&gt;因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用HTTPS，密钥在你和终点站才有。https之所以比http安全，是因为他利用ssl/tls协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/06/%E5%89%8D%E7%AB%AF%E5%B0%8F%E7%9F%A5%E8%AF%861.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/06/%E5%89%8D%E7%AB%AF%E5%B0%8F%E7%9F%A5%E8%AF%861.html</guid>
+        
+        <category>web前端</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>web渗透测试——配置Metasploitable及环境的网络设置</title>
+        <description>&lt;h2 id=&quot;virtualbox网络设置&quot;&gt;VirtualBox网络设置&lt;/h2&gt;
+&lt;h3 id=&quot;添加一个网络&quot;&gt;添加一个网络&lt;/h3&gt;
+&lt;p&gt;选中VirtualBox =&amp;gt; 偏好设置
+&lt;img src=&quot;https://blog.res.witdor.com/article/kali3_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;将所有的虚拟机每个都设置到添加的网络中&quot;&gt;将所有的虚拟机每个都设置到添加的网络中&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.res.witdor.com/article/kali3_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;查看metasploitable的ip地址&quot;&gt;查看Metasploitable的IP地址&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ifconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;在kali-linux中访问metasploitable的ip的ip&quot;&gt;在Kali Linux中访问Metasploitable的IP的IP&lt;/h3&gt;
+&lt;p&gt;浏览器打开Metasploitable的IP
+&lt;img src=&quot;https://blog.res.witdor.com/article/network1_1.png&quot; alt=&quot;&quot; /&gt;
+网也上面的列表是Metasploitable的服务器&lt;/p&gt;
+
+&lt;h3 id=&quot;修复metasploitable的mutillhadae网站&quot;&gt;修复Metasploitable的Mutillhadae网站&lt;/h3&gt;
+&lt;p&gt;nano是编辑配置文件的程序&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /var/www/mutillidae/config.inc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;修改&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$dbname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;owasp10&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;修改完成后ctrl+x退出，然后Y保存&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E9%85%8D%E7%BD%AEMetasploitable%E5%8F%8A%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E9%85%8D%E7%BD%AEMetasploitable%E5%8F%8A%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        <category>环境搭建</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>web渗透测试——搜集信息</title>
+        <description>&lt;h2 id=&quot;信息搜集方法&quot;&gt;信息搜集方法&lt;/h2&gt;
+&lt;p&gt;1、 IP地址&lt;/p&gt;
+
+&lt;p&gt;2、 域名信息&lt;/p&gt;
+
+&lt;p&gt;3、 技术使用&lt;/p&gt;
+
+&lt;p&gt;4、 在同一台服务器上的其他网站&lt;/p&gt;
+
+&lt;p&gt;5、 DNS记录&lt;/p&gt;
+
+&lt;p&gt;6、 未列出的文件、子域、目录&lt;/p&gt;
+
+&lt;h2 id=&quot;信息搜集的工具&quot;&gt;信息搜集的工具&lt;/h2&gt;
+&lt;p&gt;1、 &lt;a href=&quot;http://whois.domaintools.com&quot;&gt;Whois Lookup&lt;/a&gt;-查找网站所有者的信息
+    比如服务器、IP地址、domain（检索信息）&lt;/p&gt;
+
+&lt;p&gt;2、 &lt;a href=&quot;https://toolbar.netcraft.com/site_report?url=&quot;&gt;Netcraft Site Report&lt;/a&gt; 显示了目标网站上使用的技术&lt;/p&gt;
+
+&lt;p&gt;3、&lt;a href=&quot;https://www.robtex.com/&quot;&gt;Robtex DNS&lt;/a&gt;显示关于目标网站的全面的DNS信息
+&lt;img src=&quot;https://blog.res.witdor.com/article/shareDns1_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;robtex-dns的sharing-ip-numbers&quot;&gt;Robtex DNS的sharing IP numbers&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;一个服务器上可以服务多个网站&lt;/li&gt;
+  &lt;li&gt;获得一个站点的权限可以帮助获得另一个站点的权限&lt;/li&gt;
+  &lt;li&gt;有一些目标网站很安全，但是服务器并不安全&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;sharing IP numbers指的是这些网站指向同一个IP，如果攻破这些网站，对目标网站的攻击也是有帮助的&lt;/p&gt;
+
+&lt;h2 id=&quot;子域&quot;&gt;子域&lt;/h2&gt;
+&lt;p&gt;Subdomain.target.com的形式,扫描到一些admin.xxx或者cms.xxx可能就是内部的登录系统&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;例如：beta.facebook.com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Knock可以用来找到目标的子域&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/guelfoweb/knock.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;knock/knockpy
+python knock.py xxxx.com&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;xxx.com为目标网站域名&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;搜集文件目录&quot;&gt;搜集文件+目录&lt;/h2&gt;
+&lt;p&gt;在目标网站找文件和目录&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;比如扫描metasploitable上的mutillidae中的目录，可以发现有robots.txt文件（包含不愿被浏览器发现的文件的配置文件），打开robots.txt可以看到password文件夹，进入后能看到一些账号密码的信息，还有config.inc，打开后是数据库的链接信息
+用工具dirb
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dirb &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;target] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;wordlist] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;opitions]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;dirb http://10.0.2.4/mutillidae/(默认的WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt)&lt;/li&gt;
+  &lt;li&gt;dirb http://10.0.2.4/mutillidae/ /root/wordlist.txt（指定）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;运行&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;man dirb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E7%94%A8Whois-Lookup%E6%90%9C%E9%9B%86%E4%BF%A1%E6%81%AF.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E7%94%A8Whois-Lookup%E6%90%9C%E9%9B%86%E4%BF%A1%E6%81%AF.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>web渗透测试——什么是网站</title>
+        <description>&lt;h2 id=&quot;web站点介绍&quot;&gt;web站点介绍&lt;/h2&gt;
+&lt;p&gt;网站就是装在电脑上的应用程序，这个电脑的性能和配置可能比我们普通的电脑好很多，但是基本的工作方式和其他的电脑是一样的，有操作系统、还有很多应用程序让它成为web服务器。有两个主要的程序：Web服务器和数据库（Apache、Mysql等）。web服务器能理解并执行web应用，web应用程序可能是PHP、Python等写的，web应用程序在这里执行而不是客户的机器上
+&lt;img src=&quot;https://blog.res.witdor.com/article/web1_1.png&quot; alt=&quot;&quot; /&gt;
+举例：
+用户请求baidu.com，这个地址会被DNS服务器解析成Ip地址（DNS服务器是用来解析域名的），IP地址对应的服务器将执行后的html返回给用户&lt;/p&gt;
+
+&lt;p&gt;如果攻击服务器，一般用服务器语言进行攻击，如果服务器运营js执行，那么js也可以进行攻击&lt;/p&gt;
+
+&lt;h2 id=&quot;例子攻击metasploitable机器web服务器&quot;&gt;例子：攻击metasploitable机器（web服务器）&lt;/h2&gt;
+&lt;p&gt;不用域名访问，用IP访问
+1、ifconfig查看Ip地址
+2、在Kali Linux中通过Ip访问
+&lt;img src=&quot;https://blog.res.witdor.com/article/network1_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;如何入侵网站&quot;&gt;如何入侵网站&lt;/h2&gt;
+&lt;p&gt;1、 安装在计算机上的应用程序（Web应用渗透测试）&lt;/p&gt;
+
+&lt;p&gt;2、 带操作系统的计算机+其他应用程序（服务端攻击）&lt;/p&gt;
+
+&lt;p&gt;3、 人（管理员）（社会工程学攻击）&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%AB%99.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%AB%99.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>web渗透测试——初探Linux Terminal及Linux基本命令介绍</title>
+        <description>&lt;h2 id=&quot;了解linux-terminal&quot;&gt;了解Linux Terminal&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.res.witdor.com/article/kali2_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ls列出当前目录下的所有的文件和目录和windows中的dir类似&quot;&gt;ls：列出当前目录下的所有的文件和目录和windows中的dir类似&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~# ls是lie
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;man-ls列出ls的帮助信息q退出文档&quot;&gt;man ls:列出ls的帮助信息，Q退出文档&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~# man &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LS&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                                    User Commands                                                                    LS&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+NAME
+       &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; - list directory contents
+
+SYNOPSIS
+       &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OPTION]... &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FILE]...
+
+DESCRIPTION
+       List information about the FILEs &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;the current directory by default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;  Sort entries alphabetically &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;none of &lt;span class=&quot;nt&quot;&gt;-cftuvSUX&lt;/span&gt; nor &lt;span class=&quot;nt&quot;&gt;--sort&lt;/span&gt; is specified.
+
+       Mandatory arguments to long options are mandatory &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;short options too.
+
+       &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not ignore entries starting with &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+       &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--almost-all&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not list implied &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; and ..
+
+       &lt;span class=&quot;nt&quot;&gt;--author&lt;/span&gt;
+              with &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;, print the author of each file
+
+       &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--escape&lt;/span&gt;
+              print C-style escapes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;nongraphic characters
+
+       &lt;span class=&quot;nt&quot;&gt;--block-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;SIZE
+              with &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;, scale sizes by SIZE when printing them&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; e.g., &lt;span class=&quot;s1&quot;&gt;'--block-size=M'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; see SIZE format below
+
+       &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--ignore-backups&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not list implied entries ending with ~
+
+       &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;     with  &lt;span class=&quot;nt&quot;&gt;-lt&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;sort &lt;/span&gt;by, and show, ctime &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;of last modification of file status information&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; with &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;: show ctime and &lt;span class=&quot;nb&quot;&gt;sort &lt;/span&gt;by name&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; otherwise: &lt;span class=&quot;nb&quot;&gt;sort
+              &lt;/span&gt;by ctime, newest first
+
+       &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt;     list entries by columns
+ Manual page &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; line 1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;press h &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;or q to quit&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;尝试下--luse-a-long-listing-format列出了更多的文件信息&quot;&gt;尝试下 -l：use a long listing format（列出了更多的文件信息）&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~# &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bahs&quot;&gt;total 32 //总数
+//权限        所有者 所属组    最后修改日期   文件名
+drwxr-xr-x 2 root root 4096 May 17 09:07 Desktop
+drwxr-xr-x 2 root root 4096 May 17 09:07 Documents
+drwxr-xr-x 2 root root 4096 May 17 09:07 Downloads
+drwxr-xr-x 2 root root 4096 May 17 09:07 Music
+drwxr-xr-x 2 root root 4096 May 17 09:07 Pictures
+drwxr-xr-x 2 root root 4096 May 17 09:07 Public
+drwxr-xr-x 2 root root 4096 May 17 09:07 Templates
+drwxr-xr-x 2 root root 4096 May 17 09:07 Videos
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;尝试一下 –help 帮助文档&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~# &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--help&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Usage: &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OPTION]... &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FILE]...
+List information about the FILEs &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;the current directory by default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Sort entries alphabetically &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;none of &lt;span class=&quot;nt&quot;&gt;-cftuvSUX&lt;/span&gt; nor &lt;span class=&quot;nt&quot;&gt;--sort&lt;/span&gt; is specified.
+
+Mandatory arguments to long options are mandatory &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;short options too.
+  &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;                  &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not ignore entries starting with &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--almost-all&lt;/span&gt;           &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not list implied &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; and ..
+      &lt;span class=&quot;nt&quot;&gt;--author&lt;/span&gt;               with &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;, print the author of each file
+  &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--escape&lt;/span&gt;               print C-style escapes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;nongraphic characters
+      &lt;span class=&quot;nt&quot;&gt;--block-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;SIZE      with &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;, scale sizes by SIZE when printing them&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                               e.g., &lt;span class=&quot;s1&quot;&gt;'--block-size=M'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; see SIZE format below
+  &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--ignore-backups&lt;/span&gt;       &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not list implied entries ending with ~
+  &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;                         with &lt;span class=&quot;nt&quot;&gt;-lt&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;sort &lt;/span&gt;by, and show, ctime &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;of last
+                               modification of file status information&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                               with &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;: show ctime and &lt;span class=&quot;nb&quot;&gt;sort &lt;/span&gt;by name&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                               otherwise: &lt;span class=&quot;nb&quot;&gt;sort &lt;/span&gt;by ctime, newest first
+  &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt;                         list entries by columns
+      &lt;span class=&quot;nt&quot;&gt;--color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[=&lt;/span&gt;WHEN]         colorize the output&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; WHEN can be &lt;span class=&quot;s1&quot;&gt;'always'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default
+                               &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;omitted&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'auto'&lt;/span&gt;, or &lt;span class=&quot;s1&quot;&gt;'never'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; more info below
+  &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--directory&lt;/span&gt;            list directories themselves, not their contents
+  &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--dired&lt;/span&gt;                generate output designed &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Emacs&lt;span class=&quot;s1&quot;&gt;' dired mode
+  -f                         do not sort, enable -aU, disable -ls --color
+  -F, --classify             append indicator (one of */=&amp;gt;@|) to entries
+      --file-type            likewise, except do not append '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+      --format=WORD          across -x, commas -m, horizontal -x, long -l,
+                               single-column -1, verbose -l, vertical -C
+      --full-time            like -l --time-style=full-iso
+  -g                         like -l, but do not list owner
+      --group-directories-first
+                             group directories before files;
+                               can be augmented with a --sort option, but any
+                               use of --sort=none (-U) disables grouping
+  -G, --no-group             in a long listing, don'&lt;/span&gt;t print group names
+·
+·
+·
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;（注：按键盘的上或者下键，可以查看之前使用的命令，tab键可以联想文件名）&lt;/p&gt;
+
+&lt;h3 id=&quot;试试-cd-进入文件目录&quot;&gt;试试 cd 进入文件目录&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~# &lt;span class=&quot;nb&quot;&gt;cd test&lt;/span&gt;/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~/test# 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pwd显示当前工作的目录&quot;&gt;pwd显示当前工作的目录&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~/test# &lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
+/root/test
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;cd-返回上一层目录&quot;&gt;cd ..返回上一层目录&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~/test# &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
+root@kali:~# 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;clear清空屏幕上的所有信息&quot;&gt;clear清空屏幕上的所有信息&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:~# clear
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Linux-Terminal%E5%8F%8ALinux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Linux-Terminal%E5%8F%8ALinux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>web渗透测试——Kali Linux基本介绍</title>
+        <description>&lt;h2 id=&quot;kali-linux界面简介&quot;&gt;Kali Linux界面简介&lt;/h2&gt;
+&lt;p&gt;1、整体界面展示
+&lt;img src=&quot;https://blog.res.witdor.com/article/kali1_1.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2、places里面可以访问文件系统，和windows里面的文档类似
+&lt;img src=&quot;https://blog.res.witdor.com/article/kali1_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2、Application是应用菜单，里面的应用都是Kali Linux预安装好的，按照攻击类型分类的，方便渗透测试用
+&lt;img src=&quot;https://blog.res.witdor.com/article/kali1_3.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4、右上角的数字代表workspace，切换方便&lt;/p&gt;
+
+&lt;p&gt;5、网络连接中不能在虚拟机中访问内置的无限网卡，内置的无线网卡被主机连接，不能用虚拟机访问。虚拟机可以通过主机访问网络&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Kali-Linux%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Kali-Linux%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</guid>
+        
+        <category>网络安全</category>
+        
+        <category>渗透测试</category>
+        
+        <category>环境搭建</category>
+        
+        
+        <category>技术</category>
+        
+      </item>
+    
+      <item>
+        <title>web渗透测试——搭建环境</title>
         <description>&lt;h2 id=&quot;virtualbox安装&quot;&gt;VirtualBox安装&lt;/h2&gt;
 &lt;p&gt;安装环境：Mac OS&lt;/p&gt;
 
@@ -47,10 +523,12 @@
 
 &lt;p&gt;模拟一个普通的windows机器作为受害者（选择windows10 stable）
 下载地址：https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/&lt;/p&gt;
+
+&lt;p&gt;下载完成后，解压后双击ovf文件导入即可,密码：Passw0rd!  （0不是o）&lt;/p&gt;
 </description>
         <pubDate>Fri, 02 Aug 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/08/02/%E6%90%AD%E5%BB%BA%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8E%AF%E5%A2%83.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/08/02/%E6%90%AD%E5%BB%BA%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8E%AF%E5%A2%83.html</guid>
+        <link>http://localhost:4000/2019/08/02/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/02/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83.html</guid>
         
         <category>网络安全</category>
         
@@ -284,403 +762,6 @@
         <category>技术</category>
         
         <category>AngularX</category>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>express集成mysql</title>
-        <description>&lt;h2 id=&quot;介绍mysql&quot;&gt;介绍mysql&lt;/h2&gt;
-&lt;p&gt;MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件。&lt;/p&gt;
-
-&lt;h2 id=&quot;安装mysql模块&quot;&gt;安装mysql模块&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;mysql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;集成mysql&quot;&gt;集成mysql&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mysql&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createConnection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;host&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;user&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dbuser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'123456'&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'SELECT 1 + 1 AS solution'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'The solution is: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 03 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/03/express%E5%92%8Cmysql.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/03/express%E5%92%8Cmysql.html</guid>
-        
-        <category>技术</category>
-        
-        <category>express</category>
-        
-        <category>mysql</category>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>express路由初探</title>
-        <description>&lt;h2 id=&quot;何为路由&quot;&gt;何为路由&lt;/h2&gt;
-&lt;p&gt;路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.METHOD(path, [callback…], callback)， app 是 express 对象的一个实例， METHOD 是一个 HTTP 请求方法， path 是服务器上的路径， callback 是当路由匹配时要执行的函数。&lt;/p&gt;
-&lt;h2 id=&quot;基本路由的使用&quot;&gt;基本路由的使用&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 对网站首页的访问返回 &quot;Hello World!&quot; 字样&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Hello World!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 网站首页接受 POST 请求&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Got a POST request'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// /user 节点接受 PUT 请求&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Got a PUT request at /user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// /user 节点接受 DELETE 请求&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Got a DELETE request at /user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;路由使用-expressrouter&quot;&gt;路由使用 express.Router&lt;/h2&gt;
-&lt;p&gt;可使用 express.Router 类创建模块化、可挂载的路由句柄。Router 实例是一个完整的中间件和路由系统，因此常称其为一个 “mini-app”。&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'express'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 该路由使用的中间件&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Time: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 定义网站主页的路由&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Birds home page'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 定义 about 页面的路由&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/about'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'About birds'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;approute&quot;&gt;app.route()&lt;/h2&gt;
-&lt;p&gt;可使用 app.route() 创建路由路径的链式路由句柄。由于路径在一个地方指定，这样做有助于创建模块化的路由，而且减少了代码冗余和拼写错误。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-jsvascript&quot;&gt;app.route('/book')
-  .get(function(req, res) {
-    res.send('Get a random book');
-  })
-  .post(function(req, res) {
-    res.send('Add a book');
-  })
-  .put(function(req, res) {
-    res.send('Update the book');
-  });
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Fri, 03 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/03/express%E8%B7%AF%E7%94%B1%E5%88%9D%E6%8E%A2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/03/express%E8%B7%AF%E7%94%B1%E5%88%9D%E6%8E%A2.html</guid>
-        
-        <category>技术</category>
-        
-        <category>express</category>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>express入门(MAC)</title>
-        <description>&lt;h2 id=&quot;何为express&quot;&gt;何为Express&lt;/h2&gt;
-&lt;p&gt;Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。丰富的 HTTP 快捷方法和任意排列组合的 Connect 中间件，让你创建健壮、友好的 API 变得既快速又简单。&lt;/p&gt;
-
-&lt;h2 id=&quot;前提条件&quot;&gt;前提条件&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;首先需要安装&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;nodejs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;根据自己的操作系统安装node&lt;/li&gt;
-  &lt;li&gt;安装好之后查看一下自己的node版本
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;输出
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;v9.7.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;安装express应用生成器&quot;&gt;安装Express应用生成器&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;通过应用生成器工具 express 可以快速创建一个应用的骨架。&lt;/li&gt;
-  &lt;li&gt;通过如下命令安装：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;express-generator &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;-h 选项可以列出所有可用的命令行选项：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;express &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;
-
-  Usage: express &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-
-  Options:
-
-    &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--help&lt;/span&gt;          output usage information
-    &lt;span class=&quot;nt&quot;&gt;-V&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;       output the version number
-    &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--ejs&lt;/span&gt;           add ejs engine support &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;defaults to jade&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;--hbs&lt;/span&gt;           add handlebars engine support
-    &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--hogan&lt;/span&gt;         add hogan.js engine support
-    &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--css&lt;/span&gt; &amp;lt;engine&amp;gt;  add stylesheet &amp;lt;engine&amp;gt; support &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;less|stylus|compass|sass&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;defaults to plain css&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt;           add .gitignore
-    &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;         force on non-empty directory
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;例如，下面的示例就是在当前工作目录下创建一个命名为 myapp 的应用。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;express myapp
-
-   create : myapp
-   create : myapp/package.json
-   create : myapp/app.js
-   create : myapp/public
-   create : myapp/public/javascripts
-   create : myapp/public/images
-   create : myapp/routes
-   create : myapp/routes/index.js
-   create : myapp/routes/users.js
-   create : myapp/public/stylesheets
-   create : myapp/public/stylesheets/style.css
-   create : myapp/views
-   create : myapp/views/index.jade
-   create : myapp/views/layout.jade
-   create : myapp/views/error.jade
-   create : myapp/bin
-   create : myapp/bin/www
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;目录结构如下&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── app.js
-├── bin
-│   └── www
-├── package.json
-├── public
-│   ├── images
-│   ├── javascripts
-│   └── stylesheets
-│       └── style.css
-├── routes
-│   ├── index.js
-│   └── users.js
-└── views
-    ├── error.jade
-    ├── index.jade
-    └── layout.jade
-
-7 directories, 9 files
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;然后安装所有依赖包：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myapp 
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;启动这个应用（MacOS 或 Linux 平台）：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ DEBUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;myapp npm start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;然后在浏览器中打开 http://localhost:3000/ 网址就可以看到这个应用了。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Fri, 03 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/03/express%E5%85%A5%E9%97%A8.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/03/express%E5%85%A5%E9%97%A8.html</guid>
-        
-        <category>技术</category>
-        
-        <category>express</category>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>运行你的第一个Truffle-Dapp</title>
-        <description>&lt;h3 id=&quot;操作系统macos&quot;&gt;操作系统：macOS&lt;/h3&gt;
-
-&lt;h3 id=&quot;安装nodejs&quot;&gt;安装node.js&lt;/h3&gt;
-&lt;p&gt;安装node后查看node版本号，打开终端，输入命令：&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;安装-truffle&quot;&gt;安装 Truffle&lt;/h3&gt;
-&lt;p&gt;Truffle是针对基于以太坊的Solidity语言的一套开发框架。本身基于Javascript。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;官方文档：http://truffleframework.com/docs/&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;安装命令：&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; truffle
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;创建一个项目&quot;&gt;创建一个项目&lt;/h3&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;dapp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;dapp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;truffle unbox webpack
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 02 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/02/%E8%BF%90%E8%A1%8C%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AATruffle-Dapp.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/02/%E8%BF%90%E8%A1%8C%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AATruffle-Dapp.html</guid>
-        
-        <category>技术</category>
-        
-        <category>Truffle</category>
-        
-        <category>Node</category>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>jekyll搭建博客并部署在netlify(MAC)</title>
-        <description>&lt;h3 id=&quot;jekyll是什么&quot;&gt;jekyll是什么&lt;/h3&gt;
-
-&lt;p&gt;jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，不需要数据库支持。但是可以配合第三方服务,例如Disqus。最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。&lt;/p&gt;
-
-&lt;h3 id=&quot;安装ruby同时会自动安装gem&quot;&gt;安装ruby(同时会自动安装gem)&lt;/h3&gt;
-&lt;p&gt;mac下面自带了Ruby环境（查看是否有ruby）&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;输出&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby 2.3.3p222 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2016-11-21 revision 56859&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;universal.x86_64-darwin17]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;jekyll 最新版要求 ruby 2.1或更高,所以更新ruby&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;jekyll-环境配置&quot;&gt;Jekyll 环境配置&lt;/h3&gt;
-
-&lt;p&gt;安装 jekyll&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;创建博客&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new myBlog 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;进入博客目录&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myBlog
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;打包项目&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;运行项目&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;jekyll提供了很多的主题可以直接使用&lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;主题官网&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;在github或者gitlab上创建一个代码托管的仓库，并将代码提交
-    &lt;h3 id=&quot;netlify中配置部署&quot;&gt;netlify中配置部署&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;打开&lt;a href=&quot;https://app.netlify.com/&quot;&gt;netlify&lt;/a&gt;的官网&lt;/li&gt;
-  &lt;li&gt;注册一个账号&lt;/li&gt;
-  &lt;li&gt;选择sites
-&lt;img src=&quot;http://blog.res.witdor.com/article/2018_8_3_1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;根据自己的代码存储选择托管平台
-&lt;img src=&quot;http://blog.res.witdor.com/article/2018_8_3_2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;选择自己博客的仓库
-&lt;img src=&quot;http://blog.res.witdor.com/article/2018_8_3_3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;build command中写jekyll build，publish directory中写_site
-&lt;img src=&quot;http://blog.res.witdor.com/article/2018_8_3_4.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;最后点deploy site就好了&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;如果你有自己的域名可以把自己的域名绑定上&quot;&gt;如果你有自己的域名可以把自己的域名绑定上&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;http://blog.res.witdor.com/article/2018_8_3_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;如果没有域名也可以设置netlify提供的域名的二级域名前缀&quot;&gt;如果没有域名也可以设置netlify提供的域名的二级域名前缀&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;http://blog.res.witdor.com/article/2018_8_3_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;这样博客就大功告成了&quot;&gt;这样博客就大功告成了！&lt;/h3&gt;
-</description>
-        <pubDate>Thu, 02 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/02/jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8netlify(MAC).html</guid>
-        
-        <category>技术</category>
-        
-        <category>jekyll</category>
-        
-        <category>博客</category>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>git代理配置</title>
-        <description>&lt;h2 id=&quot;问题描述&quot;&gt;问题描述&lt;/h2&gt;
-&lt;p&gt;用git push到远程repository的时候一直卡着&lt;/p&gt;
-
-&lt;h2 id=&quot;运行环境&quot;&gt;运行环境&lt;/h2&gt;
-&lt;p&gt;MAC&lt;/p&gt;
-
-&lt;p&gt;##解决办法
-配置git代理&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; http.proxy&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;socks5://127.0.0.1:1080
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;查看一下git的配置&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt;  &lt;span class=&quot;nt&quot;&gt;--list&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 02 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/02/git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/02/git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html</guid>
-        
-        <category>技术</category>
-        
-        <category>git</category>
         
         
         <category>技术</category>

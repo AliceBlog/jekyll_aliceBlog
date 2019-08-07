@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于DV、OV、EV SSL证书 - Alice Blog</title>
+    <title>web渗透测试——初探Linux Terminal及Linux基本命令介绍 - Alice Blog</title>
     <meta name="author"  content="Alice">
-    <meta name="description" content="关于DV、OV、EV SSL证书">
-    <meta name="keywords"  content="网络安全, SSL">
+    <meta name="description" content="web渗透测试——初探Linux Terminal及Linux基本命令介绍">
+    <meta name="keywords"  content="网络安全, 渗透测试">
     <!-- Open Graph -->
-    <meta property="og:title" content="关于DV、OV、EV SSL证书 - Alice Blog">
+    <meta property="og:title" content="web渗透测试——初探Linux Terminal及Linux基本命令介绍 - Alice Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2019/08/02/%E5%85%B3%E4%BA%8EDV-OV-EV-SSL%E8%AF%81%E4%B9%A6.html">
+    <meta property="og:url" content="http://localhost:4000/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Linux-Terminal%E5%8F%8ALinux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D.html">
     <meta property="og:description" content="很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="Alice Blog">
     <link rel="icon" type="image/x-icon" href="/assets/icons/logo_default.svg">
@@ -221,14 +221,14 @@ Author: Ray-Eldath
           
             <a href="http://localhost:4000/tags#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="post-tag">网络安全</a>
           
-            <a href="http://localhost:4000/tags#SSL" class="post-tag">SSL</a>
+            <a href="http://localhost:4000/tags#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95" class="post-tag">渗透测试</a>
           
         
       </div>
-      <h1>关于DV、OV、EV SSL证书</h1>
+      <h1>web渗透测试——初探Linux Terminal及Linux基本命令介绍</h1>
       <div class="post-meta">
         <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Alice</a></></span>
-        <time class="post-meta-item" datetime="19-08-02"><i class="iconfont icon-date"></i>2019-08-02</time>
+        <time class="post-meta-item" datetime="19-08-05"><i class="iconfont icon-date"></i>2019-08-05</time>
       </div>
     </div>
     
@@ -236,135 +236,142 @@ Author: Ray-Eldath
 
   <div class="post-content visible">
     
-    <h2 class="post-subtitle">SSL证书的介绍和选择</h2>
+    <h2 class="post-subtitle">Linux Terminal及Linux基本命令</h2>
     
 
     <article class="markdown-body">
-      <h2 id="dv型和ov型证书的区别">DV型和OV型证书的区别</h2>
+      <h2 id="了解linux-terminal">了解Linux Terminal</h2>
+<p><img src="https://blog.res.witdor.com/article/kali2_1.png" alt="" /></p>
 
-<p>DV和OV型证书最大的差别是：DV型证书不包含企业名称信息；而OV型证书包含企业名称信息，以下是两者差别对比表：</p>
+<h3 id="ls列出当前目录下的所有的文件和目录和windows中的dir类似">ls：列出当前目录下的所有的文件和目录和windows中的dir类似</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# ls是lie
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+</code></pre></div></div>
+<h3 id="man-ls列出ls的帮助信息q退出文档">man ls:列出ls的帮助信息，Q退出文档</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# man <span class="nb">ls</span>
+</code></pre></div></div>
+<p>输出：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LS<span class="o">(</span>1<span class="o">)</span>                                                                    User Commands                                                                    LS<span class="o">(</span>1<span class="o">)</span>
 
-<table>
-  <thead>
-    <tr>
-      <th>DV</th>
-      <th>OV</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>包含企业名称信息</td>
-      <td>否</td>
-      <td>是</td>
-    </tr>
-    <tr>
-      <td>验证公司名称合法性</td>
-      <td>否</td>
-      <td>是</td>
-    </tr>
-    <tr>
-      <td>通过第三方查询电话验证</td>
-      <td>否</td>
-      <td>是</td>
-    </tr>
-    <tr>
-      <td>域名验证方式</td>
-      <td>管理员邮箱批准</td>
-      <td>查询whois信息是否一致</td>
-    </tr>
-    <tr>
-      <td>验证时间</td>
-      <td>最快10分钟签发</td>
-      <td>一般2-3天完成签发</td>
-    </tr>
-    <tr>
-      <td>证书可信度</td>
-      <td>低</td>
-      <td>较高</td>
-    </tr>
-  </tbody>
-</table>
+NAME
+       <span class="nb">ls</span> - list directory contents
 
-<h2 id="ov型和ev型证书的区别">OV型和EV型证书的区别</h2>
+SYNOPSIS
+       <span class="nb">ls</span> <span class="o">[</span>OPTION]... <span class="o">[</span>FILE]...
 
-<p>OV型和EV型证书，都包含了企业名称等信息，但EV证书因为其采用了更加严格的认证标准，浏览器对EV证书更加“信任”，当浏览器访问到EV证书时，可以在地址栏显示出公司名称，并将地址栏变成绿色。
-<img src="https://blog.res.witdor.com/article/aboutssl.png" alt="" /></p>
+DESCRIPTION
+       List information about the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span><span class="nb">.</span>  Sort entries alphabetically <span class="k">if </span>none of <span class="nt">-cftuvSUX</span> nor <span class="nt">--sort</span> is specified.
 
-<h2 id="如何挑选适合我的证书类型">如何挑选适合我的证书类型</h2>
-<h3 id="dv型证书">DV型证书</h3>
-<ul>
-  <li>仅需要通过在线加密实现数据安全</li>
-  <li>主要用于电子邮件、IM，CDN加速等</li>
-  <li>用户内部的OA，CRM，VPN系统</li>
-  <li>还是一个初创公司，业务刚刚起步。</li>
-</ul>
+       Mandatory arguments to long options are mandatory <span class="k">for </span>short options too.
 
-<h3 id="ov型证书">OV型证书</h3>
-<ul>
-  <li>面向公众提供服务</li>
-  <li>有用户账户登录，在线应用等</li>
-  <li>有多个应用需求，多个域名需要部署</li>
-  <li>公司已经拥有一定的规模</li>
-</ul>
+       <span class="nt">-a</span>, <span class="nt">--all</span>
+              <span class="k">do </span>not ignore entries starting with <span class="nb">.</span>
 
-<h3 id="ev型证书">EV型证书</h3>
-<ul>
-  <li>需要实现在线交易，在线支付功能</li>
-  <li>有高价值的数据保密需求</li>
-  <li>需要防止可能遇到的钓鱼网站攻击</li>
-  <li>属于大型企业或者金融机构</li>
-</ul>
+       <span class="nt">-A</span>, <span class="nt">--almost-all</span>
+              <span class="k">do </span>not list implied <span class="nb">.</span> and ..
 
-<h2 id="三种证书的申请区别">三种证书的申请区别</h2>
-<p>一.域名型SSL证书（DVSSL）：</p>
+       <span class="nt">--author</span>
+              with <span class="nt">-l</span>, print the author of each file
 
-<p>在线申请地址：https://ssl.22.cn</p>
+       <span class="nt">-b</span>, <span class="nt">--escape</span>
+              print C-style escapes <span class="k">for </span>nongraphic characters
 
-<p>　　这种证书属于最初级的证书，仅仅需要验证一下域名管理权限便可申请（这个很好理解，只有拥有对某域名的管理权限才能为该域名申请证书）。</p>
+       <span class="nt">--block-size</span><span class="o">=</span>SIZE
+              with <span class="nt">-l</span>, scale sizes by SIZE when printing them<span class="p">;</span> e.g., <span class="s1">'--block-size=M'</span><span class="p">;</span> see SIZE format below
 
-<p>验证方式：</p>
+       <span class="nt">-B</span>, <span class="nt">--ignore-backups</span>
+              <span class="k">do </span>not list implied entries ending with ~
 
-<p>　　每一个域名在注册的时候均填写了一个管理员邮箱，这个邮箱通常情况下是可以公开查询到的（除非您设置了whois 信息保护），我们在验证您是否对域名拥有管理权限的时候会向这个管理员邮箱发一封邮件，您需要登陆该邮箱点击确认连接完成验证。</p>
+       <span class="nt">-c</span>     with  <span class="nt">-lt</span>: <span class="nb">sort </span>by, and show, ctime <span class="o">(</span><span class="nb">time </span>of last modification of file status information<span class="o">)</span><span class="p">;</span> with <span class="nt">-l</span>: show ctime and <span class="nb">sort </span>by name<span class="p">;</span> otherwise: <span class="nb">sort
+              </span>by ctime, newest first
 
-<p>但偶尔会有这几种情况：</p>
+       <span class="nt">-C</span>     list entries by columns
+ Manual page <span class="nb">ls</span><span class="o">(</span>1<span class="o">)</span> line 1 <span class="o">(</span>press h <span class="k">for </span><span class="nb">help </span>or q to quit<span class="o">)</span>
 
-<p>1、whois信息设置了隐私保护，我们无法读取该域名的管理员邮箱，则需要您暂停隐私保护，直至完成证书颁发；</p>
+</code></pre></div></div>
 
-<p>2、whois信息木有设置隐私保护，但whois信息中查询到的管理员邮箱无法登陆或者不方便登陆，则您可以在管理域名的地方将邮箱修改为您可以登录的邮箱，我们向新的邮箱发送验证邮件；</p>
+<h3 id="尝试下--luse-a-long-listing-format列出了更多的文件信息">尝试下 -l：use a long listing format（列出了更多的文件信息）</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# <span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+<p>输出</p>
+<pre><code class="language-bahs">total 32 //总数
+//权限        所有者 所属组    最后修改日期   文件名
+drwxr-xr-x 2 root root 4096 May 17 09:07 Desktop
+drwxr-xr-x 2 root root 4096 May 17 09:07 Documents
+drwxr-xr-x 2 root root 4096 May 17 09:07 Downloads
+drwxr-xr-x 2 root root 4096 May 17 09:07 Music
+drwxr-xr-x 2 root root 4096 May 17 09:07 Pictures
+drwxr-xr-x 2 root root 4096 May 17 09:07 Public
+drwxr-xr-x 2 root root 4096 May 17 09:07 Templates
+drwxr-xr-x 2 root root 4096 May 17 09:07 Videos
 
-<p>3、whois信息中的邮箱无法登陆，而且也不能去修改这个邮箱，则您需要提供前缀为admin、administrator、postmaster、webmaster 的邮箱来完成管理权限的验证；</p>
+</code></pre>
+<p>尝试一下 –help 帮助文档</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# <span class="nb">ls</span> <span class="nt">--help</span>
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: <span class="nb">ls</span> <span class="o">[</span>OPTION]... <span class="o">[</span>FILE]...
+List information about the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span><span class="nb">.</span>
+Sort entries alphabetically <span class="k">if </span>none of <span class="nt">-cftuvSUX</span> nor <span class="nt">--sort</span> is specified.
 
-<p>4、当以上方式您都无法满足时，请和我们联系寻找其他的验证方式。例如我们还可以提供CNAME 解析、验证文本等方式来实现域名管理权限的验证。</p>
+Mandatory arguments to long options are mandatory <span class="k">for </span>short options too.
+  <span class="nt">-a</span>, <span class="nt">--all</span>                  <span class="k">do </span>not ignore entries starting with <span class="nb">.</span>
+  <span class="nt">-A</span>, <span class="nt">--almost-all</span>           <span class="k">do </span>not list implied <span class="nb">.</span> and ..
+      <span class="nt">--author</span>               with <span class="nt">-l</span>, print the author of each file
+  <span class="nt">-b</span>, <span class="nt">--escape</span>               print C-style escapes <span class="k">for </span>nongraphic characters
+      <span class="nt">--block-size</span><span class="o">=</span>SIZE      with <span class="nt">-l</span>, scale sizes by SIZE when printing them<span class="p">;</span>
+                               e.g., <span class="s1">'--block-size=M'</span><span class="p">;</span> see SIZE format below
+  <span class="nt">-B</span>, <span class="nt">--ignore-backups</span>       <span class="k">do </span>not list implied entries ending with ~
+  <span class="nt">-c</span>                         with <span class="nt">-lt</span>: <span class="nb">sort </span>by, and show, ctime <span class="o">(</span><span class="nb">time </span>of last
+                               modification of file status information<span class="o">)</span><span class="p">;</span>
+                               with <span class="nt">-l</span>: show ctime and <span class="nb">sort </span>by name<span class="p">;</span>
+                               otherwise: <span class="nb">sort </span>by ctime, newest first
+  <span class="nt">-C</span>                         list entries by columns
+      <span class="nt">--color</span><span class="o">[=</span>WHEN]         colorize the output<span class="p">;</span> WHEN can be <span class="s1">'always'</span> <span class="o">(</span>default
+                               <span class="k">if </span>omitted<span class="o">)</span>, <span class="s1">'auto'</span>, or <span class="s1">'never'</span><span class="p">;</span> more info below
+  <span class="nt">-d</span>, <span class="nt">--directory</span>            list directories themselves, not their contents
+  <span class="nt">-D</span>, <span class="nt">--dired</span>                generate output designed <span class="k">for </span>Emacs<span class="s1">' dired mode
+  -f                         do not sort, enable -aU, disable -ls --color
+  -F, --classify             append indicator (one of */=&gt;@|) to entries
+      --file-type            likewise, except do not append '</span><span class="k">*</span><span class="s1">'
+      --format=WORD          across -x, commas -m, horizontal -x, long -l,
+                               single-column -1, verbose -l, vertical -C
+      --full-time            like -l --time-style=full-iso
+  -g                         like -l, but do not list owner
+      --group-directories-first
+                             group directories before files;
+                               can be augmented with a --sort option, but any
+                               use of --sort=none (-U) disables grouping
+  -G, --no-group             in a long listing, don'</span>t print group names
+·
+·
+·
+</code></pre></div></div>
 
-<p>二.企业型SSL证书（OVSSL）：</p>
+<p>（注：按键盘的上或者下键，可以查看之前使用的命令，tab键可以联想文件名）</p>
 
-<p>在线申请地址：https://ssl.22.cn</p>
+<h3 id="试试-cd-进入文件目录">试试 cd 进入文件目录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# <span class="nb">cd test</span>/
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~/test# 
+</code></pre></div></div>
 
-<p>　　这类证书需要验证企业的真实性和域名的管理权限。</p>
+<h3 id="pwd显示当前工作的目录">pwd显示当前工作的目录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~/test# <span class="nb">pwd</span>
+/root/test
+</code></pre></div></div>
 
-<p>域名管理权限验证方式：</p>
+<h3 id="cd-返回上一层目录">cd ..返回上一层目录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~/test# <span class="nb">cd</span> ..
+root@kali:~# 
+</code></pre></div></div>
 
-<p>1、如果域名注册信息（whois信息）中，域名所有者的名称和您申请证书时公司名称一致，通常无需做任何操作；</p>
-
-<p>2、如果您申请证书的域名所有者信息并不是您申请证书的公司名称时则您需要用以上域名型SSL证书中邮件验证的方式来验证您的域名管理权限。</p>
-
-<p>企业真实性验证方式：</p>
-
-<p>1、在工商网站上可以查询到贵公司的注册信息；</p>
-
-<p>2、在电话平台114上，或者其他平台，例如邓白氏、百度地图等可以查询到贵公司登记的电话，并且这个电话申请证书的工作人员能够接听到；</p>
-
-<p>3、如果以上第2项不能满足，则需要律师出具一份律师证明文件证明公司信息的真实性；</p>
-
-<p>三。增强型SSL证书（EVSSL）</p>
-
-<p>申请地址：https://ssl.22.cn</p>
-
-<p>　　需要验证域名管理权限和企业真实性（这两项验证方式同以上企业型SSL证书的验证方式一样）</p>
-
-<p>　　另外，申请增强型SSL证书的企业需要提供银行的开户许可证商的开户行名称。</p>
-
+<h3 id="clear清空屏幕上的所有信息">clear清空屏幕上的所有信息</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# clear
+</code></pre></div></div>
 
     </article>
 
@@ -423,10 +430,10 @@ Author: Ray-Eldath
     <section class="post-footer-item read-next">
       
       <div class="read-next-item">
-        <a href="/2019/08/02/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83.html" class="read-next-link"></a>
+        <a href="/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%AB%99.html" class="read-next-link"></a>
         <section>
-          <span>web渗透测试——搭建环境</span>
-          <p>VirtualBox安装安装环境：Mac OS</p>
+          <span>web渗透测试——什么是网站</span>
+          <p>web站点介绍网站就是装在电脑上的应用程序，这个电脑的性能和配置可能比我们普通的电脑好很多，但是基本的工作方式和其...</p>
         </section>
         
      </div>
@@ -434,10 +441,10 @@ Author: Ray-Eldath
 
       
       <div class="read-next-item">
-        <a href="/2018/08/06/Angular6%E5%AE%B9%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9B%91%E5%90%AC.html" class="read-next-link"></a>
+        <a href="/2019/08/05/web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Kali-Linux%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D.html" class="read-next-link"></a>
           <section>
-            <span>Angular6容器滚动条监听</span>
-            <p>ngx-scroll-event用于Angular2+监听滚动条的指令和事件</p>
+            <span>web渗透测试——Kali Linux基本介绍</span>
+            <p>Kali Linux界面简介1、整体界面展示</p>
           </section>
           
       </div>
