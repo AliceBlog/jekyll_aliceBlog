@@ -1,0 +1,27 @@
+I"�<h3 id="操作系统macos">操作系统：macOS</h3>
+
+<h3 id="安装nodejs">安装node.js</h3>
+<p>安装node后查看node版本号，打开终端，输入命令：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node <span class="nt">-v</span> 
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nt">-v</span>
+</code></pre></div></div>
+<h3 id="安装-truffle">安装 Truffle</h3>
+<p>Truffle是针对基于以太坊的Solidity语言的一套开发框架。本身基于Javascript。</p>
+
+<ul>
+  <li>官方文档：http://truffleframework.com/docs/</li>
+</ul>
+
+<p>安装命令：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>npm <span class="nb">install</span> <span class="nt">-g</span> truffle
+</code></pre></div></div>
+
+<h3 id="创建一个项目">创建一个项目</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>dapp
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>dapp
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>truffle unbox webpack
+</code></pre></div></div>
+:ET

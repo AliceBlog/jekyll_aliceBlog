@@ -1,0 +1,133 @@
+I"�&<h2 id="了解linux-terminal">了解Linux Terminal</h2>
+<p><img src="https://blog.res.witdor.com/article/kali2_1.png" alt="" /></p>
+
+<h3 id="ls列出当前目录下的所有的文件和目录和windows中的dir类似">ls：列出当前目录下的所有的文件和目录和windows中的dir类似</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# ls是lie
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+</code></pre></div></div>
+<h3 id="man-ls列出ls的帮助信息q退出文档">man ls:列出ls的帮助信息，Q退出文档</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# man <span class="nb">ls</span>
+</code></pre></div></div>
+<p>输出：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LS<span class="o">(</span>1<span class="o">)</span>                                                                    User Commands                                                                    LS<span class="o">(</span>1<span class="o">)</span>
+
+NAME
+       <span class="nb">ls</span> - list directory contents
+
+SYNOPSIS
+       <span class="nb">ls</span> <span class="o">[</span>OPTION]... <span class="o">[</span>FILE]...
+
+DESCRIPTION
+       List information about the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span><span class="nb">.</span>  Sort entries alphabetically <span class="k">if </span>none of <span class="nt">-cftuvSUX</span> nor <span class="nt">--sort</span> is specified.
+
+       Mandatory arguments to long options are mandatory <span class="k">for </span>short options too.
+
+       <span class="nt">-a</span>, <span class="nt">--all</span>
+              <span class="k">do </span>not ignore entries starting with <span class="nb">.</span>
+
+       <span class="nt">-A</span>, <span class="nt">--almost-all</span>
+              <span class="k">do </span>not list implied <span class="nb">.</span> and ..
+
+       <span class="nt">--author</span>
+              with <span class="nt">-l</span>, print the author of each file
+
+       <span class="nt">-b</span>, <span class="nt">--escape</span>
+              print C-style escapes <span class="k">for </span>nongraphic characters
+
+       <span class="nt">--block-size</span><span class="o">=</span>SIZE
+              with <span class="nt">-l</span>, scale sizes by SIZE when printing them<span class="p">;</span> e.g., <span class="s1">'--block-size=M'</span><span class="p">;</span> see SIZE format below
+
+       <span class="nt">-B</span>, <span class="nt">--ignore-backups</span>
+              <span class="k">do </span>not list implied entries ending with ~
+
+       <span class="nt">-c</span>     with  <span class="nt">-lt</span>: <span class="nb">sort </span>by, and show, ctime <span class="o">(</span><span class="nb">time </span>of last modification of file status information<span class="o">)</span><span class="p">;</span> with <span class="nt">-l</span>: show ctime and <span class="nb">sort </span>by name<span class="p">;</span> otherwise: <span class="nb">sort
+              </span>by ctime, newest first
+
+       <span class="nt">-C</span>     list entries by columns
+ Manual page <span class="nb">ls</span><span class="o">(</span>1<span class="o">)</span> line 1 <span class="o">(</span>press h <span class="k">for </span><span class="nb">help </span>or q to quit<span class="o">)</span>
+
+</code></pre></div></div>
+
+<h3 id="尝试下--luse-a-long-listing-format列出了更多的文件信息">尝试下 -l：use a long listing format（列出了更多的文件信息）</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# <span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+<p>输出</p>
+<pre><code class="language-bahs">total 32 //总数
+//权限        所有者 所属组    最后修改日期   文件名
+drwxr-xr-x 2 root root 4096 May 17 09:07 Desktop
+drwxr-xr-x 2 root root 4096 May 17 09:07 Documents
+drwxr-xr-x 2 root root 4096 May 17 09:07 Downloads
+drwxr-xr-x 2 root root 4096 May 17 09:07 Music
+drwxr-xr-x 2 root root 4096 May 17 09:07 Pictures
+drwxr-xr-x 2 root root 4096 May 17 09:07 Public
+drwxr-xr-x 2 root root 4096 May 17 09:07 Templates
+drwxr-xr-x 2 root root 4096 May 17 09:07 Videos
+
+</code></pre>
+<p>尝试一下 –help 帮助文档</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# <span class="nb">ls</span> <span class="nt">--help</span>
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: <span class="nb">ls</span> <span class="o">[</span>OPTION]... <span class="o">[</span>FILE]...
+List information about the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span><span class="nb">.</span>
+Sort entries alphabetically <span class="k">if </span>none of <span class="nt">-cftuvSUX</span> nor <span class="nt">--sort</span> is specified.
+
+Mandatory arguments to long options are mandatory <span class="k">for </span>short options too.
+  <span class="nt">-a</span>, <span class="nt">--all</span>                  <span class="k">do </span>not ignore entries starting with <span class="nb">.</span>
+  <span class="nt">-A</span>, <span class="nt">--almost-all</span>           <span class="k">do </span>not list implied <span class="nb">.</span> and ..
+      <span class="nt">--author</span>               with <span class="nt">-l</span>, print the author of each file
+  <span class="nt">-b</span>, <span class="nt">--escape</span>               print C-style escapes <span class="k">for </span>nongraphic characters
+      <span class="nt">--block-size</span><span class="o">=</span>SIZE      with <span class="nt">-l</span>, scale sizes by SIZE when printing them<span class="p">;</span>
+                               e.g., <span class="s1">'--block-size=M'</span><span class="p">;</span> see SIZE format below
+  <span class="nt">-B</span>, <span class="nt">--ignore-backups</span>       <span class="k">do </span>not list implied entries ending with ~
+  <span class="nt">-c</span>                         with <span class="nt">-lt</span>: <span class="nb">sort </span>by, and show, ctime <span class="o">(</span><span class="nb">time </span>of last
+                               modification of file status information<span class="o">)</span><span class="p">;</span>
+                               with <span class="nt">-l</span>: show ctime and <span class="nb">sort </span>by name<span class="p">;</span>
+                               otherwise: <span class="nb">sort </span>by ctime, newest first
+  <span class="nt">-C</span>                         list entries by columns
+      <span class="nt">--color</span><span class="o">[=</span>WHEN]         colorize the output<span class="p">;</span> WHEN can be <span class="s1">'always'</span> <span class="o">(</span>default
+                               <span class="k">if </span>omitted<span class="o">)</span>, <span class="s1">'auto'</span>, or <span class="s1">'never'</span><span class="p">;</span> more info below
+  <span class="nt">-d</span>, <span class="nt">--directory</span>            list directories themselves, not their contents
+  <span class="nt">-D</span>, <span class="nt">--dired</span>                generate output designed <span class="k">for </span>Emacs<span class="s1">' dired mode
+  -f                         do not sort, enable -aU, disable -ls --color
+  -F, --classify             append indicator (one of */=&gt;@|) to entries
+      --file-type            likewise, except do not append '</span><span class="k">*</span><span class="s1">'
+      --format=WORD          across -x, commas -m, horizontal -x, long -l,
+                               single-column -1, verbose -l, vertical -C
+      --full-time            like -l --time-style=full-iso
+  -g                         like -l, but do not list owner
+      --group-directories-first
+                             group directories before files;
+                               can be augmented with a --sort option, but any
+                               use of --sort=none (-U) disables grouping
+  -G, --no-group             in a long listing, don'</span>t print group names
+·
+·
+·
+</code></pre></div></div>
+
+<p>（注：按键盘的上或者下键，可以查看之前使用的命令，tab键可以联想文件名）</p>
+
+<h3 id="试试-cd-进入文件目录">试试 cd 进入文件目录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# <span class="nb">cd test</span>/
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~/test# 
+</code></pre></div></div>
+
+<h3 id="pwd显示当前工作的目录">pwd显示当前工作的目录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~/test# <span class="nb">pwd</span>
+/root/test
+</code></pre></div></div>
+
+<h3 id="cd-返回上一层目录">cd ..返回上一层目录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~/test# <span class="nb">cd</span> ..
+root@kali:~# 
+</code></pre></div></div>
+
+<h3 id="clear清空屏幕上的所有信息">clear清空屏幕上的所有信息</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@kali:~# clear
+</code></pre></div></div>
+:ET

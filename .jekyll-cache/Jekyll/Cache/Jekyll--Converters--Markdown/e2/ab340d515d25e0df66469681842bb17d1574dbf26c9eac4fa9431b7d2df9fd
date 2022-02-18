@@ -1,0 +1,6 @@
+I"<h2 id="web站点介绍">web站点介绍</h2>
+<p>网站就是装在电脑上的应用程序，这个电脑的性能和配置可能比我们普通的电脑好很多，但是基本的工作方式和其他的电脑是一样的，有操作系统、还有很多应用程序让它成为web服务器。有两个主要的程序：Web服务器和数据库（Apache、Mysql等）。web服务器能理解并执行web应用，web应用程序可能是PHP、Python等写的，web应用程序在这里执行而不是客户的机器上
+<img src="https://blog.res.witdor.com/article/web1_1.png" alt="" />
+举例：
+用户请求baidu.com，这个地址会被DNS服务器解析成Ip地址（DNS服务器是用来解析域名的），IP地址对应的服务器将执行后的html返回给用户</p>
+:ET

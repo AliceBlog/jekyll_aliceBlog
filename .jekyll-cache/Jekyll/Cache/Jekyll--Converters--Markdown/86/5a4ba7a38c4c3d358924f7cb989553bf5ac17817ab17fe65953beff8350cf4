@@ -1,0 +1,65 @@
+I"K<h3 id="jekyll是什么">jekyll是什么</h3>
+
+<p>jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，不需要数据库支持。但是可以配合第三方服务,例如Disqus。最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。</p>
+
+<h3 id="安装ruby同时会自动安装gem">安装ruby(同时会自动安装gem)</h3>
+<p>mac下面自带了Ruby环境（查看是否有ruby）</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby <span class="nt">-v</span> 
+</code></pre></div></div>
+<p>输出</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby 2.3.3p222 <span class="o">(</span>2016-11-21 revision 56859<span class="o">)</span> <span class="o">[</span>universal.x86_64-darwin17]
+</code></pre></div></div>
+<ul>
+  <li>jekyll 最新版要求 ruby 2.1或更高,所以更新ruby</li>
+</ul>
+
+<h3 id="jekyll-环境配置">Jekyll 环境配置</h3>
+
+<p>安装 jekyll</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll  
+</code></pre></div></div>
+
+<p>创建博客</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myBlog 
+</code></pre></div></div>
+
+<p>进入博客目录</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>myBlog
+</code></pre></div></div>
+<p>打包项目</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll build
+</code></pre></div></div>
+<p>运行项目</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll server
+</code></pre></div></div>
+<ul>
+  <li>jekyll提供了很多的主题可以直接使用<a href="http://jekyllthemes.org/">主题官网</a></li>
+  <li>在github或者gitlab上创建一个代码托管的仓库，并将代码提交
+    <h3 id="netlify中配置部署">netlify中配置部署</h3>
+  </li>
+  <li>打开<a href="https://app.netlify.com/">netlify</a>的官网</li>
+  <li>注册一个账号</li>
+  <li>选择sites
+<img src="http://blog.res.witdor.com/article/2018_8_3_1.png" alt="" /></li>
+  <li>根据自己的代码存储选择托管平台
+<img src="http://blog.res.witdor.com/article/2018_8_3_2.png" alt="" /></li>
+  <li>选择自己博客的仓库
+<img src="http://blog.res.witdor.com/article/2018_8_3_3.png" alt="" /></li>
+  <li>build command中写jekyll build，publish directory中写_site
+<img src="http://blog.res.witdor.com/article/2018_8_3_4.png" alt="" /></li>
+  <li>最后点deploy site就好了</li>
+</ul>
+
+<h4 id="如果你有自己的域名可以把自己的域名绑定上">如果你有自己的域名可以把自己的域名绑定上</h4>
+<p><img src="http://blog.res.witdor.com/article/2018_8_3_5.png" alt="" /></p>
+
+<h4 id="如果没有域名也可以设置netlify提供的域名的二级域名前缀">如果没有域名也可以设置netlify提供的域名的二级域名前缀</h4>
+<p><img src="http://blog.res.witdor.com/article/2018_8_3_6.png" alt="" /></p>
+
+<h3 id="这样博客就大功告成了">这样博客就大功告成了！</h3>
+:ET

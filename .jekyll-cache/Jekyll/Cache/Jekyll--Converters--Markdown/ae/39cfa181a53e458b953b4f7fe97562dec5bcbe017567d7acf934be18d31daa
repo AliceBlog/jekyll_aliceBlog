@@ -1,0 +1,9 @@
+I"><h2 id="何为路由">何为路由</h2>
+<p>路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.METHOD(path, [callback…], callback)， app 是 express 对象的一个实例， METHOD 是一个 HTTP 请求方法， path 是服务器上的路径， callback 是当路由匹配时要执行的函数。</p>
+<h2 id="基本路由的使用">基本路由的使用</h2>
+<p>```javascript
+// 对网站首页的访问返回 “Hello World!” 字样
+app.get(‘/’, function (req, res) {
+  res.send(‘Hello World!’);
+});</p>
+:ET

@@ -1,0 +1,108 @@
+I"�<h2 id="何为express">何为Express</h2>
+<p>Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。丰富的 HTTP 快捷方法和任意排列组合的 Connect 中间件，让你创建健壮、友好的 API 变得既快速又简单。</p>
+
+<h2 id="前提条件">前提条件</h2>
+<ul>
+  <li>首先需要安装<a href="https://nodejs.org/en/">nodejs</a></li>
+  <li>根据自己的操作系统安装node</li>
+  <li>安装好之后查看一下自己的node版本
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node <span class="nt">-v</span>
+</code></pre></div>    </div>
+  </li>
+  <li>输出
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v9.7.1
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="安装express应用生成器">安装Express应用生成器</h2>
+<ul>
+  <li>通过应用生成器工具 express 可以快速创建一个应用的骨架。</li>
+  <li>通过如下命令安装：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>express-generator <span class="nt">-g</span>
+</code></pre></div></div>
+<ul>
+  <li>-h 选项可以列出所有可用的命令行选项：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>express <span class="nt">-h</span>
+
+  Usage: express <span class="o">[</span>options] <span class="o">[</span><span class="nb">dir</span><span class="o">]</span>
+
+  Options:
+
+    <span class="nt">-h</span>, <span class="nt">--help</span>          output usage information
+    <span class="nt">-V</span>, <span class="nt">--version</span>       output the version number
+    <span class="nt">-e</span>, <span class="nt">--ejs</span>           add ejs engine support <span class="o">(</span>defaults to jade<span class="o">)</span>
+        <span class="nt">--hbs</span>           add handlebars engine support
+    <span class="nt">-H</span>, <span class="nt">--hogan</span>         add hogan.js engine support
+    <span class="nt">-c</span>, <span class="nt">--css</span> &lt;engine&gt;  add stylesheet &lt;engine&gt; support <span class="o">(</span>less|stylus|compass|sass<span class="o">)</span> <span class="o">(</span>defaults to plain css<span class="o">)</span>
+        <span class="nt">--git</span>           add .gitignore
+    <span class="nt">-f</span>, <span class="nt">--force</span>         force on non-empty directory
+</code></pre></div></div>
+<ul>
+  <li>例如，下面的示例就是在当前工作目录下创建一个命名为 myapp 的应用。</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>express myapp
+
+   create : myapp
+   create : myapp/package.json
+   create : myapp/app.js
+   create : myapp/public
+   create : myapp/public/javascripts
+   create : myapp/public/images
+   create : myapp/routes
+   create : myapp/routes/index.js
+   create : myapp/routes/users.js
+   create : myapp/public/stylesheets
+   create : myapp/public/stylesheets/style.css
+   create : myapp/views
+   create : myapp/views/index.jade
+   create : myapp/views/layout.jade
+   create : myapp/views/error.jade
+   create : myapp/bin
+   create : myapp/bin/www
+</code></pre></div></div>
+<ul>
+  <li>目录结构如下</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app.js
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+
+7 directories, 9 files
+</code></pre></div></div>
+<ul>
+  <li>然后安装所有依赖包：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">cd </span>myapp 
+ <span class="nv">$ </span>npm <span class="nb">install</span>
+</code></pre></div></div>
+<ul>
+  <li>启动这个应用（MacOS 或 Linux 平台）：</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ DEBUG</span><span class="o">=</span>myapp npm start
+</code></pre></div></div>
+<ul>
+  <li>然后在浏览器中打开 http://localhost:3000/ 网址就可以看到这个应用了。</li>
+</ul>
+:ET

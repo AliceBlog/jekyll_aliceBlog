@@ -1,0 +1,71 @@
+I"<h2 id="ngx-scroll-event">ngx-scroll-event</h2>
+<p>用于Angular2+监听滚动条的指令和事件</p>
+
+<h2 id="install">Install</h2>
+
+<ul>
+  <li>npm</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>ngx-scroll-event <span class="nt">--save</span>
+</code></pre></div></div>
+<ul>
+  <li>yarn</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yarn add ngx-scroll-event
+</code></pre></div></div>
+<h2 id="使用">使用</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app.module.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ScrollEventModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">ngx-scroll-event</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">...,</span>
+    <span class="nx">ScrollEventModule</span><span class="p">,</span>
+    <span class="p">...,</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app.awesome.component.ts</span>
+
+<span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ScrollEvent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">ngx-scroll-event</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">...</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+   <span class="p">...</span>
+   <span class="na">template</span><span class="p">:</span> <span class="s2">`...
+        &lt;div detect-scroll (onScroll)="handleScroll($event)" [bottomOffset]="200" [topOffset]="200" &gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+            &lt;div&gt;Bla bla bla&lt;/div&gt;
+        &lt;div&gt;
+   ...`</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AwesomeComponent</span> <span class="p">{</span>
+  <span class="kr">public</span> <span class="nx">handleScroll</span><span class="p">(</span><span class="nx">event</span><span class="p">:</span> <span class="nx">ScrollEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">scroll occurred</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">isReachingBottom</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`the user is reaching the bottom`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">isReachingTop</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`the user is reaching the top`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">isWindowEvent</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`This event is fired on Window not on an element.`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

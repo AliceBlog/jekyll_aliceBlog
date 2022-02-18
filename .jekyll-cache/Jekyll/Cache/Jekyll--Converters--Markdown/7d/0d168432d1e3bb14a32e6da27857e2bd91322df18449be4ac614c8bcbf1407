@@ -1,0 +1,39 @@
+I"p<h2 id="virtualbox安装">VirtualBox安装</h2>
+<p>安装环境：Mac OS</p>
+
+<p>下载地址：https://www.virtualbox.org/wiki/Download_Old_Builds_5_2</p>
+
+<p>下载完成后，一路下一步即可</p>
+
+<h2 id="kali-linux安装到virtualbox">Kali Linux安装到VirtualBox</h2>
+<p>安装环境：Mac OS</p>
+
+<p>用途：对其他机器进行攻击
+下载地址：https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/
+<img src="https://blog.res.witdor.com/article/downloadKali.png" alt="" />
+下载完成后双击打开后，直接点击import导入
+打开后默认的用户名是root，pwd是toor</p>
+
+<h2 id="metasploitable安装到virtualbox">metasploitable安装到VirtualBox</h2>
+<p>安装环境：Mac OS</p>
+
+<p>metasploitable是一个易受攻击的Linux发行版，这个操作系统包含了许多漏洞，他是为测试人员设计的，去试图攻击它。</p>
+
+<p>下载地址：https://information.rapid7.com/download-metasploitable-2017.html</p>
+
+<p>下载完成是zip文件，解压后，在VirtualBox里面创建虚拟机，指向metasploitable。系统选择linux</p>
+
+<p>启动后用户名和密码均为msfadmin</p>
+
+<p>关机</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poweroff
+</code></pre></div></div>
+
+<h2 id="windows安装">windows安装</h2>
+<p>安装环境：Mac OS</p>
+
+<p>模拟一个普通的windows机器作为受害者（选择windows10 stable）
+下载地址：https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/</p>
+
+<p>下载完成后，解压后双击ovf文件导入即可,密码：Passw0rd!  （0不是o）</p>
+:ET

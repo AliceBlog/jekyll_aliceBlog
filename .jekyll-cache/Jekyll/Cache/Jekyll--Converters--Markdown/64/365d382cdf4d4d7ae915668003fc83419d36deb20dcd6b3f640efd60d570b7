@@ -1,0 +1,14 @@
+I"�<h2 id="问题描述">问题描述</h2>
+<p>用git push到远程repository的时候一直卡着</p>
+
+<h2 id="运行环境">运行环境</h2>
+<p>MAC</p>
+
+<p>##解决办法
+配置git代理</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> http.proxy<span class="o">=</span>socks5://127.0.0.1:1080
+</code></pre></div></div>
+<p>查看一下git的配置</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span>  <span class="nt">--list</span>
+</code></pre></div></div>
+:ET

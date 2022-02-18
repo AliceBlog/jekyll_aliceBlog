@@ -1,0 +1,14 @@
+I"�<h2 id="virtualbox网络设置">VirtualBox网络设置</h2>
+<h3 id="添加一个网络">添加一个网络</h3>
+<p>选中VirtualBox =&gt; 偏好设置
+<img src="https://blog.res.witdor.com/article/kali3_1.png" alt="" /></p>
+<h3 id="将所有的虚拟机每个都设置到添加的网络中">将所有的虚拟机每个都设置到添加的网络中</h3>
+<p><img src="https://blog.res.witdor.com/article/kali3_2.png" alt="" /></p>
+<h3 id="查看metasploitable的ip地址">查看Metasploitable的IP地址</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig
+</code></pre></div></div>
+<h3 id="在kali-linux中访问metasploitable的ip的ip">在Kali Linux中访问Metasploitable的IP的IP</h3>
+<p>浏览器打开Metasploitable的IP
+<img src="https://blog.res.witdor.com/article/network1_1.png" alt="" />
+网也上面的列表是Metasploitable的服务器</p>
+:ET

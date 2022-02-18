@@ -1,0 +1,14 @@
+I"<h2 id="kali-linux界面简介">Kali Linux界面简介</h2>
+<p>1、整体界面展示
+<img src="https://blog.res.witdor.com/article/kali1_1.jpeg" alt="" /></p>
+
+<p>2、places里面可以访问文件系统，和windows里面的文档类似
+<img src="https://blog.res.witdor.com/article/kali1_2.png" alt="" /></p>
+
+<p>2、Application是应用菜单，里面的应用都是Kali Linux预安装好的，按照攻击类型分类的，方便渗透测试用
+<img src="https://blog.res.witdor.com/article/kali1_3.jpeg" alt="" /></p>
+
+<p>4、右上角的数字代表workspace，切换方便</p>
+
+<p>5、网络连接中不能在虚拟机中访问内置的无限网卡，内置的无线网卡被主机连接，不能用虚拟机访问。虚拟机可以通过主机访问网络</p>
+:ET

@@ -1,0 +1,60 @@
+I"�
+<h2 id="信息搜集方法">信息搜集方法</h2>
+<p>1、 IP地址</p>
+
+<p>2、 域名信息</p>
+
+<p>3、 技术使用</p>
+
+<p>4、 在同一台服务器上的其他网站</p>
+
+<p>5、 DNS记录</p>
+
+<p>6、 未列出的文件、子域、目录</p>
+
+<h2 id="信息搜集的工具">信息搜集的工具</h2>
+<p>1、 <a href="http://whois.domaintools.com">Whois Lookup</a>-查找网站所有者的信息
+    比如服务器、IP地址、domain（检索信息）</p>
+
+<p>2、 <a href="https://toolbar.netcraft.com/site_report?url=">Netcraft Site Report</a> 显示了目标网站上使用的技术</p>
+
+<p>3、<a href="https://www.robtex.com/">Robtex DNS</a>显示关于目标网站的全面的DNS信息
+<img src="https://blog.res.witdor.com/article/shareDns1_1.png" alt="" /></p>
+
+<h2 id="robtex-dns的sharing-ip-numbers">Robtex DNS的sharing IP numbers</h2>
+<ul>
+  <li>一个服务器上可以服务多个网站</li>
+  <li>获得一个站点的权限可以帮助获得另一个站点的权限</li>
+  <li>有一些目标网站很安全，但是服务器并不安全</li>
+</ul>
+
+<p>sharing IP numbers指的是这些网站指向同一个IP，如果攻破这些网站，对目标网站的攻击也是有帮助的</p>
+
+<h2 id="子域">子域</h2>
+<p>Subdomain.target.com的形式,扫描到一些admin.xxx或者cms.xxx可能就是内部的登录系统</p>
+<ul>
+  <li>例如：beta.facebook.com</li>
+</ul>
+
+<p>Knock可以用来找到目标的子域</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/guelfoweb/knock.git
+<span class="nb">cd </span>knock/knockpy
+python knock.py xxxx.com<span class="o">(</span>xxx.com为目标网站域名<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="搜集文件目录">搜集文件+目录</h2>
+<p>在目标网站找文件和目录</p>
+<ul>
+  <li>比如扫描metasploitable上的mutillidae中的目录，可以发现有robots.txt文件（包含不愿被浏览器发现的文件的配置文件），打开robots.txt可以看到password文件夹，进入后能看到一些账号密码的信息，还有config.inc，打开后是数据库的链接信息
+用工具dirb
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dirb <span class="o">[</span>target] <span class="o">[</span>wordlist] <span class="o">[</span>opitions]
+</code></pre></div>    </div>
+  </li>
+  <li>dirb http://10.0.2.4/mutillidae/(默认的WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt)</li>
+  <li>dirb http://10.0.2.4/mutillidae/ /root/wordlist.txt（指定）</li>
+</ul>
+
+<p>运行</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man dirb
+</code></pre></div></div>
+:ET

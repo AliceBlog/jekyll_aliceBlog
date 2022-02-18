@@ -1,0 +1,30 @@
+I"�<h2 id="文件上传漏洞">文件上传漏洞</h2>
+<ul>
+  <li>是一种简单的漏洞类型</li>
+  <li>允许用户上传可执行文件，如php</li>
+</ul>
+
+<p>上传一个php shell或者backdoor，例如weevely。(生成php脚本)
+1、生成backdoor</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>weevely generate <span class="o">[</span>password] <span class="o">[</span>file name]
+</code></pre></div></div>
+<ul>
+  <li>password是我们用的，自定义</li>
+  <li>file name是自定义路径</li>
+</ul>
+
+<p>2、上传生成的文件</p>
+
+<p>3、链接</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>weevely <span class="o">[</span>url to file] <span class="o">[</span>password]
+</code></pre></div></div>
+<p>连接到脚本后，输入的脚本命令都可以执行，比如：pwd等，自己脑补</p>
+
+<p>4、使用
+连接后可以直接输入help查看可以进行哪些操作</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">help</span>
+</code></pre></div></div>
+
+<h2 id="http请求">HTTP请求</h2>
+:ET
