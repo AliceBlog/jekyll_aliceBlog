@@ -2,7 +2,7 @@
 title: 'Alice Blog'
 description: '很高兴能在这里与你分享我对技术和生活的思考。'
 keyword: 'Alice, Alice Blog, Go, 人工智能, AI, Go'
-url: 'http://alice.witdor.com' # your host
+url: 'https://alice.vdo.pub' # your host
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
