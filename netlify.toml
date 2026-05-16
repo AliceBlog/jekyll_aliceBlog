@@ -6,11 +6,6 @@
   RUBY_VERSION = "3.1"
   JEKYLL_ENV = "production"
 
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
-
 [[headers]]
   for = "/*"
   [headers.values]
