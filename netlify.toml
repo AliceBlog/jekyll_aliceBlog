@@ -1,11 +1,10 @@
 [build]
-  command = "rm -f package.json package-lock.json && bundle exec jekyll build"
+  command = "bundle exec jekyll build"
   publish = "_site"
 
 [build.environment]
   RUBY_VERSION = "3.1"
   JEKYLL_ENV = "production"
-  NPM_FLAGS = "--ignore-scripts"
 
 [[headers]]
   for = "/*"
