@@ -1,5 +1,5 @@
 [build]
-  command = "bundle exec jekyll build"
+  command = "rm -f package.json package-lock.json && bundle exec jekyll build"
   publish = "_site"
 
 [build.environment]
