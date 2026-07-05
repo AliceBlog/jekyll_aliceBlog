@@ -4,75 +4,63 @@ This file gives Claude Code project-specific guidance for working in this reposi
 
 ## Project Overview
 
-This is Alice's personal Jekyll static blog, based on `jekyll-theme-H2O` and customized with Chinese copy, personal pages, animated visual effects, tags, search, night mode, social links, and Netlify/GitHub Pages deployment config.
+This is Alice's personal Hugo static blog. It was migrated from the original Jekyll / `jekyll-theme-H2O` site while preserving Chinese copy, personal pages, animated visual effects, tags, search, night mode, social links, and Netlify/GitHub Pages deployment config.
 
 Primary content language is Chinese. Preserve the author's warm, personal, direct tone when editing posts or profile copy.
 
 ## Tech Stack
 
-- Static site generator: Jekyll 4.x
-- Ruby dependencies: `Gemfile`, `jekyll`, `jekyll-paginate`
-- Frontend assets: plain HTML/Liquid, Sass, vanilla JavaScript, jQuery-style legacy scripts
-- Asset pipeline: legacy Gulp 3 tasks for Sass/JS minification
+- Static site generator: Hugo 0.92.1 extended
+- Markdown renderer: Goldmark
+- Frontend assets: Hugo templates, static assets, vanilla JavaScript, legacy jQuery-style scripts
+- Compatibility script: `scripts/hugo-page-compat.js` copies `/page/N/` output to old `/pageN/` paths
 - Deployment:
   - Netlify via `netlify.toml`
-  - GitHub Pages via `.github/workflows/jekyll.yml`
+  - GitHub Pages via `.github/workflows/hugo.yml`
 
 ## Important Directories
 
-- `_posts/` — blog posts. File format: `YYYY-MM-DD-title.md`.
-- `_layouts/` — page and post templates.
-- `_includes/` — reusable Liquid partials.
-- `dev/sass/` — source Sass files. Edit these for style changes.
-- `dev/js/` — source JavaScript. Edit these for script changes.
-- `assets/css/` — generated/minified CSS used by the site.
-- `assets/js/` — generated/minified JavaScript used by the site.
-- `_site/` — generated output. Do not edit by hand.
-- `screenshot/` — theme screenshots used by README.
+- `content/posts/` — Hugo blog posts. File format: `YYYY-MM-DD-title.md`.
+- `content/aboutme.md`, `content/tags.md`, `content/_index.md` — top-level Hugo content pages.
+- `layouts/` — Hugo templates and partials.
+- `static/` — static files copied directly to `public/`.
+- `scripts/hugo-page-compat.js` — compatibility step for legacy pagination URLs.
+- `public/` — Hugo generated output. Do not edit by hand.
 
 ## Common Commands
 
-Use Ruby/Jekyll for site generation:
+Use Hugo for site generation:
 
 ```bash
-bundle install
-bundle exec jekyll serve
-bundle exec jekyll build
+hugo server
+hugo --gc --minify && node scripts/hugo-page-compat.js
 ```
 
 The configured Netlify production build is:
 
 ```bash
-bundle exec jekyll build
+hugo --gc --minify && node scripts/hugo-page-compat.js
 ```
 
-The GitHub Pages workflow builds with:
+The GitHub Pages workflow installs Hugo 0.92.1 extended and Node 20, then builds with:
 
 ```bash
-bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/" && node scripts/hugo-page-compat.js
 ```
 
-Legacy asset pipeline:
-
-```bash
-npm install
-npx gulp
-```
-
-Note: the Gulp setup uses old dependencies (`gulp@3`, `gulp-sass@3`). Avoid upgrading or replacing the asset pipeline unless the user explicitly asks, because that can create compatibility churn.
+Legacy Jekyll/Gulp files have been removed from this branch. Keep new work in the Hugo structure.
 
 ## Content Conventions
 
-New posts should live in `_posts/` and include front matter like:
+New posts should live in `content/posts/` and include front matter like:
 
 ```yaml
 ---
-layout: post
 title: '文章标题'
 subtitle: '可选副标题'
 date: YYYY-MM-DD
-categories: 技术
-tags: 标签1 标签2
+categories: ['技术']
+tags: ['标签1', '标签2']
 ---
 ```
 
@@ -86,28 +74,27 @@ Guidelines:
 
 ## Template and Styling Guidance
 
-- Prefer semantic HTML in `_layouts`, `_includes`, and root pages.
-- Keep Liquid expressions compatible with Jekyll/Kramdown.
-- For CSS changes, edit `dev/sass/*.scss` first, then regenerate `assets/css/app.min.css` when the legacy Gulp pipeline is available.
-- For JavaScript changes, edit `dev/js/index.js` first, then regenerate `assets/js/index.min.js` when needed.
-- Avoid hand-editing generated minified assets unless the source pipeline cannot run and the change is intentionally small.
-- Do not edit `_site/`; rebuild it instead.
+- Prefer semantic HTML in `layouts/` templates and partials.
+- Keep template expressions compatible with Hugo 0.92.1.
+- Static CSS/JS currently lives under `static/assets/` for Hugo output.
+- Avoid hand-editing generated output in `public/`.
+- Do not edit `public/`; rebuild instead.
 
 ## Validation Checklist
 
 Before reporting changes complete:
 
-1. Run `bundle exec jekyll build` when Ruby dependencies are available.
-2. If frontend behavior or layout changed, run the site locally with `bundle exec jekyll serve` and inspect the affected page in a browser.
+1. Run `hugo --gc --minify && node scripts/hugo-page-compat.js`.
+2. If frontend behavior or layout changed, run `hugo server` and inspect the affected page in a browser.
 3. For visual changes, check desktop and mobile widths at minimum.
-4. Confirm no changes were made only inside `_site/`.
+4. Confirm no changes were made only inside `public/`.
 5. Check `git status --short` so generated or unrelated files are not accidentally included.
 
 ## Deployment Notes
 
-- Netlify publishes `_site` and sets `JEKYLL_ENV=production` with Ruby 3.1.
-- GitHub Pages deploys from pushes to `master`.
-- `CNAME` and `_config.yml` define the production domain behavior; do not change these casually.
+- Netlify publishes `public/` and sets `HUGO_VERSION=0.92.1`, `HUGO_ENV=production`, and `NODE_VERSION=20`.
+- GitHub Pages deploys from pushes to `master` via `.github/workflows/hugo.yml`.
+- `static/CNAME` and `config.yaml` define the production domain behavior; do not change these casually.
 
 ## Git Hygiene
 
