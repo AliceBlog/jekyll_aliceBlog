@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+
+<div class="g-banner tags-banner {{ printf "post-pattern-%s" .Site.Params.postPatterns }} {{ printf "bgcolor-%s" .Site.Params.themeColor }}" data-theme="{{ .Site.Params.themeColor }}">
+    <h2>标签</h2>
+</div>
+
+<main class="tags-content">
+
+    <ul class="tags-list">
+        <li>
+        {{ if .Site.Params.recommendTags }}
+            {{ range .Site.Params.tagOrder }}
+            <a href="{{ printf "#%s" . | safeHTMLAttr }}" class="tag">{{ . }}</a>
+            {{ end }}
+            {{ range $name, $_ := .Site.Taxonomies.tags }}
+                {{ if not (in $.Site.Params.tagOrder $name) }}
+                <a href="{{ printf "#%s" $name | safeHTMLAttr }}" class="tag">{{ $name }}</a>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        </li>
+
+        {{ range .Site.Params.tagOrder }}
+        {{ $term := index $.Site.Taxonomies.tags . }}
+        {{ if $term }}
+        <li>
+            <span class="tag-name" id="{{ . | safeHTMLAttr }}">「{{ . }}」</span>
+            {{ range $term.Pages }}
+            <a class="tag-post" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            {{ end }}
+        </li>
+        {{ end }}
+        {{ end }}
+        {{ range $name, $term := .Site.Taxonomies.tags }}
+        {{ if not (in $.Site.Params.tagOrder $name) }}
+        <li>
+            <span class="tag-name" id="{{ $name | safeHTMLAttr }}">「{{ $name }}」</span>
+            {{ range $term.Pages }}
+            <a class="tag-post" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            {{ end }}
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</main>
+
+{{ partial "footer.html" . }}
+{{ end }}

@@ -1,0 +1,94 @@
+baseURL: 'https://alice.vdo.pub/'
+languageCode: zh-CN
+title: Alice Blog
+hasCJKLanguage: true
+disablePathToLower: true
+paginate: 6
+summaryLength: 70
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+outputFormats:
+  RSS:
+    mediaType: application/rss+xml
+    baseName: rss
+  JSON:
+    mediaType: application/json
+    baseName: search
+    isPlainText: true
+    notAlternative: true
+
+taxonomies:
+  tag: tags
+  category: categories
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      autoHeadingID: true
+      autoHeadingIDType: github
+  highlight:
+    codeFences: false
+
+params:
+  description: 很高兴能在这里与你分享我对技术和生活的思考。
+  keyword: Alice, Alice Blog, Go, 人工智能, AI, Go
+  author: Alice
+  nickname: 竹
+  bio: 热爱技术，简单乐观爱创造
+  avatar: /assets/img/alicesmall.jpg
+  search: true
+  nightMode: true
+  mathjax: false
+  socialShare: true
+  socialShareItems:
+    - wechat
+    - weibo
+    - douban
+    - twitter
+  themeColor: default
+  postPatterns: circuitBoard
+  recommendTags: true
+  recommendConditionSize: 12
+  tagOrder:
+    - 技术
+    - git
+    - jekyll
+    - 博客
+    - Truffle
+    - Node
+    - express
+    - mysql
+    - AngularX
+    - 网络安全
+    - SSL
+    - 渗透测试
+  comments:
+    disqus: false
+    disqusUrl: https://liaokeyu.disqus.com/embed.js
+  footer:
+    since: 2017
+  nav:
+    - name: 主页
+      url: /
+    - name: 分类
+      url: /tags.html
+    - name: 关于我
+      url: /aboutme.html
+  sns:
+    - name: zhihu
+      url: //www.zhihu.com/people/aliceprincess-55/activities
+    - name: weibo
+      url: //weibo.com/u/2749673491/home?wvr=5&lf=reg
+    - name: github
+      url: //github.com/AlicePrincess
+    - name: linkedin
+      url: //www.linkedin.com/in/%E6%A2%A6%E7%AB%B9-%E5%90%B4-b9a72b118/
+    - name: facebook
+      url: //www.facebook.com/ce.ali.96

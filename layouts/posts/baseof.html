@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+{{ partial "post-head.html" . }}
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="{{ .Site.Params.nightMode }}"> {{ partial "header.html" . }}
+
+  {{ block "main" . }}{{ end }}
+
+  <script src="/assets/js/social-share.min.js"></script>
+
+  {{ if .Site.Params.comments.disqus }}
+  <script>
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '{{ .Site.Params.comments.disqusUrl }}';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  {{ end }}
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+  <script src="/assets/js/verlet-1.0.0.js"></script>
+  {{ partial "spider-script.html" . }}
+</body>
+
+</html>

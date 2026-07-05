@@ -1,0 +1,18 @@
+<nav class="pagination">
+    <input type="hidden" id="total_pages" value="{{ .TotalPages }}">
+    <input type="hidden" id="current_pages" value="{{ .PageNumber }}">
+    <input type="hidden" id="base_url" value="/">
+    <div class="page-links">
+        {{ if .HasPrev }}
+            {{ if eq .Prev.PageNumber 1 }}
+            <a href="/" class="page-link" title="Previous Page">&laquo;</a>
+            {{ else }}
+            <a href="/page{{ .Prev.PageNumber }}/" class="page-link" title="Previous Page">&laquo;</a>
+            {{ end }}
+        {{ end }}
+        <div id="page-link-container"></div>
+        {{ if .HasNext }}
+        <a href="/page{{ .Next.PageNumber }}/" class="page-link">&raquo;</a>
+        {{ end }}
+    </div>
+</nav>

@@ -1,0 +1,127 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ partial "site-title.html" . }}</title>
+    <meta name="author"  content="{{ .Site.Params.author }}">
+    <meta name="description" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta name="keywords"  content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ partial "site-title.html" . }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/logo_default.svg">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    {{ partial "mathjax.html" . }}
+    {{ partial "anchor.html" . }}
+    <style>
+            @media screen and (max-width: 695px){
+                .pan,.pancake__wrapper,.footerBj,.g-footer{
+                    display: none;
+                }
+            }
+            .footerBj {
+                width:100%;
+                position: absolute;
+                bottom:0px;
+                z-index: -1;
+                --col-deepblue: #007aff;
+              }
+              .footerBj div {
+                background-color: var(--col-deepblue);
+                margin: -5px 0px 0px 0px;
+                padding:0px;
+                color: #fff;
+                text-align:center;
+              }
+              svg {
+                width:100%;
+                overflow:visible;
+              }
+
+              .wave {
+                animation: wave 3s linear;
+                animation-iteration-count:infinite;
+                fill: #007aff;
+              }
+              .drop {
+                fill: var(--col-deepblue);
+                xfill: #007aff;
+                animation: drop 3.2s linear infinite normal;
+                stroke: var(--col-deepblue);
+                stroke-width:0.5;
+                transform: translateY(25px) ;
+                transform-box: fill-box;
+                transform-origin: 50% 100%;
+              }
+              .drop1 {
+
+              }
+              .drop2 {
+                animation-delay: 3s;
+                animation-duration:3s;
+              }
+              .drop3 {
+                animation-delay: -2s;
+                animation-duration:3.4s;
+              }
+              .drop4 {
+                animation-delay: 1.7s;
+              }
+              .drop5 {
+                animation-delay: 2.7s;
+                animation-duration:3.1s;
+              }
+              .drop6 {
+                animation-delay: -2.1s;
+                animation-duration:3.2s;
+              }
+              .gooeff {
+                    filter: url(#goo);
+              }
+              #wave2 {
+                animation-duration:5s;
+                animation-direction: reverse;
+                opacity: .6
+              }
+              #wave3 {
+                animation-duration: 7s;
+                opacity:.3;
+              }
+              @keyframes drop {
+                0% {
+                  transform: translateY(25px);
+                }
+                30% {
+                  transform: translateY(-10px) scale(.1);
+                }
+                30.001% {
+                  transform: translateY(25px) scale(1);
+                }
+                70% {
+                  transform: translateY(25px);
+                }
+                100% {
+                  transform: translateY(-10px) scale(.1);
+                }
+              }
+              @keyframes wave {
+                to {transform: translateX(-100%);}
+              }
+              @keyframes ball {
+                to {transform: translateY(20%);}
+              }
+              #web{
+                  position:absolute;
+                  right: 10px;
+              }
+    </style>
+</head>

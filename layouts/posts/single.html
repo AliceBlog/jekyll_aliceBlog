@@ -1,0 +1,101 @@
+{{ define "main" }}
+  <header
+    class="g-banner post-header {{ printf "post-pattern-%s" .Site.Params.postPatterns }} {{ printf "bgcolor-%s" .Site.Params.themeColor }} {{ if not .Params.cover }}post-no-cover{{ end }}"
+    data-theme="{{ .Site.Params.themeColor }}"
+  >
+  <canvas id="scratch" style="width: 300px; height: 300px;position: absolute;right: 10px;top: 20px;"></canvas>
+
+
+    <div class="post-wrapper">
+      <div class="post-tags">
+        {{ range .Params.tags }}
+            <a href="{{ printf "/tags.html#%s" . | safeHTMLAttr }}" class="post-tag">{{ . }}</a>
+        {{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i>{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}</span>
+        <time class="post-meta-item" datetime="{{ .Date.Format "06-01-02" }}"><i class="iconfont icon-date"></i>{{ partial "jekyll-date.html" . }}</time>
+      </div>
+    </div>
+    {{ if .Params.cover }}
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('{{ .Params.cover }}') center no-repeat; background-size: cover;"></div>
+    {{ end }}
+  </header>
+
+  <div class="post-content visible">
+    {{ if .Params.subtitle }}
+    <h2 class="post-subtitle">{{ .Params.subtitle }}</h2>
+    {{ end }}
+
+    <article class="markdown-body">
+      {{ .Content }}
+    </article>
+
+    {{ if .Site.Params.socialShare }}
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    {{ end }}
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="{{ .Site.Params.avatar }}" alt="">
+      </div>
+      <div class="author-name" rel="author">{{ .Site.Params.author }}</div>
+      <div class="bio">
+        <p>{{ .Site.Params.bio }}</p>
+      </div>
+      {{ if .Site.Params.sns }}
+      <ul class="sns-links">
+        {{ range .Site.Params.sns }}
+        <li>
+          <a href="{{ .url }}" target="_blank">
+                    <i class="iconfont icon-{{ .name }}"></i>
+                </a>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </section>
+    <section class="post-footer-item read-next">
+      {{ with .NextInSection }}
+      <div class="read-next-item">
+        <a href="{{ .RelPermalink }}" class="read-next-link"></a>
+        <section>
+          <span>{{ .Title }}</span>
+          <p>{{ .Summary | plainify | truncate 60 }}</p>
+        </section>
+        {{ if .Params.cover }}
+        <div class="filter"></div>
+        <img src="{{ .Params.cover }}" alt="">
+        {{ end }}
+     </div>
+      {{ end }}
+
+      {{ with .PrevInSection }}
+      <div class="read-next-item">
+        <a href="{{ .RelPermalink }}" class="read-next-link"></a>
+          <section>
+            <span>{{ .Title }}</span>
+            <p>{{ .Summary | plainify | truncate 60 }}</p>
+          </section>
+          {{ if .Params.cover }}
+          <div class="filter"></div>
+          <img src="{{ .Params.cover }}" alt="">
+          {{ end }}
+      </div>
+      {{ end }}
+    </section>
+    {{ if .Site.Params.comments.disqus }}
+    <section class="post-footer-item comment">
+        <div id="disqus_thread"></div>
+    </section>
+    {{ end }}
+  </section>
+
+  {{ partial "footer.html" . }}
+{{ end }}

@@ -1,0 +1,27 @@
+{{ "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title | htmlEscape }}</title>
+    <description>{{ .Site.Params.description | htmlEscape }}</description>
+    <link>{{ .Site.BaseURL }}</link>
+    <atom:link href="{{ "rss.xml" | absURL }}" rel="self" type="application/rss+xml" />
+    <pubDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    <generator>Hugo {{ hugo.Version }}</generator>
+    {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+      <item>
+        <title>{{ .Title | htmlEscape }}</title>
+        <description>{{ .Content | htmlEscape }}</description>
+        <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+        <link>{{ .Permalink }}</link>
+        <guid isPermaLink="true">{{ .Permalink }}</guid>
+        {{ range .Params.tags }}
+        <category>{{ . | htmlEscape }}</category>
+        {{ end }}
+        {{ range .Params.categories }}
+        <category>{{ . | htmlEscape }}</category>
+        {{ end }}
+      </item>
+    {{ end }}
+  </channel>
+</rss>

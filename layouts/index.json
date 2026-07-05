@@ -1,0 +1,11 @@
+[
+  {{- $pages := where .Site.RegularPages "Section" "posts" -}}
+  {{- range $index, $post := $pages -}}
+    {{- if $index }},{{ end }}
+    {
+      "title": {{ $post.Title | jsonify }},
+      "tags": {{ delimit $post.Params.tags " " | jsonify }},
+      "url": {{ $post.RelPermalink | jsonify }}
+    }
+  {{- end }}
+]

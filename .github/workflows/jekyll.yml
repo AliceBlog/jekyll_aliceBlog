@@ -1,4 +1,4 @@
-name: Deploy Jekyll site to Pages
+name: Deploy Hugo site to Pages
 
 on:
   push:
@@ -20,20 +20,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
         with:
-          ruby-version: '3.1'
-          bundler-cache: true
+          hugo-version: '0.92.1'
+          extended: true
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Build site
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/" && node scripts/hugo-page-compat.js
         env:
-          JEKYLL_ENV: production
+          HUGO_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
 
   deploy:
     environment:
