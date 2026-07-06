@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alice Blog 首页重构设计稿</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css"
+    />
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/assets/js/TweenMax.min.js"></script>
+    <style>
+      :root {
+        --blue: #007aff;
+        --blue-dark: #0062cc;
+        --ink: #1d2433;
+        --muted: #697386;
+        --line: #e8ecf1;
+        --paper: #ffffff;
+        --soft: #f5f9ff;
+        --pancake-light: #fff2a4;
+        --pancake-mid: #eca24d;
+        --pancake-deep: #b45326;
+        --radius-xl: 32px;
+        --radius-lg: 22px;
+        --shadow: 0 24px 80px rgba(0, 122, 255, 0.13);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        background: radial-gradient(
+            circle at 84% 12%,
+            rgba(255, 242, 164, 0.55),
+            transparent 20rem
+          ),
+          radial-gradient(
+            circle at 8% 20%,
+            rgba(0, 122, 255, 0.15),
+            transparent 28rem
+          ),
+          linear-gradient(180deg, #f8fbff 0%, #fff 42%, #f8fbff 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .draft-ribbon {
+        position: fixed;
+        z-index: 50;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 14px;
+        border-radius: 999px;
+        color: var(--blue-dark);
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(0, 122, 255, 0.16);
+        box-shadow: 0 10px 35px rgba(21, 57, 107, 0.08);
+        backdrop-filter: blur(16px);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+      }
+      .site-shell {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 28px 26px 72px;
+        position: relative;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0 34px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: linear-gradient(135deg, var(--blue), #38a5ff);
+        box-shadow: 0 12px 28px rgba(0, 122, 255, 0.24);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px;
+        border: 1px solid rgba(0, 122, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(14px);
+      }
+      .nav a {
+        padding: 9px 15px;
+        border-radius: 999px;
+        color: #4f5d75;
+        font-size: 14px;
+      }
+      .nav a.active,
+      .nav a:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+      .hero {
+        position: relative;
+        min-height: 292px;
+        border-radius: 30px;
+        padding: 38px 42px;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 122, 255, 0.96),
+          rgba(35, 156, 255, 0.84)
+        );
+        color: #fff;
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 260px;
+        align-items: center;
+        gap: 28px;
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        inset: auto -6% -58% 50%;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.11);
+        border-radius: 50%;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        right: 92px;
+        top: 48px;
+        width: 148px;
+        height: 148px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+      .hero-copy {
+        position: relative;
+        z-index: 3;
+        max-width: 700px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        font-size: 13px;
+      }
+      .hero h1 {
+        margin: 16px 0 12px;
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1;
+        letter-spacing: -0.065em;
+      }
+      .hero p {
+        margin: 0;
+        max-width: 620px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 16px;
+        line-height: 1.75;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 16px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .btn.primary {
+        background: #fff;
+        color: var(--blue);
+      }
+      .btn.ghost {
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+      .hero .pan,
+      .hero .pancake__wrapper {
+        right: 96px;
+        transform: scale(0.72) rotate(45deg);
+      }
+      .hero .pancake {
+        transform: rotate(-45deg) translate3d(0, 0, 5px);
+      }
+      .section-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 28px;
+        margin-top: 32px;
+        align-items: start;
+      }
+      .featured-card {
+        background: var(--paper);
+        border: 1px solid rgba(0, 122, 255, 0.1);
+        border-radius: var(--radius-xl);
+        padding: 28px;
+        box-shadow: 0 20px 70px rgba(31, 65, 114, 0.08);
+      }
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section-title h2 {
+        margin: 0;
+        font-size: 26px;
+        letter-spacing: -0.04em;
+      }
+      .section-title span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .post-list {
+        display: grid;
+        gap: 14px;
+      }
+      .post-item {
+        display: grid;
+        grid-template-columns: 92px 1fr auto;
+        gap: 18px;
+        align-items: center;
+        padding: 18px;
+        border-radius: 24px;
+        border: 1px solid transparent;
+        background: linear-gradient(180deg, #fff, #fbfdff);
+        transition: 0.2s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .post-item:hover {
+        border-color: rgba(0, 122, 255, 0.18);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 40px rgba(0, 122, 255, 0.08);
+      }
+      .date-tile {
+        height: 72px;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        background: var(--soft);
+        color: var(--blue);
+        font-weight: 800;
+      }
+      .date-tile small {
+        display: block;
+        font-size: 12px;
+        color: #7aaeed;
+        text-align: center;
+      }
+      .post-item h3 {
+        margin: 0 0 7px;
+        font-size: 20px;
+        letter-spacing: -0.03em;
+      }
+      .post-item p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .tag {
+        padding: 6px 10px;
+        background: #eef6ff;
+        color: var(--blue-dark);
+        border-radius: 999px;
+        font-size: 12px;
+      }
+      .arrow {
+        width: 38px;
+        height: 38px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: #f4f8ff;
+        color: var(--blue);
+      }
+      .side-stack {
+        display: grid;
+        gap: 18px;
+      }
+      .profile-card,
+      .search-card,
+      .tags-card,
+      .friend-card {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(0, 122, 255, 0.1);
+        border-radius: 28px;
+        padding: 22px;
+        box-shadow: 0 18px 55px rgba(31, 65, 114, 0.07);
+        backdrop-filter: blur(16px);
+      }
+      .profile-card {
+        text-align: center;
+      }
+      .avatar {
+        width: 86px;
+        height: 86px;
+        margin: 0 auto 14px;
+        border-radius: 28px;
+        padding: 4px;
+        background: linear-gradient(135deg, var(--blue), var(--pancake-mid));
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 24px;
+        display: block;
+      }
+      .profile-card h3 {
+        margin: 0 0 6px;
+      }
+      .profile-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .search-box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 13px 14px;
+        border-radius: 18px;
+        background: #f5f9ff;
+        color: var(--muted);
+      }
+      .tags-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+      }
+      .friend-card a {
+        color: var(--blue);
+        font-weight: 700;
+      }
+      .insight-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 28px;
+      }
+      .metric {
+        border-radius: 24px;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid rgba(0, 122, 255, 0.09);
+      }
+      .metric b {
+        display: block;
+        font-size: 28px;
+        color: var(--blue);
+        letter-spacing: -0.05em;
+      }
+      .metric span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* 原煎饼动画样式，保留颜色节奏 */
+      .pan {
+        cursor: pointer;
+        width: 200px;
+        position: absolute;
+        top: 300px;
+        left: 80%;
+        transform-origin: 100px 225px;
+        margin-left: -100px;
+        margin-top: -225px;
+        transform: rotate(45deg);
+        z-index: 2;
+      }
+      .pancake {
+        height: 100%;
+        width: 100%;
+        transform: rotate(-45deg) translate3d(0, 0, 5px);
+      }
+      .pancake--cooking .pancake__face--smiling {
+        display: none;
+      }
+      .pancake--cooking .pancake__face--cooking {
+        display: block;
+      }
+      .pancake--flipping .pancake__face--smiling,
+      .pancake--flipping .pancake__face--cooking {
+        display: none;
+      }
+      .pancake--flipping .pancake__face--flipping {
+        display: block;
+      }
+      .pancake__wrapper {
+        height: 120px;
+        width: 120px;
+        position: absolute;
+        top: 300px;
+        left: 80%;
+        z-index: 3;
+        margin-left: -60px;
+        margin-top: -60px;
+        transform: rotate(45deg);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+      }
+      .pancake__wrapper:before {
+        content: "";
+        box-sizing: border-box;
+        background: var(--pancake-light);
+        position: absolute;
+        border: 5px solid var(--pancake-light);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(180deg);
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        animation: cook 60s forwards ease;
+      }
+      .pancake__head {
+        fill: var(--pancake-light);
+      }
+      .pancake__splodge {
+        animation: cook 60s forwards ease;
+        fill: var(--pancake-light);
+      }
+      .pancake__face {
+        display: none;
+      }
+      .pancake__face--smiling {
+        display: block;
+      }
+      @keyframes cook {
+        0% {
+          background: var(--pancake-light);
+          fill: var(--pancake-light);
+        }
+        50% {
+          background: var(--pancake-mid);
+          fill: var(--pancake-mid);
+        }
+        100% {
+          background: var(--pancake-deep);
+          fill: var(--pancake-deep);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .site-shell {
+          padding: 20px 16px 48px;
+        }
+        .nav {
+          display: none;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 34px 26px 168px;
+          min-height: auto;
+        }
+        .hero .pan,
+        .hero .pancake__wrapper {
+          top: auto;
+          right: auto;
+          bottom: -34px;
+          left: 66%;
+          transform: scale(0.64) rotate(45deg);
+        }
+        .hero .pancake {
+          transform: rotate(-45deg) translate3d(0, 0, 5px);
+        }
+        .section-grid {
+          grid-template-columns: 1fr;
+        }
+        .post-item {
+          grid-template-columns: 1fr;
+        }
+        .arrow {
+          display: none;
+        }
+        .insight-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="draft-ribbon">首页重构设计稿 · 保留煎饼动画与蓝色风格</div>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#"
+          ><span class="brand-mark">竹</span><span>Alice Blog</span></a
+        >
+        <nav class="nav">
+          <a class="active" href="#">主页</a><a href="#">分类</a
+          ><a href="#">关于我</a><a href="#">搜索</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">🥞 技术、生活与一点点凌晨梦境</div>
+          <h1>把灵感煎到刚刚好。</h1>
+          <p>
+            更聚焦的首页：上方保留记忆点强的煎饼动画，中间突出最新文章，侧边收纳作者、搜索、标签与友链，让老博客的蓝色清爽感继续在线。
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#posts">阅读最新文章 →</a
+            ><a class="btn ghost" href="#dream">龙虾的梦境</a>
+          </div>
+        </div>
+        <div class="pancake__wrapper">
+          <svg
+            class="pancake"
+            viewBox="0 0 125 125"
+            preserveAspectRatio="xMinYMin"
+          >
+            <g transform="translate(-218.45033,-597.48341)">
+              <circle
+                class="pancake__head"
+                r="62.499992"
+                cy="659.9834"
+                cx="280.95032"
+                id="path4364"
+              />
+              <path
+                class="pancake__splodge"
+                d="m 338.45031,659.9834 c -0.34709,9.24263 -14.61069,12.72051 -17.55434,21.48873 -2.03509,6.06189 3.61007,13.46946 0.71298,19.1699 -3.32901,6.55031 -10.93416,12.05618 -18.27704,12.32273 -7.49726,0.27215 -12.03222,-10.80896 -19.52445,-11.19565 -9.19124,-0.47438 -17.16862,15.62028 -25.23873,11.19565 -5.70153,-3.126 1.10021,-14.17642 -2.9199,-19.28701 -6.16253,-7.83414 -23.56182,-2.23575 -27.67987,-11.31276 -3.15521,-6.95471 7.37259,-14.03068 7.44565,-21.66731 0.0774,-8.08842 -10.31556,-15.53332 -7.44565,-23.09587 1.71715,-4.52488 8.91182,-4.13782 12.5013,-7.38418 6.95859,-6.29342 8.78642,-17.59265 16.6699,-22.67988 6.81737,-4.39926 15.96423,-7.12106 23.81016,-5.05434 6.02043,1.58586 8.36953,9.69528 13.98873,12.37577 8.1355,3.88082 20.30421,-1.91604 26.6699,4.46559 5.17012,5.18306 0.81215,14.88952 3.57273,21.6699 2.91176,7.15171 13.5584,11.27242 13.26863,18.98873 z"
+              />
+            </g>
+            <g class="pancake__face pancake__face--smiling" id="layer5">
+              <g id="g4534">
+                <g
+                  transform="translate(-218.45036,-597.48348)"
+                  style="display: inline; opacity: 1"
+                  id="g4448"
+                >
+                  <circle
+                    r="4.9999995"
+                    cy="651.05475"
+                    cx="252.80746"
+                    id="path4366"
+                    style="
+                      opacity: 1;
+                      fill: #000000;
+                      fill-opacity: 1;
+                      stroke: none;
+                      stroke-width: 4;
+                      stroke-linecap: square;
+                      stroke-linejoin: miter;
+                      stroke-miterlimit: 4;
+                      stroke-dasharray: none;
+                      stroke-opacity: 1;
+                    "
+                  />
+                  <circle
+                    style="
+                      opacity: 1;
+                      fill: #000000;
+                      fill-opacity: 1;
+                      stroke: none;
+                      stroke-width: 4;
+                      stroke-linecap: square;
+                      stroke-linejoin: miter;
+                      stroke-miterlimit: 4;
+                      stroke-dasharray: none;
+                      stroke-opacity: 1;
+                    "
+                    id="circle4368"
+                    cx="309.09317"
+                    cy="651.05475"
+                    r="4.9999995"
+                  />
+                </g>
+                <path
+                  style="
+                    display: inline;
+                    opacity: 1;
+                    fill: #000000;
+                    fill-opacity: 0;
+                    stroke: #000000;
+                    stroke-width: 3.99999952;
+                    stroke-linecap: round;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  d="m 72.469621,64.28627 a 10,10 0 0 1 -9.969686,9.221947 10,10 0 0 1 -9.969693,-9.222032"
+                  id="circle4387"
+                />
+              </g>
+            </g>
+            <g class="pancake__face pancake__face--flipping" id="layer2">
+              <g id="g4476">
+                <circle
+                  transform="translate(-218.45036,-597.48348)"
+                  style="
+                    display: inline;
+                    opacity: 1;
+                    fill: #000000;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 4;
+                    stroke-linecap: square;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  id="path4376"
+                  cx="280.95032"
+                  cy="666.99176"
+                  r="9.999999"
+                />
+                <g id="g4472">
+                  <path
+                    id="path4468"
+                    d="m 30.460063,49.409049 9.823502,5.671602 -9.912729,2.656107"
+                    style="
+                      fill: none;
+                      fill-rule: evenodd;
+                      stroke: #000000;
+                      stroke-width: 1.99999976;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 4;
+                      stroke-dasharray: none;
+                      stroke-opacity: 1;
+                    "
+                  />
+                  <path
+                    style="
+                      fill: none;
+                      fill-rule: evenodd;
+                      stroke: #000000;
+                      stroke-width: 1.99999976;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 4;
+                      stroke-dasharray: none;
+                      stroke-opacity: 1;
+                    "
+                    d="m 94.539792,49.409049 -9.823502,5.671602 9.912729,2.656107"
+                    id="path4470"
+                  />
+                </g>
+              </g>
+            </g>
+            <g class="pancake__face pancake__face--cooking" id="layer4">
+              <g id="g4526">
+                <path
+                  style="
+                    display: inline;
+                    opacity: 1;
+                    fill: #000000;
+                    fill-opacity: 1;
+                    stroke: #000000;
+                    stroke-width: 3.99999952;
+                    stroke-linecap: round;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  d="M 52.619141,65 A 10.000001,10.000001 0 0 0 62.5,73.507812 10.000001,10.000001 0 0 0 72.376953,65 l -19.757812,0 z"
+                  id="path4409"
+                />
+                <path
+                  style="
+                    opacity: 1;
+                    fill: none;
+                    fill-opacity: 1;
+                    stroke: #000000;
+                    stroke-width: 4;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  d="m 29.360776,53.391934 a 4.1666665,4.1666665 0 0 1 3.996303,-2.987397 4.1666665,4.1666665 0 0 1 3.996158,2.98691"
+                  id="circle4494"
+                />
+                <path
+                  style="
+                    opacity: 1;
+                    fill: none;
+                    fill-opacity: 1;
+                    stroke: #000000;
+                    stroke-width: 4;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  d="m 85.646485,53.391934 a 4.1666665,4.1666665 0 0 1 3.996302,-2.987397 4.1666665,4.1666665 0 0 1 3.996187,2.987005"
+                  id="circle4496"
+                />
+                <path
+                  style="
+                    opacity: 0.5;
+                    fill: #d7e3f4;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  d="m 88.905974,16.026569 c 0.262252,1.252029 -0.685379,1.878774 -1.362104,1.884632 -0.701684,0.0061 -1.660737,-0.775402 -1.433794,-1.929505 0.226944,-1.154102 0.665476,-0.717955 1.433794,-4.621835 0.788264,3.848825 1.099852,3.414679 1.362104,4.666708 z"
+                  id="path4519"
+                />
+                <path
+                  id="path4522"
+                  d="m 93.839277,31.198421 c 0.653242,3.118673 -1.707207,4.679827 -3.392857,4.694418 -1.747821,0.01514 -4.136721,-1.931444 -3.571428,-4.806191 0.565293,-2.874747 1.65763,-1.78835 3.571428,-11.512503 1.963483,9.587015 2.739615,8.505603 3.392857,11.624276 z"
+                  style="
+                    opacity: 0.5;
+                    fill: #d7e3f4;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                />
+                <path
+                  style="
+                    opacity: 0.5;
+                    fill: #d7e3f4;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                  d="m 97.460727,22.408817 c 0.360003,1.71869 -0.940838,2.579036 -1.869792,2.587078 -0.963218,0.0083 -2.279733,-1.064413 -1.968202,-2.648676 0.311531,-1.584264 0.913514,-0.985554 1.968202,-6.344502 1.082071,5.283372 1.509794,4.687409 1.869792,6.4061 z"
+                  id="path4524"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <svg class="pan" preserveAspectRatio="xMinYMin" viewBox="0 0 200 325">
+          <g
+            transform="translate(-179.87888,-433.19762)"
+            style="opacity: 1"
+            id="layer1"
+          >
+            <g transform="translate(0.47635,0.39756772)" id="g4336">
+              <g id="g4303">
+                <path
+                  id="rect4296"
+                  transform="translate(179.40253,558.67396)"
+                  d="m 100,-126.27148 c -9.695,0 -17.5,8.40675 -17.5,18.8496 l 0,85.722661 c 0,10.442858 7.805,18.8496096 17.5,18.8496096 9.695,0 17.5,-8.4067516 17.5,-18.8496096 l 0,-85.722661 c 0,-10.44285 -7.805,-18.8496 -17.5,-18.8496 z m 0,6.50781 a 10,10 0 0 1 10,10 10,10 0 0 1 -10,9.999998 10,10 0 0 1 -10,-9.999998 10,10 0 0 1 10,-10 z"
+                  style="
+                    opacity: 1;
+                    fill: #000000;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 3.42972708;
+                    stroke-linecap: square;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                />
+                <rect
+                  y="534.65881"
+                  x="261.90253"
+                  height="47.743256"
+                  width="34.999996"
+                  id="rect4298"
+                  style="
+                    opacity: 1;
+                    fill: #cccccc;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 4;
+                    stroke-linecap: square;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                />
+              </g>
+              <g id="g4272" transform="translate(-8.7763963e-6,0)">
+                <circle
+                  r="97.523636"
+                  cy="658.67395"
+                  cx="279.40253"
+                  id="path4136"
+                  style="
+                    fill: #333333;
+                    fill-opacity: 1;
+                    stroke: #e8ecf1;
+                    stroke-width: 3.99999952;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                />
+                <circle
+                  r="75"
+                  cy="658.67395"
+                  cx="279.40253"
+                  id="path4138"
+                  style="
+                    fill: #1a1a1a;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 5;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                />
+                <circle
+                  r="14.999998"
+                  cy="658.67395"
+                  cx="279.40253"
+                  id="path4228"
+                  style="
+                    opacity: 1;
+                    fill: #800000;
+                    fill-opacity: 1;
+                    stroke: none;
+                    stroke-width: 2;
+                    stroke-linecap: square;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-opacity: 1;
+                  "
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
+      </section>
+
+      <div class="insight-strip">
+        <div class="metric"><b>18</b><span>篇迁移后的文章内容</span></div>
+        <div class="metric"><b>12</b><span>推荐标签入口</span></div>
+        <div class="metric"><b>06:00</b><span>OpenClaw 梦境自动写入</span></div>
+      </div>
+
+      <main id="posts" class="section-grid">
+        <section class="featured-card">
+          <div class="section-title">
+            <h2>最新文章</h2>
+            <span>按时间阅读，也可以被标签快速过滤</span>
+          </div>
+          <div class="post-list">
+            <a class="post-item" id="dream" href="#">
+              <div class="date-tile">
+                <div>07.06<small>2026</small></div>
+              </div>
+              <div>
+                <h3>红壳船长在静态海上补写晨梦</h3>
+                <p>
+                  凌晨中断的梦被重新打捞上岸，OpenClaw、仓库、构建与龙虾灯塔被写进一页新的博客。
+                </p>
+                <div class="tag-row">
+                  <span class="tag">龙虾的梦境</span
+                  ><span class="tag">梦境</span>
+                </div>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a class="post-item" href="#">
+              <div class="date-tile">
+                <div>06.07<small>2026</small></div>
+              </div>
+              <div>
+                <h3>ArtifactFS：大仓库不用等 clone 完再开工</h3>
+                <p>
+                  用更轻的方式理解 Git 仓库按需加载，让 Agent 和 CI
+                  更快进入工作状态。
+                </p>
+                <div class="tag-row">
+                  <span class="tag">Git</span><span class="tag">AI</span
+                  ><span class="tag">FUSE</span>
+                </div>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a class="post-item" href="#">
+              <div class="date-tile">
+                <div>08.07<small>2019</small></div>
+              </div>
+              <div>
+                <h3>Web 渗透测试——漏洞发掘</h3>
+                <p>
+                  保留老博客技术积累，新的卡片布局减少噪音，让历史内容也更容易被重新发现。
+                </p>
+                <div class="tag-row">
+                  <span class="tag">网络安全</span
+                  ><span class="tag">渗透测试</span>
+                </div>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </section>
+
+        <aside class="side-stack">
+          <section class="profile-card">
+            <div class="avatar">
+              <img src="/assets/img/alicesmall.jpg" alt="Alice" />
+            </div>
+            <h3>Alice</h3>
+            <p>
+              热爱技术，简单乐观爱创造。这里收纳技术笔记、生活观察，还有
+              OpenClaw 的凌晨梦境。
+            </p>
+          </section>
+          <section class="search-card">
+            <div class="search-box">🔎 搜索文章、标签、梦境……</div>
+          </section>
+          <section class="tags-card">
+            <div class="section-title"><h2>标签</h2></div>
+            <div class="tags-cloud">
+              <span class="tag">技术</span><span class="tag">git</span
+              ><span class="tag">博客</span><span class="tag">AI</span
+              ><span class="tag">Node</span><span class="tag">网络安全</span
+              ><span class="tag">龙虾的梦境</span>
+            </div>
+          </section>
+          <section class="friend-card">
+            <strong>友情链接</strong>
+            <p><a href="#">Jermine の blog</a></p>
+          </section>
+        </aside>
+      </main>
+    </div>
+    <script src="/assets/js/jianbing.js"></script>
+  </body>
+</html>

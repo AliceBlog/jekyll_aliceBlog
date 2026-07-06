@@ -1,254 +1,821 @@
 {{ define "main" }}
-{{ partial "header.html" . }}
-<div id="jsi-ripple-container" class="container"></div>
-<div class="g-banner home-banner {{ printf "banner-theme-%s" .Site.Params.themeColor }}" data-theme="{{ .Site.Params.themeColor }}">
-    <h2>{{ .Title }}</h2>
-    <h3>{{ .Params.description }}</h3>
-    {{ with .Params.headerImg }}
-    <img class="header-img" src="{{ . }}" alt="">
-    {{ end }}
-</div>
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $paginator := .Paginate $posts }}
+{{ $postCount := len $posts }}
+{{ $tagCount := len .Site.Taxonomies.tags }}
+<style>
+  :root {
+    --home-blue: #007aff;
+    --home-blue-dark: #0062cc;
+    --home-ink: #1d2433;
+    --home-muted: #697386;
+    --home-line: #e8ecf1;
+    --home-paper: #ffffff;
+    --home-soft: #f5f9ff;
+    --home-pancake-light: #fff2a4;
+    --home-pancake-mid: #eca24d;
+    --home-pancake-deep: #b45326;
+    --home-shadow: 0 24px 80px rgba(0, 122, 255, .13);
+  }
+  body {
+    background:
+      radial-gradient(circle at 84% 12%, rgba(255, 242, 164, .55), transparent 20rem),
+      radial-gradient(circle at 8% 20%, rgba(0, 122, 255, .15), transparent 28rem),
+      linear-gradient(180deg, #f8fbff 0%, #fff 42%, #f8fbff 100%);
+  }
+  .home-redesign-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 26px 26px 72px;
+    color: var(--home-ink);
+  }
+  .home-redesign-shell a { text-decoration: none; }
+  .home-redesign-shell .g-header { display: none; }
+  .home-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0 34px;
+  }
+  .home-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--home-ink);
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+  .home-brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, var(--home-blue), #38a5ff);
+    box-shadow: 0 12px 28px rgba(0, 122, 255, .24);
+  }
+  .home-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid rgba(0, 122, 255, .12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(14px);
+  }
+  .home-nav a {
+    padding: 9px 15px;
+    border-radius: 999px;
+    color: #4f5d75;
+    font-size: 14px;
+  }
+  .home-nav a:hover,
+  .home-nav a.is-active {
+    background: var(--home-blue);
+    color: #fff;
+  }
+  .home-hero {
+    position: relative;
+    /* min-height: 330px; */
+    border-radius: 30px;
+    padding: 38px 42px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 122, 255, .96), rgba(35, 156, 255, .84));
+    color: #fff;
+    box-shadow: var(--home-shadow);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    align-items: center;
+    gap: 24px;
+  }
+  .home-hero:before {
+    content: "";
+    position: absolute;
+    inset: auto -6% -58% 50%;
+    height: 300px;
+    background: rgba(255, 255, 255, .11);
+    border-radius: 50%;
+  }
+  .home-hero-copy {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+  }
+  .home-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .18);
+    font-size: 13px;
+  }
+  .home-hero h1 {
+    margin: 16px 0 12px;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: -.065em;
+  }
+  .home-hero p {
+    margin: 0;
+    max-width: 620px;
+    color: rgba(255, 255, 255, .86);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .home-btn-primary { background: #fff; color: var(--home-blue); }
+  .home-btn-ghost {
+    background: rgba(255, 255, 255, .14);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .24);
+  }
+  .home-hero .pan,
+  .home-hero .pancake__wrapper {
+    
+    right: 96px;
+    transform: scale(.72) rotate(45deg);
+  }
+  .home-hero .pancake {
+    transform: rotate(-45deg) translate3d(0, 0, 5px);
+  }
+  .home-hero .eggboxs {
+    position: absolute !important;
+    top: 6px !important;
+    right: 100px !important;
+    z-index: 2;
+    /* transform: scale(.42); */
+    transform-origin: center;
+    opacity: .92;
+  }
+  .home-doll-guide {
+    position: relative;
+    z-index: 5;
+    justify-self: end;
+    align-self: end;
+    width: 236px;
+    height: 292px;
+    margin: 4px 4px -38px 0;
+    filter: drop-shadow(0 22px 26px rgba(13, 54, 108, .18));
+  }
+  .home-doll-bubble {
+    position: absolute;
+    top: 18px;
+    right: 174px;
+    min-width: 128px;
+    padding: 10px 13px;
+    border-radius: 18px 18px 6px 18px;
+    color: var(--home-blue-dark);
+    background: rgba(255, 255, 255, .92);
+    border: 1px solid rgba(255, 255, 255, .76);
+    box-shadow: 0 14px 34px rgba(31, 65, 114, .13);
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 1.45;
+    animation: dollBubble 4.8s ease-in-out infinite;
+  }
+  .home-doll-bubble:after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    bottom: 12px;
+    border-width: 8px 0 8px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(255, 255, 255, .92);
+  }
+  .home-doll-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .home-doll-head {
+    transform-origin: 112px 104px;
+    animation: dollShakeHead 6.2s ease-in-out infinite;
+  }
+  .home-doll-eye {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: dollBlink 5.2s infinite;
+  }
+  .home-doll-arm-wave {
+    transform-box: fill-box;
+    transform-origin: 16% 12%;
+    animation: dollWave 2.8s ease-in-out infinite;
+  }
+  .home-doll-flower {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: dollFloat 4.2s ease-in-out infinite;
+  }
+  .home-doll-flower:nth-of-type(2n) { animation-delay: -1.6s; }
+  .home-doll-sparkle {
+    animation: dollSparkle 2.6s ease-in-out infinite;
+  }
+  @keyframes dollBlink {
+    0%, 88%, 100% { transform: scaleY(1); }
+    91%, 94% { transform: scaleY(.08); }
+  }
+  @keyframes dollShakeHead {
+    0%, 62%, 100% { transform: rotate(0deg); }
+    68% { transform: rotate(-5deg); }
+    74% { transform: rotate(4deg); }
+    80% { transform: rotate(-2deg); }
+  }
+  @keyframes dollWave {
+    0%, 100% { transform: rotate(0deg); }
+    35% { transform: rotate(-11deg); }
+    65% { transform: rotate(9deg); }
+  }
+  @keyframes dollBubble {
+    0%, 100% { transform: translateY(0); opacity: .94; }
+    50% { transform: translateY(-7px); opacity: 1; }
+  }
+  @keyframes dollFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+  }
+  @keyframes dollSparkle {
+    0%, 100% { opacity: .3; transform: scale(.8); }
+    50% { opacity: 1; transform: scale(1.06); }
+  }
 
-<main class="g-container home-content">
-    <div class="article-list">
-        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
-        {{ range $paginator.Pages }}
-            <article class="article-item">
-                {{ if .Params.cover }}
-                <div class="post-cover">
-                    <a class="post-link" href="{{ .RelPermalink }}" title="{{ .Title }}"></a>
-                    <img src="{{ .Params.cover }}" href="{{ .RelPermalink }}" alt="">
-                </div>
-                {{ end }}
-                <section class="post-preview">
-                    <a class="post-link" href="{{ .RelPermalink }}" title="{{ .Title }}"></a>
-                    <h2 class="post-title">{{ .Title }}</h2>
-                    {{ if .Params.subtitle }}
-                    <h3 class="post-subtitle">{{ .Params.subtitle }}</h3>
-                    {{ end }}
-                    {{ if not .Params.subtitle }}
-                    <p class="post-excerpt">{{ .Summary | plainify | truncate 126 }}</p>
-                    {{ end }}
-                </section>
-                <footer class="post-meta">
-                    <div class="post-tags">
-                        {{ range .Params.tags }}
-                            <a href="{{ printf "/tags.html#%s" . | safeHTMLAttr }}" class="post-tag">{{ . }}</a>
-                        {{ end }}
-                    </div>
-                    <time class="post-date" datetime="{{ .Date.Format "06-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-                </footer>
-            </article>
-        {{ end }}
+  .home-kawaii-pancake {
+    position: absolute !important;
+    top: 58px !important;
+    right: 238px !important;
+    z-index: 4;
+    width: 260px;
+    height: 260px;
+    transform: scale(.52);
+    transform-origin: center;
+    opacity: .98;
+    pointer-events: auto;
+  }
+  .home-kawaii-pancake .pancake__wrapper {
+    cursor: pointer;
+    width: 190px;
+    height: 190px;
+    position: absolute;
+    top: 185px;
+    left: 142px;
+    z-index: 5;
+    margin-left: -95px;
+    margin-top: -95px;
+    transform: rotate(45deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    filter: drop-shadow(0 20px 18px rgba(181, 96, 42, .22));
+  }
+  .home-kawaii-pancake .pancake__wrapper:before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 48% 52% 50% 50% / 52% 48% 52% 48%;
+    background: #fff0a8;
+    border: 9px solid rgba(255, 255, 255, .72);
+    box-shadow:
+      inset 0 -18px 30px rgba(198, 112, 53, .16),
+      inset 0 14px 22px rgba(255, 255, 255, .56),
+      0 0 0 10px rgba(255, 225, 237, .34);
+    transform: rotateX(180deg);
+    animation: kawaiiCook 60s forwards ease, kawaiiSquishy 3.8s ease-in-out infinite;
+  }
+  .home-kawaii-pancake .pancake {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg) translate3d(0, 0, 5px);
+    overflow: visible;
+  }
+  .home-kawaii-pancake .pancake__head { animation: kawaiiCookFill 60s forwards ease; }
+  .home-kawaii-pancake .pancake__splodge { animation: kawaiiSyrupBounce 3.2s ease-in-out infinite; transform-origin: center; }
+  .home-kawaii-pancake .pan {
+    cursor: pointer;
+    width: 340px;
+    position: absolute;
+    top: 185px;
+    left: 142px;
+    z-index: 2;
+    transform-origin: 170px 247px;
+    margin-left: -170px;
+    margin-top: -247px;
+    transform: rotate(45deg);
+    filter: drop-shadow(0 28px 30px rgba(255, 95, 157, .22));
+  }
+  .kawaii-decor {
+    position: absolute;
+    z-index: 8;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 8px 12px rgba(255,95,157,.12));
+    animation: kawaiiFloaty 4s ease-in-out infinite;
+  }
+  .kawaii-heart1 { right: -18px; top: -14px; font-size: 34px; animation-delay: -.4s; }
+  .kawaii-heart2 { left: -34px; top: 130px; font-size: 24px; animation-delay: -1.4s; }
+  .kawaii-star1 { left: -4px; top: -8px; font-size: 30px; animation-delay: -2.1s; }
+  .kawaii-bow { right: 36px; top: -58px; font-size: 42px; animation-delay: -1s; }
+  .kawaii-steam {
+    position: absolute;
+    width: 16px;
+    height: 72px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, transparent, rgba(255,143,184,.34), rgba(138,199,255,.26), transparent);
+    filter: blur(.4px);
+    opacity: .7;
+    animation: kawaiiSoftSteam 3.2s ease-in-out infinite;
+  }
+  .kawaii-steam.s1 { left: 48px; top: -26px; animation-delay: -.2s; }
+  .kawaii-steam.s2 { left: 136px; top: -48px; height: 86px; animation-delay: -1.1s; }
+  .kawaii-steam.s3 { left: 222px; top: -20px; animation-delay: -2s; }
+  @keyframes kawaiiCook {
+    0% { background: #fff0a8; }
+    50% { background: #ffc96b; }
+    100% { background: #e9904a; }
+  }
+  @keyframes kawaiiCookFill {
+    0% { fill: #fff2a8; }
+    50% { fill: #ffc96b; }
+    100% { fill: #e9904a; }
+  }
+  @keyframes kawaiiSyrupBounce {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(2px) scale(1.015); }
+  }
+  @keyframes kawaiiSquishy {
+    0%,100% { border-radius: 48% 52% 50% 50% / 52% 48% 52% 48%; }
+    50% { border-radius: 52% 48% 53% 47% / 48% 54% 46% 52%; }
+  }
+  @keyframes kawaiiFloaty {
+    0%,100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-14px) rotate(7deg); }
+  }
+  @keyframes kawaiiSoftSteam {
+    0%,100% { transform: translateY(8px) scale(.72); opacity: .15; }
+    45% { transform: translateY(-20px) scale(1.08); opacity: .75; }
+  }
+  .home-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .home-metric {
+    border-radius: 24px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid rgba(0, 122, 255, .09);
+    box-shadow: 0 18px 55px rgba(31, 65, 114, .06);
+  }
+  .home-metric b {
+    display: block;
+    font-size: 28px;
+    color: var(--home-blue);
+    letter-spacing: -.05em;
+  }
+  .home-metric span {
+    color: var(--home-muted);
+    font-size: 13px;
+  }
+  .home-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 28px;
+    margin-top: 32px;
+    align-items: start;
+  }
+  .home-card {
+    background: var(--home-paper);
+    border: 1px solid rgba(0, 122, 255, .1);
+    border-radius: 32px;
+    padding: 28px;
+    box-shadow: 0 20px 70px rgba(31, 65, 114, .08);
+  }
+  .home-section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .home-section-title h2 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: -.04em;
+  }
+  .home-section-title span {
+    color: var(--home-muted);
+    font-size: 13px;
+  }
+  .home-post-list { display: grid; gap: 14px; }
+  .home-post-item {
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px;
+    border-radius: 24px;
+    border: 1px solid transparent;
+    background: linear-gradient(180deg, #fff, #fbfdff);
+    transition: .2s ease;
+    position: relative;
+    overflow: hidden;
+    color: var(--home-ink);
+  }
+  .home-post-item:hover {
+    border-color: rgba(0, 122, 255, .18);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0, 122, 255, .08);
+  }
+  .home-date-tile {
+    height: 72px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: var(--home-soft);
+    color: var(--home-blue);
+    font-weight: 800;
+    text-align: center;
+  }
+  .home-date-tile small {
+    display: block;
+    font-size: 12px;
+    color: #7aaeed;
+  }
+  .home-post-item h3 {
+    margin: 0 0 7px;
+    font-size: 20px;
+    letter-spacing: -.03em;
+  }
+  .home-post-item p {
+    margin: 0;
+    color: var(--home-muted);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .home-tag-row,
+  .home-tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .home-tag {
+    padding: 6px 10px;
+    background: #eef6ff;
+    color: var(--home-blue-dark);
+    border-radius: 999px;
+    font-size: 12px;
+  }
+  .home-arrow {
+    width: 38px;
+    height: 38px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: #f4f8ff;
+    color: var(--home-blue);
+  }
+  .home-side-stack { display: grid; gap: 18px; }
+  .home-profile,
+  .home-search,
+  .home-tags,
+  .home-friend {
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(0, 122, 255, .1);
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow: 0 18px 55px rgba(31, 65, 114, .07);
+    backdrop-filter: blur(16px);
+  }
+  .home-profile { text-align: center; }
+  .home-avatar {
+    width: 86px;
+    height: 86px;
+    margin: 0 auto 14px;
+    border-radius: 28px;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--home-blue), var(--home-pancake-mid));
+  }
+  .home-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+  }
+  .home-profile h3 { margin: 0 0 6px; }
+  .home-profile p { margin: 0; color: var(--home-muted); line-height: 1.7; }
+  .home-sns-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 16px 0 0;
+    list-style: none;
+  }
+  .home-sns-links a {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--home-soft);
+    color: var(--home-blue);
+  }
+  .home-search-box {
+    position: relative;
+  }
+  .home-search-box input {
+    width: 100%;
+    padding: 13px 42px 13px 14px;
+    border: 0;
+    outline: 0;
+    border-radius: 18px;
+    background: #f5f9ff;
+    color: var(--home-ink);
+  }
+  .home-search-box .iconfont {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--home-blue);
+  }
+  .home-search .search_result {
+    position: relative;
+    margin-top: 10px;
+  }
+  .home-friend a { color: var(--home-blue); font-weight: 700; }
+  .home-pagination { margin-top: 22px; }
+  .home-hero .pancake__wrapper:before {
+    background: var(--home-pancake-light);
+    border-color: var(--home-pancake-light);
+    animation-name: home-cook;
+  }
+  .home-hero .pancake__head { fill: var(--home-pancake-light); }
+  .home-hero .pancake__splodge {
+    fill: var(--home-pancake-light);
+    animation-name: home-cook;
+  }
+  @keyframes home-cook {
+    0% { background: var(--home-pancake-light); fill: var(--home-pancake-light); }
+    50% { background: var(--home-pancake-mid); fill: var(--home-pancake-mid); }
+    100% { background: var(--home-pancake-deep); fill: var(--home-pancake-deep); }
+  }
+  @media (max-width: 900px) {
+    .home-redesign-shell { padding: 20px 16px 48px; }
+    .home-nav { display: none; }
+    .home-hero {
+      grid-template-columns: 1fr;
+      padding: 34px 26px 210px;
+      min-height: auto;
+    }
+    .home-doll-guide {
+      position: absolute;
+      right: 10px;
+      bottom: -36px;
+      width: 178px;
+      height: 222px;
+      margin: 0;
+    }
+    .home-doll-bubble {
+      top: 18px;
+      right: 126px;
+      min-width: 104px;
+      font-size: 12px;
+    }
+    .home-hero .eggboxs { display: none; }
+    .home-hero .pan,
+    .home-hero .pancake__wrapper {
+      top: auto;
+      right: auto;
+      bottom: -34px;
+      left: 66%;
+      transform: scale(.64) rotate(45deg);
+    }
+    .home-hero .pancake { transform: rotate(-45deg) translate3d(0, 0, 5px); }
+    .home-metrics,
+    .home-grid { grid-template-columns: 1fr; }
+    .home-post-item { grid-template-columns: 1fr; }
+    .home-arrow { display: none; }
+  }
+</style>
 
-        {{ if gt $paginator.TotalPages 1 }}
-            {{ partial "pagination.html" $paginator }}
-        {{ end }}
+<div class="home-redesign-shell">
+  <header class="home-topbar">
+    <a class="home-brand" href="{{ .Site.BaseURL | relURL }}" aria-label="{{ .Site.Title }}">
+      <span class="home-brand-mark">{{ .Site.Params.nickname | default "竹" }}</span>
+      <span>{{ .Site.Title }}</span>
+    </a>
+    <nav class="home-nav" aria-label="主导航">
+      {{ range .Site.Params.nav }}
+        <a href="{{ .url }}" {{ if eq .url "/" }}class="is-active"{{ end }}>{{ .name }}</a>
+      {{ end }}
+    </nav>
+  </header>
 
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <div class="home-eyebrow">🥞 技术、生活与一点点凌晨梦境</div>
+      <h1>把灵感煎到刚刚好。</h1>
+      <p>{{ .Site.Params.description }}这里收纳技术笔记、生活观察，还有 OpenClaw 在凌晨六点写下的龙虾梦境。</p>
+      <div class="home-actions">
+        <a class="home-btn home-btn-primary" href="#latest-posts">阅读最新文章 →</a>
+        <a class="home-btn home-btn-ghost" href="/tags.html#龙虾的梦境">龙虾的梦境</a>
+      </div>
     </div>
+  
+   <div class="eggboxs home-kawaii-pancake" aria-label="Kawaii 可爱煎饼动画">
+      <span class="kawaii-decor kawaii-heart1">💖</span>
+      <span class="kawaii-decor kawaii-heart2">💕</span>
+      <span class="kawaii-decor kawaii-star1">✨</span>
+      <span class="kawaii-decor kawaii-bow">🎀</span>
+      <span class="kawaii-steam s1"></span><span class="kawaii-steam s2"></span><span class="kawaii-steam s3"></span>
+      <div class="pancake__wrapper">
+        <svg class="pancake" viewBox="0 0 220 220" aria-label="超可爱煎饼">
+          <defs>
+            <radialGradient id="homeCakeBase" cx="34%" cy="24%" r="74%">
+              <stop offset="0" stop-color="#fff9c9"/>
+              <stop offset=".56" stop-color="#ffd377"/>
+              <stop offset="1" stop-color="#f3a251"/>
+            </radialGradient>
+            <linearGradient id="homeKawaiiSyrup" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#cf814b"/>
+              <stop offset="1" stop-color="#8b4424"/>
+            </linearGradient>
+            <filter id="homeSoftShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#9d5731" flood-opacity=".18"/>
+            </filter>
+          </defs>
+          <path class="pancake__head" filter="url(#homeSoftShadow)" fill="url(#homeCakeBase)" d="M109 17c51 0 92 38 92 89 0 54-40 96-92 96-53 0-91-42-91-94 0-51 40-91 91-91z"/>
+          <path d="M54 76c6-20 24-35 45-41" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" opacity=".45"/>
+          <circle cx="57" cy="135" r="8" fill="#b96b32" opacity=".12"/>
+          <circle cx="162" cy="148" r="10" fill="#b96b32" opacity=".13"/>
+          <circle cx="144" cy="54" r="6" fill="#fff" opacity=".36"/>
+          <path class="pancake__splodge" fill="url(#homeKawaiiSyrup)" d="M82 52c18-15 56-14 68 5 7 12-7 23-1 35 6 14 27 15 22 33-5 17-30 11-41 22-11 10-5 31-25 33-19 1-22-23-36-28-15-5-34 6-43-11-9-18 13-30 15-47 2-19-12-32 4-45 12-10 24 9 37 3z"/>
+          <path d="M74 51c10-6 26-8 39-5" fill="none" stroke="#e7a169" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+          <rect x="92" y="38" width="40" height="31" rx="10" fill="#fff06f" transform="rotate(-8 112 53)"/>
+          <path d="M99 48h20" stroke="#fff8aa" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+          <path d="M70 143c-16 16-35 16-47 5" fill="none" stroke="#e59458" stroke-width="8" stroke-linecap="round" opacity=".62"/>
+          <path d="M150 143c16 16 35 16 47 5" fill="none" stroke="#e59458" stroke-width="8" stroke-linecap="round" opacity=".62"/>
+          <path d="M176 70c6-10 18-4 14 7-3 9-18 14-18 14s-8-15-4-22c2-4 6-4 8 1z" fill="#ff8fb8" opacity=".88"/>
+          <path d="M42 62c3-8 13-7 15 1 2-8 13-7 15 1 3 13-15 23-15 23S39 75 42 62z" fill="#ffd4e5" opacity=".92"/>
 
-    <aside class="g-sidebar-wrapper">
-        <div class="g-sidebar">
-            <section class="author-card">
-                <div class="avatar">
-                    <img src="{{ .Site.Params.avatar }}" alt="">
+          <g class="pancake__face pancake__face--smiling">
+            <path d="M75 101c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="#5a4050" stroke-width="7" stroke-linecap="round"/>
+            <path d="M123 101c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="#5a4050" stroke-width="7" stroke-linecap="round"/>
+            <ellipse cx="67" cy="124" rx="15" ry="10" fill="#ff8fab" opacity=".72"/>
+            <ellipse cx="154" cy="124" rx="15" ry="10" fill="#ff8fab" opacity=".72"/>
+            <path d="M91 126c9 12 29 12 38 0" fill="none" stroke="#5a4050" stroke-width="7" stroke-linecap="round"/>
+            <path d="M107 119c2 3 5 3 7 0" fill="none" stroke="#5a4050" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <g class="pancake__face pancake__face--cooking">
+            <circle cx="88" cy="98" r="8" fill="#5a4050"/>
+            <circle cx="134" cy="98" r="8" fill="#5a4050"/>
+            <circle cx="85" cy="95" r="3" fill="#fff"/>
+            <circle cx="131" cy="95" r="3" fill="#fff"/>
+            <ellipse cx="66" cy="124" rx="16" ry="11" fill="#ff7fa7" opacity=".82"/>
+            <ellipse cx="156" cy="124" rx="16" ry="11" fill="#ff7fa7" opacity=".82"/>
+            <path d="M95 125c8 8 24 8 32 0" fill="none" stroke="#5a4050" stroke-width="7" stroke-linecap="round"/>
+            <path d="M162 42c9-13-8-19 2-33" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <g class="pancake__face pancake__face--flipping">
+            <circle cx="111" cy="126" r="15" fill="#5a4050"/>
+            <path d="M75 91l22 12-22 9" fill="none" stroke="#5a4050" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M147 91l-22 12 22 9" fill="none" stroke="#5a4050" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <ellipse cx="64" cy="128" rx="13" ry="9" fill="#ff8fab" opacity=".7"/>
+            <ellipse cx="158" cy="128" rx="13" ry="9" fill="#ff8fab" opacity=".7"/>
+            <path d="M102 135h18" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+          </g>
+        </svg>
+      </div>
+
+      <svg class="pan" viewBox="0 0 340 390" aria-label="粉色可爱平底锅">
+        <defs>
+          <linearGradient id="homeHandlePink" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#ffb9d0"/>
+            <stop offset="1" stop-color="#ff72a9"/>
+          </linearGradient>
+          <radialGradient id="homePanPinkInner" cx="42%" cy="36%" r="72%">
+            <stop offset="0" stop-color="#fff8fb"/>
+            <stop offset=".68" stop-color="#ffd9e8"/>
+            <stop offset="1" stop-color="#ff9fbd"/>
+          </radialGradient>
+        </defs>
+        <rect x="149" y="14" width="42" height="154" rx="21" fill="url(#homeHandlePink)"/>
+        <circle cx="170" cy="48" r="10" fill="#fff" opacity=".8"/>
+        <path d="M140 144h60v45h-60z" fill="#ffc2d8"/>
+        <circle cx="170" cy="254" r="133" fill="#ff8fb8"/>
+        <circle cx="170" cy="254" r="112" fill="#fff" opacity=".72"/>
+        <circle cx="170" cy="254" r="98" fill="url(#homePanPinkInner)"/>
+        <ellipse cx="132" cy="215" rx="42" ry="19" fill="#fff" opacity=".56" transform="rotate(-24 132 215)"/>
+        <path d="M119 278c23 24 79 24 102 0" fill="none" stroke="#ff79ad" stroke-width="10" stroke-linecap="round" opacity=".38"/>
+        <circle cx="170" cy="254" r="23" fill="#ff6b9c" opacity=".9"/>
+        <path d="M164 250c4-7 13-7 17 0 4-7 17-4 17 7 0 14-28 26-28 26s-28-12-28-26c0-11 13-14 17-7z" fill="#fff" opacity=".94"/>
+        <circle cx="118" cy="186" r="7" fill="#fff" opacity=".65"/>
+        <circle cx="237" cy="226" r="5" fill="#fff" opacity=".58"/>
+      </svg>
+   </div>
+  </section>
+
+  <section class="home-metrics" aria-label="博客概览">
+    <div class="home-metric"><b>{{ $postCount }}</b><span>篇文章内容</span></div>
+    <div class="home-metric"><b>{{ $tagCount }}</b><span>个标签入口</span></div>
+    <div class="home-metric"><b>06:00</b><span>OpenClaw 梦境自动写入</span></div>
+  </section>
+
+  <main id="latest-posts" class="home-grid">
+    <section class="home-card">
+      <div class="home-section-title">
+        <h2>最新文章</h2>
+        <span>按时间阅读，也可以被标签快速过滤</span>
+      </div>
+      <div class="home-post-list">
+        {{ range $paginator.Pages }}
+          <a class="home-post-item" href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <time class="home-date-tile" datetime="{{ .Date.Format "2006-01-02" }}">
+              <span>{{ .Date.Format "01.02" }}<small>{{ .Date.Format "2006" }}</small></span>
+            </time>
+            <div>
+              <h3>{{ .Title }}</h3>
+              <p>{{ with .Params.subtitle }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 126 }}{{ end }}</p>
+              {{ with .Params.tags }}
+                <div class="home-tag-row">
+                  {{ range first 4 . }}
+                    <span class="home-tag">{{ . }}</span>
+                  {{ end }}
                 </div>
-                <div class="author-name" rel="author">{{ .Site.Params.author }}</div>
-                <div class="bio">
-                    <p>{{ .Site.Params.bio }}</p>
-                </div>
-                {{ if .Site.Params.sns }}
-                <ul id="sns-links" class="sns-links">
-                    {{ range .Site.Params.sns }}
-                    <li>
-                        <a href="{{ .url }}" target="_blank">
-                            <i class="iconfont icon-{{ .name }}"></i>
-                        </a>
-                    </li>
-                    {{ end }}
-                </ul>
-                {{ end }}
-            </section>
-
-            {{ if .Site.Params.recommendTags }}
-            <section class="tags-card">
-                {{ range first (int .Site.Params.recommendConditionSize) .Site.Params.tagOrder }}
-                    <a href="{{ printf "/tags.html#%s" . | safeHTMLAttr }}" class="tag">{{ . }}</a>
-                {{ end }}
-            </section>
-            {{ end }}
-            <section class="author-card">
-                   <div style="font-weight: bold;font-size:18px">友情链接</div>
-                   <a class="friendLink" href="https://jermine.vdo.pub/" target="_blank" > Jermineのblog</a>
-                </section>
-        </div>
-
-        {{ if .Site.Params.search }}
-        <div class="search-card">
-            <input id="search_input" type="text" placeholder="搜索" autocomplete="off">
-            <i class="iconfont icon-search"></i>
-            <div class="search_result"></div>
-        </div>
+              {{ end }}
+            </div>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </a>
         {{ end }}
+      </div>
+      {{ if gt $paginator.TotalPages 1 }}
+        <div class="home-pagination">{{ partial "pagination.html" $paginator }}</div>
+      {{ end }}
+    </section>
 
+    <aside class="home-side-stack">
+      <section class="home-profile">
+        <div class="home-avatar"><img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Params.author }}"></div>
+        <h3>{{ .Site.Params.author }}</h3>
+        <p>{{ .Site.Params.bio }}</p>
+        {{ if .Site.Params.sns }}
+          <ul class="home-sns-links" aria-label="社交链接">
+            {{ range .Site.Params.sns }}
+              <li><a href="{{ .url }}" target="_blank" rel="noopener"><i class="iconfont icon-{{ .name }}"></i></a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </section>
+
+      {{ if .Site.Params.search }}
+        <section class="home-search search-card">
+          <div class="home-search-box">
+            <input id="search_input" type="text" placeholder="搜索文章、标签、梦境……" autocomplete="off">
+            <i class="iconfont icon-search"></i>
+          </div>
+          <div class="search_result"></div>
+        </section>
+      {{ end }}
+
+      {{ if .Site.Params.recommendTags }}
+        <section class="home-tags">
+          <div class="home-section-title"><h2>标签</h2></div>
+          <div class="home-tags-cloud">
+            {{ range first (int .Site.Params.recommendConditionSize) .Site.Params.tagOrder }}
+              <a href="{{ printf "/tags.html#%s" . | safeHTMLAttr }}" class="home-tag">{{ . }}</a>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+
+      <section class="home-friend">
+        <strong>友情链接</strong>
+        <p><a href="https://jermine.vdo.pub/" target="_blank" rel="noopener">Jermine の blog</a></p>
+      </section>
     </aside>
-
-</main>
-<div class="pancake__wrapper"><svg
-    class='pancake'
-    viewBox="0 0 125 125"
-    preserveAspectRatio='xMinYMin'>
-   <g
-      transform="translate(-218.45033,-597.48341)"
-      >
-     <circle
-       class='pancake__head'
-        r="62.499992"
-        cy="659.9834"
-        cx="280.95032"
-        id="path4364"/>
-     <path
-        class='pancake__splodge'
-        d="m 338.45031,659.9834 c -0.34709,9.24263 -14.61069,12.72051 -17.55434,21.48873 -2.03509,6.06189 3.61007,13.46946 0.71298,19.1699 -3.32901,6.55031 -10.93416,12.05618 -18.27704,12.32273 -7.49726,0.27215 -12.03222,-10.80896 -19.52445,-11.19565 -9.19124,-0.47438 -17.16862,15.62028 -25.23873,11.19565 -5.70153,-3.126 1.10021,-14.17642 -2.9199,-19.28701 -6.16253,-7.83414 -23.56182,-2.23575 -27.67987,-11.31276 -3.15521,-6.95471 7.37259,-14.03068 7.44565,-21.66731 0.0774,-8.08842 -10.31556,-15.53332 -7.44565,-23.09587 1.71715,-4.52488 8.91182,-4.13782 12.5013,-7.38418 6.95859,-6.29342 8.78642,-17.59265 16.6699,-22.67988 6.81737,-4.39926 15.96423,-7.12106 23.81016,-5.05434 6.02043,1.58586 8.36953,9.69528 13.98873,12.37577 8.1355,3.88082 20.30421,-1.91604 26.6699,4.46559 5.17012,5.18306 0.81215,14.88952 3.57273,21.6699 2.91176,7.15171 13.5584,11.27242 13.26863,18.98873 z"
-         />
-   </g>
-   <g
-       class='pancake__face pancake__face--smiling'
-      id="layer5">
-     <g
-        id="g4534">
-       <g
-          transform="translate(-218.45036,-597.48348)"
-          style="display:inline;opacity:1"
-          id="g4448">
-         <circle
-            r="4.9999995"
-            cy="651.05475"
-            cx="252.80746"
-            id="path4366"
-            style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-         <circle
-            style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="circle4368"
-            cx="309.09317"
-            cy="651.05475"
-            r="4.9999995" />
-       </g>
-       <path
-          style="display:inline;opacity:1;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:3.99999952;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          d="m 72.469621,64.28627 a 10,10 0 0 1 -9.969686,9.221947 10,10 0 0 1 -9.969693,-9.222032"
-          id="circle4387" />
-     </g>
-   </g>
-   <g
-      class='pancake__face pancake__face--flipping'
-      id="layer2">
-     <g
-        id="g4476">
-       <circle
-          transform="translate(-218.45036,-597.48348)"
-          style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          id="path4376"
-          cx="280.95032"
-          cy="666.99176"
-          r="9.999999" />
-       <g
-          id="g4472">
-         <path
-            id="path4468"
-            d="m 30.460063,49.409049 9.823502,5.671602 -9.912729,2.656107"
-            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-         <path
-            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            d="m 94.539792,49.409049 -9.823502,5.671602 9.912729,2.656107"
-            id="path4470" />
-       </g>
-     </g>
-   </g>
-   <g
-      class='pancake__face pancake__face--cooking'
-      id="layer4">
-     <g
-        id="g4526">
-       <path
-          style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:3.99999952;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          d="M 52.619141,65 A 10.000001,10.000001 0 0 0 62.5,73.507812 10.000001,10.000001 0 0 0 72.376953,65 l -19.757812,0 z"
-          id="path4409" />
-       <path
-          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          d="m 29.360776,53.391934 a 4.1666665,4.1666665 0 0 1 3.996303,-2.987397 4.1666665,4.1666665 0 0 1 3.996158,2.98691"
-          id="circle4494" />
-       <path
-          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          d="m 85.646485,53.391934 a 4.1666665,4.1666665 0 0 1 3.996302,-2.987397 4.1666665,4.1666665 0 0 1 3.996187,2.987005"
-          id="circle4496" />
-       <path
-          style="opacity:.5;fill:#d7e3f4;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          d="m 88.905974,16.026569 c 0.262252,1.252029 -0.685379,1.878774 -1.362104,1.884632 -0.701684,0.0061 -1.660737,-0.775402 -1.433794,-1.929505 0.226944,-1.154102 0.665476,-0.717955 1.433794,-4.621835 0.788264,3.848825 1.099852,3.414679 1.362104,4.666708 z"
-          id="path4519" />
-       <path
-          id="path4522"
-          d="m 93.839277,31.198421 c 0.653242,3.118673 -1.707207,4.679827 -3.392857,4.694418 -1.747821,0.01514 -4.136721,-1.931444 -3.571428,-4.806191 0.565293,-2.874747 1.65763,-1.78835 3.571428,-11.512503 1.963483,9.587015 2.739615,8.505603 3.392857,11.624276 z"
-          style="opacity:.5;fill:#d7e3f4;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-       <path
-          style="opacity:.5;fill:#d7e3f4;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-          d="m 97.460727,22.408817 c 0.360003,1.71869 -0.940838,2.579036 -1.869792,2.587078 -0.963218,0.0083 -2.279733,-1.064413 -1.968202,-2.648676 0.311531,-1.584264 0.913514,-0.985554 1.968202,-6.344502 1.082071,5.283372 1.509794,4.687409 1.869792,6.4061 z"
-          id="path4524" />
-     </g>
-   </g>
- </svg>
-
- </div><svg
-    class='pan'
-    preserveAspectRatio='xMinYMin'
-    viewBox="0 0 200 325">
-   <g
-      transform="translate(-179.87888,-433.19762)"
-      style="opacity:1"
-      id="layer1">
-     <g
-        transform="translate(0.47635,0.39756772)"
-        id="g4336">
-       <g
-          id="g4303">
-         <path
-            id="rect4296"
-            transform="translate(179.40253,558.67396)"
-            d="m 100,-126.27148 c -9.695,0 -17.5,8.40675 -17.5,18.8496 l 0,85.722661 c 0,10.442858 7.805,18.8496096 17.5,18.8496096 9.695,0 17.5,-8.4067516 17.5,-18.8496096 l 0,-85.722661 c 0,-10.44285 -7.805,-18.8496 -17.5,-18.8496 z m 0,6.50781 a 10,10 0 0 1 10,10 10,10 0 0 1 -10,9.999998 10,10 0 0 1 -10,-9.999998 10,10 0 0 1 10,-10 z"
-            style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.42972708;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-         <rect
-            y="534.65881"
-            x="261.90253"
-            height="47.743256"
-            width="34.999996"
-            id="rect4298"
-            style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-       </g>
-       <g
-          id="g4272"
-          transform="translate(-8.7763963e-6,0)">
-         <circle
-            r="97.523636"
-            cy="658.67395"
-            cx="279.40253"
-            id="path4136"
-            style="fill:#333333;fill-opacity:1;stroke:#e8ecf1;stroke-width:3.99999952;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-         <circle
-            r="75"
-            cy="658.67395"
-            cx="279.40253"
-            id="path4138"
-            style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-         <circle
-            r="14.999998"
-            cy="658.67395"
-            cx="279.40253"
-            id="path4228"
-            style="opacity:1;fill:#800000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-       </g>
-     </g>
-   </g>
- </svg>
+  </main>
+</div>
 
 {{ partial "footer.html" . }}
 {{ end }}
