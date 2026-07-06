@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>博客首页人偶动效设计稿</title>
+  <style>
+    :root {
+      --blue: #007aff;
+      --blue-dark: #0062cc;
+      --pink: #ff8fb8;
+      --ink: #2c3340;
+      --muted: #697386;
+      --paper: rgba(255, 255, 255, .82);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 78% 18%, rgba(255, 143, 184, .22), transparent 22rem),
+        radial-gradient(circle at 18% 20%, rgba(0, 122, 255, .18), transparent 28rem),
+        linear-gradient(180deg, #f8fbff 0%, #fff8fb 56%, #f4f9ff 100%);
+      overflow-x: hidden;
+    }
+    .stage {
+      width: min(1040px, calc(100vw - 32px));
+      min-height: 640px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+      padding: 44px;
+      background: var(--paper);
+      border: 1px solid rgba(0, 122, 255, .12);
+      box-shadow: 0 32px 110px rgba(31, 65, 114, .13);
+      backdrop-filter: blur(18px);
+    }
+    .copy {
+      position: relative;
+      z-index: 5;
+      max-width: 460px;
+      padding-top: 28px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--blue-dark);
+      background: #eaf5ff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: .96;
+      letter-spacing: -.075em;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .btn {
+      border: 0;
+      cursor: pointer;
+      padding: 13px 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), #42a8ff);
+      font-weight: 900;
+      box-shadow: 0 14px 36px rgba(0, 122, 255, .22);
+    }
+    .note {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: #d54882;
+      background: rgba(255, 225, 237, .8);
+      font-weight: 800;
+    }
+    .doll-scene {
+      position: absolute;
+      right: 84px;
+      bottom: 22px;
+      width: 360px;
+      height: 570px;
+      z-index: 4;
+    }
+    .doll-shadow {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 240px;
+      height: 34px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(31, 65, 114, .22), transparent 68%);
+      filter: blur(2px);
+      animation: shadowPulse 4.2s ease-in-out infinite;
+    }
+    .doll-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      width: 300px;
+      height: 514px;
+      transform: translateX(-50%);
+      transform-origin: 50% 88%;
+      animation: breathe 4.2s ease-in-out infinite;
+    }
+    .doll-img,
+    .head-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 22px 24px rgba(13, 54, 108, .14));
+    }
+    .head-layer {
+      background-image: url('/assets/img/alice-doll-character.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      clip-path: ellipse(46% 34% at 52% 25%);
+      transform-origin: 52% 42%;
+      animation: headShake 6.4s ease-in-out infinite;
+      will-change: transform;
+    }
+    .eye-cover {
+      position: absolute;
+      z-index: 4;
+      width: 12.8%;
+      height: 3.5%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffe9de, #ffd9ca);
+      border-bottom: 2px solid rgba(80, 48, 38, .42);
+      opacity: 0;
+      transform: scaleY(.1);
+      transform-origin: center;
+      animation: blink 5.4s infinite;
+      filter: blur(.1px);
+    }
+    .eye-cover.left { left: 35.5%; top: 24.9%; }
+    .eye-cover.right { left: 53.6%; top: 24.9%; animation-delay: .015s; }
+    .bubble {
+      position: absolute;
+      z-index: 8;
+      top: 68px;
+      left: -34px;
+      min-width: 150px;
+      padding: 12px 15px;
+      border-radius: 20px 20px 6px 20px;
+      background: rgba(255, 255, 255, .94);
+      color: var(--blue-dark);
+      font-weight: 900;
+      font-size: 14px;
+      line-height: 1.5;
+      box-shadow: 0 16px 36px rgba(31, 65, 114, .13);
+      animation: bubbleFloat 4.2s ease-in-out infinite;
+    }
+    .bubble:after {
+      content: "";
+      position: absolute;
+      right: -9px;
+      bottom: 14px;
+      border-width: 8px 0 8px 10px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgba(255, 255, 255, .94);
+    }
+    .hand-wave {
+      position: absolute;
+      z-index: 7;
+      right: 22px;
+      top: 330px;
+      font-size: 34px;
+      transform-origin: 20% 80%;
+      animation: handWave 2.6s ease-in-out infinite;
+      filter: drop-shadow(0 6px 8px rgba(31, 65, 114, .14));
+    }
+    .sparkle {
+      position: absolute;
+      z-index: 2;
+      color: #fff;
+      font-size: 24px;
+      filter: drop-shadow(0 8px 12px rgba(0, 122, 255, .16));
+      animation: sparkle 3s ease-in-out infinite;
+    }
+    .sparkle.s1 { right: 16px; top: 96px; }
+    .sparkle.s2 { left: 32px; top: 220px; animation-delay: -1.2s; }
+    .sparkle.s3 { right: 44px; bottom: 116px; animation-delay: -2s; }
+    .is-greeting .bubble { animation: popGreeting 1.2s ease both; }
+    .is-greeting .hand-wave { animation: handWaveFast .9s ease-in-out 3; }
+    @keyframes breathe {
+      0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+      50% { transform: translateX(-50%) translateY(-5px) scale(1.006); }
+    }
+    @keyframes shadowPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: .75; }
+      50% { transform: translateX(-50%) scale(.92); opacity: .52; }
+    }
+    @keyframes headShake {
+      0%, 58%, 100% { transform: rotate(0deg) translate(0, 0); }
+      65% { transform: rotate(-3deg) translate(-1px, 1px); }
+      72% { transform: rotate(2.5deg) translate(1px, 0); }
+      79% { transform: rotate(-1.2deg); }
+    }
+    @keyframes blink {
+      0%, 89%, 100% { opacity: 0; transform: scaleY(.08); }
+      91%, 94% { opacity: 1; transform: scaleY(1); }
+    }
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes handWave {
+      0%, 100% { transform: rotate(0deg); }
+      35% { transform: rotate(-12deg); }
+      70% { transform: rotate(9deg); }
+    }
+    @keyframes handWaveFast {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      35% { transform: rotate(-18deg) scale(1.08); }
+      70% { transform: rotate(13deg) scale(1.04); }
+    }
+    @keyframes popGreeting {
+      0% { transform: translateY(6px) scale(.92); opacity: .3; }
+      40% { transform: translateY(-8px) scale(1.04); opacity: 1; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: .28; transform: translateY(0) scale(.78) rotate(0deg); }
+      50% { opacity: 1; transform: translateY(-10px) scale(1.05) rotate(14deg); }
+    }
+    @media (max-width: 820px) {
+      body { overflow: auto; }
+      .stage { min-height: 900px; padding: 30px 24px; }
+      .doll-scene { right: 50%; bottom: 0; transform: translateX(50%) scale(.86); }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="copy">
+      <span class="badge">图片资产 + CSS 局部动效</span>
+      <h1>让原图角色自然动起来。</h1>
+      <p>保留原图审美，不再手写低质 SVG。用透明 PNG 作为主体，通过头部叠层、眼皮遮罩、气泡和轻微呼吸动效模拟眨眼、摇头和打招呼。</p>
+      <div class="actions">
+        <button class="btn" type="button" onclick="greet()">触发打招呼 👋</button>
+        <span class="note">可直接迁移到首页 Hero</span>
+      </div>
+    </section>
+
+    <section class="doll-scene" id="dollScene" aria-label="会打招呼、眨眼睛、摇头的人偶动效">
+      <span class="sparkle s1">✨</span>
+      <span class="sparkle s2">✦</span>
+      <span class="sparkle s3">✨</span>
+      <div class="bubble">Hi～欢迎来看博客呀</div>
+      <div class="hand-wave">👋</div>
+      <div class="doll-shadow"></div>
+      <div class="doll-wrap">
+        <img class="doll-img" src="/assets/img/alice-doll-character.png" alt="Alice Blog 人偶">
+        <div class="head-layer" aria-hidden="true"></div>
+        <span class="eye-cover left" aria-hidden="true"></span>
+        <span class="eye-cover right" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  <script>
+    function greet() {
+      const scene = document.getElementById('dollScene')
+      scene.classList.remove('is-greeting')
+      void scene.offsetWidth
+      scene.classList.add('is-greeting')
+      setTimeout(() => scene.classList.remove('is-greeting'), 1600)
+    }
+    setInterval(greet, 9000)
+  </script>
+</body>
+</html>

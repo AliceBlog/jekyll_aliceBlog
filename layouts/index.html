@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $posts := sort (where .Site.RegularPages "Section" "posts") "Date" "desc" }}
 {{ $paginator := .Paginate $posts }}
 {{ $postCount := len $posts }}
 {{ $tagCount := len .Site.Taxonomies.tags }}
@@ -158,22 +158,22 @@
   }
   .home-hero .eggboxs {
     position: absolute !important;
-    top: 6px !important;
+    top: 30px !important;
     right: 100px !important;
     z-index: 2;
-    /* transform: scale(.42); */
+    transform: scale(0.7);
     transform-origin: center;
     opacity: .92;
   }
   .home-doll-guide {
     position: relative;
-    z-index: 5;
+    z-index: 7;
     justify-self: end;
     align-self: end;
-    width: 236px;
-    height: 292px;
-    margin: 4px 4px -38px 0;
-    filter: drop-shadow(0 22px 26px rgba(13, 54, 108, .18));
+    width: 250px;
+    height: 300px;
+    margin: 0 -6px -40px 0;
+    filter: drop-shadow(0 24px 26px rgba(13, 54, 108, .18));
   }
   .home-doll-bubble {
     position: absolute;
@@ -206,7 +206,7 @@
     overflow: visible;
   }
   .home-doll-head {
-    transform-origin: 112px 104px;
+    transform-origin: 124px 106px;
     animation: dollShakeHead 6.2s ease-in-out infinite;
   }
   .home-doll-eye {
@@ -216,8 +216,15 @@
   }
   .home-doll-arm-wave {
     transform-box: fill-box;
-    transform-origin: 16% 12%;
+    transform-origin: 18% 16%;
     animation: dollWave 2.8s ease-in-out infinite;
+  }
+  .home-doll-body {
+    animation: dollBreath 4.8s ease-in-out infinite;
+    transform-origin: 124px 220px;
+  }
+  .home-doll-hair-shine {
+    animation: dollHairShine 5.6s ease-in-out infinite;
   }
   .home-doll-flower {
     transform-box: fill-box;
@@ -254,6 +261,14 @@
   @keyframes dollSparkle {
     0%, 100% { opacity: .3; transform: scale(.8); }
     50% { opacity: 1; transform: scale(1.06); }
+  }
+  @keyframes dollBreath {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  @keyframes dollHairShine {
+    0%, 100% { opacity: .28; transform: translateX(0); }
+    50% { opacity: .52; transform: translateX(2px); }
   }
 
   .home-kawaii-pancake {
@@ -643,6 +658,7 @@
       </div>
     </div>
   
+ 
    <div class="eggboxs home-kawaii-pancake" aria-label="Kawaii 可爱煎饼动画">
       <span class="kawaii-decor kawaii-heart1">💖</span>
       <span class="kawaii-decor kawaii-heart2">💕</span>
