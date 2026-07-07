@@ -57,18 +57,18 @@ params:
   recommendTags: true
   recommendConditionSize: 12
   tagOrder:
+    - ScrumPilot
+    - AI Scrum Master
+    - Agent工程
+    - 敏捷开发
+    - 从0到1
+    - Workflow Engine
+    - RAG
+    - Dashboard
+    - DevOps
     - 技术
     - git
     - jekyll
-    - 博客
-    - Truffle
-    - Node
-    - express
-    - mysql
-    - AngularX
-    - 网络安全
-    - SSL
-    - 渗透测试
   comments:
     disqus: false
     disqusUrl: https://liaokeyu.disqus.com/embed.js

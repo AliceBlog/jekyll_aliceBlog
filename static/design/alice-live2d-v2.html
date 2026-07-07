@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alice Live2D 85 图层素材预览</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f7fbff,#fff);color:#1e2a44}
+    .wrap{max-width:1200px;margin:0 auto;padding:32px 20px 70px;display:grid;grid-template-columns:minmax(0,1fr)420px;gap:24px;align-items:start}
+    .panel{background:rgba(255,255,255,.78);border:1px solid rgba(0,122,255,.12);border-radius:28px;box-shadow:0 22px 70px rgba(31,65,114,.1);padding:24px;backdrop-filter:blur(16px)}
+    h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:12px 0;letter-spacing:-.05em}.tag{display:inline-flex;border-radius:999px;padding:8px 12px;background:#eaf5ff;color:#006ad8;font-weight:800;font-size:13px}p{line-height:1.75;color:#63738f}.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.buttons a,.buttons button{border:0;border-radius:14px;padding:11px 14px;background:#fff;color:#006ad8;box-shadow:0 10px 26px rgba(0,122,255,.12);font-weight:800;text-decoration:none;cursor:pointer}.buttons a.primary{background:linear-gradient(135deg,#007aff,#57b9ff);color:#fff}
+    .stagePanel{position:sticky;top:20px;display:grid;place-items:center;min-height:720px;overflow:hidden}.stage{position:relative;width:min(380px,80vw);aspect-ratio:3040/5404;transform-origin:50% 65%;transition:.2s ease}.layer{position:absolute;object-fit:contain;will-change:transform,opacity;pointer-events:none}.bubble{position:absolute;left:8%;top:4%;padding:10px 14px;border-radius:16px;background:#fff;color:#2a5d92;box-shadow:0 12px 35px rgba(31,65,114,.16);font-weight:800;z-index:200}.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}.meta div{padding:14px;border-radius:18px;background:#f4f9ff;color:#24476a;font-weight:800}.list{columns:2;column-gap:24px;font-size:13px;line-height:1.75;color:#52647e;max-height:520px;overflow:auto;padding-right:8px}.contact{width:100%;border-radius:20px;border:1px solid rgba(0,122,255,.12);box-shadow:0 14px 45px rgba(31,65,114,.1)}
+    @media(max-width:900px){.wrap{grid-template-columns:1fr}.stagePanel{position:relative;min-height:620px}.list{columns:1}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <span class="tag">Live2D-ready · 85 图层 · 透明 PNG</span>
+      <h1>Alice Live2D 细拆素材包</h1>
+      <p>根据 <code>/Users/alice/Downloads/alice.png</code> 自动拆解生成。图层覆盖头发、刘海、脸、眼白/虹膜/瞳孔/高光、上下眼皮、眉毛、鼻子、5 个嘴型、帽子、蝴蝶结、T 恤、手臂、手、JK 短裙多片褶皱、腿、袜子、鞋子等，满足后续 Live2D 建模的基础分层需求。</p>
+      <div class="meta">
+        <div>画布：3040 × 5404</div>
+        <div>图层：85</div>
+        <div>格式：透明 PNG</div>
+        <div>Manifest：JSON</div>
+      </div>
+      <div class="buttons">
+        <a class="primary" href="/assets/img/alice-live2d-v2/alice-live2d-v2.zip">下载素材 ZIP</a>
+        <a href="/assets/img/alice-live2d-v2/contact-sheet.jpg">查看图层总览</a>
+        <a href="/assets/img/alice-live2d-v2/manifest.json">查看 manifest</a>
+        <button onclick="demo('blink')">眨眼</button>
+        <button onclick="demo('speak')">说话</button>
+        <button onclick="demo('wave')">摆动</button>
+      </div>
+      <h2>图层列表</h2>
+      <div id="layerList" class="list">加载中…</div>
+      <h2>图层总览</h2>
+      <img class="contact" src="/assets/img/alice-live2d-v2/contact-sheet.jpg" alt="Alice Live2D contact sheet" />
+    </section>
+    <section class="panel stagePanel">
+      <div class="bubble">Live2D 分层预览</div>
+      <div id="stage" class="stage"></div>
+    </section>
+  </main>
+  <script>
+    const stage=document.getElementById('stage');
+    const layerList=document.getElementById('layerList');
+    const els=new Map();
+    let mode='idle', start=performance.now();
+    fetch('/assets/img/alice-live2d-v2/manifest.json').then(r=>r.json()).then(m=>{
+      layerList.innerHTML=m.layers.map((l,i)=>`${String(i+1).padStart(2,'0')}. ${l.name}`).join('<br>');
+      m.layers.sort((a,b)=>a.z-b.z).forEach(l=>{
+        const img=document.createElement('img'); img.className='layer'; img.src=l.src; img.alt=''; img.decoding='async'; img.dataset.name=l.name;
+        img.style.left=(l.x/m.canvas.width*100)+'%'; img.style.top=(l.y/m.canvas.height*100)+'%'; img.style.width=(l.width/m.canvas.width*100)+'%'; img.style.height=(l.height/m.canvas.height*100)+'%'; img.style.zIndex=l.z; img.style.transformOrigin=(l.pivot.x*100)+'% '+(l.pivot.y*100)+'%';
+        stage.appendChild(img); els.set(l.name,img);
+      }); requestAnimationFrame(tick);
+    });
+    function set(n,t,o=1){const e=els.get(n); if(!e)return; e.style.transform=t; e.style.opacity=o}
+    function demo(m){mode=m;start=performance.now();setTimeout(()=>{mode='idle'},m==='speak'?3600:2200)}
+    function tick(now){const t=now/1000, dt=(now-start)/1000, bob=Math.sin(t*1.4)*3, head=Math.sin(t*1.8)*2; stage.style.transform=`translateY(${bob}px)`;
+      [...els.keys()].forEach(n=>{ if(n.includes('bang')||n.includes('hat')||n.includes('bow')||n.includes('face')||n.includes('eye')||n.includes('mouth')||n.includes('brow')||n.includes('nose')) set(n,`rotate(${head}deg)`); });
+      const blink=mode==='blink'||Math.sin(t*2.2)>0.986; ['22_left_upper_eyelid','23_left_lower_eyelid','22_right_upper_eyelid','23_right_lower_eyelid'].forEach(n=>set(n,`translateY(${blink?0:-22}px) scaleY(${blink?1:.08})`,blink?1:0));
+      const speaking=mode==='speak'; ['27_mouth_closed','28_mouth_a','29_mouth_e','30_mouth_o','31_mouth_smile'].forEach(n=>set(n,'',0));
+      if(speaking){const arr=['28_mouth_a','29_mouth_e','30_mouth_o']; set(arr[Math.floor(t*9)%3],`scale(${1+Math.abs(Math.sin(t*13))*.12})`,1)} else set('31_mouth_smile','',1);
+      const wave=mode==='wave'?Math.sin(dt*12)*8:Math.sin(t*1.4)*1.5; ['46_left_upper_arm','47_left_forearm','48_left_hand'].forEach(n=>set(n,`rotate(${-wave*.35}deg)`)); ['46_right_upper_arm','47_right_forearm','48_right_hand'].forEach(n=>set(n,`rotate(${wave}deg)`));
+      requestAnimationFrame(tick);
+    }
+  </script>
+</body>
+</html>
