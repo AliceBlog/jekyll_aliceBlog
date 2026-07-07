@@ -1,0 +1,138 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Elfy.moc3",
+		"Textures": [
+			"Elfy.8192/texture_00.png",
+			"Elfy.8192/texture_01.png",
+			"Elfy.8192/texture_02.png"
+		],
+		"Physics": "Elfy.physics3.json",
+		"DisplayInfo": "Elfy.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "accessories",
+				"File": "accessories.exp3.json"
+			},
+			{
+				"Name": "accessories1",
+				"File": "accessories1.exp3.json"
+			},
+			{
+				"Name": "accessories2",
+				"File": "accessories2.exp3.json"
+			},
+			{
+				"Name": "blush",
+				"File": "blush.exp3.json"
+			},
+			{
+				"Name": "cheeks",
+				"File": "cheeks.exp3.json"
+			},
+			{
+				"Name": "cigarette",
+				"File": "cigarette.exp3.json"
+			},
+			{
+				"Name": "con",
+				"File": "con.exp3.json"
+			},
+			{
+				"Name": "eyes1",
+				"File": "eyes1.exp3.json"
+			},
+			{
+				"Name": "eyes2",
+				"File": "eyes2.exp3.json"
+			},
+			{
+				"Name": "eyes3",
+				"File": "eyes3.exp3.json"
+			},
+			{
+				"Name": "eyes4",
+				"File": "eyes4.exp3.json"
+			},
+			{
+				"Name": "eyes5",
+				"File": "eyes5.exp3.json"
+			},
+			{
+				"Name": "face1",
+				"File": "face1.exp3.json"
+			},
+			{
+				"Name": "face2",
+				"File": "face2.exp3.json"
+			},
+			{
+				"Name": "face3",
+				"File": "face3.exp3.json"
+			},
+			{
+				"Name": "face4",
+				"File": "face4.exp3.json"
+			},
+			{
+				"Name": "face5",
+				"File": "face5.exp3.json"
+			},
+			{
+				"Name": "face6",
+				"File": "face6.exp3.json"
+			},
+			{
+				"Name": "face7",
+				"File": "face7.exp3.json"
+			},
+			{
+				"Name": "hair",
+				"File": "hair.exp3.json"
+			},
+			{
+				"Name": "hair1",
+				"File": "hair1.exp3.json"
+			},
+			{
+				"Name": "hands",
+				"File": "hands.exp3.json"
+			},
+			{
+				"Name": "head",
+				"File": "head.exp3.json"
+			},
+			{
+				"Name": "mic",
+				"File": "mic.exp3.json"
+			},
+			{
+				"Name": "modelinfo",
+				"File": "modelinfo.exp3.json"
+			},
+			{
+				"Name": "phone",
+				"File": "phone.exp3.json"
+			},
+			{
+				"Name": "tongue",
+				"File": "tongue.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		}
+	]
+}

@@ -1,110 +1,100 @@
-<div class="floating-alice-video" data-alice-webgl-avatar aria-label="Alice 悬浮 AI 数字人">
-  <canvas class="floating-alice-video__canvas" aria-hidden="true"></canvas>
-  <video
-    class="floating-alice-video__fallback"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    crossorigin="anonymous"
-  >
-    <source src="/assets/img/alicevideo.webm" type="video/webm" />
-    <source src="/assets/img/alicevideo.mov" type="video/quicktime" />
-  </video>
-  <span class="floating-alice-video__halo" aria-hidden="true"></span>
-  <span class="floating-alice-video__bubble" aria-live="polite">我在这里，有事喊我～</span>
+<div class="elfy-live2d" data-elfy-live2d aria-label="Elfy 悬浮 Live2D 人偶">
+  <canvas class="elfy-live2d__canvas" aria-hidden="true"></canvas>
+  <span class="elfy-live2d__halo" aria-hidden="true"></span>
+  <span class="elfy-live2d__bubble" aria-live="polite">Elfy 加载中…</span>
+  <div class="elfy-live2d__controls" aria-label="Elfy 表情和装饰控制">
+    <button type="button" data-elfy-expression="random">随机</button>
+    <button type="button" data-elfy-expression="face1">脸</button>
+    <button type="button" data-elfy-expression="eyes1">眼</button>
+    <button type="button" data-elfy-expression="blush">腮红</button>
+    <button type="button" data-elfy-expression="phone">手机</button>
+    <button type="button" data-elfy-expression="mic">麦克风</button>
+    <button type="button" data-elfy-expression="accessories">配饰</button>
+  </div>
 </div>
 
 <style>
-  .floating-alice-video {
+  .elfy-live2d {
     position: fixed;
-    right: max(18px, env(safe-area-inset-right));
-    bottom: max(18px, env(safe-area-inset-bottom));
+    right: max(30px, env(safe-area-inset-right));
+    bottom: max(15px, env(safe-area-inset-bottom));
     z-index: 999;
-    width: clamp(118px, 14vw, 190px);
-    aspect-ratio: 9 / 16;
+    width: clamp(180px, 9.5vw, 140px);
+    height: clamp(260px, 15vw, 215px);
     pointer-events: auto;
-    cursor: pointer;
-    filter: drop-shadow(0 18px 28px rgba(13, 54, 108, 0.22));
+    cursor: grab;
+    filter: drop-shadow(0 18px 30px rgba(13, 54, 108, 0.24));
     transform-origin: 50% 100%;
-    animation: floatingAliceIdle 4.6s ease-in-out infinite;
+    animation: elfyLive2DIdle 4.8s ease-in-out infinite;
     isolation: isolate;
+    touch-action: none;
   }
 
-  .floating-alice-video__canvas,
-  .floating-alice-video__fallback {
+  .elfy-live2d:active {
+    cursor: grabbing;
+  }
+
+  .elfy-live2d__canvas {
     position: absolute;
     inset: 0;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
     border: 0;
     background: transparent;
-  }
-
-  .floating-alice-video__canvas {
     opacity: 0;
-    transform: translateZ(0);
-    transition: opacity 0.24s ease;
+    transition: opacity 0.28s ease;
   }
 
-  .floating-alice-video__fallback {
-    opacity: 1;
-    transition: opacity 0.24s ease;
-  }
-
-  .floating-alice-video.is-webgl-ready .floating-alice-video__canvas {
+  .elfy-live2d.is-ready .elfy-live2d__canvas {
     opacity: 1;
   }
 
-  .floating-alice-video.is-webgl-ready:not(.is-fallback) .floating-alice-video__fallback {
-    opacity: 0;
-  }
-
-  .floating-alice-video__halo {
+  .elfy-live2d__halo {
     position: absolute;
-    inset: 8% -14% -2%;
+    inset: 14% -8% 3%;
     z-index: -1;
     border-radius: 999px;
-    background:
-      radial-gradient(circle at 50% 78%, rgba(87, 161, 255, 0.28), transparent 52%),
-      radial-gradient(circle at 45% 36%, rgba(255, 151, 203, 0.18), transparent 42%);
+    background: radial-gradient(
+        circle at 50% 76%,
+        rgba(87, 161, 255, 0.26),
+        transparent 52%
+      ),
+      radial-gradient(
+        circle at 45% 34%,
+        rgba(255, 151, 203, 0.18),
+        transparent 42%
+      );
     filter: blur(18px);
-    opacity: 0.48;
+    opacity: 0.5;
     transform: scale(0.92);
     transition: opacity 0.24s ease, transform 0.24s ease;
   }
 
-  .floating-alice-video:hover .floating-alice-video__halo,
-  .floating-alice-video.is-tapped .floating-alice-video__halo,
-  .floating-alice-video.is-speaking .floating-alice-video__halo {
-    opacity: 0.82;
+  .elfy-live2d:hover .elfy-live2d__halo,
+  .elfy-live2d.is-tapped .elfy-live2d__halo {
+    opacity: 0.86;
     transform: scale(1.04);
   }
 
-  .floating-alice-video.is-thinking .floating-alice-video__halo {
-    opacity: 0.74;
-    background:
-      radial-gradient(circle at 50% 78%, rgba(255, 210, 90, 0.28), transparent 52%),
-      radial-gradient(circle at 45% 36%, rgba(120, 190, 255, 0.18), transparent 42%);
+  .elfy-live2d.is-error .elfy-live2d__halo {
+    background: radial-gradient(
+      circle,
+      rgba(255, 138, 138, 0.24),
+      transparent 58%
+    );
   }
 
-  .floating-alice-video.is-speaking .floating-alice-video__halo {
-    animation: floatingAliceVoiceHalo 0.72s ease-in-out infinite alternate;
-  }
-
-  .floating-alice-video__bubble {
+  .elfy-live2d__bubble {
     position: absolute;
-    right: calc(100% - 18px);
+    right: calc(100% - 32px);
     bottom: 76%;
     z-index: 2;
     width: max-content;
     max-width: min(240px, 72vw);
     padding: 9px 13px;
     border-radius: 16px 16px 4px 16px;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(106, 161, 231, 0.22);
     box-shadow: 0 14px 32px rgba(28, 72, 120, 0.16);
     color: #2c5d8f;
@@ -120,28 +110,65 @@
     backdrop-filter: blur(10px);
   }
 
-  .floating-alice-video__bubble::after {
+  .elfy-live2d__bubble::after {
     content: "";
     position: absolute;
     right: 10px;
     bottom: -6px;
     width: 12px;
     height: 12px;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     border-right: 1px solid rgba(106, 161, 231, 0.22);
     border-bottom: 1px solid rgba(106, 161, 231, 0.22);
     transform: rotate(45deg);
   }
 
-  .floating-alice-video.is-bubble-visible .floating-alice-video__bubble,
-  .floating-alice-video.is-greeting .floating-alice-video__bubble,
-  .floating-alice-video.is-thinking .floating-alice-video__bubble,
-  .floating-alice-video.is-speaking .floating-alice-video__bubble {
+  .elfy-live2d.is-bubble-visible .elfy-live2d__bubble,
+  .elfy-live2d.is-error .elfy-live2d__bubble {
     opacity: 1;
     transform: translate(0, 0) scale(1);
   }
 
-  @keyframes floatingAliceIdle {
+  .elfy-live2d__controls {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(8px) scale(0.94);
+    transform-origin: 100% 100%;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .elfy-live2d:hover .elfy-live2d__controls,
+  .elfy-live2d.is-controls-visible .elfy-live2d__controls {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .elfy-live2d__controls button {
+    border: 1px solid rgba(106, 161, 231, 0.24);
+    border-radius: 999px;
+    padding: 4px 7px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c5d8f;
+    box-shadow: 0 8px 18px rgba(28, 72, 120, 0.12);
+    font-size: 11px;
+    line-height: 1.2;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+  }
+
+  .elfy-live2d__controls button:hover {
+    background: #fff;
+    color: #0062cc;
+  }
+
+  @keyframes elfyLive2DIdle {
     0%,
     100% {
       transform: translateY(0) scale(1);
@@ -151,26 +178,16 @@
     }
   }
 
-  @keyframes floatingAliceVoiceHalo {
-    from {
-      filter: blur(16px);
-      transform: scale(0.98);
-    }
-    to {
-      filter: blur(22px);
-      transform: scale(1.1);
-    }
-  }
-
   @media (max-width: 768px) {
-    .floating-alice-video {
-      width: 112px;
-      right: max(10px, env(safe-area-inset-right));
-      bottom: max(10px, env(safe-area-inset-bottom));
+    .elfy-live2d {
+      width: 75px;
+      height: 118px;
+      right: max(4px, env(safe-area-inset-right));
+      bottom: max(2px, env(safe-area-inset-bottom));
       filter: drop-shadow(0 12px 20px rgba(13, 54, 108, 0.18));
     }
 
-    .floating-alice-video__bubble {
+    .elfy-live2d__bubble {
       right: auto;
       left: -8px;
       bottom: 92%;
@@ -179,20 +196,32 @@
       border-radius: 16px 16px 16px 4px;
     }
 
-    .floating-alice-video__bubble::after {
+    .elfy-live2d__bubble::after {
       right: auto;
       left: 18px;
+    }
+
+    .elfy-live2d__controls {
+      right: 0;
+      bottom: -4px;
+      grid-template-columns: repeat(2, max-content);
+      gap: 3px;
+    }
+
+    .elfy-live2d__controls button {
+      padding: 3px 6px;
+      font-size: 10px;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .floating-alice-video {
+    .elfy-live2d {
       animation: none;
     }
   }
 
   @media print {
-    .floating-alice-video {
+    .elfy-live2d {
       display: none;
     }
   }
