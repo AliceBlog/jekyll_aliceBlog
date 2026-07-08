@@ -113,13 +113,7 @@
         bubbleTimer = window.setTimeout(() => root.classList.remove('is-bubble-visible'), 1200);
       });
 
-      root.addEventListener('click', (event) => {
-        if (event.target.closest('[data-elfy-expression]')) return;
-        root.classList.add('is-tapped', 'is-bubble-visible', 'is-controls-visible');
-        setBubble(root, '可以点下面按钮换表情/装饰 ✨');
-        window.setTimeout(() => root.classList.remove('is-tapped'), 650);
-        bubbleTimer = window.setTimeout(() => root.classList.remove('is-controls-visible'), 5200);
-      });
+  
 
       root.querySelectorAll('[data-elfy-expression]').forEach((button) => {
         button.addEventListener('click', async (event) => {
