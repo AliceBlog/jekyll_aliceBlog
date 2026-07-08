@@ -65,7 +65,7 @@
       {{ with .NextInSection }}
       <div class="read-next-item">
         <a href="{{ .RelPermalink }}" class="read-next-link"></a>
-        <section>
+        <section class="read-next-copy" style="display: block;">
           <span>{{ .Title }}</span>
           <p>{{ .Summary | plainify | truncate 60 }}</p>
         </section>
@@ -79,7 +79,7 @@
       {{ with .PrevInSection }}
       <div class="read-next-item">
         <a href="{{ .RelPermalink }}" class="read-next-link"></a>
-          <section>
+          <section class="read-next-copy" style="display: block;">
             <span>{{ .Title }}</span>
             <p>{{ .Summary | plainify | truncate 60 }}</p>
           </section>

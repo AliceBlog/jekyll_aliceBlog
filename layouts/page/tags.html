@@ -1,49 +1,597 @@
 {{ define "main" }}
 {{ partial "header.html" . }}
 
-<div class="g-banner tags-banner {{ printf "post-pattern-%s" .Site.Params.postPatterns }} {{ printf "bgcolor-%s" .Site.Params.themeColor }}" data-theme="{{ .Site.Params.themeColor }}">
-    <h2>标签</h2>
-</div>
+{{ $tagCount := len .Site.Taxonomies.tags }}
+{{ $postCount := len (where .Site.RegularPages "Section" "posts") }}
 
-<main class="tags-content">
+<style>
+  :root {
+    --tag-blue: #007aff;
+    --tag-blue-dark: #0062cc;
+    --tag-ink: #1d2433;
+    --tag-muted: #6b7688;
+    --tag-line: #e7eef7;
+    --tag-soft: #f5f9ff;
+    --tag-card: rgba(255, 255, 255, .86);
+    --tag-shadow: 0 20px 70px rgba(31, 65, 114, .08);
+  }
+  body {
+    background:
+      radial-gradient(circle at 88% 10%, rgba(255, 242, 164, .42), transparent 20rem),
+      radial-gradient(circle at 8% 18%, rgba(0, 122, 255, .13), transparent 26rem),
+      linear-gradient(180deg, #f8fbff 0%, #fff 52%, #f8fbff 100%);
+  }
+  .g-header { display: none; }
+  .tags-modern {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 26px 72px;
+    color: var(--tag-ink);
+  }
+  .tags-modern a { text-decoration: none; }
+  .home-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0 14px;
+  }
+  .home-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tag-ink);
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+  .home-brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, var(--tag-blue), #38a5ff);
+    box-shadow: 0 10px 22px rgba(0, 122, 255, .22);
+  }
+  .home-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid rgba(0, 122, 255, .12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(14px);
+  }
+  .home-nav a {
+    padding: 7px 13px;
+    border-radius: 999px;
+    color: #4f5d75;
+    font-size: 13px;
+  }
+  .home-nav a:hover,
+  .home-nav a.is-active {
+    background: var(--tag-blue);
+    color: #fff;
+  }
+  .tags-hero {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+    padding: 34px 38px;
+    border-radius: 30px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(0, 122, 255, .98), rgba(46, 166, 255, .82));
+    box-shadow: var(--tag-shadow);
+  }
+  .tags-hero:before {
+    content: "";
+    position: absolute;
+    right: -80px;
+    bottom: -150px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+  }
+  .tags-hero-copy { position: relative; z-index: 1; }
+  .tags-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .18);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .tags-hero h1 {
+    margin: 12px 0 8px;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -.06em;
+  }
+  .tags-hero p {
+    margin: 0;
+    max-width: 680px;
+    color: rgba(255, 255, 255, .86);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .tags-stats {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 12px;
+  }
+  .tags-stat {
+    min-width: 96px;
+    padding: 14px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(12px);
+  }
+  .tags-stat b {
+    display: block;
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: -.05em;
+  }
+  .tags-stat span {
+    display: block;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, .82);
+    font-size: 12px;
+  }
+  .tags-toolbar {
+    position: sticky;
+    top: 72px;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    margin: 22px 0;
+    padding: 14px;
+    border: 1px solid rgba(0, 122, 255, .1);
+    border-radius: 26px;
+    background: rgba(255, 255, 255, .82);
+    box-shadow: 0 14px 40px rgba(31, 65, 114, .055);
+    backdrop-filter: blur(16px);
+  }
+  .tags-search {
+    position: relative;
+  }
+  .tags-search input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px 13px 42px;
+    border: 0;
+    outline: 0;
+    border-radius: 18px;
+    background: #f3f8ff;
+    color: var(--tag-ink);
+    font-size: 14px;
+  }
+  .tags-search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--tag-blue);
+  }
+  .tags-quick-links {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .tags-quick-links a,
+  .tags-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: #eef6ff;
+    color: var(--tag-blue-dark);
+    font-size: 13px;
+    font-weight: 700;
+    transition: .18s ease;
+  }
+  .tags-quick-links a:hover,
+  .tags-chip:hover {
+    transform: translateY(-1px);
+    background: var(--tag-blue);
+    color: #fff;
+  }
+  .tags-cloud-card,
+  .tags-group-card {
+    border: 1px solid rgba(0, 122, 255, .1);
+    border-radius: 30px;
+    background: var(--tag-card);
+    box-shadow: var(--tag-shadow);
+    backdrop-filter: blur(16px);
+  }
+  .tags-cloud-card {
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+  .tags-section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 16px;
+  }
+  .tags-section-head h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: -.04em;
+  }
+  .tags-section-head p {
+    margin: 4px 0 0;
+    color: var(--tag-muted);
+    font-size: 13px;
+  }
+  .tags-chip-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tags-chip-count {
+    opacity: .68;
+    font-size: 12px;
+  }
+  .tags-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .tags-group-card {
+    padding: 22px;
+    scroll-margin-top: 150px;
+  }
+  .tags-group-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--tag-line);
+  }
+  .tags-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .tags-group-title h3 {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 20px;
+    letter-spacing: -.03em;
+  }
+  .tags-group-mark {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--tag-blue), #38a5ff);
+    box-shadow: 0 10px 24px rgba(0, 122, 255, .2);
+  }
+  .tags-group-actions {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tags-group-count {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--tag-soft);
+    color: var(--tag-blue-dark);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .tags-toggle-posts {
+    border: 0;
+    cursor: pointer;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: var(--tag-blue);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    transition: .18s ease;
+  }
+  .tags-toggle-posts:hover {
+    transform: translateY(-1px);
+    background: var(--tag-blue-dark);
+  }
+  .tags-post-list {
+    display: none;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .tags-group-card.is-open .tags-post-list {
+    display: grid;
+  }
+  .tags-post-link {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 12px;
+    border-radius: 18px;
+    color: var(--tag-ink);
+    background: linear-gradient(180deg, #fff, #fbfdff);
+    border: 1px solid transparent;
+    transition: .18s ease;
+  }
+  .tags-post-link:hover {
+    border-color: rgba(0, 122, 255, .18);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(0, 122, 255, .07);
+  }
+  .tags-post-date {
+    min-width: 52px;
+    padding: 6px 8px;
+    border-radius: 14px;
+    background: var(--tag-soft);
+    color: var(--tag-blue);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .tags-post-link strong {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 15px;
+  }
+  .tags-post-link span {
+    display: block;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--tag-muted);
+    font-size: 12px;
+  }
+  .tags-empty {
+    display: none;
+    padding: 34px;
+    text-align: center;
+    color: var(--tag-muted);
+    border-radius: 28px;
+    background: #fff;
+    border: 1px solid var(--tag-line);
+  }
+  .tags-empty.is-visible { display: block; }
+  .night-mode .tags-modern { color: #c8cdd3; }
+  .night-mode .tags-cloud-card,
+  .night-mode .tags-group-card,
+  .night-mode .tags-toolbar,
+  .night-mode .tags-empty {
+    background: rgba(45, 49, 58, .9);
+    border-color: rgba(255, 255, 255, .1);
+  }
+  .night-mode .tags-post-link { background: rgba(40, 44, 51, .88); color: #c8cdd3; }
+  .night-mode .tags-search input { background: rgba(40, 44, 51, .9); color: #c8cdd3; }
+  @media (max-width: 860px) {
+    .tags-modern { padding: 12px 14px 52px; }
+    .home-nav { display: none; }
+    .tags-hero { grid-template-columns: 1fr; padding: 28px 24px; }
+    .tags-stats { flex-wrap: wrap; }
+    .tags-toolbar { position: static; grid-template-columns: 1fr; }
+    .tags-quick-links { flex-wrap: wrap; white-space: normal; }
+    .tags-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .tags-modern { padding-left: 12px; padding-right: 12px; }
+    .tags-hero { border-radius: 24px; }
+    .tags-hero h1 { font-size: 34px; }
+    .tags-stat { min-width: 0; flex: 1; }
+    .tags-section-head { display: block; }
+    .tags-group-card { padding: 18px; border-radius: 24px; }
+    .tags-post-link { grid-template-columns: 1fr; }
+    .tags-post-date { width: fit-content; }
+  }
+</style>
 
-    <ul class="tags-list">
-        <li>
-        {{ if .Site.Params.recommendTags }}
-            {{ range .Site.Params.tagOrder }}
-            <a href="{{ printf "#%s" . | safeHTMLAttr }}" class="tag">{{ . }}</a>
-            {{ end }}
-            {{ range $name, $_ := .Site.Taxonomies.tags }}
-                {{ if not (in $.Site.Params.tagOrder $name) }}
-                <a href="{{ printf "#%s" $name | safeHTMLAttr }}" class="tag">{{ $name }}</a>
-                {{ end }}
-            {{ end }}
-        {{ end }}
-        </li>
+<main class="tags-modern">
+  <header class="home-topbar">
+    <a class="home-brand" href="{{ .Site.BaseURL | relURL }}" aria-label="{{ .Site.Title }}">
+      <span class="home-brand-mark">{{ .Site.Params.nickname | default "竹" }}</span>
+      <span>{{ .Site.Title }}</span>
+    </a>
+    <nav class="home-nav" aria-label="主导航">
+      {{ range .Site.Params.nav }}
+        <a href="{{ .url }}" {{ if eq .url "/tags.html" }}class="is-active"{{ end }}>{{ .name }}</a>
+      {{ end }}
+    </nav>
+  </header>
 
+  <section class="tags-hero">
+    <div class="tags-hero-copy">
+      <div class="tags-eyebrow">🏷️ 分类导航</div>
+      <h1>按主题找文章</h1>
+      <p>把散落的技术笔记、ScrumPilot 系列和凌晨梦境按标签重新收好。先扫标签云，再进卡片列表，少迷路，多抵达。</p>
+    </div>
+    <div class="tags-stats" aria-label="分类统计">
+      <div class="tags-stat"><b>{{ $tagCount }}</b><span>个标签</span></div>
+      <div class="tags-stat"><b>{{ $postCount }}</b><span>篇文章</span></div>
+    </div>
+  </section>
+
+  <section class="tags-toolbar" aria-label="标签工具栏">
+    <label class="tags-search" for="tags-filter-input">
+      <span class="tags-search-icon">⌕</span>
+      <input id="tags-filter-input" type="search" placeholder="搜索标签或文章标题……" autocomplete="off">
+    </label>
+    <div class="tags-quick-links">
+      <a href="/">主页</a>
+      <a href="#tags-cloud">标签云</a>
+      <a href="#tags-groups">全部分类</a>
+    </div>
+  </section>
+
+  <section id="tags-cloud" class="tags-cloud-card">
+    <div class="tags-section-head">
+      <div>
+        <h2>标签云</h2>
+        <p>点击标签会跳到对应分类卡片。</p>
+      </div>
+    </div>
+    <div class="tags-chip-cloud">
+      {{ if .Site.Params.recommendTags }}
         {{ range .Site.Params.tagOrder }}
-        {{ $term := index $.Site.Taxonomies.tags . }}
-        {{ if $term }}
-        <li>
-            <span class="tag-name" id="{{ . | safeHTMLAttr }}">「{{ . }}」</span>
-            {{ range $term.Pages }}
-            <a class="tag-post" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-            {{ end }}
-        </li>
+          {{ $term := index $.Site.Taxonomies.tags . }}
+          {{ if $term }}
+          <a href="{{ printf "#%s" . | safeHTMLAttr }}" class="tags-chip" data-tag-chip="{{ . | lower }}">{{ . }} <span class="tags-chip-count">{{ len $term.Pages }}</span></a>
+          {{ end }}
         {{ end }}
-        {{ end }}
-        {{ range $name, $term := .Site.Taxonomies.tags }}
+      {{ end }}
+      {{ range $name, $term := .Site.Taxonomies.tags }}
         {{ if not (in $.Site.Params.tagOrder $name) }}
-        <li>
-            <span class="tag-name" id="{{ $name | safeHTMLAttr }}">「{{ $name }}」</span>
-            {{ range $term.Pages }}
-            <a class="tag-post" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-            {{ end }}
-        </li>
+        <a href="{{ printf "#%s" $name | safeHTMLAttr }}" class="tags-chip" data-tag-chip="{{ $name | lower }}">{{ $name }} <span class="tags-chip-count">{{ len $term.Pages }}</span></a>
         {{ end }}
-        {{ end }}
-    </ul>
+      {{ end }}
+    </div>
+  </section>
+
+  <section id="tags-groups" class="tags-grid" aria-label="全部分类">
+    {{ range .Site.Params.tagOrder }}
+      {{ $term := index $.Site.Taxonomies.tags . }}
+      {{ if $term }}
+      <article id="{{ . | safeHTMLAttr }}" class="tags-group-card" data-tag-card="{{ . | lower }} {{ range $term.Pages }} {{ .Title | lower }} {{ end }}">
+        <div class="tags-group-head">
+          <div class="tags-group-title">
+            <span class="tags-group-mark">#</span>
+            <h3>{{ . }}</h3>
+          </div>
+          <div class="tags-group-actions">
+            <span class="tags-group-count">{{ len $term.Pages }} 篇</span>
+            <button class="tags-toggle-posts" type="button" aria-expanded="false">展开</button>
+          </div>
+        </div>
+        <div class="tags-post-list">
+          {{ range $term.Pages }}
+          <a class="tags-post-link" href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <time class="tags-post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time>
+            <span>
+              <strong>{{ .Title }}</strong>
+              <span>{{ if .Params.subtitle }}{{ .Params.subtitle }}{{ else }}{{ .Summary | plainify | truncate 70 }}{{ end }}</span>
+            </span>
+          </a>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    {{ end }}
+
+    {{ range $name, $term := .Site.Taxonomies.tags }}
+      {{ if not (in $.Site.Params.tagOrder $name) }}
+      <article id="{{ $name | safeHTMLAttr }}" class="tags-group-card" data-tag-card="{{ $name | lower }} {{ range $term.Pages }} {{ .Title | lower }} {{ end }}">
+        <div class="tags-group-head">
+          <div class="tags-group-title">
+            <span class="tags-group-mark">#</span>
+            <h3>{{ $name }}</h3>
+          </div>
+          <div class="tags-group-actions">
+            <span class="tags-group-count">{{ len $term.Pages }} 篇</span>
+            <button class="tags-toggle-posts" type="button" aria-expanded="false">展开</button>
+          </div>
+        </div>
+        <div class="tags-post-list">
+          {{ range $term.Pages }}
+          <a class="tags-post-link" href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <time class="tags-post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time>
+            <span>
+              <strong>{{ .Title }}</strong>
+              <span>{{ if .Params.subtitle }}{{ .Params.subtitle }}{{ else }}{{ .Summary | plainify | truncate 70 }}{{ end }}</span>
+            </span>
+          </a>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    {{ end }}
+  </section>
+
+  <div id="tags-empty" class="tags-empty">没找到匹配的标签或文章，换个关键词试试。</div>
 </main>
+
+<script>
+  (function () {
+    var input = document.getElementById('tags-filter-input');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('[data-tag-card]'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('[data-tag-chip]'));
+    var empty = document.getElementById('tags-empty');
+    var toggles = Array.prototype.slice.call(document.querySelectorAll('.tags-toggle-posts'));
+    if (!input) return;
+
+    function setCardOpen(card, open) {
+      var button = card.querySelector('.tags-toggle-posts');
+      card.classList.toggle('is-open', open);
+      if (button) {
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        button.textContent = open ? '收起' : '展开';
+      }
+    }
+
+    toggles.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var card = button.closest('[data-tag-card]');
+        if (!card) return;
+        setCardOpen(card, !card.classList.contains('is-open'));
+      });
+    });
+
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var id = decodeURIComponent(window.location.hash.slice(1));
+      var target = document.getElementById(id);
+      if (target && target.matches('[data-tag-card]')) setCardOpen(target, true);
+    }
+
+    input.addEventListener('input', function () {
+      var query = input.value.trim().toLowerCase();
+      var visibleCount = 0;
+
+      cards.forEach(function (card) {
+        var matched = !query || (card.getAttribute('data-tag-card') || '').indexOf(query) !== -1;
+        card.style.display = matched ? '' : 'none';
+        if (query && matched) setCardOpen(card, true);
+        if (!query) setCardOpen(card, false);
+        if (matched) visibleCount += 1;
+      });
+
+      chips.forEach(function (chip) {
+        var matched = !query || (chip.getAttribute('data-tag-chip') || '').indexOf(query) !== -1;
+        chip.style.display = matched ? '' : 'none';
+      });
+
+      if (empty) empty.classList.toggle('is-visible', visibleCount === 0);
+    });
+
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  })();
+</script>
 
 {{ partial "footer.html" . }}
 {{ end }}

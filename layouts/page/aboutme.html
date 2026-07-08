@@ -1,55 +1,500 @@
 {{ define "main" }}
 {{ partial "header.html" . }}
 
-<div class="g-banner tags-banner {{ printf "post-pattern-%s" .Site.Params.postPatterns }} {{ printf "bgcolor-%s" .Site.Params.themeColor }}" data-theme="{{ .Site.Params.themeColor }}">
-    <h2>Aliceの简介</h2>
-</div>
+<style>
+  :root {
+    --about-blue: #007aff;
+    --about-cyan: #38d5ff;
+    --about-purple: #7c3cff;
+    --about-ink: #172033;
+    --about-muted: #687386;
+    --about-line: rgba(0, 122, 255, .12);
+    --about-card: rgba(255, 255, 255, .84);
+    --about-shadow: 0 26px 90px rgba(31, 65, 114, .10);
+  }
+  body {
+    background:
+      radial-gradient(circle at 84% 9%, rgba(56, 213, 255, .28), transparent 23rem),
+      radial-gradient(circle at 12% 20%, rgba(124, 60, 255, .14), transparent 26rem),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 48%, #f7fbff 100%);
+  }
+  .g-header { display: none; }
+  .about-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 26px 72px;
+    color: var(--about-ink);
+  }
+  .about-shell a { text-decoration: none; }
+  .home-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0 14px;
+  }
+  .home-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--about-ink);
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+  .home-brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, var(--about-blue), var(--about-cyan));
+    box-shadow: 0 10px 22px rgba(0, 122, 255, .22);
+  }
+  .home-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid rgba(0, 122, 255, .12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(14px);
+  }
+  .home-nav a {
+    padding: 7px 13px;
+    border-radius: 999px;
+    color: #4f5d75;
+    font-size: 13px;
+  }
+  .home-nav a:hover,
+  .home-nav a.is-active {
+    background: var(--about-blue);
+    color: #fff;
+  }
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 28px;
+    align-items: center;
+    padding: 42px;
+    border-radius: 34px;
+    color: #fff;
+    background:
+      linear-gradient(135deg, rgba(0, 122, 255, .96), rgba(124, 60, 255, .82)),
+      radial-gradient(circle at 80% 20%, rgba(56, 213, 255, .42), transparent 18rem);
+    box-shadow: var(--about-shadow);
+  }
+  .about-hero:before,
+  .about-hero:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .about-hero:before {
+    width: 420px;
+    height: 420px;
+    right: -160px;
+    bottom: -220px;
+    background: rgba(255, 255, 255, .13);
+  }
+  .about-hero:after {
+    width: 180px;
+    height: 180px;
+    left: 42%;
+    top: -110px;
+    border: 1px solid rgba(255, 255, 255, .22);
+  }
+  .about-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .16);
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .about-hero-copy,
+  .about-profile-card { position: relative; z-index: 1; }
+  .about-hero h1 {
+    margin: 14px 0 10px;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: .96;
+    letter-spacing: -.065em;
+  }
+  .about-hero p {
+    margin: 0;
+    max-width: 680px;
+    color: rgba(255, 255, 255, .86);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .about-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .about-btn-primary { background: #fff; color: var(--about-blue); }
+  .about-btn-ghost {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .26);
+    background: rgba(255, 255, 255, .12);
+  }
+  .about-profile-card {
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(18px);
+  }
+  .about-avatar {
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #fff, rgba(255, 255, 255, .62));
+    color: var(--about-blue);
+    font-size: 38px;
+    font-weight: 900;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .12);
+  }
+  .about-profile-card h2 {
+    margin: 16px 0 6px;
+    font-size: 24px;
+    letter-spacing: -.04em;
+  }
+  .about-profile-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .about-signal-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .about-signal {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .14);
+    color: rgba(255, 255, 255, .88);
+    font-size: 12px;
+  }
+  .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 22px;
+    margin-top: 24px;
+  }
+  .about-card {
+    border: 1px solid var(--about-line);
+    border-radius: 30px;
+    background: var(--about-card);
+    box-shadow: var(--about-shadow);
+    backdrop-filter: blur(16px);
+  }
+  .about-main-card { padding: 30px; }
+  .about-section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .about-section-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--about-blue), var(--about-cyan));
+    box-shadow: 0 12px 28px rgba(0, 122, 255, .18);
+  }
+  .about-section-head h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: -.04em;
+  }
+  .about-section-head p {
+    margin: 4px 0 0;
+    color: var(--about-muted);
+    font-size: 13px;
+  }
+  .about-prose {
+    color: #3f4a5d;
+    font-size: 15px;
+    line-height: 1.95;
+  }
+  .about-prose p { margin: 0 0 14px; }
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .about-tag {
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: #eef6ff;
+    color: #0062cc;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .about-side {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+  }
+  .about-mini-card { padding: 22px; }
+  .about-mini-card h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    letter-spacing: -.035em;
+  }
+  .about-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .about-metric {
+    padding: 14px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fff, #f8fbff);
+    border: 1px solid rgba(0, 122, 255, .08);
+  }
+  .about-metric b {
+    display: block;
+    color: var(--about-blue);
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -.05em;
+  }
+  .about-metric span {
+    display: block;
+    margin-top: 6px;
+    color: var(--about-muted);
+    font-size: 12px;
+  }
+  .about-family-list {
+    display: grid;
+    gap: 12px;
+  }
+  .about-family-item {
+    position: relative;
+    padding: 16px 16px 16px 50px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #fff, #fbfdff);
+    border: 1px solid rgba(0, 122, 255, .08);
+  }
+  .about-family-item:before {
+    content: attr(data-index);
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #eef6ff;
+    color: var(--about-blue);
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .about-family-item h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+  }
+  .about-family-item p {
+    margin: 0;
+    color: #4b5568;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .about-timeline {
+    display: grid;
+    gap: 12px;
+  }
+  .about-timeline-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+  }
+  .about-dot {
+    width: 12px;
+    height: 12px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: var(--about-blue);
+    box-shadow: 0 0 0 6px rgba(0, 122, 255, .1);
+  }
+  .about-timeline-item b {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .about-timeline-item span {
+    color: var(--about-muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .night-mode .about-shell { color: #c8cdd3; }
+  .night-mode .home-brand { color: #c8cdd3; }
+  .night-mode .home-nav,
+  .night-mode .about-card {
+    background: rgba(45, 49, 58, .9);
+    border-color: rgba(255, 255, 255, .1);
+  }
+  .night-mode .about-prose,
+  .night-mode .about-family-item p { color: #aeb5c1; }
+  .night-mode .about-metric,
+  .night-mode .about-family-item { background: rgba(40, 44, 51, .88); }
+  @media (max-width: 920px) {
+    .about-shell { padding: 12px 14px 52px; }
+    .home-nav { display: none; }
+    .about-hero { grid-template-columns: 1fr; padding: 30px 24px; }
+    .about-layout { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .about-hero { border-radius: 26px; }
+    .about-hero h1 { font-size: 38px; }
+    .about-main-card { padding: 22px; }
+    .about-metric-grid { grid-template-columns: 1fr; }
+  }
+</style>
 
-<main class="tags-content">
+<main class="about-shell">
+  <header class="home-topbar">
+    <a class="home-brand" href="{{ .Site.BaseURL | relURL }}" aria-label="{{ .Site.Title }}">
+      <span class="home-brand-mark">{{ .Site.Params.nickname | default "竹" }}</span>
+      <span>{{ .Site.Title }}</span>
+    </a>
+    <nav class="home-nav" aria-label="主导航">
+      {{ range .Site.Params.nav }}
+        <a href="{{ .url }}" {{ if eq .url "/aboutme.html" }}class="is-active"{{ end }}>{{ .name }}</a>
+      {{ end }}
+    </nav>
+  </header>
 
-    <ul class="tags-list">
+  <section class="about-hero">
+    <div class="about-hero-copy">
+      <div class="about-eyebrow">✨ About Alice</div>
+      <h1>爱创造，更爱生活！</h1>
+      <p>90 后，爱音乐、美术、旅行和美食；也写代码、造 Bug、修 Bug。把生活过成作品，把问题拆成路径，把每一次成长都当成下一段旅程的燃料。</p>
+      <div class="about-hero-actions">
+        <a class="about-btn about-btn-primary" href="#profile">了解我</a>
+        <a class="about-btn about-btn-ghost" href="#family">家庭成员</a>
+      </div>
+    </div>
 
-        <li>
-            <span class="tag-name" >「个人简介」</span>
-            大家好，我叫Alice，90后的一个姑娘。兴趣爱好很广泛，比如：音乐、美术、旅游、美食...
-            写过单曲《手心》、《侣程》、《滴滴点点》，画过无数作品，拍摄过一部微电影《侣程》。
-            平均每天要花8小时甚至以上去创造无数的Bug，因为我是专业的。我有着很温馨的家庭，从小
-            就在温室中成长，长了20多年裂变出一个小家，又迎接了一个新生命的到来。我的人生很丰富，
-            每天都变幻莫测，经历着开心与忧愁带给自己的成长，有过迷茫，当然都能遇到解惑之人，未来
-            我的道路还很长，面对充满挑战的未来，积极面对。
+    <aside class="about-profile-card" aria-label="个人概览">
+      <div class="about-avatar">A</div>
+      <h2>Alice</h2>
+      <p>一个兴趣很广、脑洞很多、偶尔皮一下，但始终认真向前的人。</p>
+      <div class="about-signal-list">
+        <div class="about-signal"><span>创造力</span><strong>Always On</strong></div>
+        <div class="about-signal"><span>Bug 产能</span><strong>专业级</strong></div>
+        <div class="about-signal"><span>人生状态</span><strong>持续进化</strong></div>
+      </div>
+    </aside>
+  </section>
 
-        </li>
-        <li>
-            <span class="tag-name" >「家庭成员」</span>
-            <ul>
-                <li>
-                    小蛇：我的爸爸，我都是叫他小蛇，可能是因为他属蛇？小时候觉得他很有威严，
-                    慢慢的长大了之后，发现很多决策性的困惑他都可以帮我搞定，有的时候就是一语惊醒梦中人，
-                    有的时候我也皮，他拿我没办法的样子也好玩，一个男人有多细心，有个女儿就知道了。
-                </li>
-                <li>
-                    小球：这是我的妈妈，由于我小的时候她比较胖，所以我就喊他小球了。她应该说是佛系的，
-                    当然这种妈妈也是大家梦寐以求的，不会天天盯着你念叨，你需要她了找她，她会给到你需要的帮助，
-                    她可能就是别人家的妈妈，哈哈哈
-                </li>
-                <li>
-                    大呆鹅：我的双胞胎姐姐，我觉得应该后出生才是老大，可是大家都把先出生的叫老大，和我性格
-                    完全不一样，而且心里年龄似乎永远停留在了10岁的样子。
-                </li>
-                <li>
-                    饼小贱：原名Jermine，在气氛很燥的环境下读起来听着是“煎饼”，导致有一次他说他他叫Jermine
-                    的时候，我听着就是煎饼，慢慢的就成了饼小贱，我喜欢给人起外号。这是我的成长半路认识又准备
-                    相互陪伴的人，为什么会选择他？呵呵，因为当时他长得帅。
-                </li>
-                <li>
-                    小Cary：这是携带着我的基因的四脚吞金兽，我不喜欢小孩儿，但是这个小孩儿真的好玩，他会逗人开心。
-                    尽管他才几个月，都可以把我逗的笑到肚子疼，这可能是他的杀手锏。我对他的爱很多，其他的无所谓，健健康康
-                    的成长就好，这是我对他期望。
-                </li>
-            </ul>
+  <section class="about-layout">
+    <div class="about-card about-main-card" id="profile">
+      <div class="about-section-head">
+        <span class="about-section-icon">⌁</span>
+        <div>
+          <h2>个人简介</h2>
+          <p>音乐、美术、代码和生活，都算我的创作现场。</p>
+        </div>
+      </div>
+      <div class="about-prose">
+        <p>大家好，我叫 Alice，90 后的一个姑娘。兴趣爱好很广泛，比如音乐、美术、旅游、美食，也喜欢把生活里的灵感慢慢收集起来。</p>
+        <p>我写过单曲《手心》《侣程》《滴滴点点》，画过很多作品，也拍摄过一部微电影《侣程》。这些经历让我一直相信：表达本身就是一种很酷的能力。</p>
+        <p>作为一个“专业创造 Bug”的人，我平均每天会花很多时间在创造与修复之间反复横跳。看起来像混乱，其实也是成长：发现问题、解决问题，然后把下一次做得更好。</p>
+        <p>我有一个很温馨的家庭，从被照顾着长大，到拥有自己的小家，再迎接新的生命。人生每天都在变化，有开心，也有忧愁；有迷茫，也总会遇到解惑的人。未来还很长，继续积极面对。</p>
+      </div>
+      <div class="about-tags">
+        <span class="about-tag">音乐创作</span>
+        <span class="about-tag">美术</span>
+        <span class="about-tag">旅行</span>
+        <span class="about-tag">美食</span>
+        <span class="about-tag">代码与 Bug</span>
+        <span class="about-tag">家庭生活</span>
+      </div>
+    </div>
 
-        </li>
-    </ul>
+    <aside class="about-side">
+      <div class="about-card about-mini-card">
+        <h3>人生仪表盘</h3>
+        <div class="about-metric-grid">
+          <div class="about-metric"><b>90s</b><span>时代标签</span></div>
+          <div class="about-metric"><b>3+</b><span>音乐作品</span></div>
+          <div class="about-metric"><b>∞</b><span>Bug 与灵感</span></div>
+          <div class="about-metric"><b>1</b><span>微电影作品</span></div>
+        </div>
+      </div>
+      <div class="about-card about-mini-card">
+        <h3>成长轨迹</h3>
+        <div class="about-timeline">
+          <div class="about-timeline-item"><span class="about-dot"></span><span><b>表达</b>写歌、画画、拍摄，把想法变成作品。</span></div>
+          <div class="about-timeline-item"><span class="about-dot"></span><span><b>创造</b>写代码，也制造 Bug，再一个个修掉。</span></div>
+          <div class="about-timeline-item"><span class="about-dot"></span><span><b>生活</b>拥有自己的小家，学习爱、责任和成长。</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="about-card about-main-card" id="family" style="margin-top: 22px;">
+    <div class="about-section-head">
+      <span class="about-section-icon">⌘</span>
+      <div>
+        <h2>家庭成员</h2>
+        <p>每个人都是 Alice 宇宙里一颗很特别的星。</p>
+      </div>
+    </div>
+    <div class="about-family-list">
+      <article class="about-family-item" data-index="01">
+        <h3>小蛇</h3>
+        <p>我的爸爸，我都叫他小蛇。小时候觉得他很有威严，长大后发现很多决策性的困惑他都可以帮我搞定，有时候真的是一语惊醒梦中人。</p>
+      </article>
+      <article class="about-family-item" data-index="02">
+        <h3>小球</h3>
+        <p>我的妈妈，因为小时候她比较胖，所以我喊她小球。她很佛系，不会天天盯着念叨，但当我需要她时，她总能给到需要的帮助。</p>
+      </article>
+      <article class="about-family-item" data-index="03">
+        <h3>大呆鹅</h3>
+        <p>我的双胞胎姐姐。她和我性格完全不一样，心理年龄似乎永远停留在 10 岁的样子，也因此特别有自己的可爱气场。</p>
+      </article>
+      <article class="about-family-item" data-index="04">
+        <h3>饼小贱</h3>
+        <p>原名 Jermine，在很燥的环境下读起来像“煎饼”，慢慢就成了饼小贱。这是我成长半路认识、也准备互相陪伴的人。</p>
+      </article>
+      <article class="about-family-item" data-index="05">
+        <h3>小 Cary</h3>
+        <p>携带着我基因的四脚吞金兽。虽然还小，但真的很会逗人开心。希望他健健康康成长，这是最重要的期望。</p>
+      </article>
+    </div>
+  </section>
 </main>
 
 {{ partial "footer.html" . }}
