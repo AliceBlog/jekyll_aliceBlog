@@ -2,14 +2,14 @@
 title: "第六章：让 AI 做更懂你的交互"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 7 篇"
 date: 2026-07-09T11:06:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 7 篇。
 
-![generated-image-1776441227327.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0da88855e55c4a2ca5a386f8f85d1dc4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376\&h=768\&s=436802\&e=jpg\&b=eff6fe)
+![generated-image-1776441227327.png](/assets/img/frontend-ai-agent-camp/99e7633b9b02817f.jpg)
 
 前五章一路走来，系统已经能做多轮对话、调用工具、向量检索、多 Agent 协作，并把数据从内存推到了生产级数据库。但有一个问题一直被搁置：**模型的输出全是纯文本。**
 
@@ -37,7 +37,7 @@ weight: 0
 
 ## 6.1 纯文本回复的天花板
 
-![generated-image-1776440995317.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/962a927ede6d47afa282fe59ff1efa6e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376\&h=768\&s=303940\&e=jpg\&b=fefdfd)
+![generated-image-1776440995317.png](/assets/img/frontend-ai-agent-camp/a32bce6778421a81.jpg)
 
 先看一个真实的交互场景。产品经理说"我要提一个新需求：用户希望能够批量导入 Excel 数据"，系统用第四章的链路跑完之后，返回了这样一段文字：
 
@@ -162,7 +162,7 @@ weight: 0
 
 ### 6.2.2 组件类型总览
 
-![generated-image-1776441065738.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09b65eaf504f496ab2e19e0c429cc50b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376\&h=768\&s=477820\&e=jpg\&b=f9f7ee)
+![generated-image-1776441065738.png](/assets/img/frontend-ai-agent-camp/bd351d9beb514a69.jpg)
 
 | **type**         | **用途**        | **典型场景**       | **用户操作**             |
 | ---------------- | ------------- | -------------- | -------------------- |
@@ -273,11 +273,11 @@ export const aiUIResponseSchema = z.object({
 
 > **注意：每次将 prompt 交给 AI 生成 spec 文档后，你都需要仔细分析，而不是 AI 给什么就照做。同时，我给你的 prompt 只是初稿，你需要借助 AI 去完善它，并完成你自己的作品。**
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b21e9924d1e84e2bbb231dc35cfd665a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2894\&h=1188\&s=355401\&e=png\&b=181818)
+![image.png](/assets/img/frontend-ai-agent-camp/9b8b2a95fc199b6d.jpg)
 
 ### 6.2.5 用 Structured Output 约束模型输出
 
-![generated-image-1776441062768.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbf9a3414b094175af5b58739c4ca47b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376\&h=768\&s=268645\&e=jpg\&b=ffffff)
+![generated-image-1776441062768.png](/assets/img/frontend-ai-agent-camp/2cb84b5ad7caf22b.jpg)
 
 协议和 Schema 都定义好了，接下来把它们用起来。LangChain 的 `withStructuredOutput` 会把 Zod Schema 作为约束注入模型调用，确保输出严格符合定义的结构。但结构化输出只能约束"格式"，不能约束"判断"——模型还需要一份明确的指引来决定在什么业务场景下，应该返回什么类型的组件。
 
@@ -360,7 +360,7 @@ export class UIResponseService {
 }
 ```
 
-![image 1.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6515babd3264a508e66eac45929cdd6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2292\&h=1720\&s=329893\&e=png\&b=232323)
+![image 1.png](/assets/img/frontend-ai-agent-camp/ecc76a73ac50231d.jpg)
 
 当产品经理输入"查看需求 REQ-20240315-001"时：
 
@@ -389,7 +389,7 @@ export class UIResponseService {
 }
 ```
 
-![image 2.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a3d7e5b8b39460f8595d401440db499~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2202\&h=1578\&s=257314\&e=png\&b=222222)
+![image 2.png](/assets/img/frontend-ai-agent-camp/c15e49f4983af87a.jpg)
 
 > 实际上，此时我还没有接入真实数据。AI 自己摸索了一下，给我“胡说八道”编了一个假数据，刚好是一个很好的例子：**如果没有强约束，LLM 很可能不会拒绝你。它总是有求必应，却不会在意数据的真伪。** 在真实场景里，我们需要做很多约束来消除幻觉。
 
@@ -439,7 +439,7 @@ export class UIResponseService {
 
 单个组件能被渲染出来，只是起点。真正的产品体验，是一个完整的交互流程：用户一步步操作，系统一步步推进，直到任务完成。
 
-![image 3.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/653b4776036949c5a69e9f7c4c03b221~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1232\&h=860\&s=232265\&e=png\&b=282c34)
+![image 3.png](/assets/img/frontend-ai-agent-camp/4e66bfe016acf8c3.jpg)
 
 > 当你的 spec 开始帮你分析需求时，你往往会面临多种选择。你的每一次选择，都会让最终代码走向不同的实现。但这并不重要，因为我们更关注最终目标。比如我现在用 NestJS 来完成服务端项目，你也可以用 Midway 或其他框架，甚至用 Go 或 Java。
 
@@ -457,7 +457,7 @@ flowchart LR
 ```
 
 
-![generated-image-1776441607781.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a4a9ab39bca40a994dfc0fff4bc5bd5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=251617&e=jpg&b=fefafa)
+![generated-image-1776441607781.png](/assets/img/frontend-ai-agent-camp/6c55dd348755443d.jpg)
 
 每个阶段对应一种组件类型，用户操作后自动推进到下一阶段。整个过程中，模型不需要再解析自然语言——用户的选择、表单数据、确认操作都是结构化的。
 
@@ -655,12 +655,12 @@ curl -X POST http://localhost:3001/api/ui-chat/action \
 *   Stage 2 返回的 `components[0].type` 为 `form`，包含 5 个字段
 
 
-![image 4.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4de7acefff7c4e05ac55884254249f58~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2182&h=1690&s=311719&e=png&b=fcfcfc)
+![image 4.png](/assets/img/frontend-ai-agent-camp/3576ea61a338ed99.jpg)
 
 *   Stage 3 返回的 `components[0].type` 为 `confirmation`，`summary` 包含用户填写的信息
 
 
-![image 5.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60181d79276c47bfb4705ca7622774de~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2244&h=1590&s=293631&e=png&b=fcfcfc)
+![image 5.png](/assets/img/frontend-ai-agent-camp/7d0d21208508dc61.jpg)
 
 *   Stage 4 返回的 `components` 包含 `steps`、`card` 和 `action_buttons` 三个组件
 *   任何阶段点击"取消/返回"都能回退到上一阶段
@@ -900,7 +900,7 @@ export function AIChatContainer({ sessionId }: { sessionId: string }) {
 注意：我新增了数据库模型配置功能，因此你需要先完成模型配置。推荐使用超哥的中转站<https://api.amux.ai/>
 
 
-![image 6.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c1334b54eb4470aca991c8867bbda3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2978&h=1522&s=218398&e=png&b=080809)
+![image 6.png](/assets/img/frontend-ai-agent-camp/59fe1e6f8e55ded4.jpg)
 
 在浏览器中打开前端页面（默认 `http://localhost:3000`），按以下步骤操作，验证前端组件渲染和交互闭环：
 
@@ -914,7 +914,7 @@ export function AIChatContainer({ sessionId }: { sessionId: string }) {
 *   内容为"欢迎使用 Autix AI 需求分析助理..."
 *   底部有输入框和发送按钮
 
-![image 7.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52ee2bdf8f0040c08843c9987c1b4d3f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1450&h=1698&s=93515&e=png&b=060607)
+![image 7.png](/assets/img/frontend-ai-agent-camp/0f81214cb7345798.jpg)
 
 **Step 2：触发澄清流程 — SelectionCard 渲染**
 
@@ -932,7 +932,7 @@ export function AIChatContainer({ sessionId }: { sessionId: string }) {
     *   UI/UX 需求 🎨
 *   选中时卡片有高亮效果
 
-![image 8.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bd0e4de46d1450d894fc962ecfc43a1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=1164&s=147903&e=png&b=0e0e10)
+![image 8.png](/assets/img/frontend-ai-agent-camp/fef09eec778ba93b.jpg)
 
 **Step 3：选择需求类型 — DynamicForm 渲染**
 
@@ -950,7 +950,7 @@ export function AIChatContainer({ sessionId }: { sessionId: string }) {
     *   **补充说明**（textarea，非必填）
 *   表单底部有"提交"按钮
 
-![image 9.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea6c7fa90fbc4dbf88a307168bc07341~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1484&h=1238&s=120249&e=png&b=1a1a1d)
+![image 9.png](/assets/img/frontend-ai-agent-camp/a262a2ff3b2f7ef5.jpg)
 
 
 **Step 4：提交表单 — ConfirmationDialog 渲染**
@@ -979,7 +979,7 @@ export function AIChatContainer({ sessionId }: { sessionId: string }) {
     *   "返回修改"
 
 
-![image 10.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/747caafc2f284861b99b20cde99ae7a1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1516&h=1298&s=213532&e=png&b=151518)
+![image 10.png](/assets/img/frontend-ai-agent-camp/9ff0f57b8287110a.jpg)
 
 **Step 5：确认提交 — Steps + InfoCard + ActionButtons 组合渲染**
 
@@ -1007,7 +1007,7 @@ export function AIChatContainer({ sessionId }: { sessionId: string }) {
     *   "同步到 Jira"
     *   "下载分析报告"
 
-![image 11.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04c4a9c9813b4d8ba525551544408658~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1458&h=1198&s=152681&e=png&b=17171a)
+![image 11.png](/assets/img/frontend-ai-agent-camp/a190f1f0366c5dba.jpg)
 
 **Step 6：回退测试 — 返回 SelectionCard**
 
@@ -1148,7 +1148,7 @@ function validateUIResponse(response: AIUIResponse): AIUIResponse {
 ### 6.5.4 Streaming 适配：text streaming + component batching
 
 
-![generated-image-1776441063383.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4151215a36184fe5b12a34a6c8e5f7a4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=345649&e=jpg&b=fdf9f8)
+![generated-image-1776441063383.png](/assets/img/frontend-ai-agent-camp/c400c503a030d307.jpg)
 
 结构化 UI 组件与流式输出之间存在天然矛盾：**Markdown 文字可以逐 Token 到达**，但**组件必须拿到完整 JSON 才能渲染**（否则一个半截的 `form` 或 `selection` 根本没法用）。实践下来最顺手的折中方案是 **"text streaming + component batching"**——文字流着走，组件整包发。
 
@@ -1385,7 +1385,7 @@ await fetchEventSource(`${CHAT_API_URL}/api/conversations/${activeSessionId}/cha
 进度条是把"多 Agent 流水线"这件事可视化给用户看的关键组件。
 
 
-![image 12.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0d59efe2c674feea967ea2327fde8fd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1836&h=1330&s=113324&e=png&b=060607)
+![image 12.png](/assets/img/frontend-ai-agent-camp/5e54e91e05efd189.jpg)
 
 ```tsx
 // clients/chat-web/src/components/ai-ui/ThinkingIndicator.tsx
@@ -1455,7 +1455,7 @@ export function ThinkingIndicator({ progress }) {
 
 ## 6.6 本章小结
 
-![generated-image-1776441066478.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f53c1fbef585425680093ce9375b16aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=265330&e=jpg&b=fef9f9)
+![generated-image-1776441066478.png](/assets/img/frontend-ai-agent-camp/202cdad0e6a544c1.jpg)
 
 这一章围绕同一个核心目标——**让 AI 的输出从纯文本升级为可交互的 UI 指令**——把第五章已经落好的工程能力，进一步转化成了用户真正能感知、能操作、能完成任务的交互体验：
 
@@ -1498,4 +1498,4 @@ export function ThinkingIndicator({ progress }) {
 
 **有兴趣的话可以添加我的微信号一起交流，不仅是编程也可以是畅谈人生。**
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71a8a41d62a644ee9f62ca44ad4313bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1083\&h=1464\&s=114406\&e=jpg\&b=fdfdfd)
+![](/assets/img/frontend-ai-agent-camp/cad7106f0f54f51e.jpg)

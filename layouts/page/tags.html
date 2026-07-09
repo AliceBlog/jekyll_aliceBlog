@@ -561,7 +561,15 @@
       });
     });
 
+    function normalizeTagHash() {
+      var raw = decodeURIComponent((window.location.hash || '').slice(1));
+      if (raw === '前端AI Agent工程化实战营') {
+        window.location.hash = '#前端AI-Agent工程化实战营';
+      }
+    }
+
     function openHashTarget() {
+      normalizeTagHash();
       if (!window.location.hash) return;
       var id = decodeURIComponent(window.location.hash.slice(1));
       var target = document.getElementById(id);

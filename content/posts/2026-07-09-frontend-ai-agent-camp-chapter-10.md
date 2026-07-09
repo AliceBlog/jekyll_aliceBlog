@@ -2,8 +2,8 @@
 title: "第十章：Token 经济学：在 AI 能力与运行成本之间寻找平衡"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 11 篇"
 date: 2026-07-09T11:10:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -12,7 +12,7 @@ weight: 0
 ---
 theme: channing-cyan
 ---
-![generated-image-1778414786997.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd8e33827b44acea82009e3a1020879~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=584874&e=jpg&b=0b2249)
+![generated-image-1778414786997.png](/assets/img/frontend-ai-agent-camp/4e2a082987d2e225.jpg)
 
 **本章demo地址**：[feat/token](https://github.com/Cookieboty/autix-demo/tree/feat/token)
 
@@ -38,7 +38,7 @@ theme: channing-cyan
 
 ### 10.1.1 什么是 Token
 
-![generated-image-1778414792247.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92af8ea0bec34396a37be7ce61bd28bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=542484&e=jpg&b=e1f2fb)
+![generated-image-1778414792247.png](/assets/img/frontend-ai-agent-camp/d40483c0b61c30bb.jpg)
 
 Token 不是"字"，也不是"词"。它是模型词表中的最小单元。不同模型使用不同的 Tokenizer（分词器），但基本原理相同：把文本切分成模型能理解的最小块。
 
@@ -198,7 +198,7 @@ export function estimateGraphNodeCost(input: {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.2.1"`
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0610bd4cda8c49c894b6917500c13a22~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1580&h=1080&s=244393&e=png&b=282c34)
+![image.png](/assets/img/frontend-ai-agent-camp/e1c418921d0cc60c.jpg)
 
 ### 10.2.2 🤖 用 AI 生成本节代码
 
@@ -246,7 +246,7 @@ export function estimateGraphNodeCost(input: {
 
 ## 10.3 上下文为什么会膨胀
 
-![generated-image-1778414790085.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f14d0ff7d3c340b48c5c17d5b4501080~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=647843&e=jpg&b=192945)
+![generated-image-1778414790085.png](/assets/img/frontend-ai-agent-camp/fa75d8c44808ed2a.jpg)
 
 在单 Agent 场景中，上下文通常由 system prompt（系统提示词）和 messages（消息历史）组成，增长相对线性。但在 Multi-Agent 图中，上下文膨胀是**多维的**：
 
@@ -307,7 +307,7 @@ Multi-Agent 系统的 Token 成本不是各节点之和，而是会随着上下�
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.3"`
 
-![image 1.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8441c20970b744b6a574d396654055d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1710&h=728&s=132179&e=png&b=282c34)
+![image 1.png](/assets/img/frontend-ai-agent-camp/65be335c3140a702.jpg)
 
 ***
 
@@ -380,7 +380,7 @@ const concisePrompt = `你是需求分析调度员。根据已澄清的需求，
 
 ## 10.5 策略二：消息裁剪与摘要压缩
 
-![generated-image-1778414793500.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7219b9d5e97b41dea5e282a9e6d53cba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=624027&e=jpg&b=e2f1fd)
+![generated-image-1778414793500.png](/assets/img/frontend-ai-agent-camp/96b88e7dca05a257.jpg)
 
 这一类策略通常优先级最高。`messages` 往往是输入 Token 的最大来源之一，而 LangGraph 的 `MessagesAnnotation` 使用 append reducer——只增不减。
 
@@ -476,7 +476,7 @@ function removeOrphanToolMessages(messages: BaseMessage[]): BaseMessage[] {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.5.1"`
 
-![image 2.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/15e6788b0b75446fb232600dc9cfa5c0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1354&s=299979&e=png&b=282c34)
+![image 2.png](/assets/img/frontend-ai-agent-camp/e23f46e28aac32ef.jpg)
 
 ### 10.5.2 摘要压缩
 
@@ -554,7 +554,7 @@ async function expertAgentNode(state: typeof RequirementAnalysisState.State) {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.5.2"`
 
-![image 3.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a18a1c24801c4d06b6fb65fe2bd57d8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=694&s=150128&e=png&b=282c34)
+![image 3.png](/assets/img/frontend-ai-agent-camp/49503291eb76b07c.jpg)
 
 ### 10.5.3 两种策略的对比
 
@@ -620,7 +620,7 @@ async function expertAgentNode(state: typeof RequirementAnalysisState.State) {
 
 ## 10.6 策略三：Prompt Caching 与稳定前缀
 
-![generated-image-1778414851016.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d21f6de565ce46c89c15d58323c08e19~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=689360&e=jpg&b=def3f9)
+![generated-image-1778414851016.png](/assets/img/frontend-ai-agent-camp/45f27aa958e3ec50.jpg)
 
 在 system prompt、工具定义较长，并且多次调用共享稳定前缀的场景里，Prompt Caching 很值得优先考虑。
 
@@ -744,7 +744,7 @@ console.log(response.usage);
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.6.4"`
 
-![image 4.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ca54bca577e48da8a6a27579452f687~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=830&s=176955&e=png&b=282c34)
+![image 4.png](/assets/img/frontend-ai-agent-camp/73a61e02090f8964.jpg)
 
 ### 10.6.5 缓存命中率监控（可选）
 
@@ -799,7 +799,7 @@ export function getCacheStats() {
 
 ## 10.7 策略四：模型分级与节点级模型选择
 
-![generated-image-1778414839172.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d74a8fcf67a74b17b8de13a89723c4d0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1200&h=896&s=635867&e=jpg&b=081a3f)
+![generated-image-1778414839172.png](/assets/img/frontend-ai-agent-camp/98400ec9eeea449b.jpg)
 
 不是所有 Agent 节点都需要最强的模型。更稳妥的做法是按角色分配模型：高风险节点保留强模型，低复杂度节点使用更便宜的模型。
 
@@ -847,7 +847,7 @@ export const DEFAULT_AGENT_MODEL_SET: AgentModelSet = {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.7.2"`
 
-![image 5.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a2ebe2fbff941d2b5c75c542b39699e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=860&s=198721&e=png&b=282c34)
+![image 5.png](/assets/img/frontend-ai-agent-camp/809b718c3b82caef.jpg)
 
 ### 10.7.3 两层模型选择：默认查表 + 运行时覆盖
 
@@ -903,7 +903,7 @@ export function resolveModelForAgent(input: {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.7.3"`
 
-![image 6.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0f41d55d6184428b8a9e580a0d69e4f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=842&s=230611&e=png&b=282c34)
+![image 6.png](/assets/img/frontend-ai-agent-camp/330dac0addf4c198.jpg)
 
 ### 10.7.4 可以这样升级 Supervisor 子图：从单模型到 ModelSet
 
@@ -1115,7 +1115,7 @@ export class TokenUsageService {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.8.3"`
 
-![image 7.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60f32b4b7da449d08cf6304a8446299d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1120&s=312216&e=png&b=292d35)
+![image 7.png](/assets/img/frontend-ai-agent-camp/799790b0dce85563.jpg)
 
 ### 10.8.4 withTokenUsage 包装器
 
@@ -1211,7 +1211,7 @@ async function agentNode(state: typeof RequirementAnalysisState.State) {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.8.4"`
 
-![image 8.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c5283c5c3534645b1a6d41e63214633~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1002&s=288690&e=png&b=292d35)
+![image 8.png](/assets/img/frontend-ai-agent-camp/c66d5d38a293e819.jpg)
 
 ### 10.8.5 🤖 用 AI 生成本节代码
 
@@ -1271,7 +1271,7 @@ async function agentNode(state: typeof RequirementAnalysisState.State) {
 
 ## 10.9 策略六：预算阈值、模型降级与运行时覆盖
 
-![generated-image-1778414839777.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07e00c9417c54683958ae1006af9e4c3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=682946&e=jpg&b=1d3143)
+![generated-image-1778414839777.png](/assets/img/frontend-ai-agent-camp/c348a7d87d6562ac.jpg)
 
 有了 Token 数据（10.8），也有了模型分级（10.7），现在可以把它们连起来：**当预算紧张时自动降级模型，预算耗尽时拒绝调用。**
 
@@ -1323,7 +1323,7 @@ export function resolveBudgetAction(input: {
 
 **📋 本节配套用例**：`bun test test/chapter10-token-economics.spec.ts -t "10.9.1"`
 
-![image 9.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1751ceb812714ee59bd45d50d2d342c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=840&s=222131&e=png&b=282c34)
+![image 9.png](/assets/img/frontend-ai-agent-camp/b9dd01ec1c37adbe.jpg)
 
 ### 10.9.2 预算策略的设计决策
 

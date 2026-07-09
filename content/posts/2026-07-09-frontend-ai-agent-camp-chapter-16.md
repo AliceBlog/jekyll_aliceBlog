@@ -2,8 +2,8 @@
 title: "第十六章：可观测性——你不能优化你看不见的东西"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 17 篇"
 date: 2026-07-09T11:16:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -13,7 +13,7 @@ weight: 0
 theme: channing-cyan
 ---
 
-![generated-image-1781335498525.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e29946682b845ed84dda16d7bfee7f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=887681&e=jpg&b=061027)
+![generated-image-1781335498525.png](/assets/img/frontend-ai-agent-camp/5616d93e92066bec.jpg)
 
 > AI Agent 生产链路的可观测性全景：请求、图节点、LLM、工具、数据库、日志、追踪、指标与 token 成本被统一串联。
 > 
@@ -49,7 +49,7 @@ theme: channing-cyan
 
 ## 16.1 先分清：两种完全不同的「可观测性」
 
-![generated-image-1781335820282.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29d32ecd6754478bba2d4e85ce413c91~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=716797&e=jpg&b=061232)
+![generated-image-1781335820282.png](/assets/img/frontend-ai-agent-camp/d9eaae0c81fd4542.jpg)
 
 > 同一次 AI 请求会同时面向两类观测视角：用户看到进度与流式输出，工程团队看到日志、Trace 和 Metrics。
 
@@ -73,7 +73,7 @@ flowchart TB
   Req --> ops
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20471dd64f8645ffaa250c748359aea4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1437&h=1048&s=124860&e=png&b=fff8eb)
+![image.png](/assets/img/frontend-ai-agent-camp/252b309663b44cc3.jpg)
 
 **用户态可观测性**：前面章节已经具备雏形。第八章实现 `streamAnalysisGraph` 时，通过 SSE 把 `progress`、`token`、`meta`、`log` 等事件推送给前端，用户可以看到「正在调用安全专家……」「正在汇总报告……」这类进度信息。这套机制面向**终端用户**，目标是降低等待过程的不确定性，并提升结果可信度。
 
@@ -125,7 +125,7 @@ case 'log':
 
 ## 16.2 结构化日志：从 console.log 到 pino
 
-![generated-image-1781335571469.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1f74d388f8a405bbd38a5b986be0e21~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=698792&e=jpg&b=030c1f)
+![generated-image-1781335571469.png](/assets/img/frontend-ai-agent-camp/aac8644c1fc88702.jpg)
 
 > 将零散的 `console.log` 转换为可检索、可过滤、可关联的结构化日志，是生产排障的第一步。
 
@@ -489,7 +489,7 @@ flowchart LR
   Write -. pipe/socket .-> Transport
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b232c55d54574533bd2ac72b0b30a3bc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2151&h=328&s=72403&e=png&b=fff8e9)
+![image.png](/assets/img/frontend-ai-agent-camp/b6c8bdcb8c111404.jpg)
 
 *   **默认模式**（无 transport）：`pino()` 对已知字段（`level`、`time`、`msg` 等）使用字符串拼接直接构造 JSON，减少 `JSON.stringify` 的通用对象遍历开销；用户字段才走 `JSON.stringify`。写入依赖 `sonic-boom`（非阻塞写入 + 内核缓冲）异步完成。这也是 pino 在常见基准测试中通常比 winston 更快的原因。
 *   **transport 模式**（如 `pino-pretty`）：日志通过管道发送到一个 **worker thread**，在那里做格式化/发送。主线程只负责序列化，不被 I/O 阻塞。
@@ -663,7 +663,7 @@ flowchart LR
   Backend --> UI["可视化\nGrafana / Kibana"]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18ef806d57c64504b519eaa234f40840~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2194&h=188&s=42408&e=png&b=ebebfe)
+![image.png](/assets/img/frontend-ai-agent-camp/596f8804eb833b5c.jpg)
 
 两种日志采集模式：
 
@@ -868,7 +868,7 @@ flowchart LR
   Docker --> DevOps["开发者\njq / rg 手动查"]
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/553fa2918fc541ec8ac16a641978466e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1181&h=188&s=27056&e=png&b=ebebfe)
+![image.png](/assets/img/frontend-ai-agent-camp/b7e3942ac42d5bbf.jpg)
 
 适合：个人项目、原型期、小团队。没有任何外部基建，主要依赖 `docker logs` + `jq` 排障。当前实现可以先按这一阶段落地。
 
@@ -920,7 +920,7 @@ flowchart LR
   Prometheus --> Grafana
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf6107eeff244c40bfc9d661761b97af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1459&h=700&s=61691&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/0128722b422e5cac.jpg)
 
 适合：大规模、需要日志/trace/metrics 三者打通的场景。OpenTelemetry Collector 作为统一的数据采集层，一个入口接收所有遥测数据，分发到不同后端。这也是 16.3.8 将要讨论的标准方案。
 
@@ -983,7 +983,7 @@ log.debug({ prompt: systemPrompt + userMessage }, 'llm_call');
 
 ## 16.3 链路追踪深度解析：从 traceId 到 Span
 
-![generated-image-1781335608397.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be36d32f758d4cfb8095c684337c6143~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=683530&e=jpg&b=071027)
+![generated-image-1781335608397.png](/assets/img/frontend-ai-agent-camp/7679bf5af5cfac9c.jpg)
 
 > Trace 负责串起一次完整请求，Span 负责表达每个节点、模型调用和工具调用之间的层级关系。
 
@@ -1026,7 +1026,7 @@ sequenceDiagram
   Chat-->>Client: SSE 流
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d21e68ae658b40788e473316ffbfe6bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2560&h=2386&s=285810&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/c59677f9a674ac26.jpg)
 
 整条链路通常包含**十几到几十次 LLM 调用**，并跨越多个子图、节点和工具。当一次请求变慢时，仅知道「本次请求耗时很长」并不足够，还需要定位具体瓶颈：是 triage 判断慢、专家并行阶段慢，还是某个 Critic-Refine 循环触发了过多模型调用。
 
@@ -1232,7 +1232,7 @@ sequenceDiagram
   Chat-->>GW: 200\nx-trace-id: abc-123
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9cdb569b40d9483d8de850fe9e22bcac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2344&h=922&s=138185&e=png&b=fffbfb)
+![image.png](/assets/img/frontend-ai-agent-camp/528155fbc29924aa.jpg)
 
 > **当前差距**：user-system 的 `response.interceptor.ts` 和 `all-exceptions.filter.ts` 使用独立的 `crypto.randomUUID()`，与 chat service 的 traceId 无关联。要打通跨服务追踪，需要在 user-system 也引入 `TraceMiddleware`，或者直接迁移到 OpenTelemetry（它会自动处理跨服务传播）。
 
@@ -1261,7 +1261,7 @@ flowchart TB
   Exporter --> Loki["Loki"]
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51c59de146e24f8c88cac27d4c9ece25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1043&h=1620&s=116197&e=png&b=fff6ee)
+![image.png](/assets/img/frontend-ai-agent-camp/cb80792b07544d8e.jpg)
 
 | 组件                   | 作用                               | Node.js 包                                   |
 | -------------------- | -------------------------------- | ------------------------------------------- |
@@ -1385,7 +1385,7 @@ flowchart LR
   Jaeger --> UI["Jaeger UI"]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2a1a5007102481199af3e5b958bfddf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1503&h=188&s=29352&e=png&b=ececff)
+![image.png](/assets/img/frontend-ai-agent-camp/bb5bd6729add631e.jpg)
 
 *   自带完整 UI，Trace 瀑布图直观
 *   支持多种存储后端（Cassandra, Elasticsearch, Kafka, 内存）
@@ -1401,7 +1401,7 @@ flowchart LR
   Tempo --> Grafana["Grafana\n(Trace 视图)"]
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8693b2e004df4cdcb1d2c126bb7f9abc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1461&h=188&s=24020&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/f2de22be7edf6d48.jpg)
 
 *   极低存储成本（对象存储 S3/GCS，不需要本地 SSD）
 *   与 Grafana 生态深度集成（日志→trace→metrics 一键跳转）
@@ -1477,7 +1477,7 @@ flowchart LR
 
 ## 16.4 LLM 调用观测：基于 callbacks 记录模型调用
 
-![generated-image-1781335650263.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1bd8e0797294f2798fb456c70574eaa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=747712&e=jpg&b=030b28)
+![generated-image-1781335650263.png](/assets/img/frontend-ai-agent-camp/93f1110ba52a1462.jpg)
 
 > callbacks 像旁路探针一样监听模型调用，把延迟、token、错误和工具调用信息同步写入日志与指标。
 
@@ -1599,7 +1599,7 @@ const model = new ChatOpenAI({
 
 ## 16.5 埋点（Instrumentation）专题
 
-![generated-image-1781335689704.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae77a90b36464284b80a4bf1da7639b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=700127&e=jpg&b=0f083c)
+![generated-image-1781335689704.png](/assets/img/frontend-ai-agent-camp/1e5e013af204dff1.jpg)
 
 > 埋点不是“多打日志”，而是在 HTTP、Graph、LLM、工具、成本和指标等关键路径上采集可聚合的运行信号。
 
@@ -1747,7 +1747,7 @@ flowchart TB
   A1 --> E1
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e278f5cc999c4327ab7f8f74571db9de~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1871&h=2604&s=300574&e=png&b=fff6ee)
+![image.png](/assets/img/frontend-ai-agent-camp/49b98f3e1c528b6c.jpg)
 
 ### 16.5.5 埋点的反模式
 
@@ -1821,7 +1821,7 @@ log.debug({ branch: condition ? 'A' : 'B' }, 'routing_decision');
 
 ## 16.6 Token 成本观测：把第十章的计量模块接进生产
 
-![generated-image-1781335730720.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3183a6c621ae447ebb2782dba1585077~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=826062&e=jpg&b=06112f)
+![generated-image-1781335730720.png](/assets/img/frontend-ai-agent-camp/78530fba2c4389e3.jpg)
 
 > Token 计量需要落到真实节点调用上，才能按 graph、node、agent 维度解释成本从哪里产生。
 
@@ -1987,7 +1987,7 @@ export class CostController {
 
 ## 16.7 Metrics 与健康检查
 
-![generated-image-1781335769055.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc1d7fddd7364da087ad8d802afc3fdf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=776180&e=jpg&b=0c0739)
+![generated-image-1781335769055.png](/assets/img/frontend-ai-agent-camp/2799e2ffd47499e7.jpg)
 
 > Metrics 用来观察整体趋势，readiness 用来判断服务是否真正具备接收流量的能力。
 
@@ -2102,7 +2102,7 @@ async getReadiness(): Promise<{ ready: boolean; checks: Record<string, string> }
 
 ## 16.8 用 traceId 关联三类遥测数据
 
-![generated-image-1781335867395.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a74b99caae5e476696c8164723435464~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=885358&e=jpg&b=070d32)
+![generated-image-1781335867395.png](/assets/img/frontend-ai-agent-camp/3721ba1cfc86c1e6.jpg)
 
 > traceId 适合留在日志中做下钻入口，metrics 负责聚合趋势，token usage 负责成本归因，三者共同支撑一次完整排障链路。
 
@@ -2127,7 +2127,7 @@ sequenceDiagram
     Ops->>Ops: 结论：Critic 阈值太严，反复打回，定位到 Critic-Refine 的 reviseCount 上限
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf5d9939e1b84a5dbfc0e9e7bbf2df26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2633&h=1186&s=218922&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/3a97ff4467f921e5.jpg)
 
 这条排障链路能够成立，依赖的是**同一个 traceId 对日志进行关联**，再借日志里的 `conversationId` 跨到成本表：
 
@@ -2165,7 +2165,7 @@ cat app.log | jq 'select(.traceId == "xxx-yyy-zzz" and .msg == "llm_end"
 
 ## 16.9 dev-time 可观测：LangGraph Studio
 
-![generated-image-1781335909610.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f71c7a6eb6ac468a94fbcc447ec14803~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=715780&e=jpg&b=09193d)
+![generated-image-1781335909610.png](/assets/img/frontend-ai-agent-camp/52da90af3e1e020f.jpg)
 
 > LangGraph Studio 适合开发期调试单次执行：查看拓扑、节点状态、prompt/response，并从中间节点改写重跑。
 
@@ -2222,7 +2222,7 @@ bunx langgraphjs dev
 
 启动后会看到：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e076705bf2ba4e57b58fd0293e556456~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1916&h=1274&s=735620&e=png&b=fffefe)
+![](/assets/img/frontend-ai-agent-camp/96c3d1fa08628f7d.jpg)
 
 CLI 做了两件事：
 
@@ -2274,7 +2274,7 @@ Studio 在开发期提供了 `console.log` 难以覆盖的几类能力：
 3.  手动修改 critic 节点的输入 state（比如调整评分阈值或修改 actor 输出）
 4.  从修改点重新执行——只跑后续节点，不需要从头跑整个请求
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d60d6954636f40cd956a92e6a9f3119f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1754&h=1688&s=235875&e=png&b=f4f7fa)
+![](/assets/img/frontend-ai-agent-camp/1b228107c0f5f88f.jpg)
 
 如果没有 Studio，同样的排查过程需要：改代码 → 重新构建 → 重发请求 → 等 triage + extract + clarify + analysis 全部跑完 → 才能看到 summaryStep 的新结果。
 
@@ -2303,7 +2303,7 @@ flowchart TB
   I -->|"否"| G
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c39113c12da4d6d9b11cb663a002ace~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1116&h=2972&s=257047&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/b40b34ba20fbdae6.jpg)
 
 ### 16.9.5 开发态 vs 运维态 vs 用户态
 
@@ -2318,7 +2318,7 @@ flowchart LR
   Graph --> User
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/547f4b6e196e42ca86f8a0e2c9596bf1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1046&h=844&s=85839&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/42fc62d40fbbb205.jpg)
 
 | 维度       | 开发态（Studio）                         | 运维态（日志/metrics）       | 用户态（SSE）  |
 | -------- | ----------------------------------- | --------------------- | --------- |

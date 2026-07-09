@@ -2,14 +2,14 @@
 title: "第四章：进击的Langchain"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 5 篇"
 date: 2026-07-09T11:04:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 5 篇。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07cc0ce687ba47f7b91ec91ed15a6aea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=458&s=817889&e=png&b=0c0c35)
+![image.png](/assets/img/frontend-ai-agent-camp/802083292ccc8941.jpg)
 
 前一章已经把 LangChain 的基础能力串起来了：模型调用、提示模板、链式编排、结构化输出和工具调用，都已经落到了可测试的业务接口上。但那条链路仍然是无状态的。每次请求都是独立处理，模型不会保留上一轮对话，也不会主动读取业务文件，更谈不上把复杂任务拆成多个角色协作执行。
 
@@ -33,7 +33,7 @@ weight: 0
 
 本章会围绕同一张退货工单，依次接入 Memory、Tools、Embeddings 和 Multi-Agent，最后把这些能力收敛成一个统一的 `analyze()` 接口。
 
-![cleaned-image 1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0de0b54cc18456e8275e7be205292dd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8329916&e=png&b=041124)
+![cleaned-image 1.png](/assets/img/frontend-ai-agent-camp/478027488741f085.jpg)
 
 <aside>
 
@@ -55,7 +55,7 @@ weight: 0
 
 ## 4.1 多轮客服为什么会失真
 
-![cleaned-image 2.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f052964d3d4e4ddbad065b27287eb0cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=8441681&e=png&b=051428)
+![cleaned-image 2.png](/assets/img/frontend-ai-agent-camp/97389a9797c05abb.jpg)
 
 单次调用在演示里通常没有问题，但到了真实客服场景，很快就会暴露出上下文断裂的问题。第三章里我们已经把一条“单轮闭环”的链路跑通了：用户给出输入，系统组装 prompt，必要时触发工具，再把结果整理成结构化输出。这种方式非常适合做能力验证，因为边界清晰、输入完整、每次请求都能独立测试。像订单信息抽取、工具调用闭环、结构化返回，放在单轮模型调用里都没有问题。
 
@@ -103,7 +103,7 @@ weight: 0
 
 ### 4.2.1 会话历史的读取与注入
 
-![cleaned-image 3.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6be3451b94bd4181a404d2f875716a37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8252427&e=png&b=041124)
+![cleaned-image 3.png](/assets/img/frontend-ai-agent-camp/9e8ebb2e3c6bf736.jpg)
 
 `RunnableWithMessageHistory` 是 LangChain 提供的会话历史包装层，负责把历史消息的读取、注入和保存统一抽象到 Runnable 链路中。对于客服场景，核心是按 `sessionId` 隔离不同会话，并把读写接口封装成可复用的服务方法。
 
@@ -171,7 +171,7 @@ export class RunnableMemoryService {
 
 只保留历史还不够。客服对话一旦拉长，原始历史会持续占用上下文窗口。`trimMessages` 提供了一种可配置的裁剪策略，在保留必要上下文的同时控制 Token 消耗。
 
-![cleaned-image_(1).png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f6e4e5c776064087ba748852099354b7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=7510679&e=png&b=080c2b)
+![cleaned-image_(1).png](/assets/img/frontend-ai-agent-camp/452509bc41cf5597.jpg)
 
 ```tsx
 import { trimMessages } from '@langchain/core/messages';
@@ -243,12 +243,12 @@ curl -X DELETE "http://localhost:3001/api/memory/clear?sessionId=s1"
 使用 `getHistory` 返回 8 条消息。
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3a84236e2464f76917a38ed6f9ef593~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1622&h=1414&s=1145522&e=png&b=1f1f1f)
+![image.png](/assets/img/frontend-ai-agent-camp/d1efa9c560e84265.jpg)
 
 清除会话后再次调用 `getHistory` 返回空数组。
 
 
-![image 1.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ae8a6de9fd146fe8b7186c05b3eb8f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1622&h=306&s=137114&e=png&b=1f1f1f)
+![image 1.png](/assets/img/frontend-ai-agent-camp/7d3e695dc3cd3f44.jpg)
 
 ***
 
@@ -288,7 +288,7 @@ curl -X DELETE "http://localhost:3001/api/memory/clear?sessionId=s1"
 这一节的重点不在通用 `read_file` / `write_file` 本身，而是把电商客服需要的业务工具先定义清楚。对这个场景来说，`query_order(orderId)` 比"任意读文件"更接近真实系统能力。
 
 
-![cleaned-image_(2).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b33e9dfc4d541b8a8000e0fb51b1ecb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=8183750&e=png&b=041227)
+![cleaned-image_(2).png](/assets/img/frontend-ai-agent-camp/966f84ecb07ef265.jpg)
 
 ### 4.3.1 四类业务工具：查询、读取与写入
 
@@ -431,7 +431,7 @@ curl -X POST http://localhost:3000/api/files/file-chat \
 越权路径请求应返回“路径不允许逃逸工作目录”错误。
 
 
-![image 2.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58e287f2108b469aad31ae1321171f2c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1622&h=374&s=254272&e=png&b=1f1f1f)
+![image 2.png](/assets/img/frontend-ai-agent-camp/5c2e75a185b76b0b.jpg)
 
 ***
 
@@ -467,7 +467,7 @@ curl -X POST http://localhost:3000/api/files/file-chat \
 
 这一节先不展开 RAG，也不直接做问答。目标更基础：把 FAQ、政策和售后说明变成可语义召回的对象，为后面的检索系统打基础。
 
-![Gemini_Generated_Image_7tez7h7tez7h7tez.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef2fa106ca0e492ba650fc357cea00d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=7002683&e=png&b=080b2d)
+![Gemini_Generated_Image_7tez7h7tez7h7tez.png](/assets/img/frontend-ai-agent-camp/91851a6675eda4ab.jpg)
 
 ### 4.4.1 本地嵌入模型：Xenova/paraphrase-multilingual-MiniLM-L12-v2
 
@@ -585,17 +585,17 @@ curl -X POST http://localhost:3000/api/embedding/search \
 启动服务后，会执行初始化的文档灌库操作。
 
 
-![image 3.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba0928e509b24cd9aaefb4978e6dd63c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1412&h=1246&s=934417&e=png&b=1f1f1f)
+![image 3.png](/assets/img/frontend-ai-agent-camp/0d833c89a210663d.jpg)
 
 执行 `store` 指令后返回 `{\"added\":3}`，表示命令灌库成功；
 
 
-![image 4.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c53e4f7f8d14b2e93451a6892ac097a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2488&h=1288&s=1163326&e=png&b=1e1e1e)
+![image 4.png](/assets/img/frontend-ai-agent-camp/45cf8e3885a1cd8a.jpg)
 
 执行 `search` 后，第一条结果应与退货政策相关，`metadata.source` 为 `return-policy` 或 `faq`。
 
 
-![image 5.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/163e3dea44944799ad8b05099916b0fd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1622&h=408&s=340570&e=png&b=20201f)
+![image 5.png](/assets/img/frontend-ai-agent-camp/524d7e9f74699935.jpg)
 
 ***
 
@@ -637,7 +637,7 @@ curl -X POST http://localhost:3000/api/embedding/search \
 *   `QAAgent`：生成验收条件与边界问题
 *   `SummaryAgent`：汇总并输出最终结论
 
-![cleaned-image_(3).png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca802ada2689461781458a019ba05081~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=7685455&e=png&b=030a16)
+![cleaned-image_(3).png](/assets/img/frontend-ai-agent-camp/fec4223f48488b69.jpg)
 
 ### 4.5.1 子 Agent 的结构与职责划分
 
@@ -837,11 +837,11 @@ curl -X POST http://localhost:3000/api/agents/orchestrate \
 
 **验收标准**：场景 A 的响应中 `usedAgents` 包含全部 5 个 Agent，`report` 含退货判断结论，`fallback` 为 `null`。
 
-![image 6.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4650165d2404046bb91c2dbaca51ae0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2882&h=1246&s=2729826&e=png&b=1f1f1f)
+![image 6.png](/assets/img/frontend-ai-agent-camp/0f228ebd09ae3c90.jpg)
 
 场景 B 的 `status` 为 `need_clarification`，`clarificationQuestions` 数组非空，`usedAgents` 仅含 `RequirementExtractAgent`。
 
-![image 7.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cb28c6603084d3e9711794532e3d947~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=356&s=229126&e=png&b=1f1f1f)
+![image 7.png](/assets/img/frontend-ai-agent-camp/543d997bbec1a707.jpg)
 
 ***
 
@@ -884,7 +884,7 @@ curl -X POST http://localhost:3000/api/agents/orchestrate \
 4.  按需写出工单制品
 5.  用 `appendMessage()` 写回最终结论
 
-![Gemini_Generated_Image_c46bgoc46bgoc46b.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6241d80a375d45f8812b3d410d71d22c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=7241482&e=png&b=020f23)
+![Gemini_Generated_Image_c46bgoc46bgoc46b.png](/assets/img/frontend-ai-agent-camp/15f0b76981dd209b.jpg)
 
 ```tsx
 import { Injectable } from '@nestjs/common';
@@ -961,7 +961,7 @@ curl "http://localhost:3000/api/memory/history?sessionId=demo"
 
 **验收标准**：第四轮返回完整 `report`；`tickets/EC20240315001-analysis.md` 存在且与报告内容一致；`getHistory` 最后一条 AI 消息是报告内容，而非模型重新生成的聊天回复。
 
-![image 8.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2e62077ffbd4dcd9bb3911d388421ef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2038&h=1420&s=317880&e=png&b=181818)
+![image 8.png](/assets/img/frontend-ai-agent-camp/90c01fa82364470f.jpg)
 
 这个统一入口做完之后，同一张工单的处理链路就闭合了：历史不会丢，订单能查，政策能读，分析能拆，结果能落盘，结论还能写回记忆。
 

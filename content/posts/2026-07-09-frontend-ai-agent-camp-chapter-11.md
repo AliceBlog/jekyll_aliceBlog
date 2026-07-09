@@ -2,8 +2,8 @@
 title: "第十一章：RAG——让AI更懂你的业务"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 12 篇"
 date: 2026-07-09T11:11:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -13,7 +13,7 @@ weight: 0
 theme: channing-cyan
 ---
 
-![generated-image-1778897132775.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b66bbcfdeda54f61a4071f9cf7cac39a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=665515&e=jpg&b=0f276b)
+![generated-image-1778897132775.png](/assets/img/frontend-ai-agent-camp/36a1ab4114f63891.jpg)
 
 > 本章内容信息密度较高：不仅涵盖完整的 RAG 知识体系，也结合项目细节展开，因此阅读与知识提取的难度会稍高、耗时也更长。此外，RAG 的概念与优化实操远非一篇文章能够讲透；待项目完成后，我也会在附篇中继续拓展。
 
@@ -79,7 +79,7 @@ flowchart LR
 
 一次完整的 RAG 流程其实分两条线：离线的“建索引”和在线的“问答”。
 
-![generated-image-1778897131754.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b224aadc50204ab98d2d69bbd8908fbd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=501490&e=jpg&b=182037)
+![generated-image-1778897131754.png](/assets/img/frontend-ai-agent-camp/0f5e53d8e47df881.jpg)
 
 ```mermaid
 flowchart TB
@@ -140,7 +140,7 @@ flowchart TB
 | **典型适用场景** | 业务知识库、产品文档问答、客服 FAQ、企业内搜                                              | 改写风格、行业术语、专属推理范式                                                         | 单文档总结、合同审查、临时一次性问答             |
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efcfe29a45644c0a9c9ed06e99436986~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1657118&e=png&b=f4fafc)
+![image.png](/assets/img/frontend-ai-agent-camp/1f8139627890a026.jpg)
 
 **结论**：
 
@@ -173,7 +173,7 @@ RAG 的本质可以概括为：
 
 要让计算机判断”两段文本意思相不相近”，必须先把文本变成数字——这就是 **Embedding（嵌入向量）** 的本质：把任意一段文本映射到一个高维空间里的点，让”意思相近”对应”距离相近”。
 
-![image 1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16b95855ecfb4e7c86f701d50d1d460d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1629491&e=png&b=f7fafd)
+![image 1.png](/assets/img/frontend-ai-agent-camp/04ce3c9a81f85acb.jpg)
 
 ### 11.2.1 从词到向量：Embedding 具体是什么
 
@@ -289,7 +289,7 @@ flowchart LR
 
 覆盖：单位向量自相似 = 1、反向 = -1、正交 = 0、归一化后余弦 = 点积、维度不匹配抛错。
 
-![image 2.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3d91de9c81048389a80e459cd07a976~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=826&s=224407&e=png&b=282c34)
+![image 2.png](/assets/img/frontend-ai-agent-camp/c700829726d091b8.jpg)
 
 ### 11.2.5 Embedding 模型如何训练出来（对比学习）
 
@@ -419,7 +419,7 @@ Embedding 维度（dim）通常在 256–3072 之间。
 
 覆盖：normalize 后向量范数为 1、余弦 ∈ \[-1, 1] 严格成立、不同维度向量计算抛错、空向量抛错。
 
-![image 3.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9daea196e2694e13b36a7908743a5f32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=854&s=234312&e=png&b=292d35)
+![image 3.png](/assets/img/frontend-ai-agent-camp/321ad9d3d6f4ee42.jpg)
 
 **本节小结**
 
@@ -431,7 +431,7 @@ Embedding 维度（dim）通常在 256–3072 之间。
 
 ## 11.3 Embedding 模型选型
 
-![image 4.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee9522d85ad24f94bffcc3faf7dc151a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1735149&e=png&b=f5f9fc)
+![image 4.png](/assets/img/frontend-ai-agent-camp/45c60678481ceb21.jpg)
 
 11.2 讲清楚”向量是什么、如何训出来的”之后，工程上的下一个问题是：**在众多 Embedding 模型中，应该如何选型？**
 
@@ -604,7 +604,7 @@ CREATE TABLE document_chunks (
 
 覆盖：模型名校验失败抛错、不同 dim 的向量不能写入同一字段、双塔检索 vs 交叉重排的 mock 流程。
 
-![image 5.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aeb255084de54655a78514cb9cdba85e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=786&s=183069&e=png&b=282c34)
+![image 5.png](/assets/img/frontend-ai-agent-camp/866d5ddf5cc98859.jpg)
 
 **本节小结**
 
@@ -620,7 +620,7 @@ CREATE TABLE document_chunks (
 
 切分看上去简单，但它是整条 RAG 链路里**最影响最终效果**的环节之一。切得太小，每个 chunk 信息不完整，模型读了等于没读；切得太大，向量被”稀释”（11.2.6 提过的长文本问题），检索召回率断崖式下跌。
 
-![image 6.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d3357d999184166ad2a851c6af3ad88~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1718391&e=png&b=f3f9fc)
+![image 6.png](/assets/img/frontend-ai-agent-camp/82fcb6ecb66d6069.jpg)
 
 ### 11.4.1 为什么要切
 
@@ -921,7 +921,7 @@ export async function chunkParentChild(
 
 覆盖：默认 chunk\_size、overlap 正确性、中文标点优先切分、Parent-Child 切分中 children 数 > parents 数 且每个 child 的 parentIndex 在 parents 范围内。
 
-![image 7.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c21e8622d944eea962e3df752831e3e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=1296&s=312309&e=png&b=292d35)
+![image 7.png](/assets/img/frontend-ai-agent-camp/82e6834bfbf317cb.jpg)
 
 ### 11.4.9 切分策略选择速查
 
@@ -969,7 +969,7 @@ export async function chunkParentChild(
 
 ### 11.5.2 KNN vs ANN：为什么”近似”是正确的工程选择
 
-![generated-image-1778897132829.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edea79fd22604e29972eeb07a564adb7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=747865&e=jpg&b=040722)
+![generated-image-1778897132829.png](/assets/img/frontend-ai-agent-camp/31e1bbf7df9993cc.jpg)
 
 配图：HNSW 与 IVF 的近似最近邻检索
 
@@ -1292,7 +1292,7 @@ const rows = await this.prisma.$queryRaw<
 
 覆盖：维度不一致抛错、KNN 暴力 baseline 与 mock ANN 结果一致性、cosine 距离与相似度互转。
 
-![image 8.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a41519dfa44f42f091163211ed1111a9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=990&s=215001&e=png&b=282c34)
+![image 8.png](/assets/img/frontend-ai-agent-camp/c8cdfacf2d3b25f3.jpg)
 
 **本节小结**
 
@@ -1306,7 +1306,7 @@ const rows = await this.prisma.$queryRaw<
 
 11.2–11.5 把检索这一半 RAG 解决了。下一半是**生成**：检索到 Top-K（典型 5 段）后，如何组合到 Prompt 里、如何让 LLM 基于这些内容回答？
 
-![image 9.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5b8e5f2e80847b7abd5e73f251d2204~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1722970&e=png&b=f6fcfc)
+![image 9.png](/assets/img/frontend-ai-agent-camp/ff002090842b6f0a.jpg)
 
 ### 11.6.1 Prompt 模板的标准结构
 
@@ -1587,7 +1587,7 @@ export async function ragAsk(input: RagAskInput): Promise<RagAskOutput> {
 
 覆盖：Prompt 模板拼接正确、检索 0 结果时回退到”无法确定”、引用列表与检索结果数量一致、温度参数透传到 model.invoke。
 
-![image 10.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58662d0b10de489d99130f531697e190~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=856&s=207170&e=png&b=282c34)
+![image 10.png](/assets/img/frontend-ai-agent-camp/99baf494efd2293a.jpg)
 
 ***
 
@@ -1597,7 +1597,7 @@ export async function ragAsk(input: RagAskInput): Promise<RagAskOutput> {
 
 工程上有一个反直觉的事实：**RAG 的好坏 90% 是检索决定的，10% 是 LLM 决定的**。模型再强，检索给的资料是错的，回答就一定是错的。所以评估 RAG 第一步是评估检索。
 
-![image 11.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/815d9f42d6434739a12eec02c5b94493~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=1024&s=1799232&e=png&b=061326)
+![image 11.png](/assets/img/frontend-ai-agent-camp/c754a9fcd855f8f9.jpg)
 
 ### 11.7.1 检索质量的三大指标
 
@@ -1727,7 +1727,7 @@ flowchart LR
     D -->|是| F[允许合并]
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ba5cfd678814af997fddff228172031~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2049&h=396&s=73317&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/adbb0b440fa8616c.jpg)
 实战建议：
 
 *   评测集规模 **至少 50 条**，否则方差太大不能反映真实情况
@@ -1746,7 +1746,7 @@ flowchart TB
     E --> F[每月新增 5-10 条\n覆盖新出现的问题]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c893035cc6ac461a840c5a7e9bbf60b3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=777&h=1212&s=79729&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/dea384fc82ccb027.jpg)
 种子来源：
 
 1.  **业务日志中的高频问题**（最重要，反映真实分布）
@@ -1811,7 +1811,7 @@ flowchart TB
 
 覆盖：Recall\@K 边界值（K=0、Top-K 全命中、零命中）、MRR 单 query 单相关、NDCG\@K 单点 vs 多点排名差异、RAGAS runner 在服务不可用时降级。
 
-![image 12.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00c4b0524ae6423cb719fa0183867a5d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=1058&s=246059&e=png&b=282c34)
+![image 12.png](/assets/img/frontend-ai-agent-camp/fe4e8949cc6ec001.jpg)
 
 ***
 
@@ -1819,7 +1819,7 @@ flowchart TB
 
 11.7 给出了”评什么”的指标。但当指标不达标——召回率只有 60% 而你需要 90% 时，如何改进？这一节是 RAG **工程优化的核心战场**。
 
-![image 13.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ee5c5663ac943b9991028cff5c99467~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1750108&e=png&b=f9f8fc)
+![image 13.png](/assets/img/frontend-ai-agent-camp/c942caa4d810d539.jpg)
 
 按效果从高到低、改造成本从低到高，五个标准策略。
 
@@ -1938,7 +1938,7 @@ flowchart LR
     M --> TOP[最终 Top-K]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/204c3b1722e94ba6a65d6b2f96f81f0f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2098&h=556&s=67368&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/1a986bf1dc2f1be0.jpg)
 合并策略：
 
 *   **简单去重**：按 chunkId 去重
@@ -2165,7 +2165,7 @@ flowchart LR
     R3 --> R4[拼 Prompt + LLM]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65e7bcf36df2490e93acc0b22ff3ab7f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2094&h=236&s=44461&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/618fe9e1a70a4568.jpg)
 
 实测经验：在 11.6 的 baseline RAG 上加一层重排，Recall\@5 可以从 0.65 提升到 0.85+，NDCG\@10 提升 10–20 个百分点。**几乎是免费的午餐**（除了多一次 API 调用的成本）。
 
@@ -2204,7 +2204,7 @@ flowchart TB
     S5 --> A[Top-K → LLM]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e4369d1d4984704a42d180fc2a72e54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=552&h=1676&s=87122&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/70db8317b63aa9c9.jpg)
 
 每个策略相对 baseline 的提升参考（不同业务差异很大，仅供数量级直觉）：
 
@@ -2222,7 +2222,7 @@ flowchart TB
 
 覆盖：Query 改写返回 1–3 条改写（失败回退原句）、RRF 融合两个排序列表头部一致性、混合检索去重 + 端到端 Top-K、reranker mock 调用后顺序按新分数（越界 index 被过滤）。
 
-![image 14.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d40f9b7439c4157a20b1764da032c8c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=1128&s=245787&e=png&b=292d35)
+![image 14.png](/assets/img/frontend-ai-agent-camp/51426c5a223b6cc7.jpg)
 
 ***
 
@@ -2230,7 +2230,7 @@ flowchart TB
 
 11.8 的五个策略已经能把 baseline RAG 从”能用”推到”好用”。但 2023–2026 年学术界和工业界又跑出了一批**结构性创新**——它们不是简单的”参数调优”，而是改变了”检索 + 生成”两步流水线本身的结构。
 
-![image 15.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e0acea9ac8e4a5786e7c860bf506ec1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1659465&e=png&b=f6f9fc)
+![image 15.png](/assets/img/frontend-ai-agent-camp/fbc9fe4ef2d7b67f.jpg)
 
 本节展开 5 个最有影响力的模式：**HyDE / Self-RAG / CRAG / Adaptive-RAG / Graph-RAG**。每个模式给出：
 
@@ -2352,7 +2352,7 @@ flowchart TB
     USE -->|&lt; 3| RETRY
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8cee3e66f38d4f2ea2621aba72722ec1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1116&h=2179&s=135342&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/62df5184fa61ba4b.jpg)
 ### 伪代码
 
 ```tsx
@@ -2424,7 +2424,7 @@ flowchart TB
     REWRITE --> GEN
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81225a072ca24ed892e89ec008fcbdb3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1074&h=1399&s=96888&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/c07238c4f339eccc.jpg)
 
 三档决策：
 
@@ -2515,7 +2515,7 @@ flowchart LR
     M --> OUT
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1caf412f14924740969ee2ba4cb70df3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1667&h=652&s=86645&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/899cf2b232e7f4c6.jpg)
 
 分类器可以是：
 
@@ -2612,7 +2612,7 @@ flowchart TB
     end
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88c20cabb0054826a0b0276f2a8219fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=4023&h=582&s=119160&e=png&b=fff8eb)
+![image.png](/assets/img/frontend-ai-agent-camp/6bebe6dae2de15e0.jpg)
 
 ### 伪代码（关键步骤）
 
@@ -2688,7 +2688,7 @@ flowchart TD
     B -->|跨文档全局推理| G[Graph-RAG]
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/500f62f585944504ba9ebe9bb04a2111~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1663&h=791&s=95956&e=png&b=fefefe)
+![image.png](/assets/img/frontend-ai-agent-camp/bee10ac1d3d2f817.jpg)
 
 | 模式               | 一句话总结          | 主要成本                 | 适用规模        |
 | ---------------- | -------------- | -------------------- | ----------- |
@@ -2706,7 +2706,7 @@ flowchart TD
 
 覆盖：HyDE 用幻想答案替换原始 query 去检索、Adaptive-RAG 在 simple / single\_hop / multi\_hop 三档路径上分别走 0 次 / 1 次 / N 次检索。
 
-![image 16.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6cffea7499434f058ab1d5b842fb410c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=1122&s=267963&e=png&b=282c34)
+![image 16.png](/assets/img/frontend-ai-agent-camp/09a3b8b13513a216.jpg)
 
 ***
 
@@ -2716,7 +2716,7 @@ flowchart TD
 
 答案非常简单：**把 RAG 包装成一个 Tool**，让 LangGraph 的 Agent 节点像调用任何普通工具一样调用它。
 
-![image 17.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6d8dccb597248449e2dea314c40ab97~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1643581&e=png&b=f7f6fd)
+![image 17.png](/assets/img/frontend-ai-agent-camp/b0e87db7c674db7b.jpg)
 
 ### 11.10.1 RAG 作为工具的设计原则
 
@@ -2739,7 +2739,7 @@ flowchart TB
     end
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/918bd08f620c4c0f8cb3986ce25339df~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1610&h=1108&s=103045&e=png&b=fff7ed)
+![image.png](/assets/img/frontend-ai-agent-camp/01c43224d90cf60c.jpg)
 
 这样做有三个好处：
 
@@ -2824,7 +2824,7 @@ flowchart LR
     S --> E[Expert 节点]
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31556cb595cd4095945a67a12cf270a1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1479&h=188&s=28126&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/1c0da701a1f9c444.jpg)
 
 对比：
 
@@ -2917,7 +2917,7 @@ flowchart TB
     CRITIC --> OUTPUT[最终输出]
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ee66d8ea461432a99d9816a66a615d3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2638&h=2300&s=236659&e=png&b=fffcfc)
+![image.png](/assets/img/frontend-ai-agent-camp/25e7f40f0e4b80b0.jpg)
 
 *   第八九章主图保持不变
 *   RAG 作为一个独立子系统，通过 `search_knowledge_base` 工具被需要时调用
@@ -2964,7 +2964,7 @@ flowchart TB
 
 覆盖：tool description 含”适用 / 不适用”、预算 allow 时正常返回、预算 reject 时返回 budget\_exceeded、返回值是 JSON 字符串可被 LangGraph parse、citations 按 chunkId 去重。
 
-![image 18.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c9bf6b078464703b497b5979d11b9ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=1096&s=259135&e=png&b=282c34)
+![image 18.png](/assets/img/frontend-ai-agent-camp/c6661e5224ad2930.jpg)
 
 ***
 
@@ -3061,7 +3061,7 @@ flowchart LR
     E --> F[+ Graph-RAG\n全局推理能力]
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6f4bc1c28164246826a2d0e472dffa5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2499&h=236&s=66833&e=png&b=ececff)
+![image.png](/assets/img/frontend-ai-agent-camp/b819ce3a6f9f5123.jpg)
 
 每一步都不应跳过——先做 baseline，再按”召回率不达标的具体瓶颈”逐步升级。**直接上 Graph-RAG 是工程灾难**：调试地狱 + 高成本 + 多数业务用不上。
 
@@ -3113,7 +3113,7 @@ RAG 不是搭起来就完事的——它需要持续运维：
 
 实际上线后，RAG 系统报障的方向比较收敛。下面 5 个问题覆盖了 90% 的工程事故。
 
-![image 19.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbef8bef89de42459276ac3775cbbbb0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1993431&e=png&b=020c1a)
+![image 19.png](/assets/img/frontend-ai-agent-camp/c89d532e57a28b67.jpg)
 
 ### Q1：用户反馈”检索结果完全不相关”，往哪查？
 
@@ -3132,7 +3132,7 @@ flowchart TB
     S4 -->|不能| F5[修：chunk 切分粒度有问题 / 内容真的找不到]
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56521071f5494f66a40e8e65f37ed509~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2003&h=2803&s=289269&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/55acefa43cc72fb1.jpg)
 
 **最常见的根因**（按出现频率）：
 
@@ -3213,7 +3213,7 @@ flowchart TB
     E --> F[下线老表]
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e206e341b6c14811af0bb5186dd61b02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=552&h=1420&s=82523&e=png&b=ffffff)
+![image.png](/assets/img/frontend-ai-agent-camp/42513e0ef63095e4.jpg)
 
 **强制约束**（11.3.7 强调过）：
 
@@ -3348,7 +3348,7 @@ if (actualModels.some((m) => m.modelName !== expectedModel)) {
 
 ## 11.14 本章小结
 
-![image 20.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/389e80e4184b460ca35d53b6ee087b48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1790000&e=png&b=f5f8fc)
+![image 20.png](/assets/img/frontend-ai-agent-camp/08cec3a1e6c58365.jpg)
 
 这一章把 RAG 从”听过的概念”变成了”完整、可落地、能调优、可监控”的工程系统：
 

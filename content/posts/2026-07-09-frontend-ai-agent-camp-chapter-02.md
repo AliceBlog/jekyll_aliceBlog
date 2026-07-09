@@ -2,14 +2,14 @@
 title: "第二章：搭建智能体的工程底座"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 3 篇"
 date: 2026-07-09T11:02:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 3 篇。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f4a4d780a794eeeb39de1be854f701e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=589&s=979139&e=png&b=111b22)
+![image.png](/assets/img/frontend-ai-agent-camp/47c16aca3449cfde.jpg)
 
 第一章我们解决了“怎么把模型用起来”：模型调用、Prompt 设计与结构化输出。到了这一章，问题会从“能力本身”转向“能力如何落地为可持续演进的系统”：这些能力应该放在前端还是后端？前后端如何分工与对齐接口？共享的类型、schema、DTO 应该沉淀在哪里？当你后续逐步加入工具调用、RAG、MCP，甚至多智能体编排时，今天的工程结构还能不能顺滑扩展、而不是推倒重来？
 
@@ -64,7 +64,7 @@ monorepo 的价值不只是“现在好管理”，更重要的是：**它能承
 *   **依赖与接口定义更一致**
 
 
-![Gemini_Generated_Image_8pptyf8pptyf8ppt.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6873890216ae4d5194ec757fc1ad2683~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=6494092&e=png&b=f3f7fb)
+![Gemini_Generated_Image_8pptyf8pptyf8ppt.png](/assets/img/frontend-ai-agent-camp/3e5537f61cbd088c.jpg)
 
 当然，monorepo 的代价也客观存在：仓库规则、边界约束与任务编排会变得更重要。这些代价不是 monorepo 的缺点，而是“把复杂度提前显式化”。
 
@@ -134,7 +134,7 @@ monorepo 的价值不只是“现在好管理”，更重要的是：**它能承
 *   并且在后续引入智能体能力时，不需要频繁更换底层方案
 
 
-![Gemini_Generated_Image_qrup6xqrup6xqrup.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b40437b0e579490e8ee708147def67e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=6148847&e=png&b=ecf0f9)
+![Gemini_Generated_Image_qrup6xqrup6xqrup.png](/assets/img/frontend-ai-agent-camp/2148e8cfb2f82dd4.jpg)
 
 ## **2.3 总览：2.4–2.8 会搭一个“能跑起来”的最小工程**
 
@@ -172,7 +172,7 @@ monorepo 的价值不只是“现在好管理”，更重要的是：**它能承
     bun --version
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a51f7fbd8e2946969475b4c5fabcf9d3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1072&h=280&s=58846&e=png&b=fefefe)
+![image.png](/assets/img/frontend-ai-agent-camp/f01584942677f5b7.jpg)
 
 这一节的目标是：
 
@@ -213,7 +213,7 @@ monorepo 的价值不只是“现在好管理”，更重要的是：**它能承
     └─ tsconfig.base.json
 
 
-![image 1.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c19d0c313ffa498bb3f08c1713e5718d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=764&h=458&s=27511&e=png&b=171717)
+![image 1.png](/assets/img/frontend-ai-agent-camp/a1eed93e2a05b22f.jpg)
 
 ### **2.4.2 根目录 package.json（workspaces + 顶层脚本 + 版本收敛）**
 
@@ -396,7 +396,7 @@ Turbo 需要用 `tasks/dependsOn/outputs` 把 build、typecheck、test 等任务
     bun install
     bun run build
 
-![image 2.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c464d9f4e3c4576834ddf749d1873f9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1678&h=1106&s=341709&e=png&b=ffffff)
+![image 2.png](/assets/img/frontend-ai-agent-camp/d7b0d4be32a82a48.jpg)
 
 ✅ **验收标准**
 <aside>
@@ -430,7 +430,7 @@ Turbo 需要用 `tasks/dependsOn/outputs` 把 build、typecheck、test 等任务
     bun create next-app clients/web --yes
 
 
-![image 3.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af97592a65fa4a6d9aeafaca064b7cd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1846&h=1386&s=476549&e=png&b=1e1e1e)
+![image 3.png](/assets/img/frontend-ai-agent-camp/b5aa5903e11689c2.jpg)
 
 把 `clients/web/package.json` 调整为（关键点：包名统一、脚本使用 Bun、依赖通过 `workspace:*` 直连共享包）：
 
@@ -568,7 +568,7 @@ bun install // 由于在 package.json 中新增了本地的 @repo/contracts，�
 bun run dev:web
 ```
 
-![image 4.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e93461dde6c84784ab171a9475d41903~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1772&h=592&s=285593&e=png&b=1b1b1b)
+![image 4.png](/assets/img/frontend-ai-agent-camp/6b994a03f208376f.jpg)
 
 <aside>
 
@@ -601,7 +601,7 @@ bun run dev:web
     bunx @nestjs/cli new services/api
 
 
-![image 5.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31b44f83c4584dec906dc9343ac5a3f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1846&h=1386&s=576280&e=png&b=1e1e1e)
+![image 5.png](/assets/img/frontend-ai-agent-camp/0d27496d77bff5ce.jpg)
 
 把 `services/api/package.json` 调整为（关键点：包名统一、脚本与运行方式明确、通过 `workspace:*` 引用 `@repo/contracts`）：
 
@@ -735,7 +735,7 @@ bun run dev:api
 ```
 
 
-![image 6.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6457bcf3dd3f4ef691aa30b41b82ae2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2320&h=974&s=494945&e=png&b=1c1c1c)
+![image 6.png](/assets/img/frontend-ai-agent-camp/93a6e775f2c27bb7.jpg)
 
 <aside>
 
@@ -889,7 +889,7 @@ const res = await fetch("/api/hello");
     bun run dev
 
 
-![image 7.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaad674816084d9eaa12e3ec11e885b9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2384&h=1072&s=683795&e=png&b=181818)
+![image 7.png](/assets/img/frontend-ai-agent-camp/3069e7ed79b6cf15.jpg)
 
 <aside>
 
@@ -1174,7 +1174,7 @@ docker compose -f infra/compose/compose.yaml -f infra/compose/compose.dev.yaml u
 
 使用方式建议：新建一个空目录（或新仓库），把上面的 Prompt 保存为 `PROMPT.md`，然后在 Claude CLI 中把它作为任务说明执行。
 
-![image 8.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/536c5f2e8fb44fc88fc200b52f9cdcb1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2418&h=1502&s=631646&e=png&b=191919)
+![image 8.png](/assets/img/frontend-ai-agent-camp/ad40980ed43bae09.jpg)
 
 ***
 

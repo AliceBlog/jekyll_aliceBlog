@@ -2,14 +2,14 @@
 title: "第七章：Agent 推理的三层决策机制：路由、执行与优化"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 8 篇"
 date: 2026-07-09T11:07:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 8 篇。
 
-![cleaned-image_(10).png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a89cae5c7e354b5da238e3ae0eb04928~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8054491&e=png&b=0a224b)
+![cleaned-image_(10).png](/assets/img/frontend-ai-agent-camp/5a64473811b862e5.jpg)
 
 前六章已经搭起了一条从模型调用到生产落地的完整链路：单轮调用、多轮记忆、工具调用、Multi-Agent 编排、数据库与向量化，以及 UI 协议。到第六章为止，需求分析这条业务链已经能够完整跑通——产品经理提交一条自然语言需求（如“用户希望能够批量导入 Excel 数据”），系统依次经过 **需求提取 → 澄清判断 → 多维度分析 → 风险评估 → 综合报告** 五个阶段，并将结果以结构化 UI 的形式返回前端。
 
@@ -51,7 +51,7 @@ weight: 0
 
 ## 7.1 从固定编排到动态推理：为什么需要三层决策机制
 
-![cleaned-image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c7d67d3e54f403daefaecf6b3683ea2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7819639&e=png&b=0f4a8d)
+![cleaned-image.png](/assets/img/frontend-ai-agent-camp/402c78558cb6f320.jpg)
 
 ### 7.1.1 第六章链路的本质：固定编排 + 局部推理
 
@@ -90,7 +90,7 @@ flowchart LR
 
 动态推理的核心循环，可以抽象为四个动作：
 
-![cleaned-image_(1).png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca20d2bf6d1941c38b24ffc2ad40b492~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8202684&e=png&b=02205b)
+![cleaned-image_(1).png](/assets/img/frontend-ai-agent-camp/ba5a6b23069aec99.jpg)
 
 ```mermaid
 flowchart TB
@@ -113,7 +113,7 @@ flowchart TB
 
 理解动态推理时，一个很关键的洞察是：**它不是单一动作，而是三类不同决策的叠加。**
 
-![cleaned-image_(2).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ddafc88677f4e548cdcbc26d111c7e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7794593&e=png&b=75c2ef)
+![cleaned-image_(2).png](/assets/img/frontend-ai-agent-camp/5d024a2f62830bc4.jpg)
 
 ```mermaid
 flowchart TD
@@ -151,7 +151,7 @@ flowchart TD
 
 ### 7.2.1 什么是 Routing
 
-![cleaned-image_(4).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c5672fa12bc45dc9e461b48bf0f6690~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8745422&e=png&b=082756)
+![cleaned-image_(4).png](/assets/img/frontend-ai-agent-camp/4ee22a53c594c527.jpg)
 
 **Routing** 是整个动态推理体系的入口层，解决的是一个非常直接的问题：
 
@@ -355,7 +355,7 @@ Planner 生成的 plan，本身就可以直接映射为 `steps` 组件；再配�
 
 ### 7.3.3 ReAct 与 Plan-and-Execute 的本质区别：局部决策 vs. 全局规划
 
-![cleaned-image_(5).png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b973702471384043ae7576c024f8a898~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7413380&e=png&b=3a5e88)
+![cleaned-image_(5).png](/assets/img/frontend-ai-agent-camp/661fa74b0944e956.jpg)
 
 这两种策略都属于执行层，但它们真正的分界线，不在于“步骤多少”，而在于：**决策是局部进行，还是先从全局展开。**
 
@@ -401,7 +401,7 @@ Planner 生成的 plan，本身就可以直接映射为 `steps` 组件；再配�
 
 ### 7.4.1 Reflexion：做完之后，再整体评估
 
-![cleaned-image_(6).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05e896c0327a480fb7f39efec3944d36~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8513418&e=png&b=031552)
+![cleaned-image_(6).png](/assets/img/frontend-ai-agent-camp/1fcc1237dcdec1f6.jpg)
 
 Reflexion（反思）是在执行链路的**末端**增加一个自我评估闭环：
 
@@ -497,7 +497,7 @@ flowchart LR
 
 ### 7.4.3 Self-Consistency：多次推理后再投票
 
-![cleaned-image_(8).png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a34768ed5594a3ebd85961e98d71229~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7693185&e=png&b=5fc2e6)
+![cleaned-image_(8).png](/assets/img/frontend-ai-agent-camp/d3c68af56a0e59b9.jpg)
 
 第三种优化策略走的是另一条思路：它既不评估整条链，也不局部重写，而是**让模型独立推理多次，再对结果做投票或聚合。**
 
@@ -582,7 +582,7 @@ flowchart TB
     O --> UI["UI 协议\nsteps + card + action_buttons"]
 ```
     
-![cleaned-image_(9).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/172ad9bd512a4db58ee02f7a3788f1a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=9197564&e=png&b=1b5a99)
+![cleaned-image_(9).png](/assets/img/frontend-ai-agent-camp/c89f8120b53a3404.jpg)
 
 
 它的演进方式可以拆成三步来看：
@@ -723,4 +723,4 @@ flowchart LR
 
 **有兴趣的话可以添加我的微信号一起交流，不仅是编程也可以是畅谈人生。**
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71a8a41d62a644ee9f62ca44ad4313bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1083\&h=1464\&s=114406\&e=jpg\&b=fdfdfd)
+![](/assets/img/frontend-ai-agent-camp/cad7106f0f54f51e.jpg)

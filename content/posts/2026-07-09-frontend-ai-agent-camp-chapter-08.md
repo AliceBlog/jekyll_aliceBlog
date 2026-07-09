@@ -2,8 +2,8 @@
 title: "第八章：LangGraph 单 Agent 图实战——路由、循环与质量闭环"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 9 篇"
 date: 2026-07-09T11:08:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -13,7 +13,7 @@ weight: 0
 theme: channing-cyan
 ---
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e05d3463304746768f7979695001a1d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1830194&e=png&b=031540)
+![image.png](/assets/img/frontend-ai-agent-camp/1ba32e7ecc572e39.jpg)
 
 第七章将 Agent 推理拆分为路由层、执行层与优化层；第六章则给出了一个可运行的需求分析系统：`extract → clarify → analysis → risk → summary` 的五段式流程，以及与之配套的 `steps`、`ThinkingIndicator`、`confirmation` 等 UI 协议。
 
@@ -86,7 +86,7 @@ const clarified = await clarifyAgent.invoke({ extracted });
 
 ### 8.1.3 LangGraph 补足了什么
 
-![image 1.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e34555b08f6a4f108c253d134bd29aca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=1024&s=1269137&e=png&b=fefefe)
+![image 1.png](/assets/img/frontend-ai-agent-camp/dfd58df0ed6c829e.jpg)
 
 LangGraph 在 LangChain 之上加了一层**状态机 + 图的运行时**。直接看对比表：
 
@@ -212,7 +212,7 @@ const graph = new StateGraph(DemoState)
 *   **`interrupt()`** + **`Command`**：在任意节点中暂停图的执行，把控制权交还给调用方，等用户确认后再 `new Command({ resume })` 恢复，并可双向传值。
 *   **`graph.stream(..., { streamMode: "updates" })`**：按节点粒度推送状态增量，天然驱动前端进度条。
 
-![image 2.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaa676623a714a1b98a196fc735ead4c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1329&h=1183&s=1314302&e=png&b=fefefe)
+![image 2.png](/assets/img/frontend-ai-agent-camp/5be9151eff6557cc.jpg)
 
 ### 8.2.6 一个 50 行的最小示例
 
@@ -611,7 +611,7 @@ bun run src/llm/graph/test-graph.ts
 *   **耗时是否合理**：`query` / `chat` 是否明显快于完整分析链
 *   **通过率是否达标**：7 个测试用例至少通过 6 个
 
-![image 3.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcd70bb32b464e5582aad1e271fcb652~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1292&h=1204&s=158834&e=png&b=282c34)
+![image 3.png](/assets/img/frontend-ai-agent-camp/a474b9dd91369a26.jpg)
 
 #### 方式 2：前端体验验证
 
@@ -626,15 +626,15 @@ bun run dev
 
     *   **分析请求**：如“分析需求 REQ-20240315-001：开发一个在线问卷调查系统，支持多种题型（单选、多选、填空），能够实时收集和统计数据，目标用户是企业HR和市场调研人员。”
 
-![image 4.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/377d843a7cff4e0ab48fd5add76959a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2996&h=1720&s=860575&e=png&b=fdfbf7)
+![image 4.png](/assets/img/frontend-ai-agent-camp/c9c6d09f08285418.jpg)
 
     *   **查询请求**：如“查询 REQ-20240315-001 的当前状态”
 
-![image 5.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a4b2db7e9c84de4abafa15a1ff142bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1538&h=908&s=117215&e=png&b=fffdfa)
+![image 5.png](/assets/img/frontend-ai-agent-camp/479f7535b5b4a8bf.jpg)
 
     *   **闲聊请求**：如“你好，今天天气不错”
 
-![image 6.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18b2bd6156f54e5db4cfff6e6d42f0b5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1460&h=522&s=69944&e=png&b=fefcf8)
+![image 6.png](/assets/img/frontend-ai-agent-camp/7990c2a2689279d1.jpg)
 
 预期表现：
 
@@ -722,7 +722,7 @@ ReAct 可能反复调用工具确认细节，Critic 也可能持续提出新的�
 
 这就是第七章讲的 **ReAct**（Reasoning + Acting）模式。在 LangGraph 里，与其继续往单个节点里堆逻辑，不如直接把 `analysis` 拆成一张子图。
 
-![image 7.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62536730511b4f3488060dc3f5bec94d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1306&h=1205&s=1316085&e=png&b=fefefe)
+![image 7.png](/assets/img/frontend-ai-agent-camp/cac03b70105a3e78.jpg)
 
 <aside>
 
@@ -877,7 +877,7 @@ flowchart TD
     end
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba5cb5275bcc46509631e1ce5b1f4721~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1306&h=1204&s=1216425&e=png&b=f7f8ef)
+![image.png](/assets/img/frontend-ai-agent-camp/642931e575725bce.jpg)
 ### 8.5.6 关键要点
 
 <aside>
@@ -936,7 +936,7 @@ bun run src/llm/graph/test-graph.ts
 *   **是否能安全降级**：没有工具调用时，子图也能直接产出分析结果。
 *   **analysisResult 是否正确落盘**：主图后续节点能够读取分析结果，而不是拿到空值。
 
-![image 8.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9eb6799d36af4c5aa589c9a77b0283b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1234&h=648&s=147514&e=png&b=282c34)
+![image 8.png](/assets/img/frontend-ai-agent-camp/6a14ca173e65d89f.jpg)
 
 #### 方式 2：日志与前端联调验证
 
@@ -1008,7 +1008,7 @@ Critic-Refine 与 ReAct 同样依赖回边原语，但两者的**回边指向位
 *   Critic-Refine 只修订被指出的问题，保留正确部分
 *   评审标准可以显式定义，质量更可控
 
-![image 9.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4091e7dba6f4212926733df604f8a43~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1313&h=1198&s=1454116&e=png&b=fefdfd)
+![image 9.png](/assets/img/frontend-ai-agent-camp/5d7a1de2322a71f0.jpg)
 
 ### 8.6.3 Prompt：生成 Critic-Refine 子图
 
@@ -1592,7 +1592,7 @@ sequenceDiagram
     ConversationController-->>前端: 返回完整结果
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0b49e4d790a4db9a17d4d0d4d5a3b6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1335&h=1178&s=1187684&e=png&b=fefdfd)
+![image.png](/assets/img/frontend-ai-agent-camp/6ebf764513d0cd22.jpg)
 #### 核心组件说明
 
 **1. 数据库表结构（Prisma Schema）**
@@ -2224,7 +2224,7 @@ for await (const event of graph.streamEvents(input, { version: 'v2' })) {
 4.  **汇总节点闭环化**：用 Critic-Refine 子图升级 `summaryStep`，让最终报告具备评审、局部修订与收敛能力。
 5.  **工程能力产品化**：用业务层持久化、SSE 节点流、HITL 选型说明和 FAQ，把图结构接入真实项目。
 
-![image 10.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f29e4435861d43cfbc7f97d81e484539~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=1024&s=1385789&e=png&b=fefefe)
+![image 10.png](/assets/img/frontend-ai-agent-camp/ce5bc69e338ab6a1.jpg)
 
 <aside>
 

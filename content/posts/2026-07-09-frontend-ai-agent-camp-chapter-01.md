@@ -2,14 +2,14 @@
 title: "第一章：把模型变成能力"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 2 篇"
 date: 2026-07-09T11:01:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 2 篇。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe0f172ac25345f8bb50a9e01c7c9817~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=458&s=713097&e=png&b=050f1f)
+![image.png](/assets/img/frontend-ai-agent-camp/b3548d03b1a8c754.jpg)
 
 如果说上一章讨论的是开发范式为何会改变，那么从这一章开始，我们将正式进入实践层面：一款智能体究竟应该如何着手开发。
 
@@ -37,7 +37,7 @@ weight: 0
 
 ## **1.2 调用：一次受约束的对话**
 
-![Gemini_Generated_Image_w38544w38544w385.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdae8d48a88c40faa563cedf234c777a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=7214268&e=png&b=e8d8bd)
+![Gemini_Generated_Image_w38544w38544w385.png](/assets/img/frontend-ai-agent-camp/6cd93b0c783cccd0.jpg)
 
 当我们说“调用一次大模型”时，很多人脑海里的第一反应往往很简单：发一句话，然后等待模型返回一段回答。
 
@@ -106,7 +106,7 @@ weight: 0
 
 当我们把一次模型调用拆开来看，会发现它并不是把所有信息都塞进一段 Prompt 里那么简单。为了让模型更清楚地理解“什么是全局规则，什么是当前任务，什么是历史上下文”，现代大模型接口通常会把消息划分为不同角色。最常见的就是 system、user 和 assistant。
 
-![Gemini_Generated_Image_s3vwuts3vwuts3vw.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec286624dbca4383b3196853b7e02e74~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2816&h=1536&s=6246991&e=png&b=092037)
+![Gemini_Generated_Image_s3vwuts3vwuts3vw.png](/assets/img/frontend-ai-agent-camp/5f8edbc09c599310.jpg)
 如果做一个最简化的理解，user 负责提出当前任务，assistant 负责承接历史响应并延续上下文，而 system 则负责定义整次交互的背景设定。它并不是在提问，而是在提前规定：模型应以什么身份、遵循什么原则、以什么行为方式参与当前任务。
 
 也正因为如此，在这几个角色中，真正决定系统稳定性的往往不是 user，而是最容易被忽视的 system prompt。
@@ -132,7 +132,7 @@ weight: 0
 
 如果把前面的内容再收束一步，就会发现：一次真正适合工程接入的模型调用，通常不是一段孤立的 Prompt，而是由多层信息共同组成。它们各司其职：有的提供稳定规则，有的描述当前任务，有的补充背景信息，有的约束输出形式，还有的在结果返回后负责处理与兜底。
 
-![Gemini_Generated_Image_w2nizuw2nizuw2ni.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/023d75a8f5c84e89ac8cf1aa1499f062~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=4372846&e=png&b=fefefe)
+![Gemini_Generated_Image_w2nizuw2nizuw2ni.png](/assets/img/frontend-ai-agent-camp/7db30e4fa9359a30.jpg)
 
 从工程角度看，这种分层不是为了把调用过程讲得更复杂，而是为了让模型行为更清晰、结果更稳定、系统更易维护。
 
@@ -426,7 +426,7 @@ system 之下是 **task 层**。这一层对应本次调用真正要完成的任
 
 ### **1.4.1 不稳定通常表现在哪些地方**
 
-![Gemini_Generated_Image_9ccftl9ccftl9ccf.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8ed1c4c63274cc3aae41ffad86f801a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2048&h=2048&s=3869672&e=png&b=fefafa)
+![Gemini_Generated_Image_9ccftl9ccftl9ccf.png](/assets/img/frontend-ai-agent-camp/3f0486b0eba3548b.jpg)
 
 最常见的几类问题大致如下：
 
@@ -572,7 +572,7 @@ system 之下是 **task 层**。这一层对应本次调用真正要完成的任
 
 也就是说，模型结果必须从“能读懂”进一步变成“能处理”。而实现这一点的关键，就是结构化输出。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ceed3563eca40d68fe1682d6f0eda79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=298526&e=png&b=fefefe)
+![image.png](/assets/img/frontend-ai-agent-camp/b4545f89bca23987.jpg)
 
 ***
 
@@ -871,7 +871,7 @@ system 之下是 **task 层**。这一层对应本次调用真正要完成的任
 这一节不再继续讲概念，而是直接落到一个最基本、也最常见的实战问题上：如何用 TypeScript 和最基础的 OpenAI SDK，把一个需求分析能力从“一段能跑的示例代码”整理成“项目里可复用的一项能力”。
 
 
-![image 1.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c4228978a9f4deb9ae9f416a64c47f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=309497&e=png&b=fefefe)
+![image 1.png](/assets/img/frontend-ai-agent-camp/0b36fd107c971075.jpg)
 
 ***
 
@@ -1139,7 +1139,7 @@ main().catch(console.error);
 这时候你拿到的就不再是一段“看起来不错的文本”，而是一个已经有明确结构约定的结果对象。也就是说，这项能力已经开始像一个正常的软件模块那样工作了。
 
 
-![image 2.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0468447d2d5461d8a774c4695a71140~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2490&h=1370&s=267553&e=png&b=181818)
+![image 2.png](/assets/img/frontend-ai-agent-camp/bab29effc8f91ab5.jpg)
 
 ***
 
@@ -1243,7 +1243,7 @@ async analyzeWithRerty(requirement) {
 这类代码本身不复杂，但它体现了一种非常关键的工程思维：你不是在“请求一个聪明模型给你点结果”，而是在“维护一项带不确定性的系统能力”。
 
 
-![image 3.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c37be71395754a86819048dec1bcbb0b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3840&h=2077&s=704427&e=png&b=141414)
+![image 3.png](/assets/img/frontend-ai-agent-camp/ef40d188667f8670.jpg)
 
 ***
 

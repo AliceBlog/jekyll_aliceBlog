@@ -2,14 +2,14 @@
 title: "第三章：LangChain 渐进式教学"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 4 篇"
 date: 2026-07-09T11:03:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 4 篇。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bff873d344b44ce0b7677ddc42290fa6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=589&s=813526&e=png&b=120f4a)
+![image.png](/assets/img/frontend-ai-agent-camp/f1f4e7e4c264d2bb.jpg)
 
 前两章里，我们已经把工程底座搭了起来。接下来这一章要解决的，是一个更贴近真实开发的问题：当“调用一次模型”已经不够用时，怎样把它一步步整理成可维护、可扩展、可测试的服务端能力。
 
@@ -50,7 +50,7 @@ LangChain 的价值，不在于“再包一层模型调用”，而在于它把�
 
 换句话说，引入 LangChain，并不是为了“再包一层调用”，而是为了在工程上提前把这些问题收口。
 
-![generated-image-1774765273638.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa47f0efdcd74d54a5b6a1bd049917fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=1225499&e=png&b=04101e)
+![generated-image-1774765273638.png](/assets/img/frontend-ai-agent-camp/ab5fd3129bf58df7.jpg)
 
 不过，比技术选型更关键的，其实是**先把问题定义正确**。如果任务只是“提取核心目标 / 限制 / 关键词”，那它天然就不稳定：
 
@@ -428,7 +428,7 @@ async invoke(@Body() body: { input: string }) {
       -H "Content-Type: application/json" \
       -d '{"input": "用户注册时必须绑定手机号，密码至少8位"}'
 
-![image.png转存失败，建议直接上传图片文件](<转存失败，建议直接上传图片文件 %E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9ALangChain%20%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%95%99%E5%AD%A6/image.png>)
+![原始图片缺失占位图](/assets/img/frontend-ai-agent-camp/transfer-failed-placeholder.svg)
 
 ### **3.4.3 `stream()` 的流式调用方式**
 
@@ -471,7 +471,7 @@ async stream(@Body() body: { input: string }, @Res() res: Response) {
       -d '{"input": "用户注册时必须绑定手机号，密码至少8位"}'
 
 
-![image 1.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4694aa616f0d4bba91e4eed74349379f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1216&h=994&s=384993&e=png&b=fefefe)
+![image 1.png](/assets/img/frontend-ai-agent-camp/e0e4063474f5bbf4.jpg)
 
 ### **3.4.4 `batch()` 的批量处理方式**
 
@@ -506,7 +506,7 @@ async batch(@Body() body: { inputs: string[] }) {
 到这里，三种最基础的调用方式就都具备了。后面所有更复杂的层次，本质上也都是在这三种执行方式上继续往前叠能力。
 
 
-![generated-image-1774765269063.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6030cd60312b40798a56bb08999eb624~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=1198508&e=png&b=041324)
+![generated-image-1774765269063.png](/assets/img/frontend-ai-agent-camp/790fe8f73b1b86f9.jpg)
 
 *   **`invoke()`：一次请求拿到最终结果（最常用的默认选择）**
     *   适合：接口型能力（例如 `POST /requirement/extract`）需要一次性返回可断言的 JSON 或文本结果。
@@ -663,7 +663,7 @@ async promptToModel(@Body() body: { input: string }) {
       -H "Content-Type: application/json" \
       -d '{"input": "用户注册时必须绑定手机号，密码至少8位"}'
 
-![image.png转存失败，建议直接上传图片文件](<转存失败，建议直接上传图片文件 %E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9ALangChain%20%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%95%99%E5%AD%A6/image%202.png>)
+![原始图片缺失占位图](/assets/img/frontend-ai-agent-camp/transfer-failed-placeholder.svg)
 
 到这里，提示层就从“临时拼接”变成了“可复用模板”。接下来要解决的，就是如何把模板、模型和解析稳定地串成一条固定流程。
 
@@ -694,7 +694,7 @@ async promptToModel(@Body() body: { input: string }) {
 当步骤开始稳定地按同样顺序出现时，就不该继续把它们分散写在各个地方了。这时更合适的做法，是用 `pipe()` 把它们明确串成一条链。
 
 
-![generated-image-1774765273638.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfda5c0dd49e44fb96837af125652f42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1408&h=768&s=1225499&e=png&b=04101e)
+![generated-image-1774765273638.png](/assets/img/frontend-ai-agent-camp/8401938aae540865.jpg)
 
 ### **3.6.2 `StringOutputParser` 的接入**
 
@@ -744,7 +744,7 @@ async chainInvoke(@Body() body: { input: string }) {
       -d '{"input": "用户注册时必须绑定手机号，密码至少8位"}'
 
 
-![image 3.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7964fe2486f54b169f0fe8d7310e572b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1216&h=326&s=158344&e=png&b=fefefe)
+![image 3.png](/assets/img/frontend-ai-agent-camp/1709f89ab1ff2343.jpg)
 
 ### **3.6.4 `chain.stream()` 的流式执行**
 
@@ -894,7 +894,7 @@ async chainBatch(@Body() body: { inputs: string[] }) {
 前面几节已经把调用流程整理得更清楚了，但如果模型输出最终还是一段自由文本，那么它进入程序后的价值仍然有限。只要结果要作为接口返回值、下游输入或测试断言的一部分，自由文本就迟早会暴露出不稳定的问题。
 
 
-![cleaned-image_(3).png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/426540da61ee4227995632bc27d96e29~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2912&h=1440&s=6935174&e=png&b=1a1e2b)
+![cleaned-image_(3).png](/assets/img/frontend-ai-agent-camp/2debebf3d46f8d2c.jpg)
 
 ### **3.7.2 共享字段结构的定义**
 
@@ -978,7 +978,7 @@ async structured(@Body() body: { input: string }) {
 返回结果：
 
 
-![image 4.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fd1d252464d48148ec51a6f5ed6d702~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1216&h=292&s=139827&e=png&b=fefefe)
+![image 4.png](/assets/img/frontend-ai-agent-camp/0b86f9915fd56a1b.jpg)
 
 *   注意：如果出现解析错误，你需要在 prompt 中声明让 LLM 返回 JSON 结构，或额外实现一个 JSON 解析工具作为兜底。同时也可能出现即使已声明返回 JSON，输出仍夹杂其他内容的情况。这属于 LLM 指令遵从不足，多尝试几次即可。
 
@@ -1010,7 +1010,7 @@ async structured(@Body() body: { input: string }) {
 
 做到结构化输出之后，同一段需求文本已经能被整理成稳定字段了。但模型本身依然只能“生成内容”。如果你希望它在抽取之后还能主动校验约束、补充规则说明，就需要把工具接进来。
 
-![cleaned-image (4).png转存失败，建议直接上传图片文件](<转存失败，建议直接上传图片文件 %E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9ALangChain%20%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%95%99%E5%AD%A6/cleaned-image_(4).png>)
+![原始图片缺失占位图](/assets/img/frontend-ai-agent-camp/transfer-failed-placeholder.svg)
 
 这里先接两个最小工具，目的不是把场景做复杂，而是帮助你看清：模型负责决策，工具负责提供确定性结果。
 
@@ -1155,7 +1155,7 @@ async toolLoopDemo(input: string) {
 
 返回结果：
 
-![image 5.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/455fa7edae4e420dbdb9a610e755aad3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1776&h=340&s=262203&e=png&b=fefefe)
+![image 5.png](/assets/img/frontend-ai-agent-camp/327a4e299d78a7f5.jpg)
 
 ### **3.8.5 工具调用适合解决什么问题**
 
@@ -1332,7 +1332,7 @@ export default function Home() {
 }
 ```
 
-![image 6.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60b046f69afe4d9fa3afbf05b9465339~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2182&h=1418&s=110515&e=png&b=fcfcfc)
+![image 6.png](/assets/img/frontend-ai-agent-camp/14cd882537afe6f4.jpg)
 
 前端职责边界可以浓缩成三件事：
 

@@ -2,8 +2,8 @@
 title: "第十五章：DeepAgent——长链任务与自主规划"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 16 篇"
 date: 2026-07-09T11:15:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -13,7 +13,7 @@ weight: 0
 theme: channing-cyan
 ---
 
-![generated-image-1781105060139.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c1c8a51723445da8de67f25228c5652~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=791728&e=jpg&b=080e26)
+![generated-image-1781105060139.png](/assets/img/frontend-ai-agent-camp/30e83c2377adcf5e.jpg)
 
 **本章demo地址**：[feat/deepagents](https://github.com/Cookieboty/autix-demo/tree/feat/deepagents)
 
@@ -44,7 +44,7 @@ theme: channing-cyan
 
 ## 15.1 什么样的任务属于「长链」
 
-![generated-image-1781105103757.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8be078e61b734566aa62eea39bfef8da~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=562256&e=jpg&b=0f1725)
+![generated-image-1781105103757.png](/assets/img/frontend-ai-agent-camp/4de093bde9614e8a.jpg)
 
 不是「步骤多」就叫长链。一个执行 20 个步骤但每步都很短、上下文不持续增长的批处理，本质上仍然是短任务循环。**长链任务**的判定标准是下面这几条同时出现：
 
@@ -112,7 +112,7 @@ flowchart TD
   M7 --> Graph
 ```
 
-![1.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88e945509ce540a985567b02c01a3d47~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=4053&h=956&s=212834&e=png&b=020817)
+![1.png](/assets/img/frontend-ai-agent-camp/866bd3f5d4c49e35.jpg)
 
 ### 15.2.2 每个中间件对应我们手写过的什么
 
@@ -157,7 +157,7 @@ DeepAgent 没有发明新的图原语。它建立在第八章 8.2 讲过的 `sta
 
     Layer 1 验证：`createDeepAgent` 返回含 `invoke`/`streamEvents` 的 Agent、`REQUIRED_MIDDLEWARE_NAMES` 包含 `FilesystemMiddleware` 和 `SubAgentMiddleware`、`GENERAL_PURPOSE_SUBAGENT` 结构完整。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72d036b7a095449db94975af286ea4f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1208&h=1236&s=220022&e=png&b=282c34)
+![](/assets/img/frontend-ai-agent-camp/f4b395742fec9c40.jpg)
 
 ***
 
@@ -184,7 +184,7 @@ flowchart TD
   Deep --> VFS["VFS 落盘\n每个需求一个 .md"]
   Deep --> Report["主回路只看摘要\n汇总成总报告"]
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa6d031192d54977b2848eaf5859c45c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1537&h=1196&s=155111&e=png&b=020817)
+![](/assets/img/frontend-ai-agent-camp/79b0469f9be0f31d.jpg)
 
 ### 15.3.2 三种子 Agent 类型的选择
 
@@ -441,7 +441,7 @@ const result = await agent.invoke({
     expect(output.length).toBeGreaterThan(200);
     ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaee2601982e44e697f544d8cd66d1e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1200&h=1236&s=303289&e=png&b=282c34)
+![](/assets/img/frontend-ai-agent-camp/7458501ff7f3f6e1.jpg)
 
 #### 用 `streamEvents` 观测每一步
 
@@ -571,7 +571,7 @@ for await (const ev of agent.streamEvents(
 
 ## 15.5 上下文管理：Summarization × VFS × 超长内容截断（Token Eviction）
 
-![generated-image-1781105108725.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d432e86245b4adba4b97dcb83e55cac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=715452&e=jpg&b=071742)
+![generated-image-1781105108725.png](/assets/img/frontend-ai-agent-camp/e1cd86d82b944ddc.jpg)
 
 长链任务首先遇到的限制通常是上下文窗口。DeepAgent 通过**三条协同机制**处理，每条解决不同层面的问题：
 
@@ -671,7 +671,7 @@ interface TruncateArgsSettings {
 
     Layer 1 验证：`computeSummarizationDefaults(model)` 返回的 `trigger`、`keep`、`truncateArgsSettings` 结构正确。实跑结果确认 GPT-5.4 的默认阈值为 `{ type: "fraction", value: 0.85 }`。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e28f7b2a84d4aa8bfda3ec988ef05dd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1208&h=858&s=174872&e=png&b=282c34)
+![](/assets/img/frontend-ai-agent-camp/da4609a07a269307.jpg)
 
 ***
 
@@ -699,7 +699,7 @@ flowchart LR
   Shell --> Sandbox["LangSmithSandbox\n远程沙箱"]
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0deeba1e26f741c291b5d5395f7046ee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1843&h=572&s=90070&e=png&b=020817)
+![](/assets/img/frontend-ai-agent-camp/83a4fb4f4575f3bb.jpg)
 
 ### 15.6.2 StateBackend（默认）
 
@@ -810,7 +810,7 @@ const sandbox = await LangSmithSandbox.create({
 
     Layer 1 验证：`FilesystemBackend` 跨实例写入后读回（真实落盘）、`StateBackend` 可构造、`CompositeBackend` 按路径前缀路由到不同后端。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b09a5baf02c46ffb452dec4a9ad1675~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1212&h=950&s=217892&e=png&b=282c34)
+![](/assets/img/frontend-ai-agent-camp/f06ee12901893ff5.jpg)
 
 ***
 
@@ -827,7 +827,7 @@ flowchart LR
   end
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ccb013797d44078a7d74f82cdc0e46a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1608&h=386&s=60408&e=png&b=363838)
+![](/assets/img/frontend-ai-agent-camp/58abfd6669a09367.jpg)
 
 | 层     | 存什么                                          | 用什么                                         | 跨进程？  | 跨 thread？ |
 | ----- | -------------------------------------------- | ------------------------------------------- | ----- | --------- |
@@ -869,7 +869,7 @@ const agent = createDeepOrchestrator({ model, checkpointer });
 
 ## 15.8 Memory 中间件：跨会话的长期记忆
 
-![generated-image-1781105108967.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0681a2eecf8b4d59b611b991a6a141f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=621386&e=jpg&b=130f49)
+![generated-image-1781105108967.png](/assets/img/frontend-ai-agent-camp/98e350cd77132592.jpg)
 
 第十四章提到了 `MemoryMiddleware` 但留到本章展开。它解决的问题和 Summarization 不同：
 
@@ -935,7 +935,7 @@ Memory 中间件会在 Agent 启动时通过 backend 读取这些文件，将内
 
 ## 15.9 HITL：在敏感节点等审批
 
-![generated-image-1781105109718.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c23c33ee98574150b453f6cf9e347041~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=526123&e=jpg&b=0d0e2b)
+![generated-image-1781105109718.png](/assets/img/frontend-ai-agent-camp/df5ff5eaa21fd664.jpg)
 
 第八章 8.7.2 我们用 `interrupt()` + checkpointer 实现「执行到敏感节点停下来等用户」。DeepAgent 把这件事做成了声明式的 `interruptOn`：
 
@@ -1050,13 +1050,13 @@ interface AsyncSubAgent {
 
     Layer 1 验证：`isAsyncSubAgent` 通过 `graphId` 字段正确区分同步子 Agent（`SubAgent`，返回 `false`）和异步子 Agent（`AsyncSubAgent`，返回 `true`）。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec33a0744d3a4e8fb98ccd99cf52ff99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1214&h=788&s=154522&e=png&b=282c34)
+![](/assets/img/frontend-ai-agent-camp/9e9070d004a1ce84.jpg)
 
 ***
 
 ## 15.11 模型运行配置：根据模型调整运行时行为
 
-![generated-image-1781105110784.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c76264cb971f4cfba03f3f3f6afa2193~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=590260&e=jpg&b=050a32)
+![generated-image-1781105110784.png](/assets/img/frontend-ai-agent-camp/29c86ca9a469fca7.jpg)
 
 DeepAgent 内置了**模型运行配置机制**——根据不同的模型自动调整运行时行为。这是一个常被忽略但在多模型部署中非常有用的能力。
 

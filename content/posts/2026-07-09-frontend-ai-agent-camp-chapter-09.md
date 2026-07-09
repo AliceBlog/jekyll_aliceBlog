@@ -2,8 +2,8 @@
 title: "第九章：LangGraph Multi-Agent 实战"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 10 篇"
 date: 2026-07-09T11:09:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -13,13 +13,13 @@ weight: 0
 theme: channing-cyan
 ---
 
-![generated-image-1777800719324.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6fffffa22fe45a8921da6648b18f1ff~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=565138&e=jpg&b=19132d)
+![generated-image-1777800719324.png](/assets/img/frontend-ai-agent-camp/fc798ed002caab4c.jpg)
 
 第八章把 Ch6 的五段式 Promise 链改造成了一张完整的单 Agent 图：classifier 分发意图、analysis 是一个 ReAct 子图、summary 是一个 Critic-Refine 子图，再加上 Checkpointer、HITL 与流式输出。前一章解决的是"一个 Agent 内部怎么把流程跑通"；本章要回答下一个问题：**当一个 Agent 不够用时，怎么办？**
 
 **本章demo地址**：[feat/LangGraph](https://github.com/Cookieboty/autix-demo/tree/feat/LangGraph)
 
-![generated-image-1777800959922.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e856d9a11c354ba0ba05519df0002c93~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=610679&e=jpg&b=041e31)
+![generated-image-1777800959922.png](/assets/img/frontend-ai-agent-camp/9310d72ab196bf15.jpg)
 
 9.2 Supervisor + 多专家 Agent 集群
 
@@ -44,7 +44,7 @@ theme: channing-cyan
 
 > **你可以把这一章的内容复制到项目里（如下图所示），再借助 AI 阅读本章并配合 spec，这样确实更容易把项目跑通。但如果目的是学习，我不建议这么做：亲自摸索一遍会更有收获。你可以把 AI 当作辅助，但它无法替代完整的思考过程；只有自己学习、自己思考，才能把这些内容真正内化。**
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35f82d95cc764776b7849209e364ca50~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1810&h=1110&s=296533&e=png&b=181818)
+![image.png](/assets/img/frontend-ai-agent-camp/23208c07b39a9f54.jpg)
 
 <aside>
 
@@ -70,7 +70,7 @@ theme: channing-cyan
 
 ## 9.1 从单 Agent 到 Multi-Agent：问题在哪
 
-![generated-image-1777800878252.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bd7a3cfe47a42f78509655c55f1cd95~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=756329&e=jpg&b=0d2037)
+![generated-image-1777800878252.png](/assets/img/frontend-ai-agent-camp/040dae8d75eeff0f.jpg)
 
 9.1 从单 Agent 到 Multi-Agent：问题在哪
 
@@ -123,7 +123,7 @@ flowchart TD
 
 </aside>
 
-![image 1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c957055151094e3499544373c6fed71a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=1280140&e=png&b=05192f)
+![image 1.png](/assets/img/frontend-ai-agent-camp/ec2c2974439823fb.jpg)
 
 ### 🤖 用 AI 生成本节代码
 
@@ -473,7 +473,7 @@ export function createComplianceExpert(model: BaseChatModel) {
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.2.1"`
 > 跑完会看到：State 4 个新字段一览、`createExpertSubGraph` 在专家抛错时如何降级输出”暂不可用：xxx”。
 
-![image 2.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8878eec4df7744d98f5619dca7a7bc8c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1620&h=1078&s=314330&e=png&b=282c34)
+![image 2.png](/assets/img/frontend-ai-agent-camp/5af078d92e6923e1.jpg)
 
 ### 9.2.2 Supervisor：决定这次请求需要哪些专家
 
@@ -601,11 +601,11 @@ function createAnalysisSupervisorSubGraph(model: BaseChatModel) {
 
 *   `bun test test/chapter9-multi-agent.spec.ts -t "9.2.3"` —— 看 `aggregatorNode` 如何把多专家输出合成报告，以及降级专家如何被标 ⚠️
 
-![image 3.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18cef7b25c3949439b95e2e61ee6c50a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1574&h=1064&s=268312&e=png&b=292d35)
+![image 3.png](/assets/img/frontend-ai-agent-camp/83f57831a9420e7b.jpg)
 
 *   `bun test test/chapter9-multi-agent.spec.ts -t "9.3"` —— 看 `routeToExperts` 把 `activeExperts` 数组转成并发节点列表
 
-![image 4.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aacd75fbbdb34fc8a0cf0ab55b435f02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1588&h=928&s=266385&e=png&b=282c34)
+![image 4.png](/assets/img/frontend-ai-agent-camp/27f595f9b796f136.jpg)
 
 ### 9.2.4 主图装配：只改一处
 
@@ -675,7 +675,7 @@ export function createAnalysisGraph(
 
 ## 9.3 并行分发：让多个专家同时工作
 
-![generated-image-1777801046279.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07fa497723b04ee79c739a1498247461~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=594261&e=jpg&b=072635)
+![generated-image-1777801046279.png](/assets/img/frontend-ai-agent-camp/ce90eb8850fdf218.jpg)
 
 9.3 LangGraph 多专家并行分发
 
@@ -842,7 +842,7 @@ cd services/chat
 bun run src/llm/graph/test-multi-agent.ts
 ```
 
-![image 5.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12b0a597f5184c0da947504e71dd69d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1604&h=1352&s=389885&e=png&b=282c34)
+![image 5.png](/assets/img/frontend-ai-agent-camp/c8439bdcf2ddf523.jpg)
 
 ### 验收标准
 
@@ -881,9 +881,9 @@ bun run dev
     支持批量导入 Excel 用户数据，单次最多 10000 行
 
 
-![image 6.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bda6196600d43a68fa7d2f2749fc193~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1522&h=782&s=52542&e=png&b=26221f)
+![image 6.png](/assets/img/frontend-ai-agent-camp/cb8eba4603cc2285.jpg)
 
-![image 7.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3f6088fc53e43fd902edf884956c695~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3014&h=1714&s=811858&e=png&b=24201d)
+![image 7.png](/assets/img/frontend-ai-agent-camp/5aaf3d70125a6e4f.jpg)
 
 **期望行为**：
 
@@ -964,7 +964,7 @@ mock 用例在 \~150ms 内跑完，覆盖了上面”验收标准”清单里大
 Supervisor 是**中心化调度**：所有专家都必须经过 Supervisor 才能进入/退出。Handoff 是**去中心化交接**：Agent 之间直接传递控制权，没有中心调度者。
 
 
-![image 8.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/201ccd88bcee44478bc82e599c05c262~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=1197658&e=png&b=12092c)
+![image 8.png](/assets/img/frontend-ai-agent-camp/c245a9c91113f471.jpg)
 
 ### 9.4.1 什么时候需要 Handoff 而不是 Supervisor
 
@@ -1063,7 +1063,7 @@ function routeByIntent(state: typeof RequirementAnalysisState.State): string {
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.4"`
 > 8 个用例覆盖：schema 接受 3 种合法 action / 拒绝旧 `handoff_to_risk` / `answer` 短路链路 / `handoff_to_query` / `handoff_to_analysis`。
 
-![image 9.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/814c2dc75d024b6a9e8db322554808ff~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1826&h=1592&s=508061&e=png&b=282c34)
+![image 9.png](/assets/img/frontend-ai-agent-camp/1d78414fe7d0fe3d.jpg)
 
 ### 9.4.3 Supervisor vs Handoff：结构对比
 
@@ -1094,7 +1094,7 @@ flowchart TB
 
 ## 9.5 组合流水线：Plan-and-Execute + Supervisor + Reflexion
 
-![image 10.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2abf3b727a64135b0456504c575d1bc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=1303487&e=png&b=041d3e)
+![image 10.png](/assets/img/frontend-ai-agent-camp/6c8c5bbe512e8d05.jpg)
 
 ### 🤖 用 AI 生成本节代码
 
@@ -1311,7 +1311,7 @@ async function plannerNode(
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.5.1"`
 > 跑完会看到 `[Planner] 拆解为 3 个步骤` 的日志，以及 `parentThreadId` 在新会话/续会话两种场景下的生成与保留。
 
-![image 11.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b93a242f7ae2491c9d2b09ff215d1f99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1826&h=1592&s=314914&e=png&b=282c34)
+![image 11.png](/assets/img/frontend-ai-agent-camp/6ef1eb867a18187f.jpg)
 
 ### 9.5.2 executor 直接调用 9.2\~9.3 的主图
 
@@ -1370,7 +1370,7 @@ async function executorNode(state: typeof PipelineState.State) {
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.5.2"`
 > 三个用例分别覆盖：成功路径（`currentStepIndex` 推进 + `stepResults` 写入）、容错路径（子图抛错时 `[执行失败] xxx` 兜底）、防御性边界（plan 越界时直接返回空）。
 
-![image 12.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0201874a283d49c794b958a133db421b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1832&h=1592&s=420047&e=png&b=282c34)
+![image 12.png](/assets/img/frontend-ai-agent-camp/387101fcdd182dbb.jpg)
 
 ### 9.5.3 reflector：Reflexion 的图结构落地
 
@@ -1503,7 +1503,7 @@ function shouldReflect(state: typeof PipelineState.State): string {
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.5.3"`
 > 看 `evaluatorNode` 在 approved=true / false 两种打分下的行为，以及 `reflectorNode` 修订计划后 `retryCount: 0 → 1` 的变化。
 
-![image 13.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58566226695a4a0c91219c3eefc621e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1828&h=1406&s=331107&e=png&b=282c34)
+![image 13.png](/assets/img/frontend-ai-agent-camp/d0bb7a168692afc0.jpg)
 
 ### 9.5.4 完整的 Pipeline 图装配
 
@@ -1588,7 +1588,7 @@ Plan-and-Execute + Reflexion 的组合适合“明确可拆解”的大任务。
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.5.4"`
 > 用纯函数测试覆盖 `shouldContinue` / `shouldReflect` 的全部分支：还有未做的步骤 → executor，全部完成 → evaluator，approved 通过 → END，retryCount=1 触发硬上限 → END。
 
-![image 14.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a43c4c9e3b84435943c28d7f138ea68~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1824&h=1096&s=342340&e=png&b=282c34)
+![image 14.png](/assets/img/frontend-ai-agent-camp/9ed55cb83c9f358d.jpg)
 
 ### 顶层实验入口：`runPipeline()`
 
@@ -1635,7 +1635,7 @@ export async function runPipeline(
 1.  流水线内部包含并行节点（`analysisStep || riskStep`），不能用 `FakeListChatModel({ responses: [...] })` 顺序消费——必须按 system prompt 关键字路由；
 2.  `FakeListChatModel.bindTools` 内部会 `new FakeListChatModel(...)`，导致子类的 `_generate` 重写丢失。子类化时必须同时重写 `bindTools` 返回 `this`，否则专家 ReAct 子图（用了 `bindTools`）会跳过 mock。
 
-![image 15.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3cae8d7f66b4de5a3651b74f5149ed9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1828&h=1592&s=380855&e=png&b=282c34)
+![image 15.png](/assets/img/frontend-ai-agent-camp/b973bac59f88e161.jpg)
 
 ### 9.5.5 三种推理模式在图中的位置总览（来自第七章的对照）
 
@@ -1713,7 +1713,7 @@ export async function runPipeline(
 
 系统结构定下来了，剩下是**让它在生产环境能跑稳**。
 
-![image 16.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb9ba96ad72b48faa83ec11365168626~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=1374182&e=png&b=0c144c)
+![image 16.png](/assets/img/frontend-ai-agent-camp/780f56d2c33ac095.jpg)
 
 ### 9.6.1 错误降级：节点级失败的处理
 
@@ -1741,7 +1741,7 @@ async function agentNode(state) {
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.6.1"`
 > 同时跑一遍 9.2.1 工厂的降级用例（`-t "9.2.1"`）就能完整看到：专家抛错 → 子图 finalize 兜底 → aggregator 把”暂不可用”标成 ⚠️ 安全分析（降级）这条完整链路。
 
-![image 17.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67edaa2f3c1240848f925216abb13458~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1828&h=696&s=190340&e=png&b=282c34)
+![image 17.png](/assets/img/frontend-ai-agent-camp/ae3436899ecbbf49.jpg)
 
 ### 9.6.2 Checkpointer + HITL：在 clarifyStep 前中断
 
@@ -1860,7 +1860,7 @@ export const hitlCheckpointer = pgSaver;
 2.  chat 路径 triage 直答 → 不触发中断，`snapshot.next === []`
 3.  `updateState({clarified: ...})` 后再 `getState` 能读到补丁
 
-![image 18.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12a79bdfc0a9435587be46ad388e6d23~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1826&h=1174&s=290958&e=png&b=282c34)
+![image 18.png](/assets/img/frontend-ai-agent-camp/13b00af6a83af311.jpg)
 
 <aside>
 
@@ -2089,7 +2089,7 @@ Multi-Agent + Reflexion 的组合很容易让 token 成本失控。有两条必�
 > 📋 **本节配套用例**：`bun test test/chapter9-multi-agent.spec.ts -t "9.6"`
 > 验证三条硬上限是否在代码里真的生效：`createExpertSubGraph` 默认 maxSteps=6、`supervisorSchema` zod `.min(1)` 强制至少一个专家、`shouldReflect` 在 `retryCount>=1` 时返回 END。
 
-![image 19.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34872c232ed45faa2c367d663dbf784~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1828&h=1412&s=414469&e=png&b=282c34)
+![image 19.png](/assets/img/frontend-ai-agent-camp/7056a73311c39352.jpg)
 
 ***
 

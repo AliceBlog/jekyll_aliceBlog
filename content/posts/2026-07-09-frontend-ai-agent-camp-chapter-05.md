@@ -2,14 +2,14 @@
 title: "第五章：从 Mock 到生产——数据库设计与向量化落库"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 6 篇"
 date: 2026-07-09T11:05:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
 > 本文整理自《2026 前端 AI Agent 工程化实战营》课程资料，作为系列文章第 6 篇。
 
-![cleaned-image_(3).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24be15f6b1bc43c28bc5ba45f33f9b14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7203580&e=png&b=0a1d32)
+![cleaned-image_(3).png](/assets/img/frontend-ai-agent-camp/f73846eaa64c7ef6.jpg)
 
 在第四章，我们已经把 Memory、Tools、Embeddings 和 Multi-Agent 全部跑通了，但这些都只是 **demo 级示例**：所有数据都存在于进程内存或本地文件中。`InMemoryChatMessageHistory` **重启即丢**，`MemoryVectorStore` **进程退出即清空**，`workspace/orders/*.json` 是手写的 mock 数据，更谈不上用户隔离——**无论谁来，都是同一个匿名会话**。
 
@@ -72,7 +72,7 @@ weight: 0
     所以你可以把这张总览图当作本章的路线图：后面每一节都只是在把图中的某一个环节从 demo 形态替换成生产形态，并把它重新接回这条主链路。
 
 
-![cleaned-image_(3) 1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26ce3134ac8f4cbd9b266ef5ede7b2e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7067360&e=png&b=0e2139)
+![cleaned-image_(3) 1.png](/assets/img/frontend-ai-agent-camp/215183c465a262ec.jpg)
 
 整条链路可以拆成四个关键环节：
 
@@ -125,7 +125,7 @@ weight: 0
 
 先看全貌。本章的数据模型由五张核心表组成，它们之间的关系很直接：
 
-![cleaned-image_(3) 2.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68d2fa32c1734e3aadb91ec92563324f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=6716772&e=png&b=142436)
+![cleaned-image_(3) 2.png](/assets/img/frontend-ai-agent-camp/7b2fd394829b38ff.jpg)
 
 每张表的设计意图：
 
@@ -290,7 +290,7 @@ bunx prisma studio
 
 **验收标准**：Prisma Studio 能打开，五张表结构正确显示；`DocumentChunk` 表包含 `embedding` 列。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2c2d2b3f2eb4daf9ccfb59188ea1656~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2410&h=1264&s=137336&e=png&b=141417)
+![image.png](/assets/img/frontend-ai-agent-camp/731d1b50d5888dbd.jpg)
 
 注意：此截图里之所以少一张表，是因为实际的项目采用微服务架构。
 
@@ -521,7 +521,7 @@ curl http://localhost:3001/api/conversations/$CONV_ID/messages \
 
 **验收标准**：重启服务后，`GET /:id/messages` 仍能返回之前的完整对话历史；不同用户无法访问对方的会话。
 
-![image 1.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a02f3d89c8d46ffb761ae97ad734a6a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2688&h=1786&s=273044&e=png&b=070808)
+![image 1.png](/assets/img/frontend-ai-agent-camp/e2bb892cb9181a43.jpg)
 
 ***
 
@@ -576,7 +576,7 @@ sequenceDiagram
     API-->>U: 返回 Document 元数据
 ```
 
-![mermaid-diagram-2026-04-12-185649.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/794be3ed933747cb8e83ee89081b0cec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2778&h=882&s=151684&e=png&b=ffffff)
+![mermaid-diagram-2026-04-12-185649.png](/assets/img/frontend-ai-agent-camp/8d98fca430b3eadf.jpg)
 
 ### 5.5.2 文件上传服务
 
@@ -689,9 +689,9 @@ curl http://localhost:3001/api/documents \
 **验收标准**：上传成功返回 Document 记录，`status` 为 `pending`；`uploads/` 目录下能找到对应文件；文档列表接口返回用户已上传的文件。
 
 
-![image 2.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ffb5117b31b84bebabf8b4857721c698~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=910&h=262&s=38923&e=png&b=1c1c1c)
+![image 2.png](/assets/img/frontend-ai-agent-camp/b79f739e3de02106.jpg)
 
-![image 3.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9abd3cc3649f440ea4f6d5ae56952ab6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2706&h=856&s=108796&e=png&b=050606)
+![image 3.png](/assets/img/frontend-ai-agent-camp/4282d6e1d05a3675.jpg)
 ***
 
 ## 5.6 文件解析与分块策略
@@ -738,7 +738,7 @@ flowchart LR
     E --> F["写入 DocumentChunk 表"]
 ```
 
-![mermaid-diagram-2026-04-12-173851.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d725b10729184aefae15f2ea4fafe548~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2684&h=140&s=44037&e=png&b=ececff)
+![mermaid-diagram-2026-04-12-173851.png](/assets/img/frontend-ai-agent-camp/a75cf3ddf57e5e91.jpg)
 
 ### 5.6.2 文件解析器
 
@@ -860,9 +860,9 @@ bunx prisma studio
 
 **验收标准**：处理完成后 Document 的 `status` 变为 `completed`，`chunkCount` 大于 0；DocumentChunk 表中有对应的分块记录。
 
-![image 4.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7390030e6df94c88bd56aae014183d9a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1848&h=590&s=86613&e=png&b=fdfdfd)
+![image 4.png](/assets/img/frontend-ai-agent-camp/c4c39e25bd51537e.jpg)
 
-![image 5.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35b15f08a6284a65b87c6d586d160fb5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2594&h=788&s=180829&e=png&b=fcfcfc)
+![image 5.png](/assets/img/frontend-ai-agent-camp/901849ff70712e40.jpg)
 
 ***
 
@@ -1075,9 +1075,9 @@ curl -X POST http://localhost:3001/api/search \
 
 **验收标准**：处理完成后，DocumentChunk 表中的 `embedding` 字段不再为 NULL；语义检索返回与查询语义相关的文档片段，且只包含当前用户的文档。
 
-![image 6.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f06d681ee16e4da3a0a00315845523fc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2238&h=1594&s=510714&e=png&b=fefefe)
+![image 6.png](/assets/img/frontend-ai-agent-camp/702245cb09fbae37.jpg)
 
-![image 7.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95da0bf1492a4a3cbaafefa32cb1b25f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2560&h=1068&s=187984&e=png&b=fcfcfc)
+![image 7.png](/assets/img/frontend-ai-agent-camp/9949a296b6fa62c3.jpg)
 
 ***
 
@@ -1165,7 +1165,7 @@ sequenceDiagram
     SSE-->>FE: event: { taskType: 'document_vectorize', status: 'done' }
 ```
 
-![mermaid-diagram-2026-04-12-173633.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ecfa399ca6d4922a30f7afd02993db4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3114&h=1334&s=241844&e=png&b=ffffff)
+![mermaid-diagram-2026-04-12-173633.png](/assets/img/frontend-ai-agent-camp/6b7954d89b6537b6.jpg)
 
 
 ### 5.8.3 SseService：基于内存 Subject 的推送中心
@@ -1332,7 +1332,7 @@ curl -X POST http://localhost:3001/api/documents/$DOC_ID/process \
 
 **验收标准**：终端 1 先收到 `status: processing`，等待数秒后收到 `status: done`（含 `chunkCount`）；如果处理失败则收到 `status: error`。
 
-![image 8.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27241cd19a0a423498c98be5b3c053d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2944&h=1696&s=190333&e=png&b=040505)
+![image 8.png](/assets/img/frontend-ai-agent-camp/ccb85c3c567a016f.jpg)
 
 ***
 
@@ -1393,7 +1393,7 @@ sequenceDiagram
     Chat-->>U: 返回报告 + 引用文档
 ```
 
-![mermaid-diagram-2026-04-12-173718.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50c37dec4b5e4f9bbf9cfd7f5cc5faa6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3973&h=1698&s=337494&e=png&b=ffffff)
+![mermaid-diagram-2026-04-12-173718.png](/assets/img/frontend-ai-agent-camp/d188da26722d4c5a.jpg)
 
 ### 5.9.2 统一分析服务（整合版）
 
@@ -1537,10 +1537,10 @@ curl http://localhost:3001/api/conversations/$CONV_ID/messages \
 *   ✅ 未登录用户（无 Token）返回 401
 
 
-![image 9.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdd63e3782a24d62bc35e153f567c419~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1554&h=820&s=85287&e=png&b=050606)
+![image 9.png](/assets/img/frontend-ai-agent-camp/2d29d67532637c0b.jpg)
 
 
-![image 10.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0edd5407eb24cd2aa6a33e69a0c384f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2084&h=1204&s=408022&e=png&b=fefefe)
+![image 10.png](/assets/img/frontend-ai-agent-camp/901319a228ba445e.jpg)
 
 <aside>
 

@@ -2,8 +2,8 @@
 title: "第十三章：Skills——把最佳实践沉淀为能力资产"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 14 篇"
 date: 2026-07-09T11:13:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -15,7 +15,7 @@ theme: channing-cyan
 
 **本章demo地址**：[feat/skills](https://github.com/Cookieboty/autix-demo/tree/feat/skills)
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ca3709826ef4cc0baf858e10d74e70f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=1372991&e=png&b=060b32)
+![image.png](/assets/img/frontend-ai-agent-camp/3279929ac8195b61.jpg)
 
 前几章已经分别铺开了几块基础能力。第十一章讲 RAG，重点是让模型在回答前拿到企业内部资料；第十二章讲 MCP，重点是让 Agent 以统一方式接入外部系统；第八、九章讲 Agent 和 Multi-Agent，重点是让模型具备规划、调用工具和持续推进任务的能力。
 
@@ -69,7 +69,7 @@ MCP、RAG、Agents、Skills 分别对应这四类问题：
 | Skills | Prompt 工程资产 | “如何把某类任务的最佳实践固化并复用？”   | `SKILL.md`、工作流、输出规范、质量规则               |
 
 
-![image 1.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89de105585834986ad9fb67e84cc9b0a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1706899&e=png&b=060926)
+![image 1.png](/assets/img/frontend-ai-agent-camp/ff4d661f16f06dd6.jpg)
 
 可以用一句话区分：
 
@@ -202,7 +202,7 @@ Skills 不是 LangChain 的发明，也不是 Anthropic 的私有概念。它有
 
 理解这一节，可以避免把不同实现的”渐进式披露”搞混。
 
-![image 2.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f614b60cbe3b4255b32ce3f271853fd8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1621598&e=png&b=010820)
+![image 2.png](/assets/img/frontend-ai-agent-camp/805fc1db03bc3806.jpg)
 
 ### 13.3.1 规范的核心要素
 
@@ -262,7 +262,7 @@ module: index.ts                      # 可选，对应可执行模块
 
 LangChain 在 SQL Assistant 教程里给出了一份基础 Skills pattern2。它不直接消费 Agent Skills 规范的 frontmatter，而是把 Skill 当成一个 `{ name, description, content }` 数据结构，用一个 `loadSkill` 工具加一个 `createMiddleware` 中间件实现两层渐进式披露。
 
-![image 3.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d0fb1f5ce4c40cf91190639a46d5670~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1768120&e=png&b=020421)
+![image 3.png](/assets/img/frontend-ai-agent-camp/91d7f7132a4aab2d.jpg)
 
 **本章 demo 走的就是这条路**。因此，本节是 13.8 实战部分的理论基础。
 
@@ -554,7 +554,7 @@ L4 的”只回 stdout”是 Claude Code 控制上下文成本的关键设计—
 
 ## 13.7 三种模式并列对比
 
-![image 4.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad3fd7c7fdc34a2fbccef6075463bf88~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1761665&e=png&b=02081a)
+![image 4.png](/assets/img/frontend-ai-agent-camp/23e4508df0d266af.jpg)
 
 | 维度       | LangChain Custom Pattern              | LangChain Deep Agents          | Claude Code Skills                    |
 | -------- | ------------------------------------- | ------------------------------ | ------------------------------------- |
@@ -686,7 +686,7 @@ const analyzeCompleteness = new DynamicStructuredTool({
 
 ### 13.8.5 实战一：需求分析 Skill
 
-![image 5.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba96787d774f43fd9757dee0ff4f4c50~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1781468&e=png&b=010628)
+![image 5.png](/assets/img/frontend-ai-agent-camp/e1ed3b10e4486d62.jpg)
 
 目录结构：
 
@@ -893,7 +893,7 @@ cd services/chat
 bun test test/chapter13-skills.spec.ts -t "13.4"
 ```
 
-![image 6.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0d95f08765541f0b60ce2d9a2a2a769~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1258&h=938&s=461029&e=png&b=fefefe)
+![image 6.png](/assets/img/frontend-ai-agent-camp/abd891f842434414.jpg)
 
 **Layer 2：Agent 集成测试**
 
@@ -910,7 +910,7 @@ RUN_LLM_SKILLS_TESTS=1 LLM_SKILLS_TEST_MODEL=gpt-5.4 bun test test/chapter13-ski
 
 Layer 2 会调用真实模型，需要 `OPENAI_API_KEY` 和模型权限；没有设置 `RUN_LLM_SKILLS_TESTS=1` 时会自动跳过。
 
-![image 7.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8639bdd980140b2bc8b7f148a6a3d3e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1258&h=938&s=287542&e=png&b=fefefe)
+![image 7.png](/assets/img/frontend-ai-agent-camp/dca2a634c01ffbad.jpg)
 
 **运行 Demo**
 
@@ -942,7 +942,7 @@ bun run scripts/run-skill-demo.ts
 
 当前本地验证结果：
 
-![image 8.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91544f3fa3db4618b475ccafec52a9b0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1468&h=1162&s=402611&e=png&b=ffffff)
+![image 8.png](/assets/img/frontend-ai-agent-camp/03c2cb308fa6d901.jpg)
 
 ### 13.8.11 进阶：Command + skillsLoaded（未启用）
 
@@ -994,7 +994,7 @@ sequenceDiagram
   A-->>U: 按 Skill 规范输出评审报告
 ```
 
-![image 9.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86b42ca7e51549e29103493769c1b9d3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=2113281&e=png&b=010219)
+![image 9.png](/assets/img/frontend-ai-agent-camp/b2ed600e90bf697c.jpg)
 
 四者不是竞争关系，而是分工关系：
 
@@ -1092,7 +1092,7 @@ allowed-tools:>-
 
 本章代码是教学 PoC，故意保留最小机制，方便看清 Skills 的核心链路。要进入生产环境，还需要补齐几类能力。
 
-![image 10.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce50c08329fb43cfa0a5e58215d7052b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=941&s=1752142&e=png&b=01061c)
+![image 10.png](/assets/img/frontend-ai-agent-camp/64415e3fd7cd4788.jpg)
 
 ### 13.10.1 安全边界
 

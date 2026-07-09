@@ -55,8 +55,13 @@ params:
   themeColor: default
   postPatterns: circuitBoard
   recommendTags: true
-  recommendConditionSize: 12
+  recommendConditionSize: 16
   tagOrder:
+    - 前端AI-Agent工程化实战营
+    - AI Agent
+    - AI工程
+    - LangChain
+    - LangGraph
     - ScrumPilot
     - AI Scrum Master
     - Agent工程

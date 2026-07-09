@@ -2,8 +2,8 @@
 title: "第十四章：DeepAgent——一个开箱即用的 Agent Harness"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 15 篇"
 date: 2026-07-09T11:14:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -60,7 +60,7 @@ theme: channing-cyan
 
 ## 14.1 先看全景：Agent Harness 谱系
 
-![generated-image-1780142056654.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05eb8c7e18f14a38b37cc1c1851eafe1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=515347&e=jpg&b=e9ecfe)
+![generated-image-1780142056654.png](/assets/img/frontend-ai-agent-camp/cab8ecb978a71f32.jpg)
 
 Agent Harness 的四类运行时要素：Guides、Sensors、Loop Control 与 Hardening
 
@@ -230,7 +230,7 @@ flowchart TB
 
 ## 14.3 DeepAgent 的主要功能
 
-![generated-image-1780142090679.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8417066c10294fa5bde619660202c374~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=456893&e=jpg&b=e7f0fc)
+![generated-image-1780142090679.png](/assets/img/frontend-ai-agent-camp/2e3d2fc7731af58c.jpg)
 
 DeepAgent 默认装配：规划、文件系统、子 Agent、摘要压缩与 Skills 统一进入运行时框架
 
@@ -572,7 +572,7 @@ console.log(output);
 
 ## 14.7 虚拟文件系统：长任务的草稿纸
 
-![generated-image-1780142054223.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03e933ea0a8d409782ecfc50c8cbb3f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=399554&e=jpg&b=ffffff)
+![generated-image-1780142054223.png](/assets/img/frontend-ai-agent-camp/964781408105f826.jpg)
 
 虚拟文件系统把长任务中的中间产物从对话上下文迁移到可读写文件中
 
@@ -670,7 +670,7 @@ const result = await agent.invoke({
 
 ## 14.8 Subagent：`task` 工具
 
-![generated-image-1780142130450.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaac905f1f294c0ebf44f20810e3ccfe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=422580&e=jpg&b=f2f7fb)
+![generated-image-1780142130450.png](/assets/img/frontend-ai-agent-camp/811648f2e03d4d8d.jpg)
 
 主 Agent 将子任务委托给多个独立子 Agent，并汇总返回结果
 
@@ -925,7 +925,7 @@ RUN_LLM_DEEPAGENT_TESTS=1 bun test test/chapter14-deepagent.spec.ts
 
 Layer 2 默认跳过，只有设置 `RUN_LLM_DEEPAGENT_TESTS=1` 时才调用真实模型，避免本地缺少模型权限导致测试失败。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6830ae73be174b38a7f1164f33a346e8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1748&h=1414&s=750143&e=png&b=1f1f1f)
+![image.png](/assets/img/frontend-ai-agent-camp/d285b12f13da659a.jpg)
 
 ***
 

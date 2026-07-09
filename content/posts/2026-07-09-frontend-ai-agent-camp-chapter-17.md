@@ -2,8 +2,8 @@
 title: "第十七章：评估流水线——给 Agent 装质检线"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 18 篇"
 date: 2026-07-09T11:17:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -13,7 +13,7 @@ weight: 0
 theme: channing-cyan
 ---
 
-![ch17_hero_eval_pipeline.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6793c2c3ce2b43de9fab0546c156938d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=900&s=125812&e=png&b=100d30)
+![ch17_hero_eval_pipeline.png](/assets/img/frontend-ai-agent-camp/e09a05b23683bf0c.jpg)
 
 前面章节已经把需求分析系统从「单次模型调用」推进到「可编排、可观测、可归因」的 Agent 工程形态。第十六章补齐了日志、Trace、Metrics 与 token 成本观测，使系统能够回答「发生了什么」「问题出在哪里」「成本由哪些节点产生」。但可观测性并不能直接回答另一个更关键的问题：**Agent 的输出质量是否达标**。
 
@@ -80,7 +80,7 @@ flowchart LR
   end
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/374fc5a7e29a46eda3b2a4cd11b1bc4e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=900&h=2641&s=135701&e=png&b=404242)
+![image.png](/assets/img/frontend-ai-agent-camp/1cf64a79cc972b81.jpg)
 
 评估流水线的本质，是把上侧路径**自动化、可重复、可量化**。它不能保证模型永远正确，但可以保证：**每一次改动对质量的影响都是可见的、可比较的**。
 
@@ -99,7 +99,7 @@ flowchart LR
 
 ## 17.2 三层评估：梳理已有能力，补充评估能力缺口
 
-![ch17_three_layers.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac3c9a4aab9a437aa5fd7f6e98a1fcd3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=900&s=142164&e=png&b=100f35)
+![ch17_three_layers.png](/assets/img/frontend-ai-agent-camp/9cfe5a44be11fde1.jpg)
 
 当前系统中**已经存在分散的评估能力**——第八章的 Critic-Refine、第九章的 Evaluator、第十一章的检索指标和 RAGAS 客户端。本章的核心工作是**将这些能力整合为统一流水线**，补充数据集、统一 runner 和质量准入规则。
 
@@ -126,7 +126,7 @@ flowchart TB
   Judge --> Runner
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c83f490202bd45c1b858155465173238~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2558&h=1046&s=171544&e=png&b=3a3c3c)
+![image.png](/assets/img/frontend-ai-agent-camp/fa2bed3cf56ac445.jpg)
 
 ### 17.2.1 在线自评：Critic-Refine 和 Evaluator（已存在）
 
@@ -203,7 +203,7 @@ export async function runRagas(samples, metrics): Promise<RagasResult> {
 
 ## 17.3 检索质量：四个指标系统说明
 
-![ch17_retrieval_metrics.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51f8827847ea4c0fa85813ae5055a197~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=900&s=147784&e=png&b=100f34)
+![ch17_retrieval_metrics.png](/assets/img/frontend-ai-agent-camp/bac7510943670128.jpg)
 
 RAG 系统的第一道环节是检索。若检索返回的文档片段本身不相关，后续生成就会缺乏可靠依据。检索质量的评估是**离线、确定、不需要 LLM** 的，所以成本最低，也最适合优先实施。
 
@@ -486,7 +486,7 @@ LLM-as-judge 有几个常见偏差，必须知道：
 
 ## 17.7 统一 eval runner 与阈值准入检查
 
-![ch17_eval_runner_gate.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4489c856727a444cbeff7e78f8b47ab9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=900&s=129137&e=png&b=100d30)
+![ch17_eval_runner_gate.png](/assets/img/frontend-ai-agent-camp/5773a5764afca0d9.jpg)
 
 最后，把指标、judge、数据集串成一条流水线。新建 `services/chat/scripts/run-eval.ts`。
 
@@ -694,7 +694,7 @@ describe('17.7 准入检查判定', () => {
 
 ## 17.8 实战：用 LangSmith 做托管评测与生产监控
 
-![ch17_platform_monitoring.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b24ed37dad2459cb242b25d762522f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=900&s=128405&e=png&b=101037)
+![ch17_platform_monitoring.png](/assets/img/frontend-ai-agent-camp/5f102ce48eb632bf.jpg)
 
 前面 17.7 的本地 `run-eval.ts` 已经能够执行「数据集 → 运行图 → 评分 → 准入检查」整条流水线。它的优点是零外部依赖、执行的是真实图、CI 友好。但它有两个限制：
 
@@ -722,7 +722,7 @@ flowchart TB
   AddDS --> DS
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a6fceba768242948a197bbc7a74e940~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=692&h=2228&s=136964&e=png&b=353737)
+![image.png](/assets/img/frontend-ai-agent-camp/85f07936864ad82c.jpg)
 
 *   **离线评估（Offline）**：上线前，拿固定数据集执行 experiment，对比不同版本。这是 17.7 本地 runner 做的事，LangSmith 为其提供了「可视化 + 历史对比 + 团队协作」。
 *   **在线评估（Online）**：上线后，对生产 trace 按采样率自动评分，监控质量趋势、收集用户反馈。这是本地 runner **难以覆盖**的，也是 LangSmith 真正不可替代的部分——它把第十六章的「可观测」和本章的「评估」在生产环境里合二为一。
@@ -886,7 +886,7 @@ flowchart LR
   Judge --> Feedback["+ 用户反馈\n(👍/👎)"]
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd582e73bad465384d45ccfe75a0d67~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2517&h=581&s=95630&e=png&b=020817)
+![image.png](/assets/img/frontend-ai-agent-camp/d8078b8dc9835740.jpg)
 
 配上**用户反馈**（前端为报告提供 👍/👎 反馈入口，经 LangSmith SDK `client.createFeedback()` 上报），即可形成一个闭环：模型自评分数 + 用户真实反馈 双轨监控线上质量。当某天上游模型悄悄更新导致质量下滑（19.1 说的「代码没改但行为变了」），在线评估的质量曲线会先于用户投诉就会提前下降——这是离线评估永远难以覆盖的早期预警。
 
@@ -1118,7 +1118,7 @@ flowchart TD
   Q4 -->|否| Langfuse_Cloud2["Langfuse Cloud\n（通用首选）"]
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3eb21fa282354d6babb28bed8366e8cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2310&h=2458&s=271767&e=png&b=020817)
+![image.png](/assets/img/frontend-ai-agent-camp/45a20b26c175f3c4.jpg)
 
 **一句话总结**：如果你用 LangGraph 且预算宽裕，LangSmith 初始接入体验最完整；如果你需要自托管或控制成本，Langfuse 是开源首选；如果评测回归准入检查是核心痛点，可以优先评估 Braintrust；如果你的 SLO 核心是 RAG 检索质量，Arize Phoenix 的嵌入可视化和漂移检测优势明显。
 

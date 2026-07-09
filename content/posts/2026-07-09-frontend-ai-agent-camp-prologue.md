@@ -2,8 +2,8 @@
 title: "序章：站在范式之变的十字路口"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 1 篇"
 date: 2026-07-09T11:18:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -11,7 +11,7 @@ weight: 0
 
 ## 新的启程
 
-![cleaned-image_(3).png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd04862e667e4aa6b4eebafc8feff6b0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=8393647&e=png&b=5864cc)
+![cleaned-image_(3).png](/assets/img/frontend-ai-agent-camp/59f11e07fda2ae2a.jpg)
 
 2013 年，我踏入软件开发行业。至今已满 12 年，今年是第 13 个年头。最初从 Java 开发入门，随后尝试 Python，最终在互联网浪潮的末期来到杭州，成为一名前端工程师。
 
@@ -28,7 +28,7 @@ weight: 0
 ## 范式之变
 
 
-![cleaned-image_(4).png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f0d7d687b3f4d078bcd9a19f4915e0c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7576262&e=png&b=77cceb)
+![cleaned-image_(4).png](/assets/img/frontend-ai-agent-camp/1c7ea3fa35b32b3c.jpg)
 
 这一轮技术变革与上一轮截然不同，带来的割裂更加彻底。不仅开发范式在改变，更重要的是**人与机器的沟通方式正在发生根本性变化**。图形化界面逐渐失去绝对优势，传统前端交互不再是核心。随着大语言模型快速迭代以及海量 AI 训练素材的涌入，开发者对视觉和交互的还原要求可以大幅降低——只要达到大多数用户能接受的水平就足够。
 
@@ -51,7 +51,7 @@ weight: 0
 ### 能力层次的重构
 
 
-![cleaned-image_(5).png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ee7ab3312c34f4586e2dd66e3fa4b0c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=7170264&e=png&b=100f3f)
+![cleaned-image_(5).png](/assets/img/frontend-ai-agent-camp/1323169d6229bdc5.jpg)
 
 传统开发者的能力金字塔是：语法 → 框架 → 架构 → 业务理解。而在 AI 时代，这个金字塔可能变成：
 
@@ -100,7 +100,7 @@ weight: 0
 ## 从大模型到智能体：开发一款 Agent 的渐进式路径
 
 
-![cleaned-image_(7).png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da0ae241e5554d2488ebea9969304f1b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=6926481&e=png&b=03142d)
+![cleaned-image_(7).png](/assets/img/frontend-ai-agent-camp/019462f6442afb22.jpg)
 
 很多人看今天的智能体，可能会以为它是突然出现的：模型变强了，工具变多了，于是 Agent 自然就来了。
 
@@ -440,7 +440,7 @@ Handoffs 的核心思想很简单：
 ## 写在最后
 
 
-![cleaned-image_(6).png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25c344f89ea74c048f1680054df8340b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2752&h=1536&s=9513849&e=png&b=3b517c)
+![cleaned-image_(6).png](/assets/img/frontend-ai-agent-camp/2b761d3d68b02862.jpg)
 
 **我常想，那些浪潮中我们能留下些什么：不只是代码，还有对变化的敏锐、对未知的好奇，以及勇敢踏上下一波浪潮的决心。**
 

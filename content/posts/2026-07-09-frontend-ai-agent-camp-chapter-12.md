@@ -2,8 +2,8 @@
 title: "第十二章：MCP——工具调用的操作系统"
 subtitle: "2026 前端 AI Agent 工程化实战营系列第 13 篇"
 date: 2026-07-09T11:12:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
@@ -32,7 +32,7 @@ theme: channing-cyan
 
 可以把 MCP 理解成“AI 工具调用的 USB-C 接口”。没有 MCP 时，每个外部服务都像一根专用线；有了 MCP，只要服务端按协议暴露能力，客户端就可以在运行时发现并调用它。对 Agent 系统来说，这意味着工具不再只能硬编码在项目里，而可以变成独立部署、跨项目复用、按需连接的外部能力。
 
-![generated-image-1779534585624.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2fc9e0022a34cd7950f059479729a16~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=623363&e=jpg&b=0a0731)
+![generated-image-1779534585624.png](/assets/img/frontend-ai-agent-camp/00e6a254330be50a.jpg)
 
 本章内容信息密度较高，会同时涉及协议设计、工程实现、LangChain 桥接、多 Server 编排、安全模型与生产可观测性。为了避免专业名词堆叠，正文会像第十一章一样，先解释概念，再进入代码实现。
 
@@ -134,7 +134,7 @@ MCP 是最外层的「连接协议」，LangChain Tool 是应用内的「工具�
 
 > 第十一章用一节解释了“向量为什么能表示语义”。这一节对应地解释 MCP 的协议本质：它到底靠什么完成跨进程、跨语言的工具调用。
 
-![ai-edited-image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d3f241c79864f898128b9ce2c712303~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=432042&e=jpg&b=fdfcfc)
+![ai-edited-image.png](/assets/img/frontend-ai-agent-camp/e0739a14944016de.jpg)
 
 ### 12.2.1 为什么选 JSON-RPC 2.0
 
@@ -484,7 +484,7 @@ bun run dev
 
 Server 通过 stdio 通信——它从 stdin 读取 JSON-RPC 消息，向 stdout 写入响应。你看不到交互式输出（那些诊断信息打到了 stderr）。
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d6220efe5dc48a9a9cec7a6ef37ab23~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1378&h=450&s=83675&e=png&b=292d35)
+![image.png](/assets/img/frontend-ai-agent-camp/8d630090bcac67de.jpg)
 
 *   🧩 生成代码 Prompt：最小 MCP Server
 
@@ -513,7 +513,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.4.1"
 | 返回标准 `{ content: [{ type: 'text', text: ... }] }` 结构 | ✅  |
 | 全维度覆盖时分数为 100                                        | ✅  |
 
-![image 1.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30b8959efd5348da899ddc6681777996~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1446&h=692&s=151982&e=png&b=292d35)
+![image 1.png](/assets/img/frontend-ai-agent-camp/a85f2658f7beffff.jpg)
 
 ### 12.4.2 加入更多 Tools
 
@@ -608,7 +608,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.4"
 | `generate_user_stories` 生成符合格式的用户故事 | ✅  |
 | `tools/list` 返回 4 个工具               | ✅  |
 
-![image 2.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12d88f5b24744f898f70672df962845f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1446&h=1150&s=333503&e=png&b=292d35)
+![image 2.png](/assets/img/frontend-ai-agent-camp/8c450db6cc221605.jpg)
 
 ### 12.4.3 加入 Resources
 
@@ -939,7 +939,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.5"
 | JSON Schema → Zod：嵌套 object 正确  | ✅  |
 | 桥接后工具数量 = tools/list 数量         | ✅  |
 
-![image 3.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3f4b06d9d6e417587e503105cf032f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1442&h=886&s=209076&e=png&b=292d35)
+![image 3.png](/assets/img/frontend-ai-agent-camp/541a857d6c0bc207.jpg)
 
 ***
 
@@ -1230,7 +1230,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.7"
 | `search_tech_stack` WebSocket 返回技术对比         | ✅  |
 | `tools/list` 返回 3 个工具                        | ✅  |
 
-![image 4.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0399e0ba9f64551bbe7317654a32baa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1434&h=734&s=176219&e=png&b=292d35)
+![image 4.png](/assets/img/frontend-ai-agent-camp/b862d0327eeb9f07.jpg)
 
 ***
 
@@ -1338,7 +1338,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.8"
 | 两个 Server 工具列表正确合并 | ✅  |
 | 合计 7 个工具（4 + 3）    | ✅  |
 
-![image 5.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b14ca730b7024738a6462c97de787143~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1442&h=578&s=104781&e=png&b=282c34)
+![image 5.png](/assets/img/frontend-ai-agent-camp/4d80a3076ccff3a1.jpg)
 
 ***
 
@@ -1446,7 +1446,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.9"
 | ----------------- | -- |
 | 调用不存在的工具返回错误（不崩溃） | ✅  |
 
-![image 6.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ce8045eccc84062b555a04ae2a1217b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1446&h=486&s=89083&e=png&b=282c34)
+![image 6.png](/assets/img/frontend-ai-agent-camp/3d115ad46a6ea2f5.jpg)
 ***
 
 ## 12.10 安全模型
@@ -1561,7 +1561,7 @@ bun test test/chapter12-mcp.spec.ts -t "12.10"
 | write 工具需要确认 | ✅  |
 | admin 工具需要确认 | ✅  |
 
-![image 7.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff36f1b6a46a4885a2704e2b385a0bc0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1440&h=584&s=111682&e=png&b=282c34)
+![image 7.png](/assets/img/frontend-ai-agent-camp/618dd9180fdce52d.jpg)
 ***
 
 ## 12.11 测试策略
@@ -1652,7 +1652,7 @@ npx @modelcontextprotocol/inspector tsx mcp-servers/requirement-analyzer/src/ind
 npx @modelcontextprotocol/inspector tsx mcp-servers/web-search/src/index.ts
 ```
 
-![image.png转存失败，建议直接上传图片文件](<转存失败，建议直接上传图片文件 %E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%EF%BC%9AMCP%E2%80%94%E2%80%94%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image%208.png>)
+![原始图片缺失占位图](/assets/img/frontend-ai-agent-camp/transfer-failed-placeholder.svg)
 
 *   🧩 生成代码 Prompt：测试文件
 
@@ -1748,7 +1748,7 @@ interface MCPCallTrace {
 
 ### 12.13.1 目标架构
 
-![generated-image-1779534585171.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b34591715b7482d8ba588827cf57243~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=519139&e=jpg&b=2f475f)
+![generated-image-1779534585171.png](/assets/img/frontend-ai-agent-camp/ef611e79fc4da997.jpg)
 
 ```mermaid
 graph TB
@@ -2074,7 +2074,7 @@ server.tool(
 
 把 MCP 工具接入 Agent 后，不代表可以无条件调用。真实系统还要把第十章的 Token 预算、第十一章的 RAG 权限过滤，以及本章的 MCP trace 串起来。
 
-![generated-image-1779534584556.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5266a4bf24a24ac6b1bec7cb6a2e9e42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=768&s=575918&e=jpg&b=e6f0fb)
+![generated-image-1779534584556.png](/assets/img/frontend-ai-agent-camp/2ca8df1c78b2afb1.jpg)
 
 **(1) 预算协同**
 
@@ -2242,7 +2242,7 @@ OPENAI_API_KEY=sk-... bun test test/chapter12-mcp-llm.spec.ts -t "12.13"
 | Server 不可用时 fallbackTools 生效  | ✅  |
 | 最终输出包含完整性评分、内部知识、竞品参考、复杂度     | ✅  |
 
-![image 9.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/763fc9c24aba4b75928369ed6b1a4b2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1480&h=1356&s=215836&e=png&b=282c34)
+![image 9.png](/assets/img/frontend-ai-agent-camp/8e8b1a6a8691106a.jpg)
 
 ***
 

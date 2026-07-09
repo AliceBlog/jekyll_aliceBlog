@@ -2,8 +2,8 @@
 title: "2026 前端 AI Agent 工程化实战营：19 篇完整学习路线"
 subtitle: "从模型调用、LangChain、LangGraph、RAG、MCP、Skills 到 DeepAgent、可观测性与评估流水线。"
 date: 2026-07-09T11:00:00+08:00
-categories: ["AI工程", "前端AI Agent工程化实战营"]
-tags: ["前端AI Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
+categories: ["AI工程", "前端AI-Agent工程化实战营"]
+tags: ["前端AI-Agent工程化实战营", "AI Agent", "AI工程", "LangChain", "LangGraph"]
 weight: 0
 ---
 
