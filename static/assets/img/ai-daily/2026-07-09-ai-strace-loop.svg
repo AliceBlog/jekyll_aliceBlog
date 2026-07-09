@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#052e16"/><stop offset="1" stop-color="#111827"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <text x="70" y="82" fill="#ecfdf5" font-family="Arial" font-size="38" font-weight="800">Agent 可靠性闭环</text>
+  <text x="72" y="124" fill="#a7f3d0" font-family="Arial" font-size="22">从“失败了”到“下次少摔同一个坑”</text>
+  <g font-family="Arial" text-anchor="middle">
+    <circle cx="250" cy="330" r="95" fill="#064e3b" stroke="#34d399" stroke-width="4"/><text x="250" y="320" fill="#fff" font-size="26" font-weight="800">记录轨迹</text><text x="250" y="356" fill="#bbf7d0" font-size="18">工具/观察/决策</text>
+    <circle cx="480" cy="210" r="95" fill="#064e3b" stroke="#6ee7b7" stroke-width="4"/><text x="480" y="200" fill="#fff" font-size="26" font-weight="800">抽取模式</text><text x="480" y="236" fill="#bbf7d0" font-size="18">高频/高损失败</text>
+    <circle cx="720" cy="210" r="95" fill="#3f1d1d" stroke="#fb7185" stroke-width="4"/><text x="720" y="200" fill="#fff" font-size="26" font-weight="800">定位根因</text><text x="720" y="236" fill="#fecaca" font-size="18">因果链/模块</text>
+    <circle cx="950" cy="330" r="95" fill="#422006" stroke="#fbbf24" stroke-width="4"/><text x="950" y="320" fill="#fff" font-size="26" font-weight="800">修改策略</text><text x="950" y="356" fill="#fde68a" font-size="18">Prompt/工具/流程</text>
+    <circle cx="600" cy="485" r="95" fill="#1e1b4b" stroke="#a78bfa" stroke-width="4"/><text x="600" y="475" fill="#fff" font-size="26" font-weight="800">重新评估</text><text x="600" y="511" fill="#ddd6fe" font-size="18">是否真的变好</text>
+  </g>
+  <g fill="none" stroke="#d1fae5" stroke-width="8" stroke-linecap="round" opacity=".75"><path d="M335 288 C380 245 390 235 405 225"/><path d="M575 210 L625 210"/><path d="M805 245 C850 270 875 290 890 305"/><path d="M895 405 C820 470 745 500 700 500"/><path d="M505 500 C405 480 320 425 285 400"/></g>
+  <text x="600" y="620" fill="#d1fae5" text-anchor="middle" font-family="Arial" font-size="23" font-weight="700">没有轨迹，就没有诊断；没有评估，就没有学习。</text>
+</svg>

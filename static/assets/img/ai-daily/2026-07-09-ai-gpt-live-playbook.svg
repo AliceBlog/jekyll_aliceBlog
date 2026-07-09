@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#075985"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <text x="70" y="78" fill="#f0f9ff" font-family="Arial" font-size="38" font-weight="800">GPT‑Live 落地检查清单</text>
+  <text x="72" y="120" fill="#bae6fd" font-family="Arial" font-size="22">别先问“能不能接 API”，先问这 6 个产品问题</text>
+  <g font-family="Arial" font-size="21">
+    <g transform="translate(90 185)"><rect width="470" height="95" rx="22" fill="#e0f2fe"/><text x="35" y="40" fill="#0c4a6e" font-weight="800">① 场景是否需要实时反馈？</text><text x="35" y="72" fill="#075985">开车、维修、会议、陪练，比静态问答更适合。</text></g>
+    <g transform="translate(640 185)"><rect width="470" height="95" rx="22" fill="#dbeafe"/><text x="35" y="40" fill="#1e3a8a" font-weight="800">② AI 什么时候该闭嘴？</text><text x="35" y="72" fill="#1d4ed8">等待、倾听、确认，比抢答更重要。</text></g>
+    <g transform="translate(90 315)"><rect width="470" height="95" rx="22" fill="#ede9fe"/><text x="35" y="40" fill="#4c1d95" font-weight="800">③ 后台任务如何可见？</text><text x="35" y="72" fill="#6d28d9">搜索/推理/执行要有状态提示，不能黑箱沉默。</text></g>
+    <g transform="translate(640 315)"><rect width="470" height="95" rx="22" fill="#cffafe"/><text x="35" y="40" fill="#155e75" font-weight="800">④ 哪些操作必须二次确认？</text><text x="35" y="72" fill="#0e7490">发消息、下单、改配置，语音误触成本高。</text></g>
+    <g transform="translate(90 445)"><rect width="470" height="95" rx="22" fill="#fef3c7"/><text x="35" y="40" fill="#92400e" font-weight="800">⑤ 如何处理多人和噪声？</text><text x="35" y="72" fill="#b45309">家庭、车内、办公室，不是安静录音棚。</text></g>
+    <g transform="translate(640 445)"><rect width="470" height="95" rx="22" fill="#dcfce7"/><text x="35" y="40" fill="#166534" font-weight="800">⑥ 失败后能否恢复上下文？</text><text x="35" y="72" fill="#15803d">语音 Agent 不能一断线就失忆。</text></g>
+  </g>
+</svg>

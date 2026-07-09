@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#431407"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <text x="70" y="80" fill="#fff7ed" font-family="Arial" font-size="38" font-weight="800">什么时候需要 STRACE 这类方法？</text>
+  <text x="72" y="122" fill="#fed7aa" font-family="Arial" font-size="22">不是所有 Agent 都要上复杂诊断，先看失败类型</text>
+  <g font-family="Arial">
+    <rect x="90" y="185" width="1020" height="82" rx="20" fill="#ffedd5"/><text x="125" y="238" fill="#9a3412" font-size="26" font-weight="800">问题 1：任务是否长链路、多工具、多步骤？</text><text x="760" y="238" fill="#c2410c" font-size="22">是 → 继续；否 → 先做普通日志</text>
+    <rect x="90" y="300" width="1020" height="82" rx="20" fill="#fee2e2"/><text x="125" y="353" fill="#991b1b" font-size="26" font-weight="800">问题 2：失败日志是否很长，人工看不动？</text><text x="760" y="353" fill="#b91c1c" font-size="22">是 → 需要筛选代表失败</text>
+    <rect x="90" y="415" width="1020" height="82" rx="20" fill="#fef9c3"/><text x="125" y="468" fill="#854d0e" font-size="26" font-weight="800">问题 3：复盘建议是否总是“下次注意”？</text><text x="760" y="468" fill="#a16207" font-size="22">是 → 需要根因模块定位</text>
+    <rect x="90" y="530" width="1020" height="82" rx="20" fill="#dcfce7"/><text x="125" y="583" fill="#166534" font-size="26" font-weight="800">结论：当失败复杂且重复，才值得做结构化轨迹分析。</text></g>
+</svg>
