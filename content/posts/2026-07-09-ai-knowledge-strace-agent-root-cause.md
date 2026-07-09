@@ -5,7 +5,6 @@ date: 2026-07-09
 categories: ["AI知识"]
 tags: ["AI", "AI知识日报", "Agent", "STRACE", "AI工程"]
 weight: 0
-cover: "/assets/img/ai-daily/2026-07-09-ai-strace-agent-root-cause.svg"
 ---
 
 ## 今天最值得看的 AI 信号
