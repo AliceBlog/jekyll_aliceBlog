@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111827"/><stop offset="1" stop-color="#064e3b"/></linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fb7185"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#ecfdf5" font-family="Arial" font-size="40" font-weight="800">STRACE：给 Agent 失败找“真凶”</text>
+  <text x="72" y="130" fill="#a7f3d0" font-family="Arial" font-size="22">从一堆吵闹轨迹里，抽出真正导致失败的因果链</text>
+  <g transform="translate(80 220)">
+    <rect x="0" y="0" width="280" height="260" rx="28" fill="#022c22" stroke="#34d399" stroke-width="3"/>
+    <text x="140" y="45" text-anchor="middle" fill="#fff" font-family="Arial" font-size="25" font-weight="700">原始执行轨迹</text>
+    <text x="35" y="92" fill="#bbf7d0" font-family="Arial" font-size="18">✓ 正常步骤</text>
+    <text x="35" y="132" fill="#bbf7d0" font-family="Arial" font-size="18">? 噪声动作</text>
+    <text x="35" y="172" fill="#fecaca" font-family="Arial" font-size="18">✕ 错误假设</text>
+    <text x="35" y="212" fill="#bbf7d0" font-family="Arial" font-size="18">… 冗余上下文</text>
+  </g>
+  <g transform="translate(465 205)">
+    <rect x="0" y="0" width="270" height="290" rx="34" fill="#052e2b" stroke="#6ee7b7" stroke-width="3"/>
+    <text x="135" y="48" fill="#fff" text-anchor="middle" font-family="Arial" font-size="28" font-weight="800">STRACE</text>
+    <circle cx="85" cy="115" r="30" fill="#10b981"/><text x="85" y="123" fill="#052e2b" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">1</text>
+    <text x="135" y="121" fill="#d1fae5" text-anchor="middle" font-family="Arial" font-size="18">批量找失败模式</text>
+    <circle cx="85" cy="190" r="30" fill="#34d399"/><text x="85" y="198" fill="#052e2b" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">2</text>
+    <text x="145" y="196" fill="#d1fae5" text-anchor="middle" font-family="Arial" font-size="18">依赖图定位因果</text>
+    <circle cx="85" cy="255" r="30" fill="#6ee7b7"/><text x="85" y="263" fill="#052e2b" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">3</text>
+    <text x="148" y="261" fill="#d1fae5" text-anchor="middle" font-family="Arial" font-size="18">输出根因模块</text>
+  </g>
+  <g transform="translate(850 220)">
+    <rect x="0" y="0" width="280" height="260" rx="28" fill="#2b1111" stroke="#fb7185" stroke-width="3"/>
+    <text x="140" y="48" fill="#fff" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700">高信噪比上下文</text>
+    <path d="M55 118 L115 178 L225 88" fill="none" stroke="url(#hot)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="140" y="220" fill="#fecaca" text-anchor="middle" font-family="Arial" font-size="20">优化器少看废话，多改关键处</text>
+  </g>
+  <path d="M365 350 C420 350 420 350 460 350" stroke="#a7f3d0" stroke-width="10" fill="none"/>
+  <path d="M740 350 C795 350 795 350 845 350" stroke="#fda4af" stroke-width="10" fill="none"/>
+  <text x="600" y="570" fill="#ecfdf5" text-anchor="middle" font-family="Arial" font-size="23" font-weight="700">长任务 Agent 的下一步，不是“多反思”，而是“知道该反思哪一步”。</text>
+</svg>
