@@ -1,0 +1,229 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "秃秃秃.moc3",
+    "Textures": [
+      "秃秃秃.16384/texture_00.png"
+    ],
+    "Physics": "秃秃秃.physics3.json",
+    "DisplayInfo": "秃秃秃.cdi3.json",
+    "Expressions": [
+      {
+        "Name": "wink",
+        "File": "wink.exp3.json"
+      },
+      {
+        "Name": "一键换装",
+        "File": "一键换装.exp3.json"
+      },
+      {
+        "Name": "发色切换",
+        "File": "发色切换.exp3.json"
+      },
+      {
+        "Name": "吃饼干",
+        "File": "吃饼干.exp3.json"
+      },
+      {
+        "Name": "呆毛开关",
+        "File": "呆毛开关.exp3.json"
+      },
+      {
+        "Name": "哭哭",
+        "File": "哭哭.exp3.json"
+      },
+      {
+        "Name": "喝奶茶",
+        "File": "喝奶茶.exp3.json"
+      },
+      {
+        "Name": "外套穿脱",
+        "File": "外套穿脱.exp3.json"
+      },
+      {
+        "Name": "大哭",
+        "File": "大哭.exp3.json"
+      },
+      {
+        "Name": "小麻花辫切换",
+        "File": "小麻花辫切换.exp3.json"
+      },
+      {
+        "Name": "尾巴开关",
+        "File": "尾巴开关.exp3.json"
+      },
+      {
+        "Name": "帽子1隐藏",
+        "File": "帽子1隐藏.exp3.json"
+      },
+      {
+        "Name": "帽子2隐藏",
+        "File": "帽子2隐藏.exp3.json"
+      },
+      {
+        "Name": "拿刀",
+        "File": "拿刀.exp3.json"
+      },
+      {
+        "Name": "拿话筒",
+        "File": "拿话筒.exp3.json"
+      },
+      {
+        "Name": "挥手",
+        "File": "挥手.exp3.json"
+      },
+      {
+        "Name": "挥猫爪",
+        "File": "挥猫爪.exp3.json"
+      },
+      {
+        "Name": "捧脸",
+        "File": "捧脸.exp3.json"
+      },
+      {
+        "Name": "放大镜",
+        "File": "放大镜.exp3.json"
+      },
+      {
+        "Name": "无语",
+        "File": "无语.exp3.json"
+      },
+      {
+        "Name": "星星眼",
+        "File": "星星眼.exp3.json"
+      },
+      {
+        "Name": "晕晕",
+        "File": "晕晕.exp3.json"
+      },
+      {
+        "Name": "棒棒糖",
+        "File": "棒棒糖.exp3.json"
+      },
+      {
+        "Name": "比心",
+        "File": "比心.exp3.json"
+      },
+      {
+        "Name": "流泪",
+        "File": "流泪.exp3.json"
+      },
+      {
+        "Name": "爱心眼",
+        "File": "爱心眼.exp3.json"
+      },
+      {
+        "Name": "猫咪特效",
+        "File": "猫咪特效.exp3.json"
+      },
+      {
+        "Name": "生气",
+        "File": "生气.exp3.json"
+      },
+      {
+        "Name": "眼镜",
+        "File": "眼镜.exp3.json"
+      },
+      {
+        "Name": "短发切换",
+        "File": "短发切换.exp3.json"
+      },
+      {
+        "Name": "耳朵开关",
+        "File": "耳朵开关.exp3.json"
+      },
+      {
+        "Name": "脸红",
+        "File": "脸红.exp3.json"
+      },
+      {
+        "Name": "要饭",
+        "File": "要饭.exp3.json"
+      },
+      {
+        "Name": "记仇",
+        "File": "记仇.exp3.json"
+      },
+      {
+        "Name": "长发切换",
+        "File": "长发切换.exp3.json"
+      },
+      {
+        "Name": "马尾切换",
+        "File": "马尾切换.exp3.json"
+      },
+      {
+        "Name": "魔法棒和书",
+        "File": "魔法棒和书.exp3.json"
+      },
+      {
+        "Name": "魔法球",
+        "File": "魔法球.exp3.json"
+      },
+      {
+        "Name": "麻花辫切换",
+        "File": "麻花辫切换.exp3.json"
+      },
+      {
+        "Name": "黑脸",
+        "File": "黑脸.exp3.json"
+      }
+    ],
+    "Motions": {
+      "All": [
+        {
+          "File": "Scene1.motion3.json"
+        },
+        {
+          "File": "motions/jingya.motion3.json"
+        },
+        {
+          "File": "motions/kaixin.motion3.json"
+        },
+        {
+          "File": "motions/shengqi.motion3.json"
+        },
+        {
+          "File": "motions/shuijiao.motion3.json"
+        },
+        {
+          "File": "motions/wink.motion3.json"
+        },
+        {
+          "File": "motions/yaotou.motion3.json"
+        }
+      ],
+      "Idle": [
+        {
+          "File": "Scene1.motion3.json"
+        },
+        {
+          "File": "motions/kaixin.motion3.json"
+        },
+        {
+          "File": "motions/yaotou.motion3.json"
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthForm",
+        "ParamMouthOpenY"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeLSmile",
+        "ParamEyeROpen",
+        "ParamEyeRSmile"
+      ]
+    }
+  ]
+}

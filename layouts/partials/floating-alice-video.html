@@ -1,7 +1,11 @@
 <div class="elfy-live2d" data-elfy-live2d aria-label="Elfy 悬浮 Live2D 人偶">
   <canvas class="elfy-live2d__canvas" aria-hidden="true"></canvas>
   <span class="elfy-live2d__halo" aria-hidden="true"></span>
-  <span class="elfy-live2d__bubble" aria-live="polite">Elfy 加载中…</span>
+  <span class="elfy-live2d__bubble" aria-live="polite">人偶加载中…</span>
+  <div class="elfy-live2d__switcher" aria-label="人偶切换">
+    <button type="button" data-elfy-doll="elfy">Elfy</button>
+    <button type="button" data-elfy-doll="tutu">秃秃秃</button>
+  </div>
   <!-- <div class="elfy-live2d__controls" aria-label="Elfy 表情和装饰控制">
     <button type="button" data-elfy-expression="random">随机</button>
     <button type="button" data-elfy-expression="face1">脸</button>
@@ -129,6 +133,48 @@
     transform: translate(0, 0) scale(1);
   }
 
+  .elfy-live2d__switcher {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    z-index: 5;
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transform: translateY(8px) scale(0.94);
+    transform-origin: 100% 100%;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .elfy-live2d:hover .elfy-live2d__switcher,
+  .elfy-live2d.is-controls-visible .elfy-live2d__switcher,
+  .elfy-live2d.is-ready .elfy-live2d__switcher {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .elfy-live2d__switcher button {
+    border: 1px solid rgba(106, 161, 231, 0.24);
+    border-radius: 999px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c5d8f;
+    box-shadow: 0 8px 18px rgba(28, 72, 120, 0.12);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+  }
+
+  .elfy-live2d__switcher button.is-active,
+  .elfy-live2d__switcher button:hover {
+    background: #fff;
+    color: #0062cc;
+  }
+
   .elfy-live2d__controls {
     position: absolute;
     right: 2px;
@@ -199,6 +245,17 @@
     .elfy-live2d__bubble::after {
       right: auto;
       left: 18px;
+    }
+
+    .elfy-live2d__switcher {
+      right: 0;
+      bottom: -8px;
+      transform-origin: 100% 100%;
+    }
+
+    .elfy-live2d__switcher button {
+      padding: 3px 6px;
+      font-size: 10px;
     }
 
     .elfy-live2d__controls {

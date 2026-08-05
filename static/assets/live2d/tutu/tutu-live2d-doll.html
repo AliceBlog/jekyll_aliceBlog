@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>秃秃秃 · Live2D Doll</title>
+  <style>
+    :root {
+      --bg-0: #070b1b;
+      --bg-1: #0b1633;
+      --bg-2: #102a5c;
+      --glass: rgba(255, 255, 255, .09);
+      --glass-strong: rgba(255, 255, 255, .15);
+      --line: rgba(255, 255, 255, .16);
+      --text: #eef7ff;
+      --muted: rgba(238, 247, 255, .68);
+      --blue: #48b9ff;
+      --pink: #ff8bd7;
+      --green: #80ffd2;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .38);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(72, 185, 255, .28), transparent 28rem),
+        radial-gradient(circle at 78% 12%, rgba(255, 139, 215, .22), transparent 24rem),
+        radial-gradient(circle at 50% 90%, rgba(128, 255, 210, .14), transparent 28rem),
+        linear-gradient(140deg, var(--bg-0), var(--bg-1) 48%, var(--bg-2));
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at 50% 50%, #000 0, transparent 72%);
+    }
+
+    .app {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+    }
+
+    .panel {
+      position: relative;
+      z-index: 5;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.07));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+    }
+
+    .brand {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+      color: #fff;
+      font-weight: 900;
+      font-size: 22px;
+      box-shadow: 0 18px 48px rgba(72, 185, 255, .26);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .status-card {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 9px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status-row strong { color: var(--text); font-weight: 800; }
+
+    .section-title {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .controls,
+    .dynamic-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .dynamic-controls {
+      max-height: 210px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .dynamic-controls::-webkit-scrollbar { width: 6px; }
+    .dynamic-controls::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .22);
+    }
+
+    .control-full { grid-column: 1 / -1; }
+
+    .small-btn {
+      min-height: 36px;
+      padding: 8px 10px;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .section-headline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .section-count {
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: rgba(238, 247, 255, .72);
+      background: rgba(255, 255, 255, .09);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      min-height: 42px;
+      padding: 10px 12px;
+      border-radius: 15px;
+      color: var(--text);
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .13);
+      font-weight: 800;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, .16);
+      border-color: rgba(255, 255, 255, .24);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, rgba(72,185,255,.92), rgba(255,139,215,.78));
+      border-color: transparent;
+    }
+
+    .tip {
+      margin-top: auto;
+      padding: 14px;
+      border-radius: 20px;
+      color: var(--muted);
+      background: rgba(0, 0, 0, .16);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .stage-wrap {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,.10), transparent 24rem),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    #stage {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .loading {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      display: grid;
+      place-items: center;
+      background: rgba(7, 11, 27, .62);
+      backdrop-filter: blur(10px);
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    .loading.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-card {
+      width: min(420px, calc(100% - 40px));
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .10);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .pulse {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+      box-shadow: 0 0 0 rgba(72, 185, 255, .6);
+      animation: pulse 1.35s infinite;
+    }
+
+    .error {
+      color: #ffd0d0;
+      word-break: break-word;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .floating-note {
+      position: absolute;
+      right: 22px;
+      bottom: 18px;
+      z-index: 3;
+      color: rgba(238,247,255,.62);
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(72, 185, 255, .42); }
+      70% { box-shadow: 0 0 0 20px rgba(72, 185, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(72, 185, 255, 0); }
+    }
+
+    @media (max-width: 880px) {
+      .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+        padding: 14px;
+      }
+      .panel { border-radius: 24px; padding: 16px; }
+      .stage-wrap { min-height: 58vh; border-radius: 26px; }
+      .tip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="panel">
+      <div class="brand">
+        <div class="logo">秃</div>
+        <div>
+          <h1>秃秃秃</h1>
+          <p class="subtitle">Live2D HTML 人偶 · 可拖拽、缩放、鼠标注视</p>
+        </div>
+      </div>
+
+      <div class="status-card">
+        <div class="status-row"><span>模型</span><strong>秃秃秃.model3.json</strong></div>
+        <div class="status-row"><span>纹理</span><strong>16384 × 8192</strong></div>
+        <div class="status-row"><span>状态</span><strong id="statusText">加载中</strong></div>
+      </div>
+
+      <p class="section-title">Controls</p>
+      <div class="controls">
+        <button class="primary" id="btnReset">重置位置</button>
+        <button id="btnCenter">居中放大</button>
+        <button id="btnZoomIn">放大</button>
+        <button id="btnZoomOut">缩小</button>
+        <button id="btnLook">跟随鼠标</button>
+        <button id="btnMotion">轻轻晃动</button>
+      </div>
+
+      <div class="section-headline">
+        <p class="section-title">动作 Motion</p>
+        <span class="section-count" id="motionCount">0</span>
+      </div>
+      <div class="dynamic-controls" id="motionButtons">
+        <button class="small-btn control-full" disabled>加载动作中…</button>
+      </div>
+
+      <div class="section-headline">
+        <p class="section-title">造型 / 表情 Expression</p>
+        <span class="section-count" id="expressionCount">0</span>
+      </div>
+      <div class="dynamic-controls" id="expressionButtons">
+        <button class="small-btn control-full" disabled>加载造型中…</button>
+      </div>
+
+      <div class="tip">
+        <strong>使用方式：</strong><br>
+        推荐在当前目录启动本地服务后打开本页：<br>
+        <code>cd /Users/alice/Downloads/monv/tutu</code><br>
+        <code>uv run python -m http.server 8899</code><br>
+        然后访问 <code>http://localhost:8899/tutu-live2d-doll.html</code>
+      </div>
+    </aside>
+
+    <section class="stage-wrap">
+      <canvas id="stage"></canvas>
+      <div class="floating-note">拖动人偶移动 · 滚轮缩放 · 点击按钮控制</div>
+      <div class="loading" id="loading">
+        <div class="loader-card">
+          <div class="pulse"></div>
+          <h2 id="loadingTitle">正在召唤秃秃秃</h2>
+          <p class="subtitle" id="loadingText">读取模型、纹理和物理配置中……</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js"></script>
+  <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js"></script>
+
+  <script>
+    const canvas = document.getElementById('stage');
+    const statusText = document.getElementById('statusText');
+    const loading = document.getElementById('loading');
+    const loadingTitle = document.getElementById('loadingTitle');
+    const loadingText = document.getElementById('loadingText');
+
+    const MODEL_URL = new URL('./秃秃秃.model3.json', window.location.href).href;
+
+    let modelConfig = null;
+    let app;
+    let model;
+    let followMouse = true;
+    let dragging = false;
+    let dragOffset = { x: 0, y: 0 };
+
+    function setStatus(text) {
+      statusText.textContent = text;
+    }
+
+    function setLoadingError(error) {
+      setStatus('加载失败');
+      loadingTitle.textContent = '加载失败';
+      loadingText.innerHTML = '<span class="error">' + String(error).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])) + '</span><br><br>如果你是双击打开 HTML，请改用本地 HTTP 服务访问。';
+    }
+
+    function resize() {
+      if (!app) return;
+      const parent = canvas.parentElement;
+      app.renderer.resize(parent.clientWidth, parent.clientHeight);
+      if (model && !dragging) fitModel();
+    }
+
+    function fitModel(scaleRatio = 0.82) {
+      if (!model || !app) return;
+      const w = app.renderer.width;
+      const h = app.renderer.height;
+      const scale = Math.min(w / model.width, h / model.height) * scaleRatio;
+      model.scale.set(scale);
+      model.x = w * 0.52;
+      model.y = h * 0.92;
+      model.anchor.set(0.5, 1);
+    }
+
+    function nudgeMotion() {
+      if (!model) return;
+      const start = performance.now();
+      const baseX = model.x;
+      const baseY = model.y;
+      const baseRot = model.rotation;
+      const tick = () => {
+        const t = performance.now() - start;
+        if (t > 900) {
+          model.x = baseX;
+          model.y = baseY;
+          model.rotation = baseRot;
+          return;
+        }
+        const k = Math.sin(t / 900 * Math.PI * 2);
+        model.x = baseX + k * 10;
+        model.y = baseY + Math.abs(k) * -5;
+        model.rotation = baseRot + k * 0.018;
+        requestAnimationFrame(tick);
+      };
+      tick();
+    }
+
+    function cleanLabel(fileOrName) {
+      return String(fileOrName || '')
+        .split('/').pop()
+        .replace(/\.motion3\.json$/i, '')
+        .replace(/\.exp3\.json$/i, '')
+        .replace(/\.json$/i, '');
+    }
+
+    function renderDynamicControls() {
+      const motionBox = document.getElementById('motionButtons');
+      const expressionBox = document.getElementById('expressionButtons');
+      const motionCount = document.getElementById('motionCount');
+      const expressionCount = document.getElementById('expressionCount');
+      const motions = (modelConfig && modelConfig.FileReferences && modelConfig.FileReferences.Motions && modelConfig.FileReferences.Motions.All) || [];
+      const expressions = (modelConfig && modelConfig.FileReferences && modelConfig.FileReferences.Expressions) || [];
+
+      motionCount.textContent = motions.length;
+      expressionCount.textContent = expressions.length;
+      motionBox.innerHTML = '';
+      expressionBox.innerHTML = '';
+
+      if (!motions.length) {
+        motionBox.innerHTML = '<button class="small-btn control-full" disabled>没有找到动作文件</button>';
+      } else {
+        motions.forEach((motion, index) => {
+          const button = document.createElement('button');
+          button.className = 'small-btn';
+          button.textContent = cleanLabel(motion.File || motion.Name || index);
+          button.title = motion.File || button.textContent;
+          button.addEventListener('click', async () => {
+            if (!model) return;
+            try {
+              await model.motion('All', index, 3);
+              setStatus('动作：' + button.textContent);
+            } catch (error) {
+              console.warn(error);
+              setStatus('动作失败');
+            }
+          });
+          motionBox.appendChild(button);
+        });
+      }
+
+      if (!expressions.length) {
+        expressionBox.innerHTML = '<button class="small-btn control-full" disabled>没有找到造型/表情文件</button>';
+      } else {
+        const reset = document.createElement('button');
+        reset.className = 'small-btn primary control-full';
+        reset.textContent = '恢复默认表情';
+        reset.addEventListener('click', async () => {
+          if (!model) return;
+          try {
+            if (model.internalModel && model.internalModel.motionManager && model.internalModel.motionManager.expressionManager) {
+              model.internalModel.motionManager.expressionManager.resetExpression();
+            }
+            setStatus('默认表情');
+          } catch (error) {
+            console.warn(error);
+          }
+        });
+        expressionBox.appendChild(reset);
+
+        expressions.forEach((expr, index) => {
+          const button = document.createElement('button');
+          button.className = 'small-btn';
+          button.textContent = expr.Name || cleanLabel(expr.File) || String(index);
+          button.title = expr.File || button.textContent;
+          button.addEventListener('click', async () => {
+            if (!model) return;
+            try {
+              await model.expression(expr.Name || index);
+              setStatus('造型：' + button.textContent);
+            } catch (error) {
+              try {
+                await model.expression(index);
+                setStatus('造型：' + button.textContent);
+              } catch (fallbackError) {
+                console.warn(error, fallbackError);
+                setStatus('造型失败');
+              }
+            }
+          });
+          expressionBox.appendChild(button);
+        });
+      }
+    }
+
+    async function boot() {
+      try {
+        if (location.protocol === 'file:') {
+          throw new Error('当前是 file:// 打开，浏览器大概率会禁止读取 .moc3 / .json / texture。请用本地 HTTP 服务打开。');
+        }
+
+        if (!window.PIXI || !window.PIXI.live2d) {
+          throw new Error('Live2D 运行库没有加载成功，请检查网络或 CDN 访问。');
+        }
+
+        modelConfig = await fetch(MODEL_URL).then((res) => {
+          if (!res.ok) throw new Error('模型配置读取失败：HTTP ' + res.status);
+          return res.json();
+        });
+        renderDynamicControls();
+
+        app = new PIXI.Application({
+          view: canvas,
+          autoStart: true,
+          resizeTo: canvas.parentElement,
+          transparent: true,
+          antialias: true,
+          resolution: Math.min(window.devicePixelRatio || 1, 2)
+        });
+
+        model = await PIXI.live2d.Live2DModel.from(MODEL_URL, {
+          autoInteract: true,
+          autoUpdate: true
+        });
+
+        model.interactive = true;
+        model.buttonMode = true;
+        app.stage.addChild(model);
+        fitModel();
+
+        model.on('pointerdown', (e) => {
+          dragging = true;
+          const p = e.data.global;
+          dragOffset.x = model.x - p.x;
+          dragOffset.y = model.y - p.y;
+        });
+        model.on('pointermove', (e) => {
+          if (!dragging) return;
+          const p = e.data.global;
+          model.x = p.x + dragOffset.x;
+          model.y = p.y + dragOffset.y;
+        });
+        model.on('pointerup', () => dragging = false);
+        model.on('pointerupoutside', () => dragging = false);
+
+        canvas.parentElement.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          if (!model) return;
+          const factor = e.deltaY < 0 ? 1.06 : 0.94;
+          model.scale.set(Math.max(0.03, Math.min(5, model.scale.x * factor)));
+        }, { passive: false });
+
+        canvas.parentElement.addEventListener('pointermove', (e) => {
+          if (!followMouse || !model || dragging) return;
+          const rect = canvas.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          model.rotation = x * 0.02;
+          model.skew.x = y * 0.015;
+        });
+
+        document.getElementById('btnReset').onclick = () => fitModel(0.82);
+        document.getElementById('btnCenter').onclick = () => fitModel(1.02);
+        document.getElementById('btnZoomIn').onclick = () => model && model.scale.set(model.scale.x * 1.12);
+        document.getElementById('btnZoomOut').onclick = () => model && model.scale.set(model.scale.x * 0.88);
+        document.getElementById('btnLook').onclick = () => {
+          followMouse = !followMouse;
+          document.getElementById('btnLook').textContent = followMouse ? '跟随鼠标' : '停止跟随';
+          if (!followMouse && model) {
+            model.rotation = 0;
+            model.skew.x = 0;
+          }
+        };
+        document.getElementById('btnMotion').onclick = nudgeMotion;
+
+        window.addEventListener('resize', resize);
+        setStatus('已加载');
+        loading.classList.add('is-hidden');
+      } catch (error) {
+        console.error(error);
+        setLoadingError(error && error.message ? error.message : error);
+      }
+    }
+
+    boot();
+  </script>
+</body>
+</html>
